@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-03-12
+
+### Added
+- Multi-language seed content: full TR (Turkish) and DE (German) translations for all 11 blog posts and all static pages (About, Philosophy, Sustainability, Services, Contact, Home, Blog index).
+- `InstallService`: creates TR and DE Craft sites on install; all sections and category groups now include site settings for each extra site.
+- `SeedController`: `propagateEntryToSite()`, `getExtraSiteConfigs()`, `findTranslatedDef()`, and `resolveNestedDef()` — every seeded entry is propagated to TR and DE with fully translated titles, SEO fields, excerpts, and block text.
+- `pages.tr.json`, `pages.de.json`, `blogs.tr.json`, `blogs.de.json` seed translation files.
+
+### Fixed
+- Craft 5 multi-site `elements_owners` integrity constraint violation during seed: added `enableVersioning: false` to all section JSON definitions so Craft does not attempt to create nested-element revisions across multiple sites.
+- Extra-site URI formats incorrectly included the language path prefix (e.g. `tr/{slug}`), causing all TR/DE content pages to return 404. URI formats now match the primary site; routing uses the site `baseUrl` to distinguish locales.
+
 ## [1.2.0] - 2026-03-11
 
 ### Added

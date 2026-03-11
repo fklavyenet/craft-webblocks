@@ -957,6 +957,10 @@ class SeedController extends Controller
                 $block = $this->buildProgressBarBlock($componentData, $counter);
             } elseif ($entryTypeHandle === 'wbListGroup') {
                 $block = $this->buildListGroupBlock($componentData, $counter);
+            } elseif ($entryTypeHandle === 'wbButtonGroup') {
+                $block = $this->buildButtonGroupBlock($componentData, $counter);
+            } elseif ($entryTypeHandle === 'wbOffcanvas') {
+                $block = $this->buildOffcanvasBlock($componentData, $assetIds, $counter);
             } else {
                 $block = $this->buildSimpleBlock($componentData, $counter);
             }
@@ -1294,6 +1298,57 @@ class SeedController extends Controller
 
         return [
             'type' => 'wbNavbar',
+            'fields' => $fields,
+        ];
+    }
+
+    /**
+     * Builds a wbButtonGroup block with nested wbButtonGroupItems.
+     */
+    private function buildButtonGroupBlock(array $componentData, int &$counter): array
+    {
+        $items = [];
+        $itemCounter = 1;
+
+        foreach ($componentData['items'] ?? [] as $item) {
+            $items["new:$itemCounter"] = [
+                'type' => 'wbButtonGroupItem',
+                'fields' => [
+                    'wbButtonLabel'  => $item['wbButtonLabel'] ?? '',
+                    'wbButtonUrl'    => $item['wbButtonUrl'] ?? '',
+                    'wbButtonTarget' => $item['wbButtonTarget'] ?? '',
+                ],
+            ];
+            $itemCounter++;
+        }
+
+        $fields = $componentData['fields'] ?? [];
+        $fields['wbButtonGroupItems'] = $items;
+
+        return [
+            'type'   => 'wbButtonGroup',
+            'fields' => $fields,
+        ];
+    }
+
+    /**
+     * Builds a wbOffcanvas block with nested wbBlocks content.
+     */
+    private function buildOffcanvasBlock(array $componentData, array $assetIds, int &$counter): array
+    {
+        $nestedBlocks = $this->buildInlineBlocksData($componentData['blocks'] ?? [], $assetIds);
+
+        $fields = $componentData['fields'] ?? [];
+
+        // Cast lightswitch
+        if (isset($fields['wbOffcanvasBackdrop'])) {
+            $fields['wbOffcanvasBackdrop'] = (bool) $fields['wbOffcanvasBackdrop'];
+        }
+
+        $fields['wbBlocks'] = $nestedBlocks;
+
+        return [
+            'type'   => 'wbOffcanvas',
             'fields' => $fields,
         ];
     }

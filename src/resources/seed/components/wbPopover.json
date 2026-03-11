@@ -1,0 +1,10 @@
+{
+    "type": "wbPopover",
+    "fields": {
+        "wbTitle": "Sommelier's Pick",
+        "wbCaption": "Wine Pairing",
+        "wbText": "Our sommelier recommends the 2021 Barossa Valley Shiraz with the dry-aged ribeye. Ask your server for the full wine list.",
+        "wbPopoverPlacement": "top",
+        "wbButtonSize": ""
+    }
+}

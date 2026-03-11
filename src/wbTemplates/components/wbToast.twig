@@ -1,0 +1,15 @@
+{% set variant = item.wbToastType.value ?? item.wbToastType ?? '' %}
+{% set textClass = variant in ['warning','light','info'] ? 'text-dark' : (variant ? 'text-white' : '') %}
+<div class="wb-block mb-4">
+    <div class="toast show{% if variant %} text-bg-{{ variant }}{% endif %}" role="alert" aria-live="assertive" aria-atomic="true">
+        {% if item.wbTitle %}
+        <div class="toast-header{% if variant %} {{ textClass }} bg-{{ variant }} border-0{% endif %}">
+            <strong class="me-auto">{{ item.wbTitle }}</strong>
+            <button type="button" class="btn-close{% if variant and variant not in ['warning','light','info'] %} btn-close-white{% endif %}" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        <div class="toast-body">
+            {{ item.wbText ?? '' }}
+        </div>
+    </div>
+</div>

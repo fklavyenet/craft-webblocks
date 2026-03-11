@@ -1,0 +1,9 @@
+{
+    "type": "wbSpinner",
+    "fields": {
+        "wbTitle": "Loading menu...",
+        "wbSpinnerType": "border",
+        "wbSpinnerColor": "primary",
+        "wbSpinnerSize": ""
+    }
+}

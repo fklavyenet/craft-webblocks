@@ -1,0 +1,13 @@
+{
+    "name": "Spinner Type",
+    "handle": "wbSpinnerType",
+    "instructions": "Spinner animation style",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Border (spin)", "value": "border", "default": true  },
+            { "label": "Grow (pulse)",  "value": "grow",   "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

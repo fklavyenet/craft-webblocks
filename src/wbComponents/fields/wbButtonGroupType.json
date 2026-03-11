@@ -1,0 +1,21 @@
+{
+    "name": "Button Group Type",
+    "handle": "wbButtonGroupType",
+    "instructions": "Button style within the group",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Solid",   "value": "primary",          "default": true  },
+            { "label": "Outline", "value": "outline-primary",  "default": false },
+            { "label": "Secondary",         "value": "secondary",         "default": false },
+            { "label": "Outline Secondary", "value": "outline-secondary", "default": false },
+            { "label": "Success",         "value": "success",         "default": false },
+            { "label": "Outline Success", "value": "outline-success", "default": false },
+            { "label": "Danger",         "value": "danger",         "default": false },
+            { "label": "Outline Danger", "value": "outline-danger", "default": false },
+            { "label": "Dark",         "value": "dark",         "default": false },
+            { "label": "Outline Dark", "value": "outline-dark", "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

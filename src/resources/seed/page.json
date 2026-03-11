@@ -30,6 +30,20 @@
         "wbSpacing",
         "wbContactDetails",
         "wbSpacing",
-        "wbTable"
+        "wbTable",
+        "wbSpacing",
+        "wbBadge",
+        "wbSpacing",
+        "wbPagination",
+        "wbSpacing",
+        "wbToast",
+        "wbSpacing",
+        "wbSpinner",
+        "wbSpacing",
+        "wbButtonGroup",
+        "wbSpacing",
+        "wbPopover",
+        "wbSpacing",
+        "wbOffcanvas"
     ]
 }

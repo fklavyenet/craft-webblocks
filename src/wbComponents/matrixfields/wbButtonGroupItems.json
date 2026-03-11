@@ -1,0 +1,6 @@
+{
+    "handle": "wbButtonGroupItems",
+    "name": "Button Group Items",
+    "translationMethod": "site",
+    "entryTypes": ["wbButtonGroupItem"]
+}

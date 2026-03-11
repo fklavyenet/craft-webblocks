@@ -1,0 +1,14 @@
+{
+    "name": "Pagination Size",
+    "handle": "wbPaginationSize",
+    "instructions": "Size of pagination controls",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Small",   "value": "sm",      "default": false },
+            { "label": "Default", "value": "",         "default": true  },
+            { "label": "Large",   "value": "lg",      "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

@@ -1,0 +1,10 @@
+{
+    "name": "Offcanvas Backdrop",
+    "handle": "wbOffcanvasBackdrop",
+    "instructions": "Show a dark overlay behind the panel",
+    "type": "Lightswitch",
+    "typesettings": {
+        "default": true
+    },
+    "translationMethod": "site"
+}

@@ -5,8 +5,10 @@
     "entryTypes": [
         "wbAccordion",
         "wbAlert",
+        "wbBadge",
         "wbBreadcrumb",
         "wbButton",
+        "wbButtonGroup",
         "wbCallToAction",
         "wbCard",
         "wbCarousel",
@@ -21,11 +23,16 @@
         "wbListGroup",
         "wbModal",
         "wbNavbar",
+        "wbOffcanvas",
+        "wbPagination",
+        "wbPopover",
         "wbProgressBar",
         "wbSpacing",
+        "wbSpinner",
         "wbTable",
         "wbTabs",
         "wbTextBlock",
+        "wbToast",
         "wbVideoEmbed"
     ]
 }

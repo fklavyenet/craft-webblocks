@@ -1,0 +1,22 @@
+{% set placement = item.wbPopoverPlacement.value ?? item.wbPopoverPlacement ?? 'top' %}
+{% set size = item.wbButtonSize.value ?? item.wbButtonSize ?? '' %}
+{% set uid = 'wb-pop-' ~ item.id %}
+<div class="wb-block mb-4">
+    <button type="button"
+        id="{{ uid }}"
+        class="btn btn-secondary{% if size and size != 'md' %} btn-{{ size }}{% endif %}"
+        data-bs-toggle="popover"
+        data-bs-placement="{{ placement }}"
+        {% if item.wbCaption %}data-bs-title="{{ item.wbCaption }}"{% endif %}
+        data-bs-content="{{ item.wbText|default('')|striptags }}">
+        {{ item.wbTitle ?? 'Click me' }}
+    </button>
+    <script>
+    (function(){
+        var el = document.getElementById('{{ uid }}');
+        if (el && typeof bootstrap !== 'undefined') {
+            new bootstrap.Popover(el);
+        }
+    })();
+    </script>
+</div>

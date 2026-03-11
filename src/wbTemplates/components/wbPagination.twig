@@ -1,0 +1,22 @@
+{% set pages = item.wbPaginationPages ?? 5 %}
+{% set align = item.wbPaginationAlign.value ?? item.wbPaginationAlign ?? 'start' %}
+{% set size  = item.wbPaginationSize.value ?? item.wbPaginationSize ?? '' %}
+{% set justifyClass = align == 'center' ? 'justify-content-center' : (align == 'end' ? 'justify-content-end' : '') %}
+<div class="wb-block mb-4">
+    {% if item.wbTitle %}<h5>{{ item.wbTitle }}</h5>{% endif %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination{% if size %} pagination-{{ size }}{% endif %}{% if justifyClass %} {{ justifyClass }}{% endif %}">
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+            {% for p in 1..pages %}
+                <li class="page-item{% if p == 1 %} active" aria-current="page{% endif %}">
+                    <a class="page-link" href="#">{{ p }}</a>
+                </li>
+            {% endfor %}
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,15 @@
+{
+    "name": "Offcanvas Placement",
+    "handle": "wbOffcanvasPlacement",
+    "instructions": "Which edge the panel slides in from",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Start (Left)",  "value": "start",  "default": true  },
+            { "label": "End (Right)",   "value": "end",    "default": false },
+            { "label": "Top",           "value": "top",    "default": false },
+            { "label": "Bottom",        "value": "bottom", "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

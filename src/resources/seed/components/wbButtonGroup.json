@@ -1,0 +1,15 @@
+{
+    "type": "wbButtonGroup",
+    "fields": {
+        "wbTitle": "Filter by Course",
+        "wbButtonGroupType": "outline-primary",
+        "wbButtonSize": "",
+        "wbButtonGroupOrientation": "horizontal"
+    },
+    "items": [
+        { "wbButtonLabel": "Starters",  "wbButtonUrl": "https://restaurant.ddev.site/menu",  "wbButtonTarget": "" },
+        { "wbButtonLabel": "Mains",     "wbButtonUrl": "https://restaurant.ddev.site/menu",  "wbButtonTarget": "" },
+        { "wbButtonLabel": "Desserts",  "wbButtonUrl": "https://restaurant.ddev.site/menu",  "wbButtonTarget": "" },
+        { "wbButtonLabel": "Drinks",    "wbButtonUrl": "https://restaurant.ddev.site/drinks","wbButtonTarget": "" }
+    ]
+}

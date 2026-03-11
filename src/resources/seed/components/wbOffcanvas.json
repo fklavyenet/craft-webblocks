@@ -1,0 +1,18 @@
+{
+    "type": "wbOffcanvas",
+    "fields": {
+        "wbTitle": "Tonight's Specials",
+        "wbButtonLabel": "View Specials",
+        "wbOffcanvasPlacement": "end",
+        "wbOffcanvasBackdrop": true,
+        "wbButtonSize": ""
+    },
+    "blocks": [
+        {
+            "type": "wbTextBlock",
+            "fields": {
+                "wbText": "<h5>Chef's Selection</h5><p>Pan-seared duck breast with cherry jus, roasted heritage carrots, and dauphinoise potatoes.</p><h5>Seasonal Fish</h5><p>Line-caught sea bass with caper butter, samphire, and crushed new potatoes.</p>"
+            }
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "type": "wbToast",
+    "fields": {
+        "wbTitle": "Booking Confirmed",
+        "wbText": "Your table for two has been reserved for Saturday at 7:30 pm. We look forward to welcoming you!",
+        "wbToastType": "success"
+    }
+}

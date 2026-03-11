@@ -1,0 +1,15 @@
+{
+    "name": "Popover Placement",
+    "handle": "wbPopoverPlacement",
+    "instructions": "Where the popover appears relative to the trigger",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Top",    "value": "top",    "default": true  },
+            { "label": "Bottom", "value": "bottom", "default": false },
+            { "label": "Start",  "value": "start",  "default": false },
+            { "label": "End",    "value": "end",    "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

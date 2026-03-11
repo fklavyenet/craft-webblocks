@@ -1,0 +1,16 @@
+{% set btnType    = item.wbButtonGroupType.value    ?? item.wbButtonGroupType    ?? 'primary' %}
+{% set btnSize    = item.wbButtonSize.value         ?? item.wbButtonSize         ?? '' %}
+{% set orient     = item.wbButtonGroupOrientation.value ?? item.wbButtonGroupOrientation ?? 'horizontal' %}
+{% set groupClass = orient == 'vertical' ? 'btn-group-vertical' : 'btn-group' %}
+<div class="wb-block mb-4">
+    {% if item.wbTitle %}<p class="mb-2 fw-semibold">{{ item.wbTitle }}</p>{% endif %}
+    <div class="{{ groupClass }}{% if btnSize and btnSize != 'md' %} btn-group-{{ btnSize }}{% endif %}" role="group">
+        {% for btn in item.wbButtonGroupItems.all() %}
+            <a href="{{ btn.wbButtonUrl ?? '#' }}"
+               class="btn btn-{{ btnType }}"
+               {% if btn.wbButtonTarget %}target="{{ btn.wbButtonTarget }}"{% endif %}>
+                {{ btn.wbButtonLabel ?? 'Button' }}
+            </a>
+        {% endfor %}
+    </div>
+</div>

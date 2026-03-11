@@ -1,0 +1,9 @@
+{
+    "type": "wbPagination",
+    "fields": {
+        "wbTitle": "Browse Menu Pages",
+        "wbPaginationPages": 6,
+        "wbPaginationSize": "",
+        "wbPaginationAlign": "center"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "wbBadge",
+    "fields": {
+        "wbTitle": "Reservations",
+        "wbText": "Now Open",
+        "wbBadgeType": "success",
+        "wbBadgePill": true
+    }
+}

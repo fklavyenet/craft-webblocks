@@ -1,0 +1,13 @@
+{
+    "name": "Success Message",
+    "handle": "wbFormSuccessMsg",
+    "instructions": "Message displayed after a successful form submission",
+    "type": "PlainText",
+    "searchable": false,
+    "typesettings": {
+        "placeholder": "Thank you! We will be in touch shortly.",
+        "maxLength": 500,
+        "multiline": true
+    },
+    "translationMethod": "site"
+}

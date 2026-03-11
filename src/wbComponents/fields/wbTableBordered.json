@@ -1,0 +1,10 @@
+{
+    "name": "Bordered",
+    "handle": "wbTableBordered",
+    "instructions": "Borders on all cells (table-bordered)",
+    "type": "Lightswitch",
+    "typesettings": {
+        "default": false
+    },
+    "translationMethod": "site"
+}

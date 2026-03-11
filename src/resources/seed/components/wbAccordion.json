@@ -1,0 +1,26 @@
+{
+    "type": "wbAccordion",
+    "title": "Frequently Asked Questions",
+    "items": [
+        {
+            "wbTitle": "Do you accept walk-ins?",
+            "wbText": "<p>We welcome walk-ins based on availability, but we strongly recommend reserving your table in advance — especially on Friday and Saturday evenings. Reservations can be made online or by calling us directly.</p>"
+        },
+        {
+            "wbTitle": "Is there a dress code?",
+            "wbText": "<p>We ask guests to dress smart-casual. We want you to feel comfortable, but we do request that sportswear, flip-flops, and sleeveless tops are not worn in the main dining room. Smart jeans are perfectly welcome.</p>"
+        },
+        {
+            "wbTitle": "Can you accommodate dietary restrictions?",
+            "wbText": "<p>Absolutely. Our menu features several vegetarian, vegan, and gluten-aware options. Please let us know about any allergies or dietary requirements when booking and we will do our best to accommodate you. Our chef is happy to adapt dishes where possible.</p>"
+        },
+        {
+            "wbTitle": "Do you offer private dining?",
+            "wbText": "<p>Yes — our private dining room seats up to 20 guests and is available for corporate dinners, birthday celebrations, and special occasions. A set menu and dedicated service team are included. Contact us to check availability and discuss your requirements.</p>"
+        },
+        {
+            "wbTitle": "Do you sell gift cards?",
+            "wbText": "<p>Ember & Rye gift cards are available in any denomination and make the perfect present for food lovers. You can purchase them at the restaurant or call us to arrange delivery. Gift cards are valid for 12 months from the date of purchase.</p>"
+        }
+    ]
+}

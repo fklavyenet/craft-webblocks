@@ -1,0 +1,26 @@
+{
+    "name": "Navbar Color Scheme",
+    "handle": "wbNavbarColorScheme",
+    "instructions": "Text color scheme for navbar links and toggler",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            {
+                "label": "Color Mode (auto)",
+                "value": "color-mode",
+                "default": true
+            },
+            {
+                "label": "Light",
+                "value": "navbar-light",
+                "default": false
+            },
+            {
+                "label": "Dark",
+                "value": "navbar-dark",
+                "default": false
+            }
+        ]
+    },
+    "translationMethod": "site"
+}

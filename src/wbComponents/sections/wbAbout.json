@@ -1,0 +1,9 @@
+{
+    "handle": "wbAbout",
+    "name": "About",
+    "type": "structure",
+    "template": "wb/sections/page",
+    "uriFormat": "{parent.uri}/{slug}",
+    "maxLevels": 2,
+    "entryTypes": ["wbAboutPage"]
+}

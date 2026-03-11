@@ -1,0 +1,7 @@
+{
+    "handle": "wbDocuments",
+    "name": "WB Documents",
+    "fs": "wbMedia",
+    "subpath": "documents",
+    "sortOrder": 3
+}

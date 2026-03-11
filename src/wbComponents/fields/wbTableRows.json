@@ -1,0 +1,23 @@
+{
+    "name": "Table Rows",
+    "handle": "wbTableRows",
+    "instructions": "Add table rows. Use the same number of cells as columns defined above.",
+    "type": "Table",
+    "typesettings": {
+        "addRowLabel": "Add a row",
+        "maxRows": null,
+        "minRows": null,
+        "columns": {
+            "cell1": { "heading": "Cell 1", "handle": "cell1", "type": "singleline", "width": "" },
+            "cell2": { "heading": "Cell 2", "handle": "cell2", "type": "singleline", "width": "" },
+            "cell3": { "heading": "Cell 3", "handle": "cell3", "type": "singleline", "width": "" },
+            "cell4": { "heading": "Cell 4", "handle": "cell4", "type": "singleline", "width": "" },
+            "cell5": { "heading": "Cell 5", "handle": "cell5", "type": "singleline", "width": "" },
+            "cell6": { "heading": "Cell 6", "handle": "cell6", "type": "singleline", "width": "" },
+            "cell7": { "heading": "Cell 7", "handle": "cell7", "type": "singleline", "width": "" },
+            "cell8": { "heading": "Cell 8", "handle": "cell8", "type": "singleline", "width": "" }
+        },
+        "defaults": []
+    },
+    "translationMethod": "site"
+}

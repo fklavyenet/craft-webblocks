@@ -1,0 +1,14 @@
+{
+    "name": "Heading Align",
+    "handle": "wbHeadingAlign",
+    "instructions": "Text alignment for the heading",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Left",   "value": "start",  "default": true  },
+            { "label": "Center", "value": "center", "default": false },
+            { "label": "Right",  "value": "end",    "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Table Columns",
+    "handle": "wbTableColumns",
+    "instructions": "Define the column headings for this table",
+    "type": "Table",
+    "typesettings": {
+        "addRowLabel": "Add a column",
+        "maxRows": 8,
+        "minRows": 1,
+        "columns": {
+            "col1": { "heading": "Column heading", "handle": "heading", "type": "singleline" }
+        },
+        "defaults": []
+    },
+    "translationMethod": "site"
+}

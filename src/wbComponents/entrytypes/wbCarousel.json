@@ -1,0 +1,29 @@
+{
+    "handle": "wbCarousel",
+    "name": "Carousel",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbTitle}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbTitle"
+            ]
+        },
+        {
+            "name": "Settings",
+            "fields": [
+                "wbAutoplay",
+                "wbInterval",
+                "wbShowControls",
+                "wbShowIndicators"
+            ]
+        }
+    ],
+    "matrixFields": [
+        "wbCarouselItems"
+    ]
+}

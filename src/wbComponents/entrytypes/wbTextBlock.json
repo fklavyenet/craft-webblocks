@@ -1,0 +1,35 @@
+{
+    "handle": "wbTextBlock",
+    "name": "Text Block",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbTitle}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbTitle",
+                "wbText"
+            ]
+        },
+        {
+            "name": "Style",
+            "fields": [
+                "wbAlignment",
+                "wbBackgroundColor"
+            ]
+        },
+        {
+            "name": "Appearance",
+            "fields": [
+                "wbBorder",
+                "wbBorderColor",
+                "wbRounded",
+                "wbPadding",
+                "wbTitlePosition"
+            ]
+        }
+    ]
+}

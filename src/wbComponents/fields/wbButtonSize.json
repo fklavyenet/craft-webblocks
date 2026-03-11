@@ -1,0 +1,26 @@
+{
+    "name": "Button Size",
+    "handle": "wbButtonSize",
+    "instructions": "Button size",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            {
+                "label": "Small",
+                "value": "sm",
+                "default": false
+            },
+            {
+                "label": "Medium",
+                "value": "md",
+                "default": true
+            },
+            {
+                "label": "Large",
+                "value": "lg",
+                "default": false
+            }
+        ]
+    },
+    "translationMethod": "site"
+}

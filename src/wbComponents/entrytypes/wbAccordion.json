@@ -1,0 +1,17 @@
+{
+    "handle": "wbAccordion",
+    "name": "Accordion",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": true,
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": []
+        }
+    ],
+    "matrixFields": [
+        "wbAccordionItems"
+    ]
+}

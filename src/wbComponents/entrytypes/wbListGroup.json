@@ -1,0 +1,24 @@
+{
+    "handle": "wbListGroup",
+    "name": "List Group",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbTitle}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbTitle"
+            ]
+        },
+        {
+            "name": "Style",
+            "fields": [
+                "wbListGroupFlush"
+            ]
+        }
+    ],
+    "matrixFields": ["wbListGroupItems"]
+}

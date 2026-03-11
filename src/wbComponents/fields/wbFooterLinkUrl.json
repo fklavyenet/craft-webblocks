@@ -1,0 +1,11 @@
+{
+    "name": "Footer Link URL",
+    "handle": "wbFooterLinkUrl",
+    "instructions": "URL or relative path for this footer link",
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "/privacy",
+        "multiline": false
+    },
+    "translationMethod": "site"
+}

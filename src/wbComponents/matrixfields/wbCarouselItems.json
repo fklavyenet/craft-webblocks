@@ -1,0 +1,6 @@
+{
+    "handle": "wbCarouselItems",
+    "name": "Carousel Items",
+    "translationMethod": "site",
+    "entryTypes": ["wbCarouselItem"]
+}

@@ -1,0 +1,20 @@
+{
+    "handle": "wbHeading",
+    "name": "Heading",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbTitle}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbTitle",
+                "wbHeadingLevel",
+                "wbHeadingAlign",
+                "wbTextColor"
+            ]
+        }
+    ]
+}

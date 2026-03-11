@@ -1,0 +1,7 @@
+{% extends "wb/layout" %}
+
+{% block bodyClass %}page-wbhome{% endblock %}
+
+{% block content %}
+    {% include "wb/index" with { entry: entry } %}
+{% endblock %}

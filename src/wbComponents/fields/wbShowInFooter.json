@@ -1,0 +1,10 @@
+{
+    "name": "Show in Footer",
+    "handle": "wbShowInFooter",
+    "instructions": "Show a link to this entry in the site footer",
+    "type": "Lightswitch",
+    "typesettings": {
+        "default": false
+    },
+    "translationMethod": "site"
+}

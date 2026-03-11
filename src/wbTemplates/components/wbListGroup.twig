@@ -1,0 +1,23 @@
+{# wbListGroup — Bootstrap 5 list group #}
+{% set _items = item.wbListGroupItems ? item.wbListGroupItems.all() : [] %}
+{% set _flush = item.wbListGroupFlush ?? false %}
+
+<div class="wb-block wb-list-group">
+    {% if item.wbTitle %}
+        <h5 class="mb-2">{{ item.wbTitle }}</h5>
+    {% endif %}
+    <ul class="list-group {{ _flush ? 'list-group-flush' : '' }}">
+        {% for _listItem in _items %}
+            {% if _listItem.wbButtonUrl %}
+                <li class="list-group-item list-group-item-action">
+                    <a href="{{ _listItem.wbButtonUrl }}"
+                       {% if _listItem.wbButtonTarget.value == '_blank' %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                        {{ _listItem.wbTitle }}
+                    </a>
+                </li>
+            {% else %}
+                <li class="list-group-item">{{ _listItem.wbTitle }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

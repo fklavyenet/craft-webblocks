@@ -1,0 +1,8 @@
+{
+    "type": "wbHeading",
+    "fields": {
+        "wbTitle": "Breadcrumb",
+        "wbHeadingLevel": "h3",
+        "wbHeadingAlign": "start"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "handle": "wbProgressBar",
+    "name": "Progress Bar",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbTitle}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbTitle"
+            ]
+        }
+    ],
+    "matrixFields": ["wbProgressBars"]
+}

@@ -1,0 +1,7 @@
+{
+    "handle": "wbSiteFooter",
+    "name": "Site Footer",
+    "translationMethod": "site",
+    "maxEntries": 1,
+    "entryTypes": ["wbFooter"]
+}

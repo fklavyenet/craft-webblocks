@@ -1,0 +1,16 @@
+{% header "Content-Type: text/xml; charset=utf-8" %}
+<?xml version="1.0" encoding="UTF-8"?>
+{%- set _entries = craft.entries()
+    .status('live')
+    .uri(':notempty:')
+    .all() -%}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for _entry in _entries %}
+    {%- if _entry.url %}
+    <url>
+        <loc>{{ _entry.url | e }}</loc>
+        <lastmod>{{ _entry.dateUpdated | date('Y-m-d') }}</lastmod>
+    </url>
+    {%- endif %}
+{%- endfor %}
+</urlset>

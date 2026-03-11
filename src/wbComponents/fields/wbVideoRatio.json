@@ -1,0 +1,15 @@
+{
+    "name": "Video Aspect Ratio",
+    "handle": "wbVideoRatio",
+    "instructions": "Aspect ratio for the video embed",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "16:9 (Widescreen)", "value": "ratio-16x9", "default": true },
+            { "label": "21:9 (Ultrawide)",  "value": "ratio-21x9", "default": false },
+            { "label": "4:3 (Standard)",    "value": "ratio-4x3",  "default": false },
+            { "label": "1:1 (Square)",      "value": "ratio-1x1",  "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

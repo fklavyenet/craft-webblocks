@@ -1,0 +1,17 @@
+{
+    "name": "Rounded",
+    "handle": "wbRounded",
+    "instructions": "Corner rounding style",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "None",        "value": "",          "default": true  },
+            { "label": "Small",       "value": "rounded-1", "default": false },
+            { "label": "Medium",      "value": "rounded-2", "default": false },
+            { "label": "Large",       "value": "rounded-3", "default": false },
+            { "label": "Extra Large", "value": "rounded-4", "default": false },
+            { "label": "Pill",        "value": "rounded-5", "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

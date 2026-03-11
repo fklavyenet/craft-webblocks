@@ -1,0 +1,18 @@
+{
+    "handle": "wbFormOption",
+    "name": "Form Option",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbFormOptionLabel}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Option",
+            "fields": [
+                "wbFormOptionLabel",
+                "wbFormOptionValue"
+            ]
+        }
+    ]
+}

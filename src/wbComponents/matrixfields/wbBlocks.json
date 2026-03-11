@@ -1,0 +1,30 @@
+{
+    "handle": "wbBlocks",
+    "name": "Web Blocks",
+    "translationMethod": "site",
+    "entryTypes": [
+        "wbAccordion",
+        "wbAlert",
+        "wbBreadcrumb",
+        "wbButton",
+        "wbCallToAction",
+        "wbCard",
+        "wbCarousel",
+        "wbColumns",
+        "wbContactDetails",
+        "wbGallery",
+        "wbHeading",
+        "wbHero",
+        "wbForm",
+        "wbLeftRight",
+        "wbListGroup",
+        "wbModal",
+        "wbNavbar",
+        "wbProgressBar",
+        "wbSpacing",
+        "wbTable",
+        "wbTabs",
+        "wbTextBlock",
+        "wbVideoEmbed"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "name": "Table Caption",
+    "handle": "wbTableCaption",
+    "instructions": "Optional caption displayed inside the <caption> tag above the table",
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "",
+        "code": false,
+        "multiline": false,
+        "initialRows": 1,
+        "charLimit": null,
+        "byteLimit": null
+    },
+    "translationMethod": "site"
+}

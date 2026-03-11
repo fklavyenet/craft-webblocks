@@ -1,0 +1,174 @@
+# WebBlocks
+
+A portable website building toolkit for Craft CMS 5. Provides a full set of Bootstrap 5 page-builder blocks that can be dropped into any Craft site.
+
+## Requirements
+
+- Craft CMS 5.x
+- PHP 8.2+
+- Bootstrap 5.3 (loaded via CDN — no local build step required)
+
+## Installation
+
+```bash
+composer require fklavyenet/craft-webblocks
+ddev craft plugin/install webblocks
+ddev craft webblocks/install/all
+```
+
+## Console Commands
+
+| Command | Description |
+|---|---|
+| `ddev craft webblocks/install/all` | Install fields, entry types, sections, volumes, transforms |
+| `ddev craft webblocks/seed/all` | Seed demo content |
+| `ddev craft webblocks/wipe/all --interactive=0` | Wipe all plugin data and reinstall from scratch |
+
+## Usage
+
+Include the entry point template from any page template:
+
+```twig
+{% include "wb/index" with { entry: entry } %}
+```
+
+The `wb/index` template dispatches each block to its component template via `item.type.handle`.
+
+## Components
+
+All components are registered as entry types under the `wbBlocks` matrix field. Each has a corresponding Twig template under `wb/components/`.
+
+### Content Blocks
+
+| Handle | Description |
+|---|---|
+| `wbHero` | Full-width hero section with background image, overlay, heading, text, and CTA button |
+| `wbTextBlock` | Rich text block with optional title, alignment, background colour, and border |
+| `wbCard` | Bootstrap card with image, title, body text, and button |
+| `wbCallToAction` | Prominent CTA section with heading, text, and button |
+| `wbAlert` | Bootstrap alert (info / success / warning / danger) with optional dismiss button |
+| `wbButton` | Standalone button with configurable label, URL, style, size, and target |
+| `wbHeading` | Standalone heading (h1–h6) with alignment |
+
+### Layout
+
+| Handle | Description |
+|---|---|
+| `wbColumns` | Multi-column layout (2, 3, or 4 columns). Each column contains its own `wbBlocks` matrix — fully nested block support |
+| `wbSpacing` | Configurable vertical spacer (Bootstrap spacing utilities) |
+
+### Media
+
+| Handle | Description |
+|---|---|
+| `wbGallery` | Masonry image gallery with lightbox. Supports configurable gap |
+| `wbCarousel` | Bootstrap carousel with autoplay, controls, indicators, and frosted-glass captions |
+| `wbVideoEmbed` | Embedded video (YouTube / Vimeo) with configurable aspect ratio |
+
+### Data
+
+| Handle | Description |
+|---|---|
+| `wbTable` | Data table with configurable columns and rows. Supports caption, striped, bordered, hover, small, and responsive variants |
+| `wbAccordion` | Bootstrap accordion with any number of items |
+| `wbTabs` | Bootstrap tabs with configurable alignment |
+| `wbProgressBar` | Bootstrap progress bars with label, value, colour, and striped option |
+| `wbListGroup` | Bootstrap list group with optional flush style |
+
+### Forms & Contact
+
+| Handle | Description |
+|---|---|
+| `wbForm` | Configurable contact form. Fields support text, email, textarea, select, radio, and checkbox types. Sends to a configurable recipient |
+| `wbContactDetails` | Contact details block: phone, email, and address |
+
+### Navigation
+
+| Handle | Description |
+|---|---|
+| `wbNavbar` | Bootstrap navbar with brand, logo, colour scheme, nav items, and optional search |
+| `wbBreadcrumb` | Bootstrap breadcrumb |
+| `wbModal` | Bootstrap modal trigger and content |
+| `wbLeftRight` | Two-column image + text layout with switchable sides |
+
+## Appearance Fields
+
+Most components include an **Appearance** tab in the Craft control panel with the following fields:
+
+| Field | Options |
+|---|---|
+| `wbBorder` | Toggle border on/off |
+| `wbBorderColor` | Bootstrap colour utility (primary / secondary / etc.) |
+| `wbRounded` | Border-radius utility class |
+| `wbPadding` | Padding utility class |
+| `wbTitlePosition` | Title placement: **Outside** (above the box) or **Inside** (inside the box) |
+
+## Image Transforms
+
+| Handle | Usage |
+|---|---|
+| `wbHero` | Hero background images |
+| `wbCarousel` | Carousel slide images |
+| `wbGalleryThumb` | Gallery thumbnails (800 px wide) |
+| `wbGalleryFull` | Gallery lightbox images (1920 px wide) |
+| `wbFeaturedImage` | Blog post and reference featured images |
+| `wbCard` | Card component images |
+| `wbLeftRight` | Left/right layout images |
+| `wbOgImage` | Open Graph / social share images |
+
+## Asset Volumes
+
+Three volumes are created on install:
+
+- **wbImages** — photos and graphics
+- **wbVideos** — video files
+- **wbDocuments** — PDFs and other documents
+
+## Architecture
+
+- `wbBlocks` is the top-level matrix field. Add it to any section's field layout to enable page-builder functionality.
+- Nested columns: `wbColumns` → `wbColumnItems` matrix → `wbColumn` entry type → `wbBlocks` matrix (recursive).
+- Templates live in `src/wbTemplates/` and are registered under the `wb` Twig namespace.
+- Component definitions (fields, entry types, matrix fields) live in `src/wbComponents/` as JSON files and are auto-discovered on install.
+
+## File Structure
+
+```
+src/
+├── WebBlocks.php                   Plugin bootstrap; registers wb/ template root
+├── services/
+│   ├── InstallService.php          Orchestrates install order and field layout building
+│   └── FieldInstallService.php     Creates Craft fields from JSON definitions
+├── console/
+│   ├── WipeController.php          Wipe command (Craft 5 API)
+│   └── SeedController.php          Seeds demo content
+├── wbComponents/
+│   ├── fields/                     Plain field definitions (JSON)
+│   ├── entrytypes/                 Entry type + field layout definitions (JSON)
+│   ├── matrixfields/               Matrix field + entry type assignments (JSON)
+│   ├── imagetransforms/            Image transform definitions (JSON)
+│   ├── sections/                   Section definitions (JSON)
+│   ├── volumes/                    Asset volume definitions (JSON)
+│   ├── filesystems/                Filesystem definitions (JSON)
+│   └── globalsets/                 Global set definitions (JSON)
+├── wbTemplates/
+│   ├── index.twig                  Entry point; dispatches to wb/components/{handle}
+│   ├── layout.twig                 Bootstrap CDN, WB Masonry JS, WB Lightbox JS
+│   ├── components/                 One Twig file per component handle
+│   ├── sections/                   Section-level page templates
+│   └── partials/                   Shared partial templates
+└── resources/
+    └── seed/
+        ├── pages.json              Page definitions with inline block data
+        ├── blogs.json              Blog post seed data
+        ├── images.json             Sample image manifest
+        └── components/             Named block files for the demo test page
+```
+
+## Frontend Dependencies
+
+Bootstrap 5.3.3 is loaded via CDN (MIT licence). No build step is required. All other JS (masonry layout, lightbox) is implemented inline in `layout.twig`.
+
+## Prefix Convention
+
+All plugin-owned handles use the `wb` prefix (fields, entry types, matrix fields, sections, volumes, transforms) to avoid conflicts with site-level content.

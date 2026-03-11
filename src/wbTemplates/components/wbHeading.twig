@@ -1,0 +1,5 @@
+{% set tag = item.wbHeadingLevel.value ?? 'h2' %}
+{% set align = item.wbHeadingAlign.value ?? 'start' %}
+<{{ tag }} class="wb-heading mb-4 text-{{ align }}"{% if item.wbTextColor %} style="color: {{ item.wbTextColor }};"{% endif %}>
+    {{- item.wbTitle -}}
+</{{ tag }}>

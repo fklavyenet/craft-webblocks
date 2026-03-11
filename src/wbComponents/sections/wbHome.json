@@ -1,0 +1,8 @@
+{
+    "handle": "wbHome",
+    "name": "Home",
+    "type": "single",
+    "template": "wb/sections/home",
+    "uriFormat": "__home__",
+    "entryTypes": ["wbHomePage"]
+}

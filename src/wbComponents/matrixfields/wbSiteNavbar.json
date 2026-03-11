@@ -1,0 +1,7 @@
+{
+    "handle": "wbSiteNavbar",
+    "name": "Site Navbar",
+    "translationMethod": "site",
+    "maxEntries": 1,
+    "entryTypes": ["wbNavbar"]
+}

@@ -1,0 +1,11 @@
+{
+    "type": "wbHero",
+    "fields": {
+        "wbTitle": "Fire. Flavor. Finesse.",
+        "wbText": "Wood-fired steaks and craft cocktails in the heart of New York City.",
+        "wbButtonLabel": "Reserve a Table",
+        "wbButtonUrl": "https://kayseri.ddev.site/contact",
+        "wbAlignment": "center",
+        "wbMinHeight": 600
+    }
+}

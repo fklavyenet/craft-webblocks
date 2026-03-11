@@ -1,0 +1,8 @@
+{
+    "handle": "wbSearch",
+    "name": "Search",
+    "type": "single",
+    "template": "wb/sections/search",
+    "uriFormat": "search",
+    "entryTypes": ["wbSearch"]
+}

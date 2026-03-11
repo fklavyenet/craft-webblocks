@@ -1,0 +1,14 @@
+{
+    "name": "Interval",
+    "handle": "wbInterval",
+    "instructions": "Time between slides in milliseconds",
+    "type": "Number",
+    "typesettings": {
+        "min": null,
+        "max": null,
+        "decimals": 0,
+        "defaultValue": 5000,
+        "size": null
+    },
+    "translationMethod": "site"
+}

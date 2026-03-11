@@ -1,0 +1,36 @@
+{
+    "handle": "wbContactDetails",
+    "name": "Contact Details",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbTitle}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbTitle",
+                "wbPhone",
+                "wbEmail",
+                "wbAddress"
+            ]
+        },
+        {
+            "name": "Style",
+            "fields": [
+                "wbBackgroundColor"
+            ]
+        },
+        {
+            "name": "Appearance",
+            "fields": [
+                "wbBorder",
+                "wbBorderColor",
+                "wbRounded",
+                "wbPadding",
+                "wbTitlePosition"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Excerpt",
+    "handle": "wbExcerpt",
+    "instructions": "Short summary shown in listing pages and search results.",
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "",
+        "multiline": true,
+        "initialRows": 3,
+        "charLimit": 300
+    },
+    "translationMethod": "site",
+    "searchable": true
+}

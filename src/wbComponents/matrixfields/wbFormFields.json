@@ -1,0 +1,6 @@
+{
+    "handle": "wbFormFields",
+    "name": "Form Fields",
+    "translationMethod": "site",
+    "entryTypes": ["wbFormField"]
+}

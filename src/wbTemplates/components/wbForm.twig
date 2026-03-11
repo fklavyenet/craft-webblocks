@@ -1,0 +1,173 @@
+{% set formId = 'wb-form-' ~ item.id %}
+{% set actionUrl = actionUrl('webblocks/form/submit') %}
+{% set submitLabel = item.wbFormSubmitLabel ?: 'Send' %}
+{% set successMsg = item.wbFormSuccessMsg ?: 'Thank you! We will be in touch shortly.' %}
+{% set hasBorder = item.wbBorder ?? false %}
+{% set borderColor = item.wbBorderColor.value ?? item.wbBorderColor ?? '' %}
+{% set rounded = item.wbRounded.value ?? item.wbRounded ?? '' %}
+{% set padding = item.wbPadding.value ?? item.wbPadding ?? '' %}
+{% set titlePos = item.wbTitlePosition.value ?? item.wbTitlePosition ?? 'outside' %}
+{% set wrapperClasses = ['wb-form-wrapper'] %}
+{% if hasBorder %}{% set wrapperClasses = wrapperClasses|merge(['border']) %}{% endif %}
+{% if hasBorder and borderColor %}{% set wrapperClasses = wrapperClasses|merge(['border-' ~ borderColor]) %}{% endif %}
+{% if rounded %}{% set wrapperClasses = wrapperClasses|merge([rounded]) %}{% endif %}
+{% if padding %}{% set wrapperClasses = wrapperClasses|merge([padding]) %}{% endif %}
+
+{# ── Success state (non-Ajax fallback) ────────────────────────────────────── #}
+{% if craft.app.session.getFlash('wbFormSuccess') %}
+    <div class="alert alert-success" role="alert">
+        {{ craft.app.session.getFlash('wbFormSuccess') }}
+    </div>
+{% else %}
+
+{# ── Form ─────────────────────────────────────────────────────────────────── #}
+{% if item.wbTitle is defined and item.wbTitle and titlePos == 'outside' %}
+    <h3>{{ item.wbTitle }}</h3>
+{% endif %}
+<div id="{{ formId }}-wrapper" class="{{ wrapperClasses|join(' ') }}">
+    {% if item.wbTitle is defined and item.wbTitle and titlePos == 'inside' %}
+        <h3>{{ item.wbTitle }}</h3>
+    {% endif %}
+    <form id="{{ formId }}"
+          method="post"
+          action="{{ actionUrl }}"
+          novalidate>
+
+        {{ csrfInput() }}
+        <input type="hidden" name="formEntryId" value="{{ item.id }}">
+        {{ redirectInput(craft.app.request.url) }}
+
+        {% for fieldEntry in item.wbFormFields.all() %}
+            {% set label      = fieldEntry.wbFormFieldLabel %}
+            {% set type       = fieldEntry.wbFormFieldType.value ?? fieldEntry.wbFormFieldType %}
+            {% set required   = fieldEntry.wbFormFieldRequired %}
+            {% set placeholder = fieldEntry.wbFormFieldPlaceholder %}
+            {% set inputName  = label|lower|replace('/[^a-z0-9]+/', '-')|trim('-') %}
+            {% set inputId    = formId ~ '-' ~ inputName %}
+
+            <div class="mb-3" data-field="{{ inputName }}">
+                <label for="{{ inputId }}" class="form-label{% if required %} fw-semibold{% endif %}">
+                    {{ label }}{% if required %}<span class="text-danger ms-1" aria-hidden="true">*</span>{% endif %}
+                </label>
+
+                {% if type == 'textarea' %}
+                    <textarea
+                        id="{{ inputId }}"
+                        name="{{ inputName }}"
+                        class="form-control"
+                        rows="5"
+                        placeholder="{{ placeholder }}"
+                        {% if required %}required{% endif %}
+                    ></textarea>
+
+                {% elseif type == 'select' %}
+                    <select
+                        id="{{ inputId }}"
+                        name="{{ inputName }}"
+                        class="form-select"
+                        {% if required %}required{% endif %}
+                    >
+                        <option value="">{{ 'Select an option'|t('site') }}</option>
+                        {% for opt in fieldEntry.wbFormOptions.all() %}
+                            <option value="{{ opt.wbFormOptionValue }}">{{ opt.wbFormOptionLabel }}</option>
+                        {% endfor %}
+                    </select>
+
+                {% elseif type == 'radio' %}
+                    {% for opt in fieldEntry.wbFormOptions.all() %}
+                        {% set radioId = inputId ~ '-' ~ loop.index %}
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                id="{{ radioId }}"
+                                name="{{ inputName }}"
+                                value="{{ opt.wbFormOptionValue }}"
+                                {% if required and loop.first %}required{% endif %}
+                            >
+                            <label class="form-check-label" for="{{ radioId }}">
+                                {{ opt.wbFormOptionLabel }}
+                            </label>
+                        </div>
+                    {% endfor %}
+
+                {% else %}
+                    {# text, email, tel, date #}
+                    <input
+                        type="{{ type ?: 'text' }}"
+                        id="{{ inputId }}"
+                        name="{{ inputName }}"
+                        class="form-control"
+                        placeholder="{{ placeholder }}"
+                        {% if required %}required{% endif %}
+                    >
+                {% endif %}
+
+                {# Inline error placeholder (populated by JS) #}
+                <div class="invalid-feedback" id="{{ inputId }}-error"></div>
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">{{ submitLabel }}</button>
+    </form>
+
+    {# Success message placeholder (Ajax) #}
+    <div id="{{ formId }}-success" class="alert alert-success d-none" role="alert">
+        {{ successMsg }}
+    </div>
+</div>
+
+{# ── JavaScript ────────────────────────────────────────────────────────────── #}
+<script>
+(function () {
+    var form    = document.getElementById('{{ formId }}');
+    var wrapper = document.getElementById('{{ formId }}-wrapper');
+    var success = document.getElementById('{{ formId }}-success');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Clear previous errors
+        form.querySelectorAll('.is-invalid').forEach(function (el) {
+            el.classList.remove('is-invalid');
+        });
+        form.querySelectorAll('.invalid-feedback').forEach(function (el) {
+            el.textContent = '';
+        });
+
+        var data = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            body: data
+        })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+            if (json.success) {
+                form.style.display = 'none';
+                success.classList.remove('d-none');
+            } else {
+                // Mark invalid fields
+                var errors = json.errors || {};
+                Object.keys(errors).forEach(function (key) {
+                    var container = form.querySelector('[data-field="' + key + '"]');
+                    if (!container) return;
+                    var input = container.querySelector('input, select, textarea');
+                    var feedback = container.querySelector('.invalid-feedback');
+                    if (input) input.classList.add('is-invalid');
+                    if (feedback) feedback.textContent = errors[key];
+                });
+            }
+        })
+        .catch(function () {
+            // Network error — let the form fall through to a plain POST
+            form.removeEventListener('submit', arguments.callee);
+            form.submit();
+        });
+    });
+}());
+</script>
+
+{% endif %} {# end non-Ajax success check #}

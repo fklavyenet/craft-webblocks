@@ -1,0 +1,63 @@
+{% set tableClasses = 'table' %}
+{% if item.wbTableStriped %}{% set tableClasses = tableClasses ~ ' table-striped' %}{% endif %}
+{% if item.wbTableBordered %}{% set tableClasses = tableClasses ~ ' table-bordered' %}{% endif %}
+{% if item.wbTableHover %}{% set tableClasses = tableClasses ~ ' table-hover' %}{% endif %}
+{% if item.wbTableSm %}{% set tableClasses = tableClasses ~ ' table-sm' %}{% endif %}
+
+{% set hasBorder   = item.wbBorder ?? false %}
+{% set borderColor = item.wbBorderColor.value ?? item.wbBorderColor ?? '' %}
+{% set rounded     = item.wbRounded.value ?? item.wbRounded ?? '' %}
+{% set padding     = item.wbPadding.value ?? item.wbPadding ?? '' %}
+{% set titlePos    = item.wbTitlePosition.value ?? item.wbTitlePosition ?? 'outside' %}
+{% set extraClasses = '' %}
+{% if hasBorder %}{% set extraClasses = extraClasses ~ ' border' %}{% endif %}
+{% if hasBorder and borderColor %}{% set extraClasses = extraClasses ~ ' border-' ~ borderColor %}{% endif %}
+{% if rounded %}{% set extraClasses = extraClasses ~ ' ' ~ rounded %}{% endif %}
+{% if padding %}{% set extraClasses = extraClasses ~ ' ' ~ padding %}{% endif %}
+
+{% set columns = item.wbTableColumns %}
+{% set rows    = item.wbTableRows %}
+
+{% if item.wbTitle and titlePos == 'outside' %}
+    <h3>{{ item.wbTitle }}</h3>
+{% endif %}
+<div class="wb-block wb-table mb-4{{ extraClasses }}">
+    {% if item.wbTitle and titlePos == 'inside' %}
+        <h3>{{ item.wbTitle }}</h3>
+    {% endif %}
+
+    {% if columns | length %}
+        {% set colHandles = ['col1','col2','col3','col4','col5','col6','col7','col8'] %}
+        {% set colCount   = columns | length %}
+
+        {% set tableHtml %}
+            <table class="{{ tableClasses }}">
+                {% if item.wbTableCaption %}
+                    <caption>{{ item.wbTableCaption }}</caption>
+                {% endif %}
+                <thead>
+                    <tr>
+                        {% for col in columns %}
+                            <th scope="col">{{ col.heading }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            {% for i in 1..colCount %}
+                                <td>{{ attribute(row, 'cell' ~ i) }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endset %}
+
+        {% if item.wbTableResponsive %}
+            <div class="table-responsive">{{ tableHtml | raw }}</div>
+        {% else %}
+            {{ tableHtml | raw }}
+        {% endif %}
+    {% endif %}
+</div>

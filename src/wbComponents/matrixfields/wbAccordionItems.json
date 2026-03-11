@@ -1,0 +1,6 @@
+{
+    "handle": "wbAccordionItems",
+    "name": "Accordion Items",
+    "translationMethod": "site",
+    "entryTypes": ["wbAccordionItem"]
+}

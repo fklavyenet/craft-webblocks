@@ -1,0 +1,10 @@
+{
+    "name": "Button Color",
+    "handle": "wbButtonColor",
+    "instructions": "Background colour of the button",
+    "type": "Color",
+    "typesettings": {
+        "defaultColor": ""
+    },
+    "translationMethod": "site"
+}

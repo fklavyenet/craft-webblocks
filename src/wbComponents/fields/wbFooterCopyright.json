@@ -1,0 +1,11 @@
+{
+    "name": "Footer Copyright",
+    "handle": "wbFooterCopyright",
+    "instructions": "Copyright line shown at the bottom of the footer",
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "© 2025 My Company",
+        "multiline": false
+    },
+    "translationMethod": "site"
+}

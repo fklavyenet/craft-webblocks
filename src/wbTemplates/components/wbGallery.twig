@@ -1,0 +1,50 @@
+{% set cols = item.wbColumnsCount.value ?? '3' %}
+{#
+    On mobile (<576px) always show 1 column.
+    On sm+ show the chosen column count.
+    We embed a small <style> block keyed to this block's ID so multiple galleries
+    on the same page each get the right column count.
+#}
+{% set blockId = 'wb-gallery-' ~ item.id %}
+
+<section class="wb-block gallery py-4">
+    {% if item.wbTitle is defined and item.wbTitle %}
+        <h2 class="mb-4">{{ item.wbTitle }}</h2>
+    {% endif %}
+
+    <style>
+        #{{ blockId }} { --wb-gallery-cols: 1; gap: 1rem; }
+        @media (min-width: 576px) { #{{ blockId }} { --wb-gallery-cols: {{ cols }}; } }
+    </style>
+
+    <div
+        id="{{ blockId }}"
+        style="display: grid; grid-template-columns: repeat(var(--wb-gallery-cols, {{ cols }}), 1fr); gap: 1rem;"
+        data-wb-masonry
+    >
+        {% for galleryItem in item.wbGalleryItems.all() %}
+            {% set img = galleryItem.wbImage.one() ?? null %}
+            {% if img %}
+                <div>
+                    <figure class="figure w-100 m-0">
+                        <a
+                            href="{{ img.getUrl('wbGalleryFull') }}"
+                            data-fancybox="gallery-{{ item.id }}"
+                            data-caption="{{ galleryItem.wbCaption ?? img.title }}"
+                        >
+                            <img
+                                src="{{ img.getUrl('wbGalleryThumb') }}"
+                                alt="{{ img.alt ?: (galleryItem.wbCaption ?? img.title) }}"
+                                class="figure-img img-fluid rounded w-100"
+                                style="cursor: zoom-in;"
+                            >
+                        </a>
+                        {% if galleryItem.wbCaption ?? '' %}
+                            <figcaption class="figure-caption">{{ galleryItem.wbCaption }}</figcaption>
+                        {% endif %}
+                    </figure>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>

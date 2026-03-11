@@ -1,0 +1,12 @@
+{
+    "name": "Button Label",
+    "handle": "wbButtonLabel",
+    "instructions": "Text on the button",
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "Click Here",
+        "multiline": false
+    },
+    "translationMethod": "site",
+    "searchable": true
+}

@@ -1,0 +1,7 @@
+{
+    "name": "Tab Title",
+    "handle": "wbTabTitle",
+    "instructions": "Label shown on the tab button",
+    "type": "PlainText",
+    "translationMethod": "site"
+}

@@ -1,0 +1,26 @@
+{% extends "wb/layout" %}
+
+{% block bodyClass %}page-wbpost page-{{ entry.slug }} page-{{ entry.id }}{% endblock %}
+
+{% block title %}<title>{{ entry.wbSeoTitle ?? entry.title }} — {{ siteName }}</title>{% endblock %}
+
+{% block content %}
+
+    {# Featured image #}
+    {% if entry.wbFeaturedImage is defined %}
+        {% set img = entry.wbFeaturedImage.one() %}
+        {% if img %}
+            <img src="{{ img.getUrl('wbFeaturedImage') }}" alt="{{ img.alt ?: img.title }}" class="img-fluid rounded mb-4 w-100" style="max-height:400px;object-fit:cover;">
+        {% endif %}
+    {% endif %}
+
+    <h1>{{ entry.title }}</h1>
+    <p class="text-muted mb-4">{{ entry.postDate|date('d.m.Y') }}</p>
+
+    {% if entry.wbExcerpt is defined and entry.wbExcerpt %}
+        <p class="lead mb-4">{{ entry.wbExcerpt }}</p>
+    {% endif %}
+
+    {% include "wb/index" with { entry: entry } %}
+
+{% endblock %}

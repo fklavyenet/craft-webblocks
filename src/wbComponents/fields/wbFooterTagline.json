@@ -1,0 +1,11 @@
+{
+    "name": "Footer Tagline",
+    "handle": "wbFooterTagline",
+    "instructions": "Optional short description or tagline below the brand name",
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "Building the web, block by block.",
+        "multiline": false
+    },
+    "translationMethod": "site"
+}

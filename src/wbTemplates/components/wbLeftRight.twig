@@ -1,0 +1,34 @@
+{% for row in item.wbLeftRightItems.all() %}
+    {% set image = row.wbImage.one() %}
+    {% set isEven = loop.index is even %}
+
+    <div class="row align-items-center g-0 mb-4 mb-md-5 {% if isEven %}flex-md-row-reverse{% endif %}">
+
+        {# Image column #}
+        <div class="col-md-6">
+            {% if image %}
+                <img src="{{ image.getUrl('wbLeftRight') }}" alt="{{ image.alt ?: image.title }}" class="img-fluid w-100">
+            {% else %}
+                <div class="bg-secondary ratio ratio-16x9"></div>
+            {% endif %}
+        </div>
+
+        {# Text column #}
+        <div class="col-md-6 px-4 py-4 py-md-0 {% if isEven %}pe-md-5{% else %}ps-md-5{% endif %}">
+            {% if row.wbTitle %}
+                <h2>{{ row.wbTitle }}</h2>
+            {% endif %}
+            {% if row.wbText %}
+                <div class="mb-3">{{ row.wbText }}</div>
+            {% endif %}
+            {% if row.wbButtonLabel and row.wbButtonUrl %}
+                <a href="{{ row.wbButtonUrl }}"
+                   class="btn btn-primary{% if row.wbButtonSize %} btn-{{ row.wbButtonSize }}{% endif %}"
+                   {% if row.wbButtonTarget %}target="{{ row.wbButtonTarget }}"{% endif %}>
+                    {{ row.wbButtonLabel }}
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+{% endfor %}

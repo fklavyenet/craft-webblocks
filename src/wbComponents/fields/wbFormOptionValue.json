@@ -1,0 +1,13 @@
+{
+    "name": "Option Value",
+    "handle": "wbFormOptionValue",
+    "instructions": "Submitted value for this option",
+    "type": "PlainText",
+    "searchable": false,
+    "typesettings": {
+        "placeholder": "option-value",
+        "maxLength": 255,
+        "multiline": false
+    },
+    "translationMethod": "site"
+}

@@ -1,0 +1,8 @@
+{
+    "type": "wbHeading",
+    "fields": {
+        "wbTitle": "Heading Level 6 (H6)",
+        "wbHeadingLevel": "h6",
+        "wbHeadingAlign": "end"
+    }
+}

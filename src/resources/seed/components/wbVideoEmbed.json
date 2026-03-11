@@ -1,0 +1,8 @@
+{
+    "type": "wbVideoEmbed",
+    "fields": {
+        "wbTitle": "Inside Ember & Rye",
+        "wbVideoUrl": "https://www.youtube.com/watch?v=1ZYbU82GVz4",
+        "wbVideoRatio": "ratio-16x9"
+    }
+}

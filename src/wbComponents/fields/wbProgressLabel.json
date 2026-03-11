@@ -1,0 +1,7 @@
+{
+    "name": "Progress Bar Label",
+    "handle": "wbProgressLabel",
+    "instructions": "Label shown above or inside the progress bar",
+    "type": "PlainText",
+    "translationMethod": "site"
+}

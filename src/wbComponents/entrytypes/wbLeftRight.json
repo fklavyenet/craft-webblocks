@@ -1,0 +1,16 @@
+{
+    "handle": "wbLeftRight",
+    "name": "Left Right",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{type.name}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": []
+        }
+    ],
+    "matrixFields": ["wbLeftRightItems"]
+}

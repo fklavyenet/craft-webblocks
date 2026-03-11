@@ -1,0 +1,8 @@
+{
+    "type": "wbContactDetails",
+    "fields": {
+        "wbPhone": "+1 (212) 555-0182",
+        "wbEmail": "reservations@emberandrye.com",
+        "wbAddress": "48 Grill Street, West Village, New York, NY 10014"
+    }
+}

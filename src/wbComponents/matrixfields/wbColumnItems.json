@@ -1,0 +1,6 @@
+{
+    "handle": "wbColumnItems",
+    "name": "Column Items",
+    "translationMethod": "site",
+    "entryTypes": ["wbColumn"]
+}

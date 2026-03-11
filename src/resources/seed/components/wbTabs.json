@@ -1,0 +1,21 @@
+{
+    "type": "wbTabs",
+    "fields": {
+        "wbTitle": "Our Menu Highlights",
+        "wbTabAlign": "",
+        "wbTabItems": [
+            {
+                "wbTabTitle": "Starters",
+                "wbText": "<p><strong>Oysters on the Half Shell</strong> — six Wellfleet oysters, mignonette, horseradish &amp; lemon — <em>$24</em></p><p><strong>Ember-Roasted Bone Marrow</strong> — sourdough toast, chimichurri, pickled shallots — <em>$19</em></p><p><strong>Heirloom Tomato Salad</strong> — burrata, aged balsamic, basil oil, fleur de sel — <em>$18</em></p><p><strong>Tuna Tartare</strong> — avocado, sesame, yuzu kosho, wonton crisps — <em>$22</em></p>"
+            },
+            {
+                "wbTabTitle": "Mains",
+                "wbText": "<p><strong>28-Day Dry-Aged Ribeye (14 oz)</strong> — wood-fired, truffle butter, house frites — <em>$68</em></p><p><strong>Filet Mignon (8 oz)</strong> — sauce béarnaise, haricots verts, potato gratin — <em>$72</em></p><p><strong>Roasted Half Chicken</strong> — preserved lemon jus, roasted garlic, wilted greens — <em>$38</em></p><p><strong>Pan-Seared Halibut</strong> — saffron beurre blanc, fennel, cherry tomatoes — <em>$44</em></p>"
+            },
+            {
+                "wbTabTitle": "Desserts",
+                "wbText": "<p><strong>Dark Chocolate Fondant</strong> — salted caramel, vanilla bean ice cream — <em>$14</em></p><p><strong>Crème Brûlée</strong> — Madagascar vanilla, seasonal berries — <em>$13</em></p><p><strong>Cheese Board</strong> — selection of three artisan cheeses, honeycomb, candied walnuts — <em>$22</em></p><p><strong>Affogato</strong> — double espresso over house-made gelato — <em>$11</em></p>"
+            }
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "handle": "wbNavItem",
+    "name": "Nav Item",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbNavItemLabel}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbNavItemLabel",
+                "wbNavItemUrl",
+                "wbNavItemTarget"
+            ]
+        }
+    ]
+}

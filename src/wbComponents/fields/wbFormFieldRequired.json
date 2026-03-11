@@ -1,0 +1,10 @@
+{
+    "name": "Field Required",
+    "handle": "wbFormFieldRequired",
+    "instructions": "Mark this field as required",
+    "type": "Lightswitch",
+    "typesettings": {
+        "default": false
+    },
+    "translationMethod": "site"
+}

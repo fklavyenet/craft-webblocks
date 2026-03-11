@@ -1,0 +1,11 @@
+{
+    "name": "Nav Item URL",
+    "handle": "wbNavItemUrl",
+    "instructions": "URL for the nav link",
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "/about or https://example.com",
+        "multiline": false
+    },
+    "translationMethod": "site"
+}

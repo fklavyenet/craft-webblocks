@@ -1,0 +1,40 @@
+{
+    "handle": "wbTable",
+    "name": "Table",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbTitle}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbTitle",
+                "wbTableCaption",
+                "wbTableColumns",
+                "wbTableRows"
+            ]
+        },
+        {
+            "name": "Style",
+            "fields": [
+                "wbTableStriped",
+                "wbTableBordered",
+                "wbTableHover",
+                "wbTableSm",
+                "wbTableResponsive"
+            ]
+        },
+        {
+            "name": "Appearance",
+            "fields": [
+                "wbBorder",
+                "wbBorderColor",
+                "wbRounded",
+                "wbPadding",
+                "wbTitlePosition"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "type": "wbHeading",
+    "fields": {
+        "wbTitle": "Navbar",
+        "wbHeadingLevel": "h3",
+        "wbHeadingAlign": "start"
+    }
+}

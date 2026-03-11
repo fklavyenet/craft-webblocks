@@ -1,0 +1,8 @@
+{
+    "handle": "wbTabItems",
+    "name": "Tab Items",
+    "translationMethod": "site",
+    "entryTypes": [
+        "wbTabItem"
+    ]
+}

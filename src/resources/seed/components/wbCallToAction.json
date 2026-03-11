@@ -1,0 +1,10 @@
+{
+    "type": "wbCallToAction",
+    "fields": {
+        "wbTitle": "Reserve Your Table Tonight",
+        "wbText": "Intimate tables, open flame, and an unforgettable evening. Book online or call us at (212) 555-0182.",
+        "wbButtonLabel": "Make a Reservation",
+        "wbButtonUrl": "https://kayseri.ddev.site/contact",
+        "wbBackgroundColor": "#1a1a1a"
+    }
+}

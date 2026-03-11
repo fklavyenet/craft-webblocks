@@ -1,0 +1,8 @@
+{
+    "type": "wbHeading",
+    "fields": {
+        "wbTitle": "Hero",
+        "wbHeadingLevel": "h3",
+        "wbHeadingAlign": "start"
+    }
+}

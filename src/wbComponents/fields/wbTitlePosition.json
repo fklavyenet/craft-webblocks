@@ -1,0 +1,13 @@
+{
+    "name": "Title Position",
+    "handle": "wbTitlePosition",
+    "instructions": "Show the title inside or outside the border/padding wrapper",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Outside", "value": "outside", "default": true  },
+            { "label": "Inside",  "value": "inside",  "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Navbar Expand",
+    "handle": "wbNavbarExpand",
+    "instructions": "Breakpoint at which the navbar expands horizontally",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            {
+                "label": "Small (sm)",
+                "value": "navbar-expand-sm",
+                "default": false
+            },
+            {
+                "label": "Medium (md)",
+                "value": "navbar-expand-md",
+                "default": false
+            },
+            {
+                "label": "Large (lg)",
+                "value": "navbar-expand-lg",
+                "default": true
+            },
+            {
+                "label": "Extra Large (xl)",
+                "value": "navbar-expand-xl",
+                "default": false
+            },
+            {
+                "label": "Extra Extra Large (xxl)",
+                "value": "navbar-expand-xxl",
+                "default": false
+            },
+            {
+                "label": "Always Expanded",
+                "value": "navbar-expand",
+                "default": false
+            }
+        ]
+    },
+    "translationMethod": "site"
+}

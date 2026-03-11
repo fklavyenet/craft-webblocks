@@ -1,0 +1,10 @@
+{
+    "type": "wbModal",
+    "fields": {
+        "wbTitle": "Join Our Newsletter",
+        "wbText": "<p>Be first to hear about seasonal menu changes, special events, and exclusive wine dinners. We send one email per month — no spam, ever.</p><p><strong>Sign up at the host stand</strong> on your next visit, or email us at <a href=\"mailto:news@emberandrye.com\">news@emberandrye.com</a>.</p>",
+        "wbButtonLabel": "Learn More",
+        "wbButtonColor": "#8b0000",
+        "wbModalSize": ""
+    }
+}

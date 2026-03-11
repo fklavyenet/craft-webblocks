@@ -1,0 +1,15 @@
+{
+    "name": "Posts Per Page",
+    "handle": "wbPerPage",
+    "instructions": "Number of posts to show per page in the blog listing",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "6",  "value": "6",  "default": false },
+            { "label": "10", "value": "10", "default": true  },
+            { "label": "12", "value": "12", "default": false },
+            { "label": "24", "value": "24", "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

@@ -1,0 +1,11 @@
+{
+    "handle": "wbMedia",
+    "name": "Media",
+    "type": "craft\\fs\\Local",
+    "hasUrls": true,
+    "path": "@webroot/media",
+    "url": "/media",
+    "settings": {
+        "createDirs": true
+    }
+}

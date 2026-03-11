@@ -1,0 +1,7 @@
+{
+    "name": "Progress Striped",
+    "handle": "wbProgressStriped",
+    "instructions": "Show striped pattern on the bar",
+    "type": "Lightswitch",
+    "translationMethod": "site"
+}

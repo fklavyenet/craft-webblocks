@@ -1,0 +1,14 @@
+{#
+    WebBlocks Index Template
+    Renders all wbBlocks for the current entry.
+    Include this template and pass the entry variable.
+
+    Usage:
+        {% include "wb/index" with { entry: entry } %}
+#}
+
+{% if entry is defined and entry.fieldLayout.getFieldByHandle('wbBlocks') %}
+    {% for item in entry.wbBlocks.all() %}
+        {% include "wb/components/#{item.type.handle}" ignore missing %}
+    {% endfor %}
+{% endif %}

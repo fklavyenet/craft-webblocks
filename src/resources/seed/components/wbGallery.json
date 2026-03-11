@@ -1,0 +1,17 @@
+{
+    "type": "wbGallery",
+    "fields": {
+        "wbTitle": "The Ember & Rye Experience",
+        "wbColumnsCount": "3"
+    },
+    "items": [
+        { "wbCaption": "The Dining Room", "imageIndex": 0 },
+        { "wbCaption": "Prime Dry-Aged Ribeye", "imageIndex": 1 },
+        { "wbCaption": "The Wood-Fire Grill", "imageIndex": 2 },
+        { "wbCaption": "Craft Cocktails", "imageIndex": 3 },
+        { "wbCaption": "House-Made Desserts", "imageIndex": 4 },
+        { "wbCaption": "Private Dining Room", "imageIndex": 5 },
+        { "wbCaption": "Farm-to-Table Starters", "imageIndex": 6 },
+        { "wbCaption": "House-Baked Sourdough", "imageIndex": 7 }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "title": "Component Demo",
+    "slug": "wb-demo",
+    "section": "wbPage",
+    "entryType": "wbPage",
+    "blocks": [
+        "wbHero",
+        "wbSpacing",
+        "wbTextBlock",
+        "wbSpacing",
+        "wbCarousel",
+        "wbSpacing",
+        "wbCard",
+        "wbSpacing",
+        "wbTabs",
+        "wbSpacing",
+        "wbAlertWarning",
+        "wbSpacing",
+        "wbProgressBar",
+        "wbSpacing",
+        "wbCallToAction",
+        "wbSpacing",
+        "wbAccordion",
+        "wbSpacing",
+        "wbVideoEmbed",
+        "wbSpacing",
+        "wbListGroup",
+        "wbSpacing",
+        "wbContactDetails",
+        "wbSpacing",
+        "wbTable"
+    ]
+}

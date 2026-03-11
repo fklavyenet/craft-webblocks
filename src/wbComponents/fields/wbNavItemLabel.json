@@ -1,0 +1,11 @@
+{
+    "name": "Nav Item Label",
+    "handle": "wbNavItemLabel",
+    "instructions": "Display text for the nav link",
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "Home",
+        "multiline": false
+    },
+    "translationMethod": "site"
+}

@@ -1,0 +1,42 @@
+{
+    "type": "wbCarousel",
+    "fields": {
+        "wbTitle": "A Taste of Ember & Rye",
+        "wbAutoplay": true,
+        "wbInterval": 4000,
+        "wbShowControls": true,
+        "wbShowIndicators": true
+    },
+    "items": [
+        {
+            "wbCaption": "The Dining Room",
+            "wbCaptionText": "An intimate space warmed by candlelight and the glow of our open wood-fire grill.",
+            "imageIndex": 0
+        },
+        {
+            "wbCaption": "Prime Dry-Aged Ribeye",
+            "wbCaptionText": "Our signature cut, aged 45 days in-house and finished over cherry wood.",
+            "imageIndex": 1
+        },
+        {
+            "wbCaption": "The Grill",
+            "wbCaptionText": "Every cut cooked over an open wood-fire grill for that unmistakable char and smoke.",
+            "imageIndex": 2
+        },
+        {
+            "wbCaption": "Craft Cocktails",
+            "wbCaptionText": "Our bar team creates seasonal cocktails to complement every course.",
+            "imageIndex": 3
+        },
+        {
+            "wbCaption": "House-Made Desserts",
+            "wbCaptionText": "A sweet finish — from dark chocolate fondant to vanilla crème brûlée.",
+            "imageIndex": 4
+        },
+        {
+            "wbCaption": "Private Dining Room",
+            "wbCaptionText": "An exclusive space for up to 20 guests — perfect for celebrations and corporate dinners.",
+            "imageIndex": 5
+        }
+    ]
+}

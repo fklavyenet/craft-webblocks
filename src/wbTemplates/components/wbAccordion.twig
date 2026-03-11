@@ -1,0 +1,18 @@
+<div class="wb-block accordion mb-4" id="accordion-{{ item.id|default(loop.index) }}">
+    {% if item.wbAccordionItems %}
+        {% for accordionItem in item.wbAccordionItems.all() %}
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ accordionItem.id }}" aria-expanded="false" aria-controls="collapse-{{ accordionItem.id }}">
+                        {{ accordionItem.wbTitle }}
+                    </button>
+                </h2>
+                <div id="collapse-{{ accordionItem.id }}" class="accordion-collapse collapse" data-bs-parent="#accordion-{{ item.id|default(loop.index) }}">
+                    <div class="accordion-body">
+                        {{ accordionItem.wbText }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>

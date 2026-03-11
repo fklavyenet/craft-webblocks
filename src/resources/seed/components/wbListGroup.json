@@ -1,0 +1,13 @@
+{
+    "type": "wbListGroup",
+    "fields": {
+        "wbTitle": "Awards & Recognition",
+        "wbListGroupFlush": false
+    },
+    "items": [
+        { "wbTitle": "Michelin Bib Gourmand 2024",          "wbButtonUrl": "https://guide.michelin.com", "wbButtonTarget": "_blank" },
+        { "wbTitle": "New York Times — 2 Stars",             "wbButtonUrl": "https://nytimes.com",        "wbButtonTarget": "_blank" },
+        { "wbTitle": "Eater NY — Best New Restaurant 2023",  "wbButtonUrl": "https://ny.eater.com",       "wbButtonTarget": "_blank" },
+        { "wbTitle": "Wine Spectator Award of Excellence",   "wbButtonUrl": "https://winespectator.com",  "wbButtonTarget": "_blank" }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "name": "Navbar Background",
+    "handle": "wbNavbarBg",
+    "instructions": "Bootstrap background color for the navbar",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            {
+                "label": "Color Mode (auto)",
+                "value": "color-mode",
+                "default": true
+            },
+            {
+                "label": "Light",
+                "value": "bg-light",
+                "default": false
+            },
+            {
+                "label": "Dark",
+                "value": "bg-dark",
+                "default": false
+            },
+            {
+                "label": "Primary",
+                "value": "bg-primary",
+                "default": false
+            },
+            {
+                "label": "Secondary",
+                "value": "bg-secondary",
+                "default": false
+            },
+            {
+                "label": "Success",
+                "value": "bg-success",
+                "default": false
+            },
+            {
+                "label": "Danger",
+                "value": "bg-danger",
+                "default": false
+            },
+            {
+                "label": "Warning",
+                "value": "bg-warning",
+                "default": false
+            },
+            {
+                "label": "Info",
+                "value": "bg-info",
+                "default": false
+            },
+            {
+                "label": "White",
+                "value": "bg-white",
+                "default": false
+            },
+            {
+                "label": "Transparent",
+                "value": "bg-transparent",
+                "default": false
+            }
+        ]
+    },
+    "translationMethod": "site"
+}

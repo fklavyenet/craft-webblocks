@@ -1,0 +1,13 @@
+{
+    "name": "Form Recipient",
+    "handle": "wbFormRecipient",
+    "instructions": "Email address that form submissions are sent to",
+    "type": "PlainText",
+    "searchable": false,
+    "typesettings": {
+        "placeholder": "hello@example.com",
+        "maxLength": 255,
+        "multiline": false
+    },
+    "translationMethod": "site"
+}

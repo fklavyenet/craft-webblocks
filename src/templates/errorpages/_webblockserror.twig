@@ -1,0 +1,21 @@
+{% extends "webblocks/_layouts/site" %}
+
+{% block content %}
+
+<section class="site-header site-header-large">
+    <div class="site-header-slides">
+
+        <div class="site-header-slide site-header-slide-no-image">
+            <div class="claim-wrapper">
+                <div class="header-claim header-claim-center">
+                    <span class="claim">{{ title }}</span>
+                    <br>
+                    <span class="subtitle">{{ subline }}</span>
+                    <p><a href="{{ siteUrl }}" class="button">{{ 'Back to homepage'|t('webblocks') }}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

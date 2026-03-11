@@ -1,0 +1,12 @@
+{
+    "handle": "wbSearch",
+    "name": "Search Results",
+    "hasTitleField": true,
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": []
+        }
+    ]
+}

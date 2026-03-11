@@ -1,0 +1,67 @@
+{% set slides = item.wbCarouselItems.all() %}
+{% set carouselId = 'wbCarousel-' ~ item.id %}
+{% set autoplay = item.wbAutoplay ?? true %}
+{% set interval = item.wbInterval ?? 5000 %}
+{% set showControls = item.wbShowControls ?? true %}
+{% set showIndicators = item.wbShowIndicators ?? true %}
+
+<section class="wb-block wb-carousel mb-4">
+    {% if item.wbTitle %}
+        <h2 class="mb-3">{{ item.wbTitle }}</h2>
+    {% endif %}
+
+    <div id="{{ carouselId }}"
+         class="carousel slide"
+         data-bs-ride="{{ autoplay ? 'carousel' : 'false' }}"
+         {% if autoplay %}data-bs-interval="{{ interval }}"{% endif %}>
+
+        {# Indicators #}
+        {% if showIndicators and slides|length > 1 %}
+            <div class="carousel-indicators">
+                {% for slide in slides %}
+                    <button type="button"
+                            data-bs-target="#{{ carouselId }}"
+                            data-bs-slide-to="{{ loop.index0 }}"
+                            {% if loop.first %}class="active" aria-current="true"{% endif %}
+                            aria-label="Slide {{ loop.index }}"></button>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {# Slides #}
+        <div class="carousel-inner">
+            {% for slide in slides %}
+                {% set slideImage = slide.wbImage.one() ?? null %}
+                <div class="carousel-item{% if loop.first %} active{% endif %}">
+                    {% if slideImage %}
+                        <img src="{{ slideImage.getUrl('wbCarousel') }}"
+                             class="d-block w-100"
+                             alt="{{ slideImage.alt ?: slideImage.title }}">
+                    {% endif %}
+                    {% if slide.wbCaption or slide.wbCaptionText %}
+                        <div class="carousel-caption d-none d-md-block">
+                            {% if slide.wbCaption %}
+                                <h5>{{ slide.wbCaption }}</h5>
+                            {% endif %}
+                            {% if slide.wbCaptionText %}
+                                <p>{{ slide.wbCaptionText }}</p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        {# Prev/Next Controls #}
+        {% if showControls and slides|length > 1 %}
+            <button class="carousel-control-prev" type="button" data-bs-target="#{{ carouselId }}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#{{ carouselId }}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        {% endif %}
+    </div>
+</section>

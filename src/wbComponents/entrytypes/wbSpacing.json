@@ -1,0 +1,17 @@
+{
+    "handle": "wbSpacing",
+    "name": "Spacing",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "py-{wbSpacingSize}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbSpacingSize"
+            ]
+        }
+    ]
+}

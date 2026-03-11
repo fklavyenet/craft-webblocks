@@ -1,0 +1,30 @@
+{
+    "handle": "wbColumns",
+    "name": "Columns",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "Columns",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Settings",
+            "fields": [
+                "wbColumnsCount"
+            ]
+        },
+        {
+            "name": "Appearance",
+            "fields": [
+                "wbBorder",
+                "wbBorderColor",
+                "wbRounded",
+                "wbPadding",
+                "wbTitlePosition"
+            ]
+        }
+    ],
+    "matrixFields": [
+        "wbColumnItems"
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "name": "Responsive Wrapper",
+    "handle": "wbTableResponsive",
+    "instructions": "Wrap in a responsive div for horizontal scroll on small screens",
+    "type": "Lightswitch",
+    "typesettings": {
+        "default": true
+    },
+    "translationMethod": "site"
+}

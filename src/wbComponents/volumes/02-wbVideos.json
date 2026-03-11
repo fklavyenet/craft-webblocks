@@ -1,0 +1,7 @@
+{
+    "handle": "wbVideos",
+    "name": "WB Videos",
+    "fs": "wbMedia",
+    "subpath": "videos",
+    "sortOrder": 2
+}

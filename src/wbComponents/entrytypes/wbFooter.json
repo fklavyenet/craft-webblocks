@@ -1,0 +1,23 @@
+{
+    "handle": "wbFooter",
+    "name": "Footer",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbNavbarBrand}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbNavbarBrand",
+                "wbNavbarLogo",
+                "wbFooterTagline",
+                "wbFooterCopyright"
+            ]
+        }
+    ],
+    "matrixFields": [
+        "wbFooterLinks"
+    ]
+}

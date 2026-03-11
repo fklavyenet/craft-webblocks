@@ -1,0 +1,15 @@
+{
+    "name": "Tab Alignment",
+    "handle": "wbTabAlign",
+    "instructions": "Horizontal alignment of the tab buttons",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Left",   "value": "",                  "default": true  },
+            { "label": "Center", "value": "justify-content-center", "default": false },
+            { "label": "Right",  "value": "justify-content-end",    "default": false },
+            { "label": "Fill",   "value": "nav-fill",               "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

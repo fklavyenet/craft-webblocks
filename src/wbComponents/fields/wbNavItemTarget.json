@@ -1,0 +1,21 @@
+{
+    "name": "Nav Item Target",
+    "handle": "wbNavItemTarget",
+    "instructions": "Link target",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            {
+                "label": "Same Window",
+                "value": "",
+                "default": true
+            },
+            {
+                "label": "New Window",
+                "value": "_blank",
+                "default": false
+            }
+        ]
+    },
+    "translationMethod": "site"
+}

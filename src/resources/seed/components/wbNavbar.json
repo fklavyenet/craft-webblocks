@@ -1,0 +1,10 @@
+{
+    "type": "wbNavbar",
+    "fields": {
+        "wbNavbarBrand": "Ember & Rye",
+        "wbNavbarColorScheme": "navbar-dark",
+        "wbNavbarBg": "bg-dark",
+        "wbNavbarSearch": true
+    },
+    "items": []
+}

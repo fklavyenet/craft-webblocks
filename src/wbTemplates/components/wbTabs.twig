@@ -1,0 +1,40 @@
+{# wbTabs — Bootstrap 5 tabs #}
+{% set _tabItems = item.wbTabItems ? item.wbTabItems.all() : [] %}
+{% set _align = item.wbTabAlign.value ?? '' %}
+{% set _tabsId = 'wbTabs-' ~ item.id %}
+
+{% if _tabItems|length %}
+<div class="wb-block wb-tabs mb-4">
+    {% if item.wbTitle %}
+        <h5 class="mb-3">{{ item.wbTitle }}</h5>
+    {% endif %}
+    <ul class="nav nav-tabs {{ _align }}" id="{{ _tabsId }}" role="tablist">
+        {% for _tab in _tabItems %}
+            {% set _tabId = _tabsId ~ '-tab-' ~ loop.index %}
+            <li class="nav-item" role="presentation">
+                <button class="nav-link {{ loop.first ? 'active' : '' }}"
+                        id="{{ _tabId }}-btn"
+                        data-bs-toggle="tab"
+                        data-bs-target="#{{ _tabId }}"
+                        type="button"
+                        role="tab"
+                        aria-controls="{{ _tabId }}"
+                        aria-selected="{{ loop.first ? 'true' : 'false' }}">
+                    {{ _tab.wbTabTitle }}
+                </button>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="tab-content border border-top-0 p-3" id="{{ _tabsId }}-content">
+        {% for _tab in _tabItems %}
+            {% set _tabId = _tabsId ~ '-tab-' ~ loop.index %}
+            <div class="tab-pane fade {{ loop.first ? 'show active' : '' }}"
+                 id="{{ _tabId }}"
+                 role="tabpanel"
+                 aria-labelledby="{{ _tabId }}-btn">
+                {{ _tab.wbText }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

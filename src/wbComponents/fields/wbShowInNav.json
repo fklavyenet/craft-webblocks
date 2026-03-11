@@ -1,0 +1,10 @@
+{
+    "name": "Show in Navigation",
+    "handle": "wbShowInNav",
+    "instructions": "Show a link to this entry in the main navigation",
+    "type": "Lightswitch",
+    "typesettings": {
+        "default": false
+    },
+    "translationMethod": "site"
+}

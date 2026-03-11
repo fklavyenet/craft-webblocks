@@ -1,0 +1,10 @@
+{
+    "name": "Alert Dismissible",
+    "handle": "wbAlertDismissible",
+    "instructions": "Show close button",
+    "type": "Lightswitch",
+    "typesettings": {
+        "default": false
+    },
+    "translationMethod": "site"
+}

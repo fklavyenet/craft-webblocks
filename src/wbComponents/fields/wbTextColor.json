@@ -1,0 +1,10 @@
+{
+    "name": "Text Color",
+    "handle": "wbTextColor",
+    "instructions": "Text color",
+    "type": "Color",
+    "typesettings": {
+        "defaultColor": ""
+    },
+    "translationMethod": "site"
+}

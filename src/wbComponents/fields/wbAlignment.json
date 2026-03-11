@@ -1,0 +1,14 @@
+{
+    "name": "Alignment",
+    "handle": "wbAlignment",
+    "instructions": "Horizontal alignment of content",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Left",   "value": "start",  "default": true  },
+            { "label": "Center", "value": "center", "default": false },
+            { "label": "Right",  "value": "end",    "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

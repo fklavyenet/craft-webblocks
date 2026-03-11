@@ -1,0 +1,26 @@
+{
+    "handle": "wbModal",
+    "name": "Modal",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbTitle}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbTitle",
+                "wbText",
+                "wbButtonLabel",
+                "wbButtonColor"
+            ]
+        },
+        {
+            "name": "Style",
+            "fields": [
+                "wbModalSize"
+            ]
+        }
+    ]
+}

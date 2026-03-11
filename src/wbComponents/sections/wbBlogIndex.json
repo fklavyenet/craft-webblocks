@@ -1,0 +1,8 @@
+{
+    "handle": "wbBlogIndex",
+    "name": "Blog",
+    "type": "single",
+    "template": "wb/sections/blog-index",
+    "uriFormat": "blog",
+    "entryTypes": ["wbBlogIndex"]
+}

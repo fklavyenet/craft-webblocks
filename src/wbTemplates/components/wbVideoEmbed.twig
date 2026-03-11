@@ -1,0 +1,32 @@
+{# wbVideoEmbed — Bootstrap 5 ratio embed for YouTube/Vimeo #}
+{% set _url = item.wbVideoUrl ?? '' %}
+{% set _ratio = item.wbVideoRatio.value ?? 'ratio-16x9' %}
+
+{# Convert watch URL to embed URL #}
+{% set _embedUrl = _url %}
+{% if 'youtube.com/watch' in _url %}
+    {% set _embedUrl = _url|replace({'youtube.com/watch?v=': 'youtube.com/embed/'}) %}
+    {# Strip any extra query params after the video ID #}
+    {% set _embedUrl = _embedUrl|split('&')[0] %}
+{% elseif 'youtu.be/' in _url %}
+    {% set _videoId = _url|split('youtu.be/')[1]|split('?')[0] %}
+    {% set _embedUrl = 'https://www.youtube.com/embed/' ~ _videoId %}
+{% elseif 'vimeo.com/' in _url and 'player.vimeo.com' not in _url %}
+    {% set _videoId = _url|split('vimeo.com/')[1]|split('?')[0] %}
+    {% set _embedUrl = 'https://player.vimeo.com/video/' ~ _videoId %}
+{% endif %}
+
+{% if _url %}
+<div class="wb-block wb-video-embed mb-4">
+    {% if item.wbTitle %}
+        <h5 class="mb-3">{{ item.wbTitle }}</h5>
+    {% endif %}
+    <div class="ratio {{ _ratio }}">
+        <iframe src="{{ _embedUrl }}"
+                title="{{ item.wbTitle ?? 'Video' }}"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+    </div>
+</div>
+{% endif %}

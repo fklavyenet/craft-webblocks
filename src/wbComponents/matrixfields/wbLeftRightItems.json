@@ -1,0 +1,6 @@
+{
+    "handle": "wbLeftRightItems",
+    "name": "Left Right Items",
+    "translationMethod": "site",
+    "entryTypes": ["wbLeftRightItem"]
+}

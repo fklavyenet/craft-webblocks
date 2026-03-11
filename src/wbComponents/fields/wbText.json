@@ -1,0 +1,8 @@
+{
+    "name": "Text",
+    "handle": "wbText",
+    "instructions": "",
+    "type": "CKEditor",
+    "searchable": true,
+    "translationMethod": "site"
+}

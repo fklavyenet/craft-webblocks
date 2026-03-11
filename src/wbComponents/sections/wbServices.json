@@ -1,0 +1,9 @@
+{
+    "handle": "wbServices",
+    "name": "Services",
+    "type": "structure",
+    "template": "wb/sections/service",
+    "uriFormat": "{parent.uri}/{slug}",
+    "maxLevels": 2,
+    "entryTypes": ["wbServicesIndex", "wbServicePage"]
+}

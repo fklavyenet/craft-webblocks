@@ -1,0 +1,8 @@
+{
+    "handle": "wbReferencesIndex",
+    "name": "References",
+    "type": "single",
+    "template": "wb/sections/references-index",
+    "uriFormat": "references",
+    "entryTypes": ["wbReferencesIndex"]
+}

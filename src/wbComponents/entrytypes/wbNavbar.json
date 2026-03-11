@@ -1,0 +1,31 @@
+{
+    "handle": "wbNavbar",
+    "name": "Navbar",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbNavbarBrand}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbNavbarBrand",
+                "wbNavbarLogo"
+            ]
+        },
+        {
+            "name": "Settings",
+            "fields": [
+                "wbNavbarExpand",
+                "wbNavbarColorScheme",
+                "wbNavbarBg",
+                "wbNavbarSearch",
+                "wbNavbarSearchPlaceholder"
+            ]
+        }
+    ],
+    "matrixFields": [
+        "wbNavbarItems"
+    ]
+}

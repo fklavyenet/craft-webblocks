@@ -1,0 +1,20 @@
+{
+    "name": "Border Color",
+    "handle": "wbBorderColor",
+    "instructions": "Border color (Bootstrap contextual color)",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Default",   "value": "",          "default": true  },
+            { "label": "Primary",   "value": "primary",   "default": false },
+            { "label": "Secondary", "value": "secondary", "default": false },
+            { "label": "Success",   "value": "success",   "default": false },
+            { "label": "Danger",    "value": "danger",    "default": false },
+            { "label": "Warning",   "value": "warning",   "default": false },
+            { "label": "Info",      "value": "info",      "default": false },
+            { "label": "Light",     "value": "light",     "default": false },
+            { "label": "Dark",      "value": "dark",      "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

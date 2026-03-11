@@ -1,0 +1,12 @@
+{
+    "name": "Footer Order",
+    "handle": "wbFooterOrder",
+    "instructions": "Sort position in the footer links (10, 20, 30 … — lower numbers appear first). Leave blank to sort last.",
+    "type": "Number",
+    "typesettings": {
+        "min": null,
+        "max": null,
+        "decimals": 0
+    },
+    "translationMethod": "site"
+}

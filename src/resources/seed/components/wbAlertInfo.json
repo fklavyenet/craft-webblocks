@@ -1,0 +1,9 @@
+{
+    "type": "wbAlert",
+    "fields": {
+        "wbTitle": "Holiday Hours",
+        "wbText": "We are open on Thanksgiving, Christmas Eve, and New Year's Eve. Reservations fill up fast — <a href=\"/contact\">book now</a> to secure your spot.",
+        "wbAlertType": "info",
+        "wbAlertDismissible": true
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "volume": "wbImages",
+    "images": [
+        {
+            "filename": "ember-hero.jpg",
+            "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&h=900&fit=crop",
+            "title": "Ember & Rye — Restaurant Interior"
+        },
+        {
+            "filename": "ember-steak.jpg",
+            "url": "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop",
+            "title": "Prime Dry-Aged Ribeye"
+        },
+        {
+            "filename": "ember-grill.jpg",
+            "url": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
+            "title": "Open Wood-Fire Grill"
+        },
+        {
+            "filename": "ember-cocktail.jpg",
+            "url": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&h=600&fit=crop",
+            "title": "Signature Cocktails"
+        },
+        {
+            "filename": "ember-dessert.jpg",
+            "url": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&h=600&fit=crop",
+            "title": "House Desserts"
+        },
+        {
+            "filename": "ember-dining.jpg",
+            "url": "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&h=600&fit=crop",
+            "title": "Private Dining Room"
+        },
+        {
+            "filename": "ember-salad.jpg",
+            "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop",
+            "title": "Farm-to-Table Starters"
+        },
+        {
+            "filename": "ember-bread.jpg",
+            "url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=600&fit=crop",
+            "title": "House-Baked Sourdough"
+        },
+        {
+            "filename": "gallery-portrait-1.jpg",
+            "url": "https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?w=600&h=900&fit=crop&q=80",
+            "title": "Chef at Work"
+        },
+        {
+            "filename": "gallery-landscape-1.jpg",
+            "url": "https://images.unsplash.com/photo-1544025162-d76694265947?w=900&h=600&fit=crop&q=80",
+            "title": "Dry-Aged Ribeye, Plated"
+        },
+        {
+            "filename": "gallery-portrait-2.jpg",
+            "url": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=900&fit=crop&q=80",
+            "title": "The Open Kitchen"
+        },
+        {
+            "filename": "gallery-landscape-2.jpg",
+            "url": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&h=600&fit=crop&q=80",
+            "title": "Seasonal Sharing Plates"
+        },
+        {
+            "filename": "gallery-square-1.jpg",
+            "url": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&h=700&fit=crop&q=80",
+            "title": "Wood-Fired Pizza"
+        },
+        {
+            "filename": "gallery-portrait-3.jpg",
+            "url": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&h=900&fit=crop&q=80",
+            "title": "Morning Prep"
+        },
+        {
+            "filename": "gallery-landscape-3.jpg",
+            "url": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=900&h=600&fit=crop&q=80",
+            "title": "Pan-Seared Sea Bass"
+        },
+        {
+            "filename": "gallery-square-2.jpg",
+            "url": "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=700&h=700&fit=crop&q=80",
+            "title": "Perfect Sear"
+        },
+        {
+            "filename": "gallery-landscape-4.jpg",
+            "url": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&h=600&fit=crop&q=80",
+            "title": "The Dining Room at Night"
+        },
+        {
+            "filename": "gallery-portrait-4.jpg",
+            "url": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&h=900&fit=crop&q=80",
+            "title": "Craft Cocktail Close-Up"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "handle": "wbFooterLinks",
+    "name": "Footer Links",
+    "translationMethod": "site",
+    "entryTypes": ["wbFooterItem"]
+}

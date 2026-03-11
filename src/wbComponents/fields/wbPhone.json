@@ -1,0 +1,12 @@
+{
+    "name": "Phone",
+    "handle": "wbPhone",
+    "instructions": "Phone number",
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "+90 555 123 4567",
+        "multiline": false
+    },
+    "translationMethod": "site",
+    "searchable": true
+}

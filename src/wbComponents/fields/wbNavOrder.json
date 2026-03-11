@@ -1,0 +1,12 @@
+{
+    "name": "Nav Order",
+    "handle": "wbNavOrder",
+    "instructions": "Sort position in the main navigation (10, 20, 30 … — lower numbers appear first). Leave blank to sort last.",
+    "type": "Number",
+    "typesettings": {
+        "min": null,
+        "max": null,
+        "decimals": 0
+    },
+    "translationMethod": "site"
+}

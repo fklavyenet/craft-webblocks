@@ -1,0 +1,8 @@
+{
+    "type": "wbHeading",
+    "fields": {
+        "wbTitle": "Alert",
+        "wbHeadingLevel": "h3",
+        "wbHeadingAlign": "start"
+    }
+}

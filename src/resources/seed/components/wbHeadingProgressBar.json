@@ -1,0 +1,8 @@
+{
+    "type": "wbHeading",
+    "fields": {
+        "wbTitle": "Progress Bar",
+        "wbHeadingLevel": "h3",
+        "wbHeadingAlign": "start"
+    }
+}

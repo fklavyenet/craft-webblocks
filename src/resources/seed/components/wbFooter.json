@@ -1,0 +1,30 @@
+{
+    "type": "wbFooter",
+    "fields": {
+        "wbNavbarBrand": "Ember & Rye",
+        "wbFooterTagline": "Modern American steakhouse. Fire-driven cooking, honest flavour.",
+        "wbFooterCopyright": "© 2026 Ember & Rye. All rights reserved."
+    },
+    "items": [
+        {
+            "wbFooterLinkLabel": "Home",
+            "wbFooterLinkUrl": "/"
+        },
+        {
+            "wbFooterLinkLabel": "About",
+            "wbFooterLinkUrl": "/about"
+        },
+        {
+            "wbFooterLinkLabel": "Private Dining",
+            "wbFooterLinkUrl": "/private-dining"
+        },
+        {
+            "wbFooterLinkLabel": "Blog",
+            "wbFooterLinkUrl": "/blog"
+        },
+        {
+            "wbFooterLinkLabel": "Reservations",
+            "wbFooterLinkUrl": "/contact"
+        }
+    ]
+}

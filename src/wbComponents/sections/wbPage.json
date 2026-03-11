@@ -1,0 +1,9 @@
+{
+    "handle": "wbPage",
+    "name": "Pages",
+    "type": "structure",
+    "template": "wb/sections/page",
+    "uriFormat": "{slug}",
+    "maxLevels": 3,
+    "entryTypes": ["wbPage"]
+}

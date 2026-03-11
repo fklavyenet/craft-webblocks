@@ -1,0 +1,8 @@
+{
+    "type": "wbHeading",
+    "fields": {
+        "wbTitle": "Button",
+        "wbHeadingLevel": "h3",
+        "wbHeadingAlign": "start"
+    }
+}

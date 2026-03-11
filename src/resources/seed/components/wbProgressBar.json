@@ -1,0 +1,12 @@
+{
+    "type": "wbProgressBar",
+    "fields": {
+        "wbTitle": "Guest Satisfaction",
+        "wbProgressBars": [
+            { "wbProgressLabel": "Overall Experience",  "wbProgressValue": 97, "wbProgressColor": "bg-success",  "wbProgressStriped": false },
+            { "wbProgressLabel": "Food Quality",        "wbProgressValue": 98, "wbProgressColor": "bg-success",  "wbProgressStriped": false },
+            { "wbProgressLabel": "Service",             "wbProgressValue": 96, "wbProgressColor": "bg-success",  "wbProgressStriped": false },
+            { "wbProgressLabel": "Value for Money",     "wbProgressValue": 89, "wbProgressColor": "bg-info",     "wbProgressStriped": false }
+        ]
+    }
+}

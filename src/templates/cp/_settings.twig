@@ -1,0 +1,21 @@
+{% import "_includes/forms" as forms %}
+
+<h2>Google reCAPTCHA</h2>
+
+{{ forms.textField({
+    label: "reCAPTCHA Site Key",
+    id: 'googleReCaptchaKey',
+    name: 'googleReCaptchaKey',
+    instructions: "Public site key used by wbForm to render the reCAPTCHA widget.",
+    value: settings.googleReCaptchaKey,
+    errors: settings.getErrors('googleReCaptchaKey')
+}) }}
+
+{{ forms.textField({
+    label: "reCAPTCHA Secret Key",
+    id: 'googleReCaptchaSecret',
+    name: 'googleReCaptchaSecret',
+    instructions: "Server-side secret key used to validate reCAPTCHA responses.",
+    value: settings.googleReCaptchaSecret,
+    errors: settings.getErrors('googleReCaptchaSecret')
+}) }}

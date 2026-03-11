@@ -1,0 +1,185 @@
+{% extends "wb/layout" %}
+
+{% block bodyClass %}page-wbsearch{% endblock %}
+
+{% block title %}
+    {% set query = craft.app.request.getParam('q')|trim %}
+    <title>{% if query %}{{ "Search: {query}"|t('webblocks', { query: query }) }}{% else %}{{ "Search"|t('webblocks') }}{% endif %} — {{ siteName }}</title>
+{% endblock %}
+
+{% block mainClass %}container py-5{% endblock %}
+
+{% block content %}
+
+{% set query = craft.app.request.getParam('q')|trim %}
+{% set perPage = 10 %}
+{% set currentPage = craft.app.request.getPageNum() %}
+
+    {# ── Search form ── #}
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8">
+            <h1 class="mb-4">{{ "Search"|t('webblocks') }}</h1>
+            <form method="get" action="{{ url('search') }}" role="search">
+                <div class="input-group input-group-lg">
+                    <input type="search"
+                           class="form-control"
+                           name="q"
+                           value="{{ query|escape }}"
+                           placeholder="{{ 'Search all content…'|t('webblocks') }}"
+                           aria-label="{{ 'Search'|t('webblocks') }}"
+                           autofocus>
+                    <button class="btn btn-primary" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search me-1" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                        {{ "Search"|t('webblocks') }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {# ── Results ── #}
+    {% if query %}
+        {#
+            Fetch up to 200 matching entries (includes nested block entries).
+            For each hit, resolve to the nearest linkable ancestor (the page that
+            owns the block). De-duplicate so the same page only appears once.
+        #}
+        {% set hits = craft.entries()
+            .search('title:' ~ query ~ ' OR ' ~ query)
+            .orderBy('score')
+            .limit(200)
+            .all() %}
+
+        {# Build a de-duplicated list of [page entry, matched title] pairs #}
+        {% set seenIds  = [] %}
+        {% set pages    = [] %}
+        {% for hit in hits %}
+            {% if hit.url %}
+                {# Direct page-level entry with a URL #}
+                {% if hit.id not in seenIds %}
+                    {% set seenIds = seenIds|merge([hit.id]) %}
+                    {% set pages   = pages|merge([{ entry: hit, matchedTitle: null }]) %}
+                {% endif %}
+            {% else %}
+                {# Nested block — walk up to find the owning page (max 3 levels) #}
+                {% set owner = hit.primaryOwner ?? null %}
+                {% if owner and not owner.url %}
+                    {% set owner = owner.primaryOwner ?? null %}
+                {% endif %}
+                {% if owner and not owner.url %}
+                    {% set owner = owner.primaryOwner ?? null %}
+                {% endif %}
+                {% if owner and owner.url and owner.id not in seenIds %}
+                    {% set seenIds = seenIds|merge([owner.id]) %}
+                    {% set pages   = pages|merge([{ entry: owner, matchedTitle: hit.title }]) %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        {% set total      = pages|length %}
+        {% set totalPages = (total / perPage)|round(0, 'ceil') %}
+        {% set offset     = (currentPage - 1) * perPage %}
+        {% set results    = pages|slice(offset, perPage) %}
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                {# Result count #}
+                <p class="text-muted mb-3">
+                    {% if total == 0 %}
+                        {{ "No results found for \"{query}\"."|t('webblocks', { query: query }) }}
+                    {% elseif total == 1 %}
+                        {{ "1 result for \"{query}\""|t('webblocks', { query: query }) }}
+                    {% else %}
+                        {{ "{total} results for \"{query}\""|t('webblocks', { total: total, query: query }) }}
+                    {% endif %}
+                </p>
+
+                {% if results|length %}
+
+                    <ul class="list-group list-group-flush mb-4">
+                        {% for row in results %}
+                            {% set result = row.entry %}
+                            <li class="list-group-item px-0 py-3">
+                                <div class="d-flex justify-content-between align-items-start gap-3">
+                                    <div class="flex-grow-1">
+
+                                        {# Title / link #}
+                                        <h5 class="mb-1">
+                                            <a href="{{ result.url }}" class="text-decoration-none stretched-link">
+                                                {{ result.title }}
+                                            </a>
+                                        </h5>
+
+                                        {# Matched block title (when hit was a nested block) #}
+                                        {% if row.matchedTitle %}
+                                            <small class="text-muted d-block mb-1">{{ row.matchedTitle }}</small>
+                                        {% endif %}
+
+                                        {# Snippet: try common text fields #}
+                                        {% set snippet = null %}
+                                        {% for fieldHandle in ['wbText', 'body', 'text', 'description', 'summary', 'content'] %}
+                                            {% if not snippet and result[fieldHandle] is defined and result[fieldHandle] %}
+                                                {% set snippet = result[fieldHandle]|striptags|slice(0, 200) %}
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        {% if snippet %}
+                                            <p class="mt-2 mb-0 text-secondary small">
+                                                {{ snippet }}{% if snippet|length >= 200 %}…{% endif %}
+                                            </p>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                    {# ── Pagination ── #}
+                    {% if totalPages > 1 %}
+                        <nav aria-label="{{ 'Search result pages'|t('webblocks') }}">
+                            <ul class="pagination justify-content-center">
+
+                                <li class="page-item {{ currentPage <= 1 ? 'disabled' }}">
+                                    <a class="page-link" href="{{ url('search', { q: query, p: currentPage - 1 }) }}" aria-label="{{ 'Previous'|t('webblocks') }}">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+
+                                {% for p in 1..totalPages %}
+                                    <li class="page-item {{ p == currentPage ? 'active' }}" {% if p == currentPage %}aria-current="page"{% endif %}>
+                                        <a class="page-link" href="{{ url('search', { q: query, p: p }) }}">{{ p }}</a>
+                                    </li>
+                                {% endfor %}
+
+                                <li class="page-item {{ currentPage >= totalPages ? 'disabled' }}">
+                                    <a class="page-link" href="{{ url('search', { q: query, p: currentPage + 1 }) }}" aria-label="{{ 'Next'|t('webblocks') }}">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    {% endif %}
+
+                {% endif %}{# /results|length #}
+
+            </div>
+        </div>
+
+    {% else %}
+        {# No query entered yet — show a friendly prompt #}
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center text-muted">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-search mb-3 opacity-25" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+                <p>{{ "Enter a search term above to find content."|t('webblocks') }}</p>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

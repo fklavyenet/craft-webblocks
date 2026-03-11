@@ -1,0 +1,522 @@
+[
+    {
+        "title": "Why We Age Our Beef for 45 Days",
+        "slug": "why-we-age-our-beef-for-45-days",
+        "wbSeoTitle": "Why We Age Our Beef for 45 Days — Ember & Rye",
+        "wbSeoDescription": "Executive Chef Marcus Webb explains the science and craft behind dry-ageing beef in-house, and why 45 days is the sweet spot for maximum flavour.",
+        "excerpt": "Executive Chef Marcus Webb explains the science and craft behind dry-ageing beef in-house — and why 45 days is the sweet spot.",
+        "imageIndex": 1,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>When guests ask us what makes our ribeye different, the honest answer is time. Most restaurants serve beef aged for 14 to 21 days — enough to tenderise the muscle fibres and satisfy a basic standard. We age our signature cuts for a minimum of 45 days, and here is why that matters.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "What happens during dry-ageing?",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Dry-ageing is a controlled process of moisture loss and enzymatic activity. Beef is hung or placed on wire racks in a temperature- and humidity-controlled environment — in our case, a dedicated ageing room at the back of the kitchen where conditions are maintained within narrow tolerances around 34°F and 80% relative humidity.</p><p>Over the first two weeks, enzymes naturally present in the meat begin breaking down connective tissue and muscle fibres. This is where the tenderisation happens. By day 21, a good dry-aged steak is noticeably more tender than a fresh-cut equivalent.</p><p>From day 21 onward, something more interesting begins to occur. As surface moisture continues to evaporate, flavour concentrates in the remaining tissue. The Maillard reaction during cooking — that crust of caramelised proteins that gives a great steak its sear — becomes more pronounced, more complex. Nutty, buttery, umami-rich flavour notes emerge that simply do not exist in younger beef.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Why 45 days specifically?",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Beyond 60 days, the flavour profile in many cuts begins to move into territory that divides opinion — intensely funky notes that some diners love and others find overwhelming. We have tasted our ribeye at every stage from 28 to 75 days, and 45 days consistently produces what we think of as the ideal balance: genuinely complex flavour without overwhelming the character of the beef itself.</p><p>It is also worth noting that dry-ageing involves real loss. A 45-day age means losing 15 to 20% of the original weight to moisture evaporation, plus the outer crust — the pellicle — that must be trimmed away. You are paying for a smaller piece of meat with more flavour per gram. We think that is a fair trade.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Ask to see the ageing room",
+                    "wbText": "We are always happy to show curious guests our ageing room before or after their meal. Ask your server when you arrive.",
+                    "wbAlertType": "info",
+                    "wbAlertDismissible": false
+                }
+            }
+        ]
+    },
+    {
+        "title": "A Guide to Our Seasonal Cocktail Menu",
+        "slug": "guide-to-our-seasonal-cocktail-menu",
+        "wbSeoTitle": "Our Seasonal Cocktail Menu — Ember & Rye",
+        "wbSeoDescription": "Head Bartender Tomás Rivera walks through the ingredients, inspirations, and techniques behind our spring cocktail menu.",
+        "excerpt": "Head Bartender Tomás Rivera walks through the inspirations and ingredients behind our new spring cocktail menu.",
+        "imageIndex": 3,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>When I designed our spring menu, I wanted each drink to feel like it belonged to the season — not just because a garnish looks nice, but because the flavours genuinely reflect what is growing and available right now. Here is a look at what went into four of our current cocktails.</p>"
+                }
+            },
+            {
+                "type": "wbTabs",
+                "fields": {
+                    "wbTabItems": [
+                        {
+                            "wbTabTitle": "The Char & Smoke",
+                            "wbText": "<p><strong>Rye whiskey, activated charcoal syrup, smoked cherry bitters, expressed lemon peel.</strong></p><p>This is the most Ember & Rye cocktail on the menu — we smoke our own cherries over applewood, the same wood we use in the grill. The activated charcoal syrup gives it a visual drama and a subtle mineral note that cuts through the sweetness of the cherry. Serve over a single large ice cube.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Rye Garden",
+                            "wbText": "<p><strong>Gin, cucumber water, fresh dill, elderflower tonic, lemon.</strong></p><p>We press our own cucumber water in-house every morning. It sounds fussy, but commercial cucumber-flavoured spirits taste artificial compared to the real thing — clean, green, and slightly sweet. The dill comes from a Maryland herb farm that also supplies our kitchen. A very spring drink.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Blood & Honey",
+                            "wbText": "<p><strong>Mezcal, blood orange, wildflower honey, Amaro, salt rim.</strong></p><p>Blood orange is at its very best right now. We reduce it down with wildflower honey from a Virginia beekeeper into a thick syrup that balances the smokiness of the mezcal. The Amaro adds bitterness and complexity. One of the most requested drinks we have ever put on the menu.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Sober Selection",
+                            "wbText": "<p><strong>Shrub-based non-alcoholic options available for all courses.</strong></p><p>We take our non-alcoholic programme seriously. Our shrubs — drinking vinegars made from seasonal fruit and herbs — form the base of three dedicated non-alcoholic cocktails this season. Complex, interesting, and genuinely pairing-worthy alongside the food.</p>"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Join us for cocktail hour",
+                    "wbText": "Wednesday to Friday from 5:00 pm to 6:30 pm. All cocktails at 20% off and bar snacks complimentary.",
+                    "wbButtonLabel": "Reserve a Bar Seat",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    },
+    {
+        "title": "Meet the Farms Behind Our Menu",
+        "slug": "meet-the-farms-behind-our-menu",
+        "wbSeoTitle": "Meet the Farms Behind Our Menu — Ember & Rye",
+        "wbSeoDescription": "We source directly from five family farms within 100 miles of Washington DC. Here is who they are and why they matter to us.",
+        "excerpt": "We source directly from five family farms within 100 miles of DC. Here is who they are and why they matter to us.",
+        "imageIndex": 6,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>We talk a lot about sourcing locally, but we want to be specific about what that means. This is not a vague commitment to buying regional produce when it happens to be convenient — it is a network of relationships built over seven years with five farms we trust completely.</p>"
+                }
+            },
+            {
+                "type": "wbAccordion",
+                "title": "Our Farm Partners",
+                "items": [
+                    {
+                        "wbTitle": "Whitewood Farm — Warrenton, Virginia",
+                        "wbText": "<p>Whitewood is where our beef comes from. The Hartley family runs a 400-acre regenerative cattle farm 60 miles from the restaurant. Their Angus-Hereford cross cattle are grass-fed on rotating pastures year-round. We take delivery every Tuesday and Friday. James Hartley, the third generation to run the farm, visits us quarterly to taste through the new menu.</p>"
+                    },
+                    {
+                        "wbTitle": "Blue Ridge Greens — Shenandoah Valley",
+                        "wbText": "<p>Blue Ridge supplies our salad leaves, microgreens, and edible flowers. They grow in both open field and climate-controlled poly-tunnels, which means we get consistent quality even during extreme summer heat. Their butterhead lettuce is, without question, the best we have ever served.</p>"
+                    },
+                    {
+                        "wbTitle": "Bees of the Chesapeake — Eastern Shore, Maryland",
+                        "wbText": "<p>Our honey supplier and also, via Tomás, our cocktail programme's secret weapon. The Chesapeake region produces some of the most complex wildflower honey in the country, owing to the extraordinary biodiversity of the tidal wetlands. We use it in our glazes, our bread service, and three cocktails on the current menu.</p>"
+                    },
+                    {
+                        "wbTitle": "Sunstone Herb Collective — Frederick, Maryland",
+                        "wbText": "<p>A small collective of five growers who pool their harvests and deliver to us twice weekly. They supply the dill, tarragon, chervil, and bronze fennel that appear across both the kitchen and bar menus. We have worked with them since year one and they have become genuine collaborators — sometimes growing specific varieties on request.</p>"
+                    },
+                    {
+                        "wbTitle": "Piedmont Artisan Dairy — Culpeper, Virginia",
+                        "wbText": "<p>Priya's pastry kitchen runs on Piedmont butter and cream. They produce in small batches from a mixed herd of Brown Swiss and Guernsey cows — both breeds known for higher butterfat content. The difference between their butter and a commercial alternative is immediately apparent. Rich, golden, and deeply flavoured.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Every season we publish a full sourcing map on our menu so guests can see exactly where their meal comes from. We believe transparency about provenance is part of the dining experience — not a footnote.</p>"
+                }
+            }
+        ]
+    },
+    {
+        "title": "Private Dining: What to Expect",
+        "slug": "private-dining-what-to-expect",
+        "wbSeoTitle": "Private Dining at Ember & Rye — What to Expect",
+        "wbSeoDescription": "Thinking about booking our private dining room? Here is everything you need to know about the process, the menu options, and what makes it different from a standard reservation.",
+        "excerpt": "Thinking about booking our private dining room? Here is everything you need to know before you reach out.",
+        "imageIndex": 5,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>We get a lot of questions about our private dining room — from how far in advance to book, to whether we can accommodate a guest with complex dietary needs, to what the minimum spend looks like. This post answers all of them.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "The Space",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Our private dining room is separated from the main dining room by a full-height soundproofed partition. It seats up to 20 guests around a single custom walnut table. The room has its own bar service, dedicated lighting controls, and a 65-inch display screen for presentations. It is a proper private space — not a curtained-off corner of a busy restaurant.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "The Menu",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Private dining guests choose from a set menu format: four courses (canape, starter, main, dessert) with two options per course. We send you a proposed menu three weeks before your event based on current seasonal availability. You can swap dishes, remove courses, and flag dietary requirements at that stage. We accommodate vegetarian, vegan, gluten-free, and nut-free requirements as standard.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Pricing and Booking",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>The private dining room has a minimum spend of $1,200 excluding service and drinks. There is no room hire fee — the minimum spend covers it. We ask for a $300 deposit to confirm the booking, which is applied to your final bill.</p><p>We recommend booking at least six weeks in advance for weekend dates and four weeks for weekday events. The room is available from 12:00 pm to 11:00 pm, seven days a week.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "December books out quickly",
+                    "wbText": "Our private dining room is typically fully booked for December corporate events by mid-October. If you are planning a Christmas dinner, reach out as early as possible.",
+                    "wbAlertType": "warning",
+                    "wbAlertDismissible": false
+                }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Ready to enquire?",
+                    "wbText": "Contact our events team and we will get back to you within one business day to discuss availability and your requirements.",
+                    "wbButtonLabel": "Enquire About Private Dining",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    },
+    {
+        "title": "Bread, Butter, and the Case for a Proper Bread Course",
+        "slug": "bread-butter-and-the-case-for-a-proper-bread-course",
+        "wbSeoTitle": "Our House-Baked Sourdough — Ember & Rye",
+        "wbSeoDescription": "Pastry Chef Priya Nair on why we bake our own sourdough in-house every day, the 48-hour fermentation process, and the butter that makes it worth every calorie.",
+        "excerpt": "Pastry Chef Priya Nair on why we bake sourdough in-house every day and the butter that makes it worth every calorie.",
+        "imageIndex": 7,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>The bread course at a restaurant is often an afterthought — a basket of rolls from a catering supplier, served lukewarm with foil-wrapped butter pats. We think that is a missed opportunity, and we have treated our bread course seriously since the first week we opened.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "The Sourdough",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>We bake two loaves of sourdough per service, every day. Our starter — named Margot, after Marcus's grandmother — has been fed continuously since the restaurant opened in 2018. We use a blend of stoneground whole wheat and high-extraction bread flour from a Virginia mill. The dough ferments cold for 48 hours before baking in a cast iron combo cooker.</p><p>The result is a loaf with a crackling crust, an open crumb, and a tang that is present but not aggressive. It slices well, it holds butter, and it tastes like something someone made today — because it was.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "The Butter",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>We compound our butter in-house with Piedmont Artisan Dairy cultured butter as the base. The current version is a smoked Shenandoah honey and sea salt compound — we cold-smoke the butter lightly over cherry wood, then fold in a small amount of the Blue Ridge Greens wildflower honey and Maldon sea salt. It is served at room temperature so it spreads immediately.</p><p>Guests ask about this butter more than almost anything else on the menu. It will never leave.</p>"
+                }
+            },
+            {
+                "type": "wbListGroup",
+                "fields": {
+                    "wbTitle": "Bread Course at a Glance"
+                },
+                "items": [
+                    { "wbTitle": "House sourdough, baked twice daily", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "48-hour cold-fermented with Virginia stoneground flour", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "Smoked honey and sea salt compound butter", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "Served warm from the oven, sliced tableside", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "Complimentary with all dinner bookings", "wbButtonUrl": "", "wbButtonTarget": "" }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "How We Built Our Wine List From Scratch",
+        "slug": "how-we-built-our-wine-list-from-scratch",
+        "wbSeoTitle": "Building Our Wine List — Ember & Rye",
+        "wbSeoDescription": "Sommelier Delphine Aubert on the philosophy, the sourcing trips, and the difficult decisions that shaped our 200-bottle wine programme.",
+        "excerpt": "Sommelier Delphine Aubert on the philosophy and sourcing trips that shaped our 200-bottle wine programme.",
+        "imageIndex": 4,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>When we opened, our wine list had 40 labels on it. Today it has just over 200. Building that list took three years of sourcing trips, blind tastings, and one guiding principle: every bottle had to be something we would genuinely want to drink with our food, not something we stocked because it was expected.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "The philosophy",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>We made a conscious decision early on to weight the list toward smaller producers — négociant-free Burgundy, grower Champagne, natural producers from the Loire and Jura. Not because natural wine is fashionable, but because those producers tend to make wines with the kind of texture and acidity that work well alongside red meat. Our list is not a statement list. It is a food list.</p><p>We also deliberately kept the markup low on older vintages. A ten-year-old Barolo should be within reach for someone celebrating something special. We price to encourage people to drink well, not to extract maximum margin per bottle.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Ask Delphine",
+                    "wbText": "Delphine is in the dining room Wednesday through Saturday. If you would like help choosing a wine or decanting something special, she is always happy to talk through the list with you.",
+                    "wbAlertType": "info",
+                    "wbAlertDismissible": false
+                }
+            }
+        ]
+    },
+    {
+        "title": "Behind the Pass: A Week in Our Kitchen",
+        "slug": "behind-the-pass-a-week-in-our-kitchen",
+        "wbSeoTitle": "Behind the Pass — A Week in the Ember & Rye Kitchen",
+        "wbSeoDescription": "A candid look at what a full service week looks like at Ember & Rye — from Tuesday prep through Saturday dinner service.",
+        "excerpt": "A candid look at what a full service week looks like at Ember & Rye, from Tuesday prep to Saturday dinner.",
+        "imageIndex": 0,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>People often ask what a week in a restaurant kitchen actually looks like. Here is an honest account — not the romanticised version, but the real shape of the week from Tuesday to Saturday service.</p>"
+                }
+            },
+            {
+                "type": "wbAccordion",
+                "title": "Day by Day",
+                "items": [
+                    {
+                        "wbTitle": "Tuesday — Deliveries and Deep Prep",
+                        "wbText": "<p>Tuesday is the heaviest prep day. Whitewood Farm delivers beef at 7 am. The dry-aged cuts go immediately into portion and trim — by 10 am the ageing room is restocked. Blue Ridge Greens arrive mid-morning. We break down the whole animals for stocks and begin the long-cook items: beef cheeks go in the oven at 11 am for a six-hour braise.</p>"
+                    },
+                    {
+                        "wbTitle": "Wednesday — Menu Refinement",
+                        "wbText": "<p>Wednesday lunch service is small, which gives us time to develop. Marcus usually spends an hour after service testing new dishes with the senior team. We taste, argue, adjust. Something that makes the menu usually takes three or four Wednesday sessions before it is ready. The bread starter gets its midweek feed.</p>"
+                    },
+                    {
+                        "wbTitle": "Thursday — Building Momentum",
+                        "wbText": "<p>Thursday dinner is our first genuinely busy service of the week — around 60 covers. The brigade runs the full menu for the first time since the weekend. We use Thursday to recalibrate timing and identify anything that felt rough in execution. Notes go up on the pass by 10 pm.</p>"
+                    },
+                    {
+                        "wbTitle": "Friday & Saturday — Full Service",
+                        "wbText": "<p>Friday and Saturday we run 90 to 110 covers per service. The kitchen is at full capacity. Every station is staffed, every mise en place completed by 5 pm. The adrenaline is real but so is the discipline — at this level of service, discipline is what separates a good night from a great one. By midnight the kitchen is clean and the debrief takes ten minutes. Then we do it again.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "The Art of the Sauce: Reductions, Jus, and Why They Matter",
+        "slug": "the-art-of-the-sauce",
+        "wbSeoTitle": "The Art of the Sauce — Ember & Rye",
+        "wbSeoDescription": "Why we spend 18 hours making our beef jus, and why shortcuts in sauce-making always show up on the plate.",
+        "excerpt": "Why we spend 18 hours making our beef jus, and why shortcuts in sauce-making always show up on the plate.",
+        "imageIndex": 2,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Our beef jus takes 18 hours to make. We roast veal and beef bones at high heat until deeply caramelised, then simmer them for 12 hours with aromatics and red wine, reduce again, strain, and reduce one more time until the sauce coats a spoon and tastes like concentrated beef. That is not an exaggeration. That is the process.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Why not use a commercial base?",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Commercial demi-glace exists. It is convenient and consistent. It also tastes of commercial demi-glace — there is a specific flavour note, a slight sweetness and flatness, that guests who eat widely will recognise and that has no place on a plate we are charging $55 for. When you make your own jus from your own bones from your own supplier, the sauce tastes like the meat it will be served with. That coherence is worth 18 hours.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "The other sauces",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Beyond the jus, we run a rotating sauce programme tied to the season. Right now: a tarragon beurre blanc for the halibut, a roasted garlic cream for the mushroom dish, a salsa verde for the lamb. Each is made to order or in very small quantities — nothing sits in a bain-marie for service. A sauce that has been sitting for two hours has already lost the thing that makes it worth making.</p>"
+                }
+            }
+        ]
+    },
+    {
+        "title": "Designing a Menu Around Dietary Restrictions",
+        "slug": "designing-a-menu-around-dietary-restrictions",
+        "wbSeoTitle": "Dietary Restrictions and Menu Design — Ember & Rye",
+        "wbSeoDescription": "How we design our menu so that dietary restrictions are handled with care rather than as an afterthought.",
+        "excerpt": "How we design our menu so that dietary restrictions feel like thoughtful hospitality rather than an afterthought.",
+        "imageIndex": 5,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>In any given week, roughly 30% of our covers arrive with at least one dietary requirement noted on the booking. Vegetarian, gluten-free, dairy-free, nut allergies, halal — the range is broad. We made a decision early on that these guests would not receive a lesser version of the dinner. They would receive a different version that was equally considered.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "How it works in practice",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Every new dish on the menu is reviewed at the development stage for adaptability. If a sauce contains dairy, we develop a parallel version without it during testing — not as an afterthought after the dish has been added to the menu, but as part of the process. The same applies to gluten. We keep a full list of allergen-free variants for every dish, updated whenever the menu changes.</p><p>For guests with allergies or intolerances, we ask that you note them when booking. This lets the kitchen prepare properly before service rather than improvising mid-shift. We take allergies seriously — every allergy claim is treated as genuine, regardless of whether the guest calls it an intolerance or a preference.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Always tell us in advance",
+                    "wbText": "The safest and best experience comes from telling us your requirements at the time of booking. Walk-in dietary requirements can always be accommodated, but advance notice allows us to do more.",
+                    "wbAlertType": "warning",
+                    "wbAlertDismissible": false
+                }
+            }
+        ]
+    },
+    {
+        "title": "Our Approach to Seasonal Ingredients",
+        "slug": "our-approach-to-seasonal-ingredients",
+        "wbSeoTitle": "Seasonal Ingredients at Ember & Rye",
+        "wbSeoDescription": "Why cooking seasonally is not a trend for us — it is the foundation of how we write menus and source ingredients.",
+        "excerpt": "Why cooking seasonally is not a marketing line for us — it is the foundation of how we write menus and source produce.",
+        "imageIndex": 6,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Our menu changes four times a year with the seasons, and adjusts further as specific ingredients come in and go out of peak condition. This is not a marketing line. It is the practical consequence of buying from farms rather than distributors.</p>"
+                }
+            },
+            {
+                "type": "wbTabs",
+                "fields": {
+                    "wbTabItems": [
+                        {
+                            "wbTabTitle": "Spring",
+                            "wbText": "<p>Asparagus, ramps, morel mushrooms, spring peas, soft herbs. The spring menu is lighter and more vegetable-forward than any other season. Ramp season lasts about three weeks — we use them aggressively while they are here, in a compound butter, a vinaigrette, and charred as a garnish.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Summer",
+                            "wbText": "<p>Tomatoes, corn, summer squash, stone fruit, fresh shell beans. Summer is the season where the vegetarian dishes on the menu are genuinely as exciting as the beef dishes. A peak-season heirloom tomato with good olive oil needs almost nothing done to it.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Autumn",
+                            "wbText": "<p>Squash, root vegetables, wild mushrooms, apples, chestnuts. Autumn is when the cooking gets heavier and more comfortable. Braises come back on the menu. Pumpkin appears in the dessert section. The wine list tilts toward bigger reds.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Winter",
+                            "wbText": "<p>Citrus, forced chicories, celeriac, black truffle, preserved summer produce. Winter is the most technically demanding season because the ingredients list is shortest. The team has to work harder to create variety. It produces some of our best cooking.</p>"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "title": "Service Standards: What Hospitality Really Means",
+        "slug": "service-standards-what-hospitality-really-means",
+        "wbSeoTitle": "What Hospitality Really Means — Ember & Rye",
+        "wbSeoDescription": "General Manager Sofia Reyes on the service standards we hold ourselves to and why genuine hospitality is harder than it looks.",
+        "excerpt": "General Manager Sofia Reyes on the service standards we hold ourselves to and why genuine hospitality is harder than it looks.",
+        "imageIndex": 3,
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Hospitality is a word that gets used loosely. In the industry it often means a set of scripted behaviours: greeting guests by name, offering still or sparkling, asking if it is their first visit. These things matter. But they are not hospitality. They are the surface of hospitality.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Reading the room",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Genuine hospitality is paying attention. It is noticing that the couple at table 12 are having a difficult conversation and timing your approach accordingly. It is recognising that the guests at table 7 are celebrating something, even if they have not said so, and adjusting the pacing and the warmth of service to reflect that. You cannot script this. You can only train people to care enough to look.</p><p>We hire for empathy before we hire for knowledge. A server who cares about the guest but does not yet know our wine list can learn the wine list. A server who knows the wine list but does not naturally attune to the people in front of them is much harder to develop.</p>"
+                }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Come and see for yourself",
+                    "wbText": "We believe the best way to understand what we mean by hospitality is to experience it. We look forward to welcoming you.",
+                    "wbButtonLabel": "Make a Reservation",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    }
+]

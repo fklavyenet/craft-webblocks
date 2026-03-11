@@ -1,0 +1,9 @@
+{
+    "handle": "wbSiteConfig",
+    "name": "WB Site Config",
+    "fields": [
+        "wbColorMode",
+        "wbSiteNavbar",
+        "wbSiteFooter"
+    ]
+}

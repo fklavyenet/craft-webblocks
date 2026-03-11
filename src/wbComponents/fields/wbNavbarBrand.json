@@ -1,0 +1,11 @@
+{
+    "name": "Navbar Brand",
+    "handle": "wbNavbarBrand",
+    "instructions": "Site or brand name shown in the navbar",
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "My Site",
+        "multiline": false
+    },
+    "translationMethod": "site"
+}

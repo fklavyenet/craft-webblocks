@@ -1,0 +1,17 @@
+{
+    "type": "wbTable",
+    "fields": {
+        "wbTitle": "Opening Hours",
+        "wbTableColumns": [
+            { "heading": "Day" },
+            { "heading": "Lunch" },
+            { "heading": "Dinner" }
+        ],
+        "wbTableRows": [
+            { "cell1": "Monday \u2013 Tuesday",   "cell2": "Closed",                "cell3": "5:30 pm \u2013 10:00 pm"  },
+            { "cell1": "Wednesday \u2013 Friday", "cell2": "12:00 pm \u2013 2:30 pm", "cell3": "5:30 pm \u2013 10:30 pm" },
+            { "cell1": "Saturday",             "cell2": "11:30 am \u2013 3:00 pm", "cell3": "5:00 pm \u2013 11:00 pm" },
+            { "cell1": "Sunday",               "cell2": "11:30 am \u2013 3:30 pm", "cell3": "5:00 pm \u2013 9:30 pm"  }
+        ]
+    }
+}

@@ -1,0 +1,9 @@
+{% extends "wb/layout" %}
+
+{% block bodyClass %}page-wbpage{% if entry is defined %} page-{{ entry.slug }} page-{{ entry.id }}{% endif %}{% endblock %}
+
+{% block title %}<title>{{ entry.wbSeoTitle ?? entry.title ?? siteName }}</title>{% endblock %}
+
+{% block content %}
+    {% include "wb/index" with { entry: entry } %}
+{% endblock %}

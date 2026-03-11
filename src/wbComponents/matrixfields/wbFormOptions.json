@@ -1,0 +1,6 @@
+{
+    "handle": "wbFormOptions",
+    "name": "Form Options",
+    "translationMethod": "site",
+    "entryTypes": ["wbFormOption"]
+}

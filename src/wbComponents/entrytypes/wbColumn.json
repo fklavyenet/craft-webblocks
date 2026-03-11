@@ -1,0 +1,18 @@
+{
+    "handle": "wbColumn",
+    "name": "Column",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "Column",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": []
+        }
+    ],
+    "matrixFields": [
+        "wbBlocks"
+    ]
+}

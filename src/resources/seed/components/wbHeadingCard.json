@@ -1,0 +1,8 @@
+{
+    "type": "wbHeading",
+    "fields": {
+        "wbTitle": "Card",
+        "wbHeadingLevel": "h3",
+        "wbHeadingAlign": "start"
+    }
+}

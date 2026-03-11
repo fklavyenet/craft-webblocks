@@ -1,0 +1,9 @@
+{
+    "type": "wbAlert",
+    "fields": {
+        "wbTitle": "Allergy & Dietary Information",
+        "wbText": "<p>Our kitchen handles nuts, gluten, dairy, and shellfish. Please inform your server of any allergies or dietary requirements before ordering. While we take every precaution, we cannot guarantee a fully allergen-free environment.</p>",
+        "wbAlertType": "warning",
+        "wbAlertDismissible": true
+    }
+}

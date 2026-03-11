@@ -1,0 +1,18 @@
+# Agent session notes (not for version control)
+AGENTS.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Dependencies (installed via Composer in host projects)
+vendor/
+
+# Node (if frontend build is added later)
+node_modules/

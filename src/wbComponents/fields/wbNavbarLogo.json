@@ -1,0 +1,17 @@
+{
+    "name": "Navbar Logo",
+    "handle": "wbNavbarLogo",
+    "instructions": "Optional logo image shown instead of (or alongside) the brand name",
+    "type": "Assets",
+    "typesettings": {
+        "sources": "*",
+        "defaultUploadLocationVolume": "wbImages",
+        "restrictFiles": true,
+        "allowedKinds": [
+            "image"
+        ],
+        "limit": 1,
+        "viewMode": "large"
+    },
+    "translationMethod": "site"
+}

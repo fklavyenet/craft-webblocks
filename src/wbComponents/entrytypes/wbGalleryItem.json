@@ -1,0 +1,18 @@
+{
+    "handle": "wbGalleryItem",
+    "name": "Gallery Item",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbCaption}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbImage",
+                "wbCaption"
+            ]
+        }
+    ]
+}

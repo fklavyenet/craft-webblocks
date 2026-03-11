@@ -1,0 +1,10 @@
+{
+    "name": "Show Controls",
+    "handle": "wbShowControls",
+    "instructions": "Show previous/next navigation arrows",
+    "type": "Lightswitch",
+    "typesettings": {
+        "default": true
+    },
+    "translationMethod": "site"
+}

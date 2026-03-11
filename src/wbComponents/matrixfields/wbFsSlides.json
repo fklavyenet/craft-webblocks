@@ -1,0 +1,6 @@
+{
+    "handle": "wbFsSlides",
+    "name": "Fullscreen Slides",
+    "translationMethod": "site",
+    "entryTypes": ["wbFsSlide"]
+}

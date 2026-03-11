@@ -63,6 +63,7 @@ All components are registered as entry types under the `wbBlocks` matrix field. 
 |---|---|
 | `wbGallery` | Masonry image gallery with lightbox. Supports configurable gap |
 | `wbCarousel` | Bootstrap carousel with autoplay, controls, indicators, and frosted-glass captions |
+| `wbFullscreenImage` | Fullscreen slider with per-slide background image, dark overlay, title, subtitle, and caption alignment. Vanilla JS fade transitions — no external slider library required |
 | `wbVideoEmbed` | Embedded video (YouTube / Vimeo) with configurable aspect ratio |
 
 ### Data
@@ -109,6 +110,7 @@ Most components include an **Appearance** tab in the Craft control panel with th
 |---|---|
 | `wbHero` | Hero background images |
 | `wbCarousel` | Carousel slide images |
+| `wbFullscreen` | Fullscreen slider slide images (1920 px wide) |
 | `wbGalleryThumb` | Gallery thumbnails (800 px wide) |
 | `wbGalleryFull` | Gallery lightbox images (1920 px wide) |
 | `wbFeaturedImage` | Blog post and reference featured images |
@@ -167,7 +169,7 @@ src/
 
 ## Frontend Dependencies
 
-Bootstrap 5.3.3 is loaded via CDN (MIT licence). No build step is required. All other JS (masonry layout, lightbox) is implemented inline in `layout.twig`.
+Bootstrap 5.3.3 is loaded via CDN (MIT licence). No build step is required. All other JS (masonry layout, lightbox, fullscreen slider) is vanilla JavaScript bundled in `wb-blocks.js` via the WebBlocksAsset bundle — zero external slider or UI library dependencies.
 
 ## Prefix Convention
 

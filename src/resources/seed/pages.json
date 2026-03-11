@@ -9,13 +9,37 @@
         "wbFooterOrder": 10,
         "blocks": [
             {
-                "type": "wbHero",
+                "type": "wbFullscreenImage",
                 "fields": {
-                    "wbTitle": "Fire-Driven Cooking",
-                    "wbText": "Washington DC's modern American steakhouse. Premium dry-aged beef, seasonal sides, and craft cocktails — cooked over an open wood-fire grill.",
-                    "wbAlignment": "center",
-                    "imageIndex": 0
-                }
+                    "wbAutoplay": 6000
+                },
+                "slides": [
+                    {
+                        "wbTitle": "Fire-Driven Cooking",
+                        "wbText": "Washington DC's modern American steakhouse. Premium dry-aged beef, seasonal sides, and craft cocktails.",
+                        "wbOverlayOpacity": "40",
+                        "imageIndex": 18,
+                        "portraitIndex": 22
+                    },
+                    {
+                        "wbTitle": "The Wood-Fire Grill",
+                        "wbText": "Cherry, hickory, and applewood — our primary tool. Every cut kissed by real fire.",
+                        "wbOverlayOpacity": "40",
+                        "imageIndex": 19
+                    },
+                    {
+                        "wbTitle": "45-Day Dry-Aged Ribeye",
+                        "wbText": "Whitewood Farm Angus-Hereford. Bone marrow butter. Watercress. Nothing more.",
+                        "wbOverlayOpacity": "60",
+                        "imageIndex": 20
+                    },
+                    {
+                        "wbTitle": "The Bar at Ember & Rye",
+                        "wbText": "Craft cocktails by Head Bartender Tomás Rivera. Seasonal menus, ingredient-first.",
+                        "wbOverlayOpacity": "40",
+                        "imageIndex": 21
+                    }
+                ]
             },
             {
                 "type": "wbSpacing",

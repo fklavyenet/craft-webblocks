@@ -5,8 +5,8 @@
     "type": "Dropdown",
     "typesettings": {
         "options": [
-            { "label": "Left",   "value": "start",  "default": true  },
-            { "label": "Center", "value": "center", "default": false },
+            { "label": "Left",   "value": "start",  "default": false },
+            { "label": "Center", "value": "center", "default": true  },
             { "label": "Right",  "value": "end",    "default": false }
         ]
     },

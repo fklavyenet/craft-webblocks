@@ -1,0 +1,82 @@
+{% set slides = item.wbFsSlides.all() %}
+{% if slides|length %}
+
+{% set minH      = item.wbMinHeight ?? '100vh' %}
+{% set autoplay  = item.wbAutoplay ?? false %}
+{% set interval  = item.wbInterval ?? 5000 %}
+{% set showCtrl  = item.wbShowControls ?? true %}
+{% set showInd   = item.wbShowIndicators ?? true %}
+{% set uid       = 'wb-fs-' ~ item.id %}
+{% set isSlider  = slides|length > 1 %}
+
+<div class="wb-block wb-fullscreen-image" id="{{ uid }}"
+     style="--wb-fs-min-height: {{ minH }};"
+     data-wb-fs
+     {% if isSlider %}
+     data-wb-fs-slider
+     data-wb-fs-autoplay="{{ autoplay ? interval : '0' }}"
+     {% endif %}>
+
+    <div class="wb-fs-wrapper">
+        <div class="wb-fs-slides">
+
+            {% for slide in slides %}
+                {% set bgImage      = slide.wbBackgroundImage.one() ?? null %}
+                {% set portraitImg  = slide.wbPortraitImage.one() ?? null %}
+                {% set hAlign       = slide.wbAlignment.value ?? 'center' %}
+                {% set vAlign       = slide.wbVerticalAlign.value ?? 'center' %}                {% set opacity      = slide.wbOverlayOpacity.value ?? '40' %}
+                {% set bgUrl        = bgImage ? bgImage.getUrl('wbFullscreen', true) : '' %}
+
+                <div class="wb-fs-slide"
+                     style="{% if bgUrl %}background-image: url('{{ bgUrl }}');{% endif %}">
+
+                    {# Dark overlay #}
+                    {% if opacity != '0' %}
+                        <div class="wb-fs-overlay" style="--wb-fs-overlay: {{ (opacity|number_format / 100) }};"></div>
+                    {% endif %}
+
+                    {# Caption #}
+                    {% if slide.wbTitle or slide.wbText %}
+                        <div class="wb-fs-caption
+                                    wb-fs-h-{{ hAlign }}
+                                    wb-fs-v-{{ vAlign }}">
+                            <div class="wb-fs-caption-inner">
+                                {% if slide.wbTitle %}
+                                    <h2 class="wb-fs-title">{{ slide.wbTitle }}</h2>
+                                {% endif %}
+                                {% if slide.wbText %}
+                                    <p class="wb-fs-subtitle">{{ slide.wbText }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {# Optional portrait / corner image #}
+                    {% if portraitImg %}
+                        <div class="wb-fs-portrait">
+                             <img src="{{ portraitImg.getUrl('wbGalleryThumb', true) }}"
+                                 alt="{{ portraitImg.alt ?: portraitImg.title }}"
+                                 loading="lazy">
+                        </div>
+                    {% endif %}
+
+                </div>{# /.wb-fs-slide #}
+            {% endfor %}
+
+        </div>{# /.wb-fs-slides #}
+
+        {# Slider navigation #}
+        {% if isSlider %}
+            {% if showCtrl %}
+                <div class="wb-fs-btn-prev wb-fs-nav-btn" role="button" aria-label="{{ 'Previous'|t }}"></div>
+                <div class="wb-fs-btn-next wb-fs-nav-btn" role="button" aria-label="{{ 'Next'|t }}"></div>
+            {% endif %}
+            {% if showInd %}
+                <div class="wb-fs-pagination"></div>
+            {% endif %}
+        {% endif %}
+
+    </div>{# /.wb-fs-wrapper #}
+</div>{# /.wb-fullscreen-image #}
+
+{% endif %}

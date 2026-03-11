@@ -1,0 +1,15 @@
+{
+    "name": "Portrait Image",
+    "handle": "wbPortraitImage",
+    "instructions": "Optional small portrait/corner image displayed in the bottom-right of the slide",
+    "type": "Assets",
+    "typesettings": {
+        "sources": "*",
+        "defaultUploadLocationVolume": "wbImages",
+        "restrictFiles": true,
+        "allowedKinds": ["image"],
+        "limit": 1,
+        "viewMode": "large"
+    },
+    "translationMethod": "site"
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Overlay Opacity",
+    "handle": "wbOverlayOpacity",
+    "instructions": "Darkness of the overlay on top of the background image (0 = none, 70 = strong)",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "None (0%)",   "value": "0",  "default": false },
+            { "label": "Light (20%)", "value": "20", "default": false },
+            { "label": "Medium (40%)","value": "40", "default": true  },
+            { "label": "Dark (60%)",  "value": "60", "default": false },
+            { "label": "Darker (70%)","value": "70", "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

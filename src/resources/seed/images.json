@@ -90,6 +90,31 @@
             "filename": "gallery-portrait-4.jpg",
             "url": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&h=900&fit=crop&q=80",
             "title": "Craft Cocktail Close-Up"
+        },
+        {
+            "filename": "fs-dining-room.jpg",
+            "url": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&h=1080&fit=crop&q=85",
+            "title": "The Dining Room — Full View"
+        },
+        {
+            "filename": "fs-grill-fire.jpg",
+            "url": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&h=1080&fit=crop&q=85",
+            "title": "Open Wood-Fire Grill"
+        },
+        {
+            "filename": "fs-ribeye-plated.jpg",
+            "url": "https://images.unsplash.com/photo-1544025162-d76694265947?w=1920&h=1080&fit=crop&q=85",
+            "title": "45-Day Dry-Aged Ribeye"
+        },
+        {
+            "filename": "fs-bar-evening.jpg",
+            "url": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&h=1080&fit=crop&q=85",
+            "title": "The Bar at Evening Service"
+        },
+        {
+            "filename": "chef-portrait.jpg",
+            "url": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=900&fit=crop&q=85",
+            "title": "Executive Chef Marcus Webb"
         }
     ]
 }

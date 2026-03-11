@@ -9,6 +9,7 @@ use craft\events\RegisterUrlRulesEvent;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\UrlManager;
 use craft\web\View;
+use fklavyenet\webblocks\assetbundles\WebBlocksAsset;
 use fklavyenet\webblocks\models\Settings;
 use fklavyenet\webblocks\variables\WebBlocksVariable;
 use yii\base\Event;
@@ -49,6 +50,7 @@ class WebBlocks extends BasePlugin
         $this->_registerSiteTemplateRoots();
         $this->_registerCpTemplateRoots();
         $this->_registerSiteUrlRules();
+        $this->_registerAssetBundle();
     }
 
     protected function createSettingsModel(): ?Model
@@ -210,6 +212,20 @@ class WebBlocks extends BasePlugin
     // =========================================================================
     // Event registrations
     // =========================================================================
+
+    private function _registerAssetBundle(): void
+    {
+        // Only register on site (front-end) requests, not console
+        if (\Craft::$app->getRequest()->getIsSiteRequest()) {
+            Event::on(
+                View::class,
+                View::EVENT_BEFORE_RENDER_PAGE_TEMPLATE,
+                function () {
+                    \Craft::$app->getView()->registerAssetBundle(WebBlocksAsset::class);
+                }
+            );
+        }
+    }
 
     private function _registerTemplateVariable(): void
     {

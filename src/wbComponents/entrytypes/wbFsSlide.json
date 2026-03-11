@@ -1,0 +1,33 @@
+{
+    "handle": "wbFsSlide",
+    "name": "Fullscreen Slide",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbTitle}",
+    "titleTranslationMethod": "site",
+    "tabs": [
+        {
+            "name": "Content",
+            "fields": [
+                "wbTitle",
+                "wbText"
+            ]
+        },
+        {
+            "name": "Media",
+            "fields": [
+                "wbBackgroundImage",
+                "wbPortraitImage"
+            ]
+        },
+        {
+            "name": "Style",
+            "fields": [
+                { "handle": "wbAlignment",      "label": "Horizontal Alignment" },
+                { "handle": "wbVerticalAlign",  "label": "Vertical Alignment" },
+                "wbOverlayOpacity"
+            ]
+        }
+    ]
+}

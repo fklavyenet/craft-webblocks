@@ -293,6 +293,17 @@ class WipeController extends Controller
                 }
             }
 
+            // Hard-delete all soft-deleted elements (entries, assets, matrix blocks, etc.)
+            // These accumulate across wipe+reinstall cycles because Craft soft-deletes
+            // entries when sections are deleted rather than hard-deleting them.
+            $count = $db->createCommand(
+                "DELETE FROM {{%elements}} WHERE [[dateDeleted]] IS NOT NULL"
+            )->execute();
+            if ($count > 0) {
+                $this->stdout("  - Purged $count soft-deleted rows from elements\n");
+                $totalPurged += $count;
+            }
+
             $this->stdout("  Purged $totalPurged total soft-deleted records\n");
         } catch (\Exception $e) {
             $this->stdout("  Error: " . $e->getMessage() . "\n");

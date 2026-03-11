@@ -1,0 +1,14 @@
+{
+    "name": "Vertical Align",
+    "handle": "wbVerticalAlign",
+    "instructions": "Vertical position of the caption inside the slide",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Top",    "value": "top",    "default": false },
+            { "label": "Center", "value": "center", "default": true  },
+            { "label": "Bottom", "value": "bottom", "default": false }
+        ]
+    },
+    "translationMethod": "site"
+}

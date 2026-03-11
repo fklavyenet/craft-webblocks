@@ -1,0 +1,311 @@
+/* =============================================================================
+   WebBlocks — wb-blocks.css
+   All WebBlocks-specific frontend styles.
+   Loaded via WebBlocksAsset (Craft Asset Bundle).
+   Bootstrap is loaded separately via CDN.
+   ============================================================================= */
+
+/* ── Color mode toggle icons ─────────────────────────────────────────────── */
+.wb-theme-icon { display: none; }
+html[data-wb-mode="light"] .wb-theme-icon-light { display: inline; }
+html[data-wb-mode="dark"]  .wb-theme-icon-dark  { display: inline; }
+html[data-wb-mode="auto"]  .wb-theme-icon-auto  { display: inline; }
+/* Ensure toggle button inherits navbar text colour instead of Bootstrap's link blue */
+.wb-color-mode-toggle { color: inherit; }
+.wb-color-mode-toggle:hover { opacity: 0.75; }
+
+/* ── Hero block ───────────────────────────────────────────────────────────── */
+.wb-block.hero {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+/* Base dim — takes the edge off very bright images */
+.wb-block.hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.wb-block.hero[data-align="center"] .hero-overlay { justify-content: center; }
+.wb-block.hero[data-align="end"]    .hero-overlay { justify-content: flex-end; }
+.wb-block.hero[data-align="start"]  .hero-overlay { justify-content: flex-start; }
+/* Gradient scrim: dark at the content area, fades toward the opposite edge */
+.wb-block.hero .hero-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.72) 0%,
+        rgba(0,0,0,0.36) 40%,
+        rgba(0,0,0,0) 100%
+    );
+}
+.wb-block.hero .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 2rem;
+    color: #fff;
+    max-width: 720px;
+}
+.wb-block.hero[data-align="center"] .hero-content { text-align: center; }
+.wb-block.hero[data-align="end"]    .hero-content { text-align: end; }
+.wb-block.hero .hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    text-shadow: 0 2px 12px rgba(0,0,0,.6);
+}
+.wb-block.hero .hero-content p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    text-shadow: 0 1px 6px rgba(0,0,0,.6);
+    margin-bottom: 0;
+}
+
+/* ── Carousel caption scrim ──────────────────────────────────────────────── */
+.wb-carousel .carousel-item {
+    position: relative;
+}
+.wb-carousel .carousel-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.72) 0%,
+        rgba(0,0,0,0.24) 45%,
+        rgba(0,0,0,0) 100%
+    );
+}
+.wb-carousel .carousel-caption {
+    position: absolute;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0,0,0,.6);
+}
+.wb-carousel .carousel-caption h5,
+.wb-carousel .carousel-caption p {
+    text-shadow: 0 1px 6px rgba(0,0,0,.6);
+    margin-bottom: 0;
+}
+.wb-carousel .carousel-caption h5 {
+    margin-bottom: 0.25rem;
+}
+
+/* ── Fullscreen Image block ───────────────────────────────────────────────── */
+.wb-fullscreen-image {
+    position: relative;
+    width: 100%;
+}
+.wb-fs-wrapper {
+    position: relative;
+    width: 100%;
+}
+.wb-fs-slide {
+    position: relative;
+    min-height: var(--wb-fs-min-height, 100vh);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: flex;
+}
+/* Parallax: fixed attachment on desktop, scroll on mobile (perf) */
+@media (min-width: 768px) {
+    .wb-fs-slide {
+        background-attachment: fixed;
+    }
+}
+/* Dark overlay */
+.wb-fs-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, var(--wb-fs-overlay, 0.4));
+    pointer-events: none;
+}
+/* Caption positioning */
+.wb-fs-caption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    padding: 3rem 2rem;
+}
+.wb-fs-caption.wb-fs-h-start  { justify-content: flex-start; }
+.wb-fs-caption.wb-fs-h-center { justify-content: center; }
+.wb-fs-caption.wb-fs-h-end    { justify-content: flex-end; }
+.wb-fs-caption.wb-fs-v-top    { align-items: flex-start; }
+.wb-fs-caption.wb-fs-v-center { align-items: center; }
+.wb-fs-caption.wb-fs-v-bottom { align-items: flex-end; }
+.wb-fs-caption-inner {
+    color: #fff;
+    max-width: 680px;
+    text-shadow: 0 2px 12px rgba(0,0,0,.65);
+}
+.wb-fs-caption.wb-fs-h-start  .wb-fs-caption-inner { text-align: left; }
+.wb-fs-caption.wb-fs-h-center .wb-fs-caption-inner { text-align: center; }
+.wb-fs-caption.wb-fs-h-end    .wb-fs-caption-inner { text-align: right; }
+.wb-fs-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+}
+.wb-fs-subtitle {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    margin-bottom: 0;
+    opacity: 0.92;
+}
+/* Portrait / corner image */
+.wb-fs-portrait {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 2;
+}
+.wb-fs-portrait img {
+    width: clamp(80px, 10vw, 140px);
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.6);
+    box-shadow: 0 4px 16px rgba(0,0,0,.4);
+}
+/* Slider nav buttons */
+.wb-fs-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0,0,0,.35);
+    color: #fff;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    transition: background .2s;
+    padding: 0;
+    line-height: 0;
+    font-size: 0;
+}
+/* CSS chevron arrows — no font metrics to skew alignment */
+.wb-fs-btn-prev::before,
+.wb-fs-btn-next::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    border-radius: 2px;
+}
+.wb-fs-btn-prev::before { transform: rotate(-135deg) translate(-2px, 2px); }
+.wb-fs-btn-next::before { transform: rotate(45deg)   translate(-2px, 2px); }
+.wb-fs-nav-btn:hover { background: rgba(0,0,0,.6); }
+.wb-fs-btn-prev { left: 16px; }
+.wb-fs-btn-next { right: 16px; }
+/* Slider pagination dots */
+.wb-fs-pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+.wb-fs-pagination .wb-fs-dot {
+    display: inline-block;
+    background: rgba(255,255,255,.6);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: background .2s;
+}
+.wb-fs-pagination .wb-fs-dot.is-active {
+    background: #fff;
+}
+/* Strip container padding for fullscreen blocks */
+main > .wb-block.wb-fullscreen-image {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+}
+
+/* ── WB Lightbox ─────────────────────────────────────────────────────────── */
+#wb-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,.92);
+    align-items: center;
+    justify-content: center;
+}
+#wb-lightbox.wb-lb-open { display: flex; }
+.wb-lb-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 92vw;
+    max-height: 92vh;
+}
+.wb-lb-img {
+    max-width: 90vw;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 4px;
+}
+.wb-lb-caption {
+    color: #ddd;
+    margin: 10px 0 0;
+    font-size: .9rem;
+    text-align: center;
+    max-width: 80vw;
+}
+.wb-lb-close {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: .8;
+}
+.wb-lb-close:hover { opacity: 1; }
+.wb-lb-prev,
+.wb-lb-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3.5rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 16px;
+    opacity: .7;
+    user-select: none;
+}
+.wb-lb-prev:hover,
+.wb-lb-next:hover { opacity: 1; }
+.wb-lb-prev { left: 4px; }
+.wb-lb-next { right: 4px; }

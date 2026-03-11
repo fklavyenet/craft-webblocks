@@ -1,0 +1,28 @@
+{
+    "type": "wbFullscreenImage",
+    "fields": {
+        "wbMinHeight": "100vh",
+        "wbAutoplay": true,
+        "wbInterval": 6000,
+        "wbShowControls": true,
+        "wbShowIndicators": true
+    },
+    "slides": [
+        {
+            "imageIndex": 0,
+            "wbTitle": "Fire-Driven Cooking",
+            "wbText": "Premium dry-aged beef & seasonal American cuisine",
+            "wbAlignment": "center",
+            "wbVerticalAlign": "center",
+            "wbOverlayOpacity": "40"
+        },
+        {
+            "imageIndex": 16,
+            "wbTitle": "An Unforgettable Evening",
+            "wbText": "Reserve your table at Ember & Rye",
+            "wbAlignment": "center",
+            "wbVerticalAlign": "bottom",
+            "wbOverlayOpacity": "40"
+        }
+    ]
+}

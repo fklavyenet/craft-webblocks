@@ -311,6 +311,8 @@ class SeedController extends Controller
                 $block = $this->buildListGroupBlock($blockDef, $counter);
             } elseif ($type === 'wbNavbar') {
                 $block = $this->buildNavbarBlock($blockDef, $counter);
+            } elseif ($type === 'wbFullscreenImage') {
+                $block = $this->buildFullscreenImageBlock($blockDef, $assetIds, $counter);
             } elseif ($type === 'wbLeftRight') {
                 $block = $this->buildInlineLeftRightBlock($blockDef, $assetIds);
             } elseif ($type === 'wbForm') {
@@ -945,6 +947,8 @@ class SeedController extends Controller
                 $block = $this->buildCarouselBlock($componentData, $assetIds, $counter);
             } elseif ($entryTypeHandle === 'wbGallery') {
                 $block = $this->buildGalleryBlock($componentData, $assetIds, $counter);
+            } elseif ($entryTypeHandle === 'wbFullscreenImage') {
+                $block = $this->buildFullscreenImageBlock($componentData, $assetIds, $counter);
             } elseif ($entryTypeHandle === 'wbNavbar') {
                 $block = $this->buildNavbarBlock($componentData, $counter);
             } elseif ($entryTypeHandle === 'wbTabs') {
@@ -1202,6 +1206,60 @@ class SeedController extends Controller
         return [
             'type'   => 'wbListGroup',
             'fields' => $fields,
+        ];
+    }
+
+    /**
+     * Builds a wbFullscreenImage block with nested wbFsSlide entries.
+     *
+     * Slide definition keys:
+     *   imageIndex      – index into $assetIds for wbBackgroundImage
+     *   portraitIndex   – (optional) index into $assetIds for wbPortraitImage
+     *   wbTitle         – headline text
+     *   wbText          – subtitle / body text
+     *   wbAlignment     – 'start' | 'center' | 'end'  (default: 'center')
+     *   wbVerticalAlign – 'top' | 'center' | 'bottom'  (default: 'center')
+     *   wbOverlayOpacity – '0' | '20' | '40' | '60' | '70'  (default: '40')
+     */
+    private function buildFullscreenImageBlock(array $componentData, array $assetIds, int &$counter): array
+    {
+        $slides = [];
+        $slideCounter = 1;
+
+        foreach ($componentData['slides'] ?? [] as $slide) {
+            $fields = [
+                'wbTitle'           => $slide['wbTitle'] ?? '',
+                'wbText'            => $slide['wbText'] ?? '',
+                'wbAlignment'       => $slide['wbAlignment'] ?? 'center',
+                'wbVerticalAlign'   => $slide['wbVerticalAlign'] ?? 'center',
+                'wbOverlayOpacity'  => $slide['wbOverlayOpacity'] ?? '40',
+            ];
+
+            // Background image
+            $imgIndex = $slide['imageIndex'] ?? null;
+            if ($imgIndex !== null && !empty($assetIds[$imgIndex])) {
+                $fields['wbBackgroundImage'] = [$assetIds[$imgIndex]];
+            }
+
+            // Optional portrait image
+            $portIndex = $slide['portraitIndex'] ?? null;
+            if ($portIndex !== null && !empty($assetIds[$portIndex])) {
+                $fields['wbPortraitImage'] = [$assetIds[$portIndex]];
+            }
+
+            $slides["new:$slideCounter"] = [
+                'type'   => 'wbFsSlide',
+                'fields' => $fields,
+            ];
+            $slideCounter++;
+        }
+
+        $blockFields = $componentData['fields'] ?? [];
+        $blockFields['wbFsSlides'] = $slides;
+
+        return [
+            'type'   => 'wbFullscreenImage',
+            'fields' => $blockFields,
         ];
     }
 

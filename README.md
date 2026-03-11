@@ -13,16 +13,16 @@ A portable website building toolkit for Craft CMS 5. Provides a full set of Boot
 ```bash
 composer require fklavyenet/craft-webblocks
 ddev craft plugin/install webblocks
-ddev craft webblocks/install/all
+ddev craft webblocks/seed --interactive=0
 ```
 
 ## Console Commands
 
 | Command | Description |
 |---|---|
-| `ddev craft webblocks/install/all` | Install fields, entry types, sections, volumes, transforms |
-| `ddev craft webblocks/seed/all` | Seed demo content |
-| `ddev craft webblocks/wipe/all --interactive=0` | Wipe all plugin data and reinstall from scratch |
+| `ddev craft plugin/install webblocks --interactive=0` | Install plugin (runs InstallService automatically) |
+| `ddev craft webblocks/seed --interactive=0` | Seed demo content |
+| `ddev craft webblocks/wipe/all --interactive=0` | Wipe all plugin data and uninstall plugin |
 
 ## Usage
 
@@ -91,6 +91,18 @@ All components are registered as entry types under the `wbBlocks` matrix field. 
 | `wbBreadcrumb` | Bootstrap breadcrumb |
 | `wbModal` | Bootstrap modal trigger and content |
 | `wbLeftRight` | Two-column image + text layout with switchable sides |
+
+### UI Components
+
+| Handle | Description |
+|---|---|
+| `wbBadge` | Bootstrap badge with colour variant and optional pill style |
+| `wbPagination` | Bootstrap pagination with configurable page count, size, and alignment |
+| `wbToast` | Bootstrap toast notification with title, body, and colour variant |
+| `wbSpinner` | Bootstrap spinner (border or grow) with colour and size options |
+| `wbPopover` | Bootstrap popover trigger button with configurable placement and content |
+| `wbButtonGroup` | Group of buttons with shared style, size, and optional vertical orientation |
+| `wbOffcanvas` | Off-canvas panel with configurable placement, backdrop, and nested block content |
 
 ## Appearance Fields
 

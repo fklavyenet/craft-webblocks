@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-03-11
+
+### Added
+- `wbBadge` block: Bootstrap badge with colour variant (`wbBadgeType`) and optional pill style (`wbBadgePill`).
+- `wbPagination` block: Bootstrap pagination with configurable page count, size (sm/lg), and alignment (start/center/end).
+- `wbToast` block: Bootstrap toast notification with title, body text, and colour variant. Rendered with `show` class so it is visible without a JS trigger.
+- `wbSpinner` block: Bootstrap spinner with type (border/grow), colour variant, and size (sm/default).
+- `wbPopover` block: Bootstrap popover trigger button with configurable label, header, body, placement, and button size. Initialised with an inline IIFE after Bootstrap CDN loads.
+- `wbButtonGroup` block: Nested block — `wbButtonGroupItems` matrix containing `wbButtonGroupItem` entry types. Supports shared button variant/outline style, size, and horizontal/vertical orientation.
+- `wbOffcanvas` block: Off-canvas panel with configurable placement, backdrop, trigger button label and size, and fully nested `wbBlocks` content.
+
 ## [1.1.0] - 2026-03-11
 
 ### Added

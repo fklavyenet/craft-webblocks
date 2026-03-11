@@ -1,0 +1,552 @@
+{
+    "home": {
+        "wbSeoTitle": "Ember & Rye — Modernes amerikanisches Steakhouse, Washington DC",
+        "wbSeoDescription": "Erleben Sie feuergetriebene Küche in ihrer reinsten Form. Ember & Rye serviert erstklassiges trockengelagertes Rindfleisch und saisonale amerikanische Küche in der 1847 K Street NW, Washington DC.",
+        "blocks": [
+            {
+                "type": "wbFullscreenImage",
+                "fields": { "wbAutoplay": 6000 },
+                "slides": [
+                    {
+                        "wbTitle": "Feuergetriebene Küche",
+                        "wbText": "Washington DCs modernes amerikanisches Steakhouse. Erstklassiges trockengelagertes Rindfleisch, saisonale Beilagen und handgefertigte Cocktails.",
+                        "wbOverlayOpacity": "40",
+                        "imageIndex": 18,
+                        "portraitIndex": 22
+                    },
+                    {
+                        "wbTitle": "Der Holzfeuergrill",
+                        "wbText": "Kirsche, Hickory und Apfelholz — unser wichtigstes Werkzeug. Jedes Stück wird vom echten Feuer geküsst.",
+                        "wbOverlayOpacity": "40",
+                        "imageIndex": 19
+                    },
+                    {
+                        "wbTitle": "45-Tage-Dry-Aged-Ribeye",
+                        "wbText": "Whitewood Farm Angus-Hereford. Knochenmarksbutter. Brunnenkresse. Mehr braucht es nicht.",
+                        "wbOverlayOpacity": "60",
+                        "imageIndex": 20
+                    },
+                    {
+                        "wbTitle": "Die Bar im Ember & Rye",
+                        "wbText": "Handgefertigte Cocktails von Chefbartender Tomás Rivera. Saisonale Menüs, zutatenorientiert.",
+                        "wbOverlayOpacity": "40",
+                        "imageIndex": 21
+                    }
+                ]
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "4" }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbTitle": "Wo Handwerk auf Feuer trifft",
+                    "wbText": "<p class=\"lead\">Bei Ember & Rye glauben wir, dass großartige Küche an der Quelle beginnt. Jedes Stück wird mindestens 28 Tage im Haus trockengelagert. Jedes Gemüse wird innerhalb von 100 Meilen unserer Küche angebaut. Jedes Gericht wird vom Feuer geprägt — unser offener Holzfeuergrill, das lebende Herz des Restaurants.</p>",
+                    "wbAlignment": "center"
+                }
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "3" }
+            },
+            {
+                "type": "wbCarousel",
+                "fields": {
+                    "wbAutoplay": true,
+                    "wbInterval": 5000,
+                    "wbShowControls": true,
+                    "wbShowIndicators": true
+                },
+                "items": [
+                    { "imageIndex": 1, "wbCaption": "45-Tage-Dry-Aged-Ribeye", "wbCaptionText": "Whitewood Farm Angus-Hereford, Knochenmarksbutter, Brunnenkresse" },
+                    { "imageIndex": 2, "wbCaption": "Der Holzfeuergrill", "wbCaptionText": "Kirsche, Hickory und Apfelholz — unser wichtigstes Werkzeug" },
+                    { "imageIndex": 3, "wbCaption": "Das Speisezimmer", "wbCaptionText": "Intim. Warm. Unvergesslich." },
+                    { "imageIndex": 4, "wbCaption": "Handgefertigte Cocktails", "wbCaptionText": "Saisonale Menüs von Chefbartender Tomás Rivera" }
+                ]
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "4" }
+            },
+            {
+                "type": "wbGallery",
+                "fields": {
+                    "wbTitle": "Ein Blick ins Innere",
+                    "wbColumnsCount": "3"
+                },
+                "items": [
+                    { "imageIndex": 8,  "wbCaption": "Der Koch bei der Arbeit" },
+                    { "imageIndex": 9,  "wbCaption": "Dry-Aged-Ribeye, angerichtet" },
+                    { "imageIndex": 10, "wbCaption": "Die offene Küche" },
+                    { "imageIndex": 11, "wbCaption": "Saisonale Sharing-Gerichte" },
+                    { "imageIndex": 12, "wbCaption": "Holzofenpizza" },
+                    { "imageIndex": 13, "wbCaption": "Morgendliche Vorbereitung" },
+                    { "imageIndex": 14, "wbCaption": "Gebratener Wolfsbarsch" },
+                    { "imageIndex": 15, "wbCaption": "Perfektes Anbraten" },
+                    { "imageIndex": 16, "wbCaption": "Das Speisezimmer bei Nacht" },
+                    { "imageIndex": 17, "wbCaption": "Handgefertigter Cocktail — Nahaufnahme" }
+                ]
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "4" }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Heute Abend auf der Speisekarte",
+                    "wbText": "Unsere Speisekarte wechselt vierteljährlich, angetrieben von dem, was unser Farmnetzwerk gerade produziert. Erwarten Sie trockengelagertes Steak, holzgegrillten Fisch, saisonale Beilagen und Priyas legendären dunklen Schokoladen- und Kardamomfondant."
+                }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Private Dining",
+                    "wbText": "Unser privates Speisezimmer fasst bis zu 20 Gäste. Ideal für Geschäftsessen, runde Geburtstage und besondere Anlässe. Komplett individuelle Menüs, dedizierter Service und AV-Ausstattung verfügbar."
+                }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Geschenkkarten",
+                    "wbText": "Schenken Sie Feuer und Geschmack. Ember & Rye Geschenkkarten sind in jedem Betrag ab 50 $ erhältlich, 12 Monate gültig und einlösbar für Speisen, Getränke und Private Dining."
+                }
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "4" }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Reservieren Sie Ihren Tisch",
+                    "wbText": "Walk-ins willkommen, aber wir empfehlen eine Reservierung — besonders an Freitag- und Samstagabenden.",
+                    "wbButtonLabel": "Jetzt reservieren",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    },
+    "about": {
+        "title": "Über uns",
+        "wbSeoTitle": "Über Ember & Rye — Unsere Geschichte",
+        "wbSeoDescription": "Erfahren Sie mehr über Ember & Rye, Washington DCs modernes amerikanisches Steakhouse — unsere Köche, unsere Philosophie und unsere Leidenschaft für feuergetriebene Küche.",
+        "blocks": [
+            {
+                "type": "wbHero",
+                "fields": {
+                    "wbTitle": "Unsere Geschichte",
+                    "wbText": "Ember & Rye entstand aus einer einfachen Überzeugung: Großartiges Fleisch, richtig gegart, braucht sich hinter nichts zu verstecken.",
+                    "wbAlignment": "center",
+                    "imageIndex": 2
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Gegründet 2018 von Küchenchef Marcus Webb, begann Ember & Rye als kleiner Supper Club in einem umgebauten Georgetown-Lagerhaus. Was mit 30 Plätzen und einem geliehenen Holzfeuergrill begann, ist zu einem der bekanntesten Restaurants in Washington DC geworden.</p><p>Wir beziehen direkt von Familienbetrieben in Virginia und Maryland. Jedes Stück Rindfleisch wird mindestens 28 Tage im Haus trockengelagert. Unser Gemüse kommt von einem Netzwerk kleiner Erzeuger innerhalb von 100 Meilen des Restaurants. Wir glauben, dass die beste Küche lange beginnt, bevor etwas den Grill berührt.</p>"
+                }
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "2" }
+            },
+            {
+                "type": "wbGallery",
+                "fields": {
+                    "wbTitle": "Unsere Küche & unser Team",
+                    "wbColumnsCount": "2"
+                },
+                "items": [
+                    { "imageIndex": 10, "wbCaption": "Die offene Küche" },
+                    { "imageIndex": 9,  "wbCaption": "Dry-Aged-Ribeye, angerichtet" },
+                    { "imageIndex": 8,  "wbCaption": "Der Koch bei der Arbeit" },
+                    { "imageIndex": 11, "wbCaption": "Saisonale Sharing-Gerichte" },
+                    { "imageIndex": 15, "wbCaption": "Perfektes Anbraten" },
+                    { "imageIndex": 13, "wbCaption": "Morgendliche Vorbereitung" }
+                ]
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "3" }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Marcus Webb — Küchenchef",
+                    "wbText": "Marcus absolvierte seine Ausbildung unter James Beard Award-gekrönten Köchen in New York und London, bevor er in seine Heimatstadt DC zurückkehrte. Seine Philosophie ist einfach: Das Beste kaufen, mit Feuer garen, aus dem Weg gehen."
+                }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Priya Nair — Patissièrin",
+                    "wbText": "Priya leitet unser Patisseriekonzept und verbindet französische Technik mit südasiatischen Aromen. Ihr Fondant aus dunkler Schokolade und Kardamom steht seit dem Eröffnungsabend auf der Karte — auf vielfachen Wunsch."
+                }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Tomás Rivera — Chefbartender",
+                    "wbText": "Tomás bringt fünfzehn Jahre Cocktailerfahrung in unser Barprogramm ein. Er kreiert saisonale Menüs, die den zutatenorientierten Ansatz der Küche widerspiegeln, und arbeitet direkt mit dem Farmnetzwerk zusammen."
+                }
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "3" }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Lernen Sie uns persönlich kennen.",
+                    "wbText": "Der beste Weg, Ember & Rye zu erleben, ist an einem Tisch. Reservieren Sie noch heute Ihren Platz.",
+                    "wbButtonLabel": "Einen Tisch reservieren",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    },
+    "aboutSubPages": [
+        {
+            "title": "Unsere Philosophie",
+            "wbSeoTitle": "Unsere Kochphilosophie — Ember & Rye",
+            "wbSeoDescription": "Feuergetriebene Küche, ehrliche Zutaten und keinerlei Abkürzungen — die Leitphilosophie hinter jedem Gericht bei Ember & Rye.",
+            "blocks": [
+                {
+                    "type": "wbHero",
+                    "fields": {
+                        "wbTitle": "Unsere Philosophie",
+                        "wbText": "Ehrliche Küche. Echtes Feuer. Keine Abkürzungen.",
+                        "wbAlignment": "center"
+                    }
+                },
+                {
+                    "type": "wbAccordion",
+                    "title": "Wie wir über Essen denken",
+                    "items": [
+                        {
+                            "wbTitle": "Quelle zuerst",
+                            "wbText": "<p>Wir besuchen jeden Betrieb und Lieferanten, bevor er auf unserer Karte erscheint. Wir wollen den Boden, die Bedingungen und die Menschen kennen. Die Qualität einer Zutat an der Quelle ist die Obergrenze für jedes Gericht — keine Technik kann ein mittelmäßiges Stück Rindfleisch verbessern.</p>"
+                        },
+                        {
+                            "wbTitle": "Feuer als primäres Werkzeug",
+                            "wbText": "<p>Unser offener Holzfeuergrill ist das Herz der Küche. Verschiedene Hölzer — Kirsche, Hickory, Apfelholz — verleihen unterschiedliche Geschmacksprofile. Wir behandeln das Feuer so, wie andere Köche das Würzen behandeln: mit Präzision, Geduld und Respekt.</p>"
+                        },
+                        {
+                            "wbTitle": "Zurückhaltung auf dem Teller",
+                            "wbText": "<p>Ein trockengelagertes Ribeye mit einer geräucherten Knochenmarksbutter braucht vier Zutaten, nicht vierzehn. Wir widerstehen dem Drang zum Überdekorieren. Jedes Element auf dem Teller ist dort, weil es das Gericht besser macht — nicht um Technik zu demonstrieren.</p>"
+                        },
+                        {
+                            "wbTitle": "Saisonalität ohne Kompromisse",
+                            "wbText": "<p>Unsere Speisekarte wechselt vierteljährlich, um widerzuspiegeln, was von unserem Erzeugernetzwerk verfügbar ist. Diese Einschränkung ist ein kreatives Geschenk — sie hält die Karte ehrlich und die Produkte außergewöhnlich.</p>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Nachhaltigkeit",
+            "wbSeoTitle": "Nachhaltigkeit bei Ember & Rye",
+            "wbSeoDescription": "Wie Ember & Rye Abfall minimiert, mit regenerativen Betrieben zusammenarbeitet und Verantwortung für seinen ökologischen Fußabdruck übernimmt.",
+            "blocks": [
+                {
+                    "type": "wbHero",
+                    "fields": {
+                        "wbTitle": "Unser Nachhaltigkeitsversprechen",
+                        "wbText": "Großartige Küche und ökologische Verantwortung stehen nicht im Widerspruch — sie sind untrennbar.",
+                        "wbAlignment": "center"
+                    }
+                },
+                {
+                    "type": "wbTextBlock",
+                    "fields": {
+                        "wbText": "<p>Wir sind entschlossen, so nachhaltig wie möglich zu wirtschaften. Dies ist keine Marketingübung — es ist ein praktisches Engagement, das in unserem Einkauf, unseren Küchenprozessen und unseren Lieferantenbeziehungen verankert ist.</p>"
+                    }
+                },
+                {
+                    "type": "wbProgressBar",
+                    "fields": {
+                        "wbProgressBars": [
+                            { "wbProgressLabel": "Zutaten aus einem Umkreis von 100 Meilen", "wbProgressValue": 87 },
+                            { "wbProgressLabel": "Lebensmittelabfälle von der Deponie umgeleitet", "wbProgressValue": 94 },
+                            { "wbProgressLabel": "Energie aus erneuerbaren Quellen", "wbProgressValue": 78 },
+                            { "wbProgressLabel": "Lieferbetriebe mit Regenerativ-Zertifizierung", "wbProgressValue": 62 }
+                        ]
+                    }
+                },
+                {
+                    "type": "wbAlert",
+                    "fields": {
+                        "wbTitle": "Seit 2022 kein Einwegplastik mehr",
+                        "wbText": "Alle Verpackungen, Take-away-Behälter und Strohhalme bei Ember & Rye sind kompostierbar oder wiederverwendbar. Wir haben Einwegplastik 2022 aus unserem Betrieb verbannt.",
+                        "wbAlertType": "success",
+                        "wbAlertDismissible": false
+                    }
+                }
+            ]
+        }
+    ],
+    "servicesIndex": {
+        "title": "Private Dining & Veranstaltungen",
+        "wbSeoTitle": "Private Dining & Veranstaltungen — Ember & Rye",
+        "wbSeoDescription": "Veranstalten Sie Ihr nächstes Geschäftsessen, Ihre Geburtstagsfeier oder Ihren besonderen Anlass in unserem privaten Speisezimmer. Kapazität für bis zu 20 Gäste.",
+        "blocks": [
+            {
+                "type": "wbHero",
+                "fields": {
+                    "wbTitle": "Private Dining & Veranstaltungen",
+                    "wbText": "Ein exklusiver Raum für die Momente, die mehr als einen gewöhnlichen Tisch verdienen.",
+                    "wbAlignment": "center"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Unser privates Speisezimmer fasst bis zu 20 Gäste und steht für Geschäftsessen, runde Geburtstage, Probeessen und andere besondere Anlässe zur Verfügung. Jede private Veranstaltung umfasst einen dedizierten Kellner, ein von Küchenchef Marcus zusammengestelltes individuelles Menü und vollständige Weinbegleitungsoptionen. Entdecken Sie unsere Veranstaltungspakete oder kontaktieren Sie uns für ein vollständig maßgeschneidertes Erlebnis.</p>"
+                }
+            }
+        ]
+    },
+    "services": [
+        {
+            "title": "Geschäftsessen",
+            "wbSeoTitle": "Geschäftsessen — Ember & Rye",
+            "wbSeoDescription": "Beeindrucken Sie Kunden und belohnen Sie Ihr Team mit einem privaten Dining-Erlebnis bei Ember & Rye. Individuelle Menüs, dedizierter Service und AV-Ausstattung verfügbar.",
+            "excerpt": "Beeindrucken Sie Kunden und belohnen Sie Ihr Team mit einem maßgeschneiderten privaten Dining-Erlebnis.",
+            "blocks": [
+                {
+                    "type": "wbTextBlock",
+                    "fields": {
+                        "wbText": "<p>Ein gut gewählter Veranstaltungsort gibt den Ton für jedes Geschäftsgespräch vor. Unser privates Speisezimmer bietet ein elegantes, ablenkungsfreies Umfeld für Kundenunterhaltung, Teamfeiern und Arbeitsdinner.</p><ul><li>Kapazität: bis zu 20 Gäste</li><li>Individuelle Menüs von Küchenchef Marcus</li><li>Vollständige Weinbegleitung und Cocktailempfang als Option</li><li>Präsentationsbildschirm und AV-Anschluss verfügbar</li><li>Exklusive Nutzung des Raumes für Ihre Veranstaltung</li></ul>"
+                    }
+                },
+                {
+                    "type": "wbCallToAction",
+                    "fields": {
+                        "wbTitle": "Bereit zu buchen?",
+                        "wbText": "Kontaktieren Sie unser Eventteam, um Verfügbarkeit zu prüfen und Ihre Anforderungen zu besprechen.",
+                        "wbButtonLabel": "Jetzt anfragen",
+                        "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Feiern & besondere Anlässe",
+            "wbSeoTitle": "Geburtstags- & Jubiläumsdinner — Ember & Rye",
+            "wbSeoDescription": "Feiern Sie die wichtigsten Momente in unserem privaten Speisezimmer. Wir kümmern uns um jedes Detail, damit Sie sich auf die Menschen um Sie herum konzentrieren können.",
+            "excerpt": "Feiern Sie Geburtstage, Jubiläen und Meilensteine mit einem auf Sie abgestimmten privaten Dining-Erlebnis.",
+            "blocks": [
+                {
+                    "type": "wbTextBlock",
+                    "fields": {
+                        "wbText": "<p>Geburtstage, Jubiläen, Verlobungen, Abschlussfeiern — die Momente, die uns definieren, verdienen einen Rahmen, der dem Anlass gerecht wird. Unser Eventteam arbeitet mit Ihnen zusammen, um jedes Detail zu personalisieren: vom Menü und der Weinauswahl bis hin zu Blumenarrangements und individuell gedruckten Menükarten.</p><ul><li>Individuelle Menüs, abgestimmt auf die Vorlieben Ihrer Gäste</li><li>Individuell bedruckte Menükarten inklusive</li><li>Champagnerempfang als Option</li><li>Torte oder Dessertplatte am Tisch</li><li>Persönliche Fotografenempfehlungen auf Anfrage</li></ul>"
+                    }
+                },
+                {
+                    "type": "wbAlert",
+                    "fields": {
+                        "wbTitle": "Frühzeitige Reservierung empfohlen",
+                        "wbText": "Unser privates Speisezimmer ist an Freitag- und Samstagabenden sehr gefragt. Wir empfehlen eine Reservierung mindestens vier Wochen im Voraus für Wochenendfeiern.",
+                        "wbAlertType": "info",
+                        "wbAlertDismissible": false
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Geschenkkarten",
+            "wbSeoTitle": "Geschenkkarten — Ember & Rye",
+            "wbSeoDescription": "Schenken Sie Feuer und Geschmack. Ember & Rye Geschenkkarten sind in jedem Betrag erhältlich, 12 Monate gültig.",
+            "excerpt": "Schenken Sie ein wirklich unvergessliches Essen. In jedem Betrag erhältlich.",
+            "blocks": [
+                {
+                    "type": "wbTextBlock",
+                    "fields": {
+                        "wbText": "<p>Eine Ember & Rye Geschenkkarte ist das perfekte Geschenk für jeden, der großartiges Essen liebt. In jedem Betrag ab 50 $ erhältlich, können Geschenkkarten für Speisen, Getränke und Private Dining-Buchungen eingelöst werden. Sie sind 12 Monate ab Kaufdatum gültig.</p><p>Im Restaurant erhältlich oder rufen Sie uns an — wir arrangieren die Zustellung einer physischen Karte per Post oder die Lieferung einer digitalen Karte noch am selben Tag per E-Mail.</p>"
+                    }
+                },
+                {
+                    "type": "wbContactDetails",
+                    "fields": {
+                        "wbPhone": "+1 (202) 555-0194",
+                        "wbEmail": "gifts@emberandrye.com",
+                        "wbAddress": "1847 K Street NW, Washington DC 20006"
+                    }
+                }
+            ]
+        }
+    ],
+    "pages": [
+        {
+            "title": "Unsere Speisekarte",
+            "wbSeoTitle": "Speisekarte — Ember & Rye",
+            "wbSeoDescription": "Entdecken Sie die saisonale Speisekarte von Ember & Rye — von erstklassigen trockengelagerten Steaks über hausgebackenes Sauerteigbrot bis hin zu handgefertigten Desserts.",
+            "blocks": [
+                {
+                    "type": "wbHero",
+                    "fields": {
+                        "wbTitle": "Unsere Speisekarte",
+                        "wbText": "Saisonal. Feuergetrieben. Aus einem Umkreis von 100 Meilen.",
+                        "wbAlignment": "center",
+                        "imageIndex": 1
+                    }
+                },
+                {
+                    "type": "wbTabs",
+                    "fields": {
+                        "wbTabItems": [
+                            {
+                                "wbTabTitle": "Vorspeisen",
+                                "wbText": "<ul><li><strong>Knochenmark & Toast</strong> — gegrilltes Knochenmark, Sauerteigbrot, Cornichons <em>$18</em></li><li><strong>Beef Tartare</strong> — handgeschnittenes Whitewood Farm Ribeye, Eigelb, Kapern, Schalotten <em>$22</em></li><li><strong>Gegrillter Oktopus</strong> — Holzfeuergrill, Paprikabutter, eingelegter Fenchel <em>$24</em></li><li><strong>Burrata</strong> — Blue Ridge Greens Erbstücktomate, Basilikumöl, gereifter Balsamico <em>$19</em></li></ul>"
+                            },
+                            {
+                                "wbTabTitle": "Hauptgerichte",
+                                "wbText": "<ul><li><strong>45-Tage-Dry-Aged-Ribeye (12 oz)</strong> — Whitewood Farm Angus-Hereford, Knochenmarksbutter, Brunnenkresse <em>$68</em></li><li><strong>Holzgegrilltes Striploin (10 oz)</strong> — Chimichurri, gerösteter Knoblauch, knusprige Schalotten <em>$54</em></li><li><strong>Ganzer gegrillter Wolfsbarsch</strong> — Kräuteröl, Zitrone, gegrillter Lauch, Nussbutter <em>$46</em></li><li><strong>Pilz-Walnuss-Wellington</strong> — Wildpilzduxelles, Walnustkruste, Trüffeljus <em>$38</em></li></ul>"
+                            },
+                            {
+                                "wbTabTitle": "Beilagen",
+                                "wbText": "<ul><li><strong>Dreifach gegarte Rinderschmalzchips</strong> <em>$12</em></li><li><strong>Gegrillter Spargel</strong> — Hollandaise, knusprige Kapern <em>$11</em></li><li><strong>Rahmspinat</strong> — Muskat, gereifter Parmesan <em>$10</em></li><li><strong>Geröstetes Knochenmarkspüree</strong> <em>$13</em></li><li><strong>Hausblattsalat</strong> — Blue Ridge Greens Blätter, Champagner-Vinaigrette <em>$9</em></li></ul>"
+                            },
+                            {
+                                "wbTabTitle": "Desserts",
+                                "wbText": "<ul><li><strong>Dunkler Schokoladen- & Kardamomfondant</strong> — Vanilleeis, Blattgold <em>$16</em></li><li><strong>Geräucherte Honig-Panna-Cotta</strong> — Bees of the Chesapeake Honig, Shortbread-Streusel <em>$14</em></li><li><strong>Saisonale Tarte</strong> — fragen Sie Ihren Kellner nach der heutigen Auswahl <em>$13</em></li><li><strong>Käseplatte</strong> — drei Piedmont Artisan Auswahlen, Quitte, Walnusscracker <em>$22</em></li></ul>"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "wbSpacing",
+                    "fields": { "wbSpacingSize": "3" }
+                },
+                {
+                    "type": "wbAlert",
+                    "fields": {
+                        "wbTitle": "Saisonale Verfügbarkeit",
+                        "wbText": "Unsere Speisekarte wechselt vierteljährlich. Einige Gerichte sind möglicherweise am jeweiligen Abend nicht verfügbar — bitte fragen Sie Ihren Kellner nach der aktuellen vollständigen Karte und den heutigen Spezialitäten.",
+                        "wbAlertType": "info",
+                        "wbAlertDismissible": false
+                    }
+                },
+                {
+                    "type": "wbCallToAction",
+                    "fields": {
+                        "wbTitle": "Bereit zu speisen?",
+                        "wbText": "Reservieren Sie Ihren Tisch und überlassen Sie uns den Rest.",
+                        "wbButtonLabel": "Einen Tisch reservieren",
+                        "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    }
+                }
+            ]
+        }
+    ],
+    "contact": {
+        "wbSeoTitle": "Reservierung & Kontakt — Ember & Rye",
+        "wbSeoDescription": "Reservieren Sie Ihren Tisch bei Ember & Rye oder kontaktieren Sie uns wegen Private Dining, Geschenkkarten und allgemeinen Anfragen.",
+        "blocks": [
+            {
+                "type": "wbHero",
+                "fields": {
+                    "wbTitle": "Reservierung & Kontakt",
+                    "wbText": "Reservieren Sie Ihren Tisch oder fragen Sie uns zu Private Dining, Geschenkkarten oder anderen Themen.",
+                    "wbAlignment": "center"
+                }
+            },
+            {
+                "type": "wbContactDetails",
+                "fields": {
+                    "wbPhone": "+1 (202) 555-0194",
+                    "wbEmail": "hello@emberandrye.com",
+                    "wbAddress": "1847 K Street NW, Washington DC 20006"
+                }
+            },
+            {
+                "type": "wbColumns",
+                "fields": { "wbColumnsCount": "2" },
+                "columns": [
+                    {
+                        "blocks": [
+                            {
+                                "type": "wbTable",
+                                "fields": {
+                                    "wbTitle": "Öffnungszeiten",
+                                    "wbBorder": true,
+                                    "wbBorderColor": "secondary",
+                                    "wbRounded": "rounded-3",
+                                    "wbPadding": "p-4",
+                                    "wbTableColumns": [
+                                        { "heading": "Tag" },
+                                        { "heading": "Mittagessen" },
+                                        { "heading": "Abendessen" }
+                                    ],
+                                    "wbTableRows": [
+                                        { "cell1": "Montag – Dienstag",      "cell2": "Geschlossen",       "cell3": "17:30 – 22:00" },
+                                        { "cell1": "Mittwoch – Freitag",     "cell2": "12:00 – 14:30",     "cell3": "17:30 – 22:30" },
+                                        { "cell1": "Samstag",                "cell2": "11:30 – 15:00",     "cell3": "17:00 – 23:00" },
+                                        { "cell1": "Sonntag",                "cell2": "11:30 – 15:30",     "cell3": "17:00 – 21:30" }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "blocks": [
+                            {
+                                "type": "wbForm",
+                                "recipient": "hello@emberandrye.com",
+                                "subject": "Neue Tischreservierungsanfrage",
+                                "submitLabel": "Anfrage senden",
+                                "successMsg": "Vielen Dank! Wir bestätigen Ihre Reservierung innerhalb eines Werktages.",
+                                "wbTitle": "Tisch reservieren",
+                                "wbBorder": true,
+                                "wbBorderColor": "secondary",
+                                "wbRounded": "rounded-3",
+                                "wbPadding": "p-4",
+                                "fields": [
+                                    { "label": "Ihr Name", "type": "text", "required": true, "placeholder": "Max Mustermann" },
+                                    { "label": "E-Mail-Adresse", "type": "email", "required": true, "placeholder": "max@beispiel.de" },
+                                    { "label": "Telefonnummer", "type": "tel", "required": true, "placeholder": "+49 (555) 000-0000" },
+                                    { "label": "Gewünschtes Datum", "type": "text", "required": true, "placeholder": "z.B. Samstag, 15. März" },
+                                    {
+                                        "label": "Gewünschte Uhrzeit",
+                                        "type": "select",
+                                        "required": true,
+                                        "options": [
+                                            { "label": "Mittagessen (12:00 – 14:30)", "value": "lunch" },
+                                            { "label": "Frühes Abendessen (17:30 – 19:00)", "value": "early-dinner" },
+                                            { "label": "Abendessen (19:00 – 21:00)", "value": "dinner" },
+                                            { "label": "Spätes Abendessen (21:00+)", "value": "late-dinner" }
+                                        ]
+                                    },
+                                    {
+                                        "label": "Anzahl der Gäste",
+                                        "type": "select",
+                                        "required": true,
+                                        "options": [
+                                            { "label": "1 – 2 Gäste", "value": "2" },
+                                            { "label": "3 – 4 Gäste", "value": "4" },
+                                            { "label": "5 – 6 Gäste", "value": "6" },
+                                            { "label": "7+ Gäste (Private Dining Anfrage)", "value": "7+" }
+                                        ]
+                                    },
+                                    { "label": "Ernährungsanforderungen oder besondere Wünsche", "type": "textarea", "required": false, "placeholder": "Allergien, Feierlichkeiten, Zugänglichkeitsbedarf..." }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p class=\"text-muted\">Walk-ins willkommen, je nach Verfügbarkeit. Für Gruppen ab 7 Personen bitten wir um direkten Anruf. Wir bemühen uns, alle E-Mail-Anfragen innerhalb eines Werktages zu beantworten.</p>"
+                }
+            }
+        ]
+    },
+    "blogIndex": {
+        "wbSeoTitle": "Journal — Ember & Rye",
+        "wbSeoDescription": "Geschichten aus der Küche, vom Hof und der Bar bei Ember & Rye."
+    }
+}

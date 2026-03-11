@@ -20,6 +20,8 @@ use craft\models\FieldLayoutTab;
 use craft\models\ImageTransform;
 use craft\models\Section;
 use craft\models\Section_SiteSettings;
+use craft\models\Site;
+use craft\models\SiteGroup;
 use craft\models\TagGroup;
 use craft\models\Volume;
 use craft\fs\Local;
@@ -77,6 +79,7 @@ class InstallService extends Component
         $this->entryTypeCache = [];
         $this->cacheExistingEntryTypes();
         $this->updateEntryTypeMatrixFields();
+        $this->installSites();
         $this->installSections();
         $this->installGlobalSets();
         $this->installCategories();
@@ -439,12 +442,70 @@ class InstallService extends Component
     }
 
     // =========================================================================
-    // 8. Sections
+    // 8. Additional Sites (TR + DE)
+    // =========================================================================
+
+    /**
+     * Additional language sites to create alongside the primary EN site.
+     * Each entry: [handle, name, language, baseUrl, uriPrefix]
+     * uriPrefix is prepended to section uriFormats for this site (e.g. 'tr/').
+     */
+    private const EXTRA_SITES = [
+        ['handle' => 'tr', 'name' => 'Restaurant (TR)', 'language' => 'tr',    'baseUrl' => '@web/tr/',  'uriPrefix' => 'tr/'],
+        ['handle' => 'de', 'name' => 'Restaurant (DE)', 'language' => 'de-DE', 'baseUrl' => '@web/de/',  'uriPrefix' => 'de/'],
+    ];
+
+    private function installSites(): void
+    {
+        $sitesService = Craft::$app->getSites();
+        $primarySite  = $sitesService->getPrimarySite();
+
+        // Ensure the primary site group exists; use it for extra sites too
+        $groups = $sitesService->getAllGroups();
+        $group  = $groups[0] ?? null;
+
+        if (!$group) {
+            $group = new SiteGroup();
+            $group->setName('Default');
+            if (!$sitesService->saveGroup($group)) {
+                Craft::error('WebBlocks: Failed to save default site group', __METHOD__);
+                return;
+            }
+        }
+
+        foreach (self::EXTRA_SITES as $def) {
+            $handle = $def['handle'];
+
+            if ($sitesService->getSiteByHandle($handle)) {
+                Craft::info("WebBlocks: Site '$handle' already exists, skipping.", __METHOD__);
+                continue;
+            }
+
+            $site = new Site();
+            $site->groupId = $primarySite->groupId ?? $group->id;
+            $site->handle  = $handle;
+            $site->primary = false;
+            $site->hasUrls = true;
+            $site->setName($def['name']);
+            $site->setLanguage($def['language']);
+            $site->setBaseUrl($def['baseUrl']);
+
+            if (!$sitesService->saveSite($site)) {
+                Craft::error("WebBlocks: Failed to save site '$handle': " . implode(', ', $site->getFirstErrors()), __METHOD__);
+            } else {
+                Craft::info("WebBlocks: Created site '$handle'", __METHOD__);
+            }
+        }
+    }
+
+    // =========================================================================
+    // 9. Sections
     // =========================================================================
 
     private function installSections(): void
     {
-        $site = Craft::$app->getSites()->getPrimarySite();
+        $sitesService = Craft::$app->getSites();
+        $primarySite  = $sitesService->getPrimarySite();
 
         foreach ($this->loadComponents('sections') as $def) {
             $handle = $def['handle'];
@@ -463,14 +524,37 @@ class InstallService extends Component
                     $section->maxLevels = (int) $def['maxLevels'];
                 }
 
-                $siteSettings = new Section_SiteSettings();
-                $siteSettings->siteId = $site->id;
-                $siteSettings->hasUrls = true;
-                $siteSettings->uriFormat = $def['uriFormat'];
-                $siteSettings->template = $def['template'];
-                $siteSettings->enabledByDefault = true;
+                if (isset($def['enableVersioning'])) {
+                    $section->enableVersioning = (bool) $def['enableVersioning'];
+                }
 
-                $section->setSiteSettings([$site->id => $siteSettings]);
+                $allSiteSettings = [];
+
+                // Primary site
+                $primarySettings = new Section_SiteSettings();
+                $primarySettings->siteId = $primarySite->id;
+                $primarySettings->hasUrls = true;
+                $primarySettings->uriFormat = $def['uriFormat'];
+                $primarySettings->template = $def['template'];
+                $primarySettings->enabledByDefault = true;
+                $allSiteSettings[$primarySite->id] = $primarySettings;
+
+                // Extra sites (TR, DE)
+                foreach (self::EXTRA_SITES as $extraDef) {
+                    $extraSite = $sitesService->getSiteByHandle($extraDef['handle']);
+                    if (!$extraSite) {
+                        continue;
+                    }
+                    $extraSettings = new Section_SiteSettings();
+                    $extraSettings->siteId = $extraSite->id;
+                    $extraSettings->hasUrls = true;
+                    $extraSettings->uriFormat = $def['uriFormat'];
+                    $extraSettings->template = $def['template'];
+                    $extraSettings->enabledByDefault = true;
+                    $allSiteSettings[$extraSite->id] = $extraSettings;
+                }
+
+                $section->setSiteSettings($allSiteSettings);
             }
 
             // Always set entry types (both new and existing sections)
@@ -544,7 +628,8 @@ class InstallService extends Component
 
     private function installCategories(): void
     {
-        $site = Craft::$app->getSites()->getPrimarySite();
+        $sitesService = Craft::$app->getSites();
+        $primarySite  = $sitesService->getPrimarySite();
 
         foreach ($this->loadComponents('categorygroups') as $def) {
             $handle = $def['handle'];
@@ -558,13 +643,31 @@ class InstallService extends Component
             $group->handle = $handle;
             $group->maxLevels = $def['maxLevels'] ?? null;
 
-            $siteSettings = new CategoryGroup_SiteSettings();
-            $siteSettings->siteId = $site->id;
-            $siteSettings->uriFormat = $def['uriFormat'] ?? 'category/{slug}';
-            $siteSettings->template = $def['template'] ?? '';
-            $siteSettings->hasUrls = true;
+            $allSiteSettings = [];
 
-            $group->setSiteSettings([$site->id => $siteSettings]);
+            // Primary site
+            $primarySettings = new CategoryGroup_SiteSettings();
+            $primarySettings->siteId = $primarySite->id;
+            $primarySettings->uriFormat = $def['uriFormat'] ?? 'category/{slug}';
+            $primarySettings->template = $def['template'] ?? '';
+            $primarySettings->hasUrls = true;
+            $allSiteSettings[$primarySite->id] = $primarySettings;
+
+            // Extra sites (TR, DE)
+            foreach (self::EXTRA_SITES as $extraDef) {
+                $extraSite = $sitesService->getSiteByHandle($extraDef['handle']);
+                if (!$extraSite) {
+                    continue;
+                }
+                $extraSettings = new CategoryGroup_SiteSettings();
+                $extraSettings->siteId = $extraSite->id;
+                $extraSettings->uriFormat = $def['uriFormat'] ?? 'category/{slug}';
+                $extraSettings->template = $def['template'] ?? '';
+                $extraSettings->hasUrls = true;
+                $allSiteSettings[$extraSite->id] = $extraSettings;
+            }
+
+            $group->setSiteSettings($allSiteSettings);
 
             $layout = new FieldLayout(['type' => Category::class]);
             $tab = new FieldLayoutTab(['name' => 'Content']);

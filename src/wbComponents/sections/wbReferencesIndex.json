@@ -4,5 +4,6 @@
     "type": "single",
     "template": "wb/sections/references-index",
     "uriFormat": "references",
+    "enableVersioning": false,
     "entryTypes": ["wbReferencesIndex"]
 }

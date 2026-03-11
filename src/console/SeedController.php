@@ -16,6 +16,14 @@ use yii\console\ExitCode;
 class SeedController extends Controller
 {
     /**
+     * Language sites to propagate content into (in addition to the primary EN site).
+     * Each key is the Craft site handle; value is the suffix used in translation JSON filenames.
+     */
+    private const EXTRA_SITES = [
+        'tr' => 'tr',
+        'de' => 'de',
+    ];
+    /**
      * Seeds a test wbPage with all wb* block types and sample gallery images.
      */
     public function actionIndex(): int
@@ -210,6 +218,9 @@ class SeedController extends Controller
             return;
         }
 
+        // Load translation configs for extra sites
+        $extraSiteConfigs = $this->getExtraSiteConfigs('blogs');
+
         foreach ($postsConfig as $postDef) {
             $slug = $postDef['slug'];
 
@@ -254,6 +265,15 @@ class SeedController extends Controller
 
             if (Craft::$app->getElements()->saveElement($entry)) {
                 $this->stdout("  - '{$entry->title}' saved (ID: {$entry->id})\n");
+
+                // Propagate to extra sites
+                foreach ($extraSiteConfigs as $siteHandle => $siteConfig) {
+                    $translatedDef = $this->findTranslatedDef($siteConfig['defs'], $slug);
+                    if ($translatedDef) {
+                        $this->propagateEntryToSite($entry, $siteConfig['siteId'], $translatedDef, $assetIds);
+                        $this->stdout("    - Propagated to '$siteHandle'\n");
+                    }
+                }
             } else {
                 $this->stderr("  ! Failed to save '{$postDef['title']}':\n");
                 foreach ($entry->getErrors() as $attr => $errors) {
@@ -486,15 +506,18 @@ class SeedController extends Controller
             return;
         }
 
+        // Load translation configs for extra sites (pages.tr.json, pages.de.json)
+        $extraSiteConfigs = $this->getExtraSiteConfigs('pages');
+
         // --- About index + sub-pages ---
         $about = $config['about'] ?? null;
         if ($about) {
             $this->stdout("  About:\n");
-            $aboutIndex = $this->seedStructureEntry($about, $assetIds);
+            $aboutIndex = $this->seedStructureEntry($about, $assetIds, null, $extraSiteConfigs, 'about');
 
-            foreach ($config['aboutSubPages'] ?? [] as $subDef) {
+            foreach ($config['aboutSubPages'] ?? [] as $subKey => $subDef) {
                 $this->stdout("  About sub-page:\n");
-                $this->seedStructureEntry($subDef, $assetIds, $aboutIndex);
+                $this->seedStructureEntry($subDef, $assetIds, $aboutIndex, $extraSiteConfigs, 'aboutSubPages.' . $subKey);
             }
         }
 
@@ -502,18 +525,18 @@ class SeedController extends Controller
         $servicesIndex = $config['servicesIndex'] ?? null;
         if ($servicesIndex) {
             $this->stdout("  Services index:\n");
-            $indexEntry = $this->seedStructureEntry($servicesIndex, $assetIds);
+            $indexEntry = $this->seedStructureEntry($servicesIndex, $assetIds, null, $extraSiteConfigs, 'servicesIndex');
 
-            foreach ($config['services'] ?? [] as $serviceDef) {
+            foreach ($config['services'] ?? [] as $serviceKey => $serviceDef) {
                 $this->stdout("  Service page:\n");
-                $this->seedStructureEntry($serviceDef, $assetIds, $indexEntry);
+                $this->seedStructureEntry($serviceDef, $assetIds, $indexEntry, $extraSiteConfigs, 'services.' . $serviceKey);
             }
         }
 
         // --- Generic standalone pages (wbPage section) ---
-        foreach ($config['pages'] ?? [] as $pageDef) {
+        foreach ($config['pages'] ?? [] as $pageKey => $pageDef) {
             $this->stdout("  Page:\n");
-            $this->seedStructureEntry($pageDef, $assetIds);
+            $this->seedStructureEntry($pageDef, $assetIds, null, $extraSiteConfigs, 'pages.' . $pageKey);
         }
 
         // --- Contact (single section — entry already exists) ---
@@ -552,6 +575,15 @@ class SeedController extends Controller
                     }
                     if (Craft::$app->getElements()->saveElement($entry)) {
                         $this->stdout("    - Contact page saved (ID: {$entry->id})\n");
+
+                        // Propagate contact to extra sites
+                        foreach ($extraSiteConfigs as $siteHandle => $siteConfig) {
+                            $translatedDef = $this->findTranslatedDef($siteConfig['defs'], $entry->slug, 'contact');
+                            if ($translatedDef) {
+                                $this->propagateEntryToSite($entry, $siteConfig['siteId'], $translatedDef, $assetIds);
+                                $this->stdout("      - Propagated to '$siteHandle'\n");
+                            }
+                        }
                     } else {
                         $this->stderr("    ! Failed to save contact page:\n");
                         foreach ($entry->getErrors() as $attr => $errors) {
@@ -568,8 +600,14 @@ class SeedController extends Controller
     /**
      * Creates or updates a structure-section entry.
      * Returns the saved Entry on success, or null on failure.
+     *
+     * @param array       $def              Entry definition from pages.json
+     * @param array       $assetIds         Indexed asset IDs
+     * @param Entry|null  $parent           Parent entry for structure sections
+     * @param array       $extraSiteConfigs From getExtraSiteConfigs() — [siteHandle => [siteId, defs]]
+     * @param string|null $defKey           Dotted key into translation JSON (e.g. 'about', 'services.1')
      */
-    private function seedStructureEntry(array $def, array $assetIds, ?Entry $parent = null): ?Entry
+    private function seedStructureEntry(array $def, array $assetIds, ?Entry $parent = null, array $extraSiteConfigs = [], ?string $defKey = null): ?Entry
     {
         $sectionHandle = $def['section'];
         $entryTypeHandle = $def['entryType'];
@@ -650,6 +688,18 @@ class SeedController extends Controller
 
         if (Craft::$app->getElements()->saveElement($entry)) {
             $this->stdout("    - '{$entry->title}' saved (ID: {$entry->id})\n");
+
+            // Propagate to extra sites
+            if ($defKey !== null) {
+                foreach ($extraSiteConfigs as $siteHandle => $siteConfig) {
+                    $translatedDef = $this->resolveNestedDef($siteConfig['defs'], $defKey);
+                    if ($translatedDef) {
+                        $this->propagateEntryToSite($entry, $siteConfig['siteId'], $translatedDef, $assetIds);
+                        $this->stdout("      - Propagated to '$siteHandle'\n");
+                    }
+                }
+            }
+
             return $entry;
         }
 
@@ -695,6 +745,36 @@ class SeedController extends Controller
     }
 
     /**
+     * Resolve a translation def from a pages-style JSON object using a dotted key path.
+     * Supports:
+     *   'about'          → $defs['about']
+     *   'aboutSubPages.0'→ $defs['aboutSubPages'][0]
+     *   'services.2'     → $defs['services'][2]
+     *   'pages.0'        → $defs['pages'][0]
+     *   'contact'        → $defs['contact']
+     */
+    private function resolveNestedDef(?array $defs, string $key): ?array
+    {
+        if (!$defs) {
+            return null;
+        }
+
+        $parts = explode('.', $key, 2);
+        $topKey = $parts[0];
+
+        if (!isset($defs[$topKey])) {
+            return null;
+        }
+
+        if (count($parts) === 1) {
+            return is_array($defs[$topKey]) ? $defs[$topKey] : null;
+        }
+
+        $index = (int) $parts[1];
+        return $defs[$topKey][$index] ?? null;
+    }
+
+    /**
      * Sets wbShowInNav, wbShowInFooter, and optionally wbBlocks on single-section
      * entries that aren't handled by seedStaticPages (i.e. Home and Blog index).
      */
@@ -705,7 +785,7 @@ class SeedController extends Controller
         $homeConfig = $pagesConfig['home'] ?? [];
 
         $singles = [
-            array_merge([
+            'home' => array_merge([
                 'section'          => 'wbHome',
                 'wbShowInNav'      => true,
                 'wbNavOrder'       => 10,
@@ -714,7 +794,7 @@ class SeedController extends Controller
                 'wbSeoTitle'       => 'Ember & Rye — Modern American Steakhouse, Washington DC',
                 'wbSeoDescription' => 'Experience fire-driven cooking at its finest. Ember & Rye serves premium dry-aged beef and seasonal American cuisine at 1847 K Street NW, Washington DC.',
             ], $homeConfig),
-            [
+            'blogIndex' => [
                 'section'          => 'wbBlogIndex',
                 'wbShowInNav'      => true,
                 'wbNavOrder'       => 40,
@@ -729,7 +809,10 @@ class SeedController extends Controller
         // Load asset IDs for image resolution
         $assetIds = $this->getIndexedAssetIds($seedPath);
 
-        foreach ($singles as $def) {
+        // Load translation configs for extra sites
+        $extraSiteConfigs = $this->getExtraSiteConfigs('pages');
+
+        foreach ($singles as $defKey => $def) {
             $sectionHandle = $def['section'];
             $entry = Entry::find()->section($sectionHandle)->status(null)->one();
             if (!$entry) {
@@ -764,6 +847,15 @@ class SeedController extends Controller
 
             if (Craft::$app->getElements()->saveElement($entry)) {
                 $this->stdout("  - '$sectionHandle' nav flags set (ID: {$entry->id})\n");
+
+                // Propagate to extra sites
+                foreach ($extraSiteConfigs as $siteHandle => $siteConfig) {
+                    $translatedDef = $this->resolveNestedDef($siteConfig['defs'], $defKey);
+                    if ($translatedDef) {
+                        $this->propagateEntryToSite($entry, $siteConfig['siteId'], $translatedDef, $assetIds);
+                        $this->stdout("    - Propagated to '$siteHandle'\n");
+                    }
+                }
             } else {
                 $this->stderr("  ! Failed to save '$sectionHandle' nav flags:\n");
                 foreach ($entry->getErrors() as $attr => $errors) {
@@ -773,6 +865,125 @@ class SeedController extends Controller
                 }
             }
         }
+    }
+
+    // =========================================================================
+    // Multi-site propagation helpers
+    // =========================================================================
+
+    /**
+     * Returns an array of [siteHandle => [siteId, translationDefs]] for extra sites.
+     * translationDefs is the decoded JSON from pages.{lang}.json or blogs.{lang}.json,
+     * or null if the file doesn't exist yet.
+     *
+     * @param string $jsonFile  Base filename without extension, e.g. 'pages' or 'blogs'
+     * @return array<string, array{siteId: int, defs: array|null}>
+     */
+    private function getExtraSiteConfigs(string $jsonFile): array
+    {
+        $seedPath = $this->getSeedPath();
+        $result   = [];
+
+        foreach (self::EXTRA_SITES as $siteHandle => $langSuffix) {
+            $site = Craft::$app->getSites()->getSiteByHandle($siteHandle);
+            if (!$site) {
+                continue;
+            }
+            $translationFile = $seedPath . '/' . $jsonFile . '.' . $langSuffix . '.json';
+            $defs = file_exists($translationFile) ? $this->loadJson($translationFile) : null;
+            $result[$siteHandle] = ['siteId' => $site->id, 'defs' => $defs];
+        }
+
+        return $result;
+    }
+
+    /**
+     * Given a saved EN entry, propagate it to an extra site with translated content.
+     *
+     * $translatedDef mirrors the EN entry def shape from pages.json / blogs.json.
+     * Only fields present in $translatedDef are overwritten; everything else
+     * inherits from the primary site propagation Craft already does.
+     */
+    private function propagateEntryToSite(Entry $entry, int $siteId, array $translatedDef, array $assetIds): void
+    {
+        // Load the entry for the target site
+        $localEntry = Entry::find()
+            ->id($entry->id)
+            ->siteId($siteId)
+            ->status(null)
+            ->one();
+
+        if (!$localEntry) {
+            $this->stderr("      ! Could not load entry {$entry->id} for siteId $siteId\n");
+            return;
+        }
+
+        // Title
+        if (!empty($translatedDef['title'])) {
+            $localEntry->title = $translatedDef['title'];
+        }
+
+        // Slug — only override if explicitly provided in translation file
+        if (!empty($translatedDef['slug'])) {
+            $localEntry->slug = $translatedDef['slug'];
+        }
+
+        // SEO
+        if (!empty($translatedDef['wbSeoTitle'])) {
+            $localEntry->setFieldValue('wbSeoTitle', $translatedDef['wbSeoTitle']);
+        }
+        if (!empty($translatedDef['wbSeoDescription'])) {
+            $localEntry->setFieldValue('wbSeoDescription', $translatedDef['wbSeoDescription']);
+        }
+
+        // Excerpt
+        if (!empty($translatedDef['excerpt'])) {
+            $localEntry->setFieldValue('wbExcerpt', $translatedDef['excerpt']);
+        }
+
+        // wbBlocks
+        if (!empty($translatedDef['blocks'])) {
+            $blocksData = $this->buildInlineBlocksData($translatedDef['blocks'], $assetIds);
+            $localEntry->setFieldValue('wbBlocks', $blocksData);
+        }
+
+        if (!Craft::$app->getElements()->saveElement($localEntry)) {
+            $this->stderr("      ! Failed to propagate entry to siteId $siteId:\n");
+            foreach ($localEntry->getErrors() as $attr => $errors) {
+                foreach ($errors as $error) {
+                    $this->stderr("        [$attr] $error\n");
+                }
+            }
+        }
+    }
+
+    /**
+     * Find a translated definition by slug from a flat array (blogs) or named-key object (pages).
+     * Returns null if no translation found.
+     *
+     * @param array       $defs         Decoded translation JSON
+     * @param string      $slug         Entry slug to match
+     * @param string|null $topLevelKey  Top-level key for named objects (e.g. 'about', 'contact'); null for flat arrays
+     */
+    private function findTranslatedDef(?array $defs, string $slug, ?string $topLevelKey = null): ?array
+    {
+        if (!$defs) {
+            return null;
+        }
+
+        if ($topLevelKey !== null) {
+            // Named key (pages.json shape) — defs[$topLevelKey] is the entry def
+            return $defs[$topLevelKey] ?? null;
+        }
+
+        // Flat array (blogs.json shape) — find by slug
+        foreach ($defs as $def) {
+            if (($def['slug'] ?? '') === $slug) {
+                return $def;
+            }
+        }
+
+        return null;
     }
 
     private function getSeedPath(): string

@@ -1,0 +1,556 @@
+{
+    "home": {
+        "wbSeoTitle": "Ember & Rye — Modern Amerikan Steakhouse, Washington DC",
+        "wbSeoDescription": "Ateşle pişirmenin en iyisini yaşayın. Ember & Rye, 1847 K Street NW, Washington DC'de birinci kalite kuru olgunlaştırılmış et ve mevsimsel Amerikan mutfağı sunar.",
+        "blocks": [
+            {
+                "type": "wbFullscreenImage",
+                "fields": { "wbAutoplay": 6000 },
+                "slides": [
+                    {
+                        "wbTitle": "Ateşle Pişirme Sanatı",
+                        "wbText": "Washington DC'nin modern Amerikan steakhouse'u. Birinci kalite kuru olgunlaştırılmış et, mevsimsel garnitürler ve el yapımı kokteyller.",
+                        "wbOverlayOpacity": "40",
+                        "imageIndex": 18,
+                        "portraitIndex": 22
+                    },
+                    {
+                        "wbTitle": "Odun Ateşi Izgara",
+                        "wbText": "Kiraz, hickory ve elmaaağacı — birincil aracımız. Her kesim gerçek ateşle buluşur.",
+                        "wbOverlayOpacity": "40",
+                        "imageIndex": 19
+                    },
+                    {
+                        "wbTitle": "45 Günlük Kuru Olgunlaştırılmış Kaburgalı Biftek",
+                        "wbText": "Whitewood Farm Angus-Hereford. Kemik iliği tereyağı. Tere otu. Daha fazlası yok.",
+                        "wbOverlayOpacity": "60",
+                        "imageIndex": 20
+                    },
+                    {
+                        "wbTitle": "Ember & Rye Bar",
+                        "wbText": "Baş Barmen Tomás Rivera tarafından hazırlanan kokteyller. Mevsimsel menüler, malzeme odaklı.",
+                        "wbOverlayOpacity": "40",
+                        "imageIndex": 21
+                    }
+                ]
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "4" }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbTitle": "Ustalık Ateşle Buluşuyor",
+                    "wbText": "<p class=\"lead\">Ember & Rye'da harika pişirmenin kaynaktan başladığına inanıyoruz. Her kesim, en az 28 gün boyunca yerinde kuru olgunlaştırılır. Her sebze, mutfağımızın 100 mil yakınında yetiştirilir. Her yemek ateş tarafından şekillendirilir — açık odun ateşli ızgaramız, restoranın yaşayan kalbi.</p>",
+                    "wbAlignment": "center"
+                }
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "3" }
+            },
+            {
+                "type": "wbCarousel",
+                "fields": {
+                    "wbAutoplay": true,
+                    "wbInterval": 5000,
+                    "wbShowControls": true,
+                    "wbShowIndicators": true
+                },
+                "items": [
+                    { "imageIndex": 1, "wbCaption": "45 Günlük Kuru Olgunlaştırılmış Kaburgalı Biftek", "wbCaptionText": "Whitewood Farm Angus-Hereford, kemik iliği tereyağı, tere otu" },
+                    { "imageIndex": 2, "wbCaption": "Odun Ateşi Izgara", "wbCaptionText": "Kiraz, hickory ve elmaaağacı — birincil aracımız" },
+                    { "imageIndex": 3, "wbCaption": "Yemek Odası", "wbCaptionText": "Samimi. Sıcak. Unutulmaz." },
+                    { "imageIndex": 4, "wbCaption": "El Yapımı Kokteyller", "wbCaptionText": "Baş Barmen Tomás Rivera'nın mevsimsel menüleri" }
+                ]
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "4" }
+            },
+            {
+                "type": "wbGallery",
+                "fields": {
+                    "wbTitle": "İçeriden Bir Bakış",
+                    "wbColumnsCount": "3"
+                },
+                "items": [
+                    { "imageIndex": 8,  "wbCaption": "Şef İş Başında" },
+                    { "imageIndex": 9,  "wbCaption": "Kuru Olgunlaştırılmış Kaburgalı, Tabakta" },
+                    { "imageIndex": 10, "wbCaption": "Açık Mutfak" },
+                    { "imageIndex": 11, "wbCaption": "Mevsimsel Paylaşım Tabakları" },
+                    { "imageIndex": 12, "wbCaption": "Odun Ateşinde Pizza" },
+                    { "imageIndex": 13, "wbCaption": "Sabah Hazırlığı" },
+                    { "imageIndex": 14, "wbCaption": "Tavada Kızartılmış Levrek" },
+                    { "imageIndex": 15, "wbCaption": "Mükemmel Kızartma" },
+                    { "imageIndex": 16, "wbCaption": "Gece Yemek Odası" },
+                    { "imageIndex": 17, "wbCaption": "El Yapımı Kokteyl Yakın Plan" }
+                ]
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "4" }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Bu Gece Menüde",
+                    "wbText": "Menümüz, çiftlik ağımızın şu anda ürettiklerine göre üç ayda bir değişir. Kuru olgunlaştırılmış biftek, odun ateşinde balık, mevsimsel garnitürler ve Priya'nın efsanevi bitter çikolata ve kakule fondanını bekleyin."
+                }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Özel Yemek Odası",
+                    "wbText": "Özel yemek odamız 20 konuğa kadar kapasiteye sahiptir. Kurumsal akşam yemekleri, önemli doğum günleri ve özel etkinlikler için idealdir. Tamamen özel menüler, özel servis ve AV tesisleri mevcuttur."
+                }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Hediye Kartları",
+                    "wbText": "Ateş ve lezzetin hediyesini verin. Ember & Rye hediye kartları 50 dolardan başlayan herhangi bir miktarda mevcuttur, 12 ay geçerlidir ve yiyecek, içecek ve özel yemekler için kullanılabilir."
+                }
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "4" }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Masanızı Ayırtın",
+                    "wbText": "Walk-in kabul ediyoruz, ancak rezervasyon öneriyoruz. Özellikle Cuma ve Cumartesi akşamları.",
+                    "wbButtonLabel": "Şimdi Rezervasyon Yap",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    },
+    "about": {
+        "title": "Hakkımızda",
+        "wbSeoTitle": "Ember & Rye Hakkında — Hikayemiz",
+        "wbSeoDescription": "Washington DC'nin modern Amerikan steakhouse'u Ember & Rye hakkında bilgi edinin — şeflerimiz, felsefemiz ve ateşle pişirme tutkumuz.",
+        "blocks": [
+            {
+                "type": "wbHero",
+                "fields": {
+                    "wbTitle": "Hikayemiz",
+                    "wbText": "Ember & Rye basit bir inançtan doğdu: harika et, doğru pişirildiğinde, ardına saklanacak hiçbir şeye ihtiyaç duymaz.",
+                    "wbAlignment": "center",
+                    "imageIndex": 2
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>2018 yılında Genel Şef Marcus Webb tarafından kurulan Ember & Rye, dönüştürülmüş bir Georgetown deposunda küçük bir akşam yemeği kulübü olarak başladı. 30 koltuk ve ödünç alınan bir odun ateşi ızgarasıyla başlayan bu süreç, Washington DC'nin en çok konuşulan yemek odalarından birine dönüştü.</p><p>Virginia ve Maryland'daki aile çiftliklerinden doğrudan tedarik ediyoruz. Her biftek kesimi, yerinde en az 28 gün kuru olgunlaştırılır. Sebzelerimiz, restoranın 100 mil yakınındaki küçük üreticilerden geliyor. En iyi pişirmenin, herhangi bir şey ızgaraya dokunmadan çok önce başladığına inanıyoruz.</p>"
+                }
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "2" }
+            },
+            {
+                "type": "wbGallery",
+                "fields": {
+                    "wbTitle": "Mutfağımız ve Ekibimiz",
+                    "wbColumnsCount": "2"
+                },
+                "items": [
+                    { "imageIndex": 10, "wbCaption": "Açık Mutfak" },
+                    { "imageIndex": 9,  "wbCaption": "Kuru Olgunlaştırılmış Kaburgalı, Tabakta" },
+                    { "imageIndex": 8,  "wbCaption": "Şef İş Başında" },
+                    { "imageIndex": 11, "wbCaption": "Mevsimsel Paylaşım Tabakları" },
+                    { "imageIndex": 15, "wbCaption": "Mükemmel Kızartma" },
+                    { "imageIndex": 13, "wbCaption": "Sabah Hazırlığı" }
+                ]
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "3" }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Marcus Webb — Genel Şef",
+                    "wbText": "Marcus, DC'nin kendi şehrine dönmeden önce New York ve Londra'da James Beard Ödüllü şeflerin yanında eğitim aldı. Felsefesi basit: en iyisini al, ateşle pişir, geri çekil."
+                }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Priya Nair — Pastane Şefi",
+                    "wbText": "Priya, Fransız tekniğini Güney Asya lezzetiyle harmanlayarak pastane programımıza öncülük ediyor. Bitter çikolata ve kakule fondanı, açılış gecesinden bu yana menüde yer alıyor — halk talebiyle."
+                }
+            },
+            {
+                "type": "wbCard",
+                "fields": {
+                    "wbTitle": "Tomás Rivera — Baş Barmen",
+                    "wbText": "Tomás, bar programımıza on beş yıllık kokteyl deneyimi katıyor. Mutfağın malzeme öncelikli yaklaşımını yansıtan mevsimsel menüler oluşturarak çiftlik ağıyla doğrudan çalışıyor."
+                }
+            },
+            {
+                "type": "wbSpacing",
+                "fields": { "wbSpacingSize": "3" }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Bizi şahsen tanıyın.",
+                    "wbText": "Ember & Rye'ı deneyimlemenin en iyi yolu bir masanın etrafındadır. Bu gece yerinizi ayırtın.",
+                    "wbButtonLabel": "Rezervasyon Yap",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    },
+    "aboutSubPages": [
+        {
+            "title": "Felsefemiz",
+            "wbSeoTitle": "Pişirme Felsefemiz — Ember & Rye",
+            "wbSeoDescription": "Ateşle pişirme, dürüst malzemeler ve sıfır kısayol — Ember & Rye'daki her yemeğin arkasındaki rehber felsefe.",
+            "blocks": [
+                {
+                    "type": "wbHero",
+                    "fields": {
+                        "wbTitle": "Felsefemiz",
+                        "wbText": "Dürüst pişirme. Gerçek ateş. Sıfır kısayol.",
+                        "wbAlignment": "center"
+                    }
+                },
+                {
+                    "type": "wbAccordion",
+                    "title": "Yemek hakkında nasıl düşünüyoruz",
+                    "items": [
+                        {
+                            "wbTitle": "Önce kaynak",
+                            "wbText": "<p>Menümüzde yer almadan önce her çiftliği ve tedarikçiyi ziyaret ediyoruz. Toprağı, koşulları, insanları tanımak istiyoruz. Kaynaktaki bir malzemenin kalitesi, herhangi bir yemek için tavandır — hiçbir teknik vasat bir biftek kesimini iyileştiremez.</p>"
+                        },
+                        {
+                            "wbTitle": "Birincil araç olarak ateş",
+                            "wbText": "<p>Açık odun ateşli ızgaramız mutfağın kalbidir. Farklı odunlar — kiraz, hickory, elma ağacı — farklı lezzet profilleri sunar. Ateşe, diğer şeflerin baharat kullanır gibi davranıyoruz: hassasiyet, sabır ve saygıyla.</p>"
+                        },
+                        {
+                            "wbTitle": "Tabakta kısıtlama",
+                            "wbText": "<p>Tütsülenmiş kemik iliği tereyağlı kuru olgunlaştırılmış bir kaburgalı dört malzeme gerektirir, on dört değil. Aşırı süsleme dürtüsüne karşı koyuyoruz. Tabaktaki her eleman, yemeği daha iyi yaptığı için oradadır — teknik sergilemeye değil.</p>"
+                        },
+                        {
+                            "wbTitle": "Uzlaşmasız mevsimsellik",
+                            "wbText": "<p>Menümüz, üretici ağımızdan neyin mevcut olduğunu yansıtmak için üç ayda bir değişir. Bu kısıtlama yaratıcı bir hediyedir — menüyü dürüst ve ürünü olağanüstü kılar.</p>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Sürdürülebilirlik",
+            "wbSeoTitle": "Ember & Rye'da Sürdürülebilirlik",
+            "wbSeoDescription": "Ember & Rye'ın atığı nasıl azalttığı, yenileyici çiftliklerle nasıl çalıştığı ve çevresel ayak izini nasıl üstlendiği.",
+            "blocks": [
+                {
+                    "type": "wbHero",
+                    "fields": {
+                        "wbTitle": "Sürdürülebilirlik Taahhüdümüz",
+                        "wbText": "Harika yemek ve çevresel sorumluluk çelişkili değil — ayrılmaz.",
+                        "wbAlignment": "center"
+                    }
+                },
+                {
+                    "type": "wbTextBlock",
+                    "fields": {
+                        "wbText": "<p>Mümkün olduğunca sürdürülebilir bir şekilde faaliyet göstermeye kararlıyız. Bu bir pazarlama egzersizi değil — satın alma, mutfak süreçleri ve tedarikçi ilişkilerimize gömülü pratik bir taahhüttür.</p>"
+                    }
+                },
+                {
+                    "type": "wbProgressBar",
+                    "fields": {
+                        "wbProgressBars": [
+                            { "wbProgressLabel": "100 mil içinde tedarik edilen malzemeler", "wbProgressValue": 87 },
+                            { "wbProgressLabel": "Çöp depolama alanından uzaklaştırılan gıda atığı", "wbProgressValue": 94 },
+                            { "wbProgressLabel": "Yenilenebilir kaynaklardan enerji", "wbProgressValue": 78 },
+                            { "wbProgressLabel": "Yenileyici sertifikalı tedarikçi çiftlikler", "wbProgressValue": 62 }
+                        ]
+                    }
+                },
+                {
+                    "type": "wbAlert",
+                    "fields": {
+                        "wbTitle": "2022'den beri tek kullanımlık plastik yok",
+                        "wbText": "Ember & Rye'daki tüm ambalajlar, paket servis kapları ve pipetler kompostlanabilir veya yeniden kullanılabilir. 2022'de operasyonlarımızdan tek kullanımlık plastiği kaldırdık.",
+                        "wbAlertType": "success",
+                        "wbAlertDismissible": false
+                    }
+                }
+            ]
+        }
+    ],
+    "servicesIndex": {
+        "title": "Özel Yemek ve Etkinlikler",
+        "wbSeoTitle": "Özel Yemek ve Etkinlikler — Ember & Rye",
+        "wbSeoDescription": "Bir sonraki kurumsal akşam yemeğinizi, doğum günü kutlamanızı veya özel etkinliğinizi özel yemek odamızda düzenleyin. 20 konuğa kadar kapasite.",
+        "blocks": [
+            {
+                "type": "wbHero",
+                "fields": {
+                    "wbTitle": "Özel Yemek ve Etkinlikler",
+                    "wbText": "Sıradan bir masadan daha fazlasını hak eden anlar için özel bir alan.",
+                    "wbAlignment": "center"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Özel yemek odamız 20 konuğa kadar kapasiteye sahip olup kurumsal akşam yemekleri, önemli doğum günleri, nişan yemekleri ve diğer özel etkinlikler için kullanılabilir. Her özel etkinlikte özel bir garson, Şef Marcus tarafından hazırlanan özel menü ve tam şarap eşleştirme seçenekleri bulunur. Etkinlik paketlerimize göz atın veya tamamen özel bir deneyim için bizimle iletişime geçin.</p>"
+                }
+            }
+        ]
+    },
+    "services": [
+        {
+            "title": "Kurumsal Akşam Yemekleri",
+            "wbSeoTitle": "Kurumsal Akşam Yemekleri — Ember & Rye",
+            "wbSeoDescription": "Ember & Rye'da özel bir yemek deneyimiyle müşterilerinizi etkileyip ekibinizi ödüllendirin. Özel menüler, özel servis ve AV tesisleri mevcuttur.",
+            "excerpt": "Özel bir yemek deneyimiyle müşterilerinizi etkileyip ekibinizi ödüllendirin.",
+            "blocks": [
+                {
+                    "type": "wbTextBlock",
+                    "fields": {
+                        "wbText": "<p>İyi seçilmiş bir mekan, her iş görüşmesinin tonunu belirler. Özel yemek odamız, müşteri ağırlaması, takım kutlamaları ve çalışma yemekleri için rafine, dikkat dağıtmayan bir ortam sunar.</p><ul><li>Kapasite: 20 konuğa kadar</li><li>Şef Marcus'un özel menüleri</li><li>Tam şarap eşleştirme ve kokteyl karşılama seçenekleri</li><li>Sunum ekranı ve AV bağlantısı mevcut</li><li>Etkinliğiniz için odanın özel kullanımı</li></ul>"
+                    }
+                },
+                {
+                    "type": "wbCallToAction",
+                    "fields": {
+                        "wbTitle": "Rezervasyon yapmaya hazır mısınız?",
+                        "wbText": "Uygunluk durumunu kontrol etmek ve gereksinimlerinizi görüşmek için etkinlik ekibimizle iletişime geçin.",
+                        "wbButtonLabel": "Şimdi Sorun",
+                        "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Kutlamalar ve Önemli Anlar",
+            "wbSeoTitle": "Doğum Günü ve Yıl Dönümü Yemeği — Ember & Rye",
+            "wbSeoDescription": "Size göre özel hazırlanmış özel yemek odamızda en önemli anlarınızı kutlayın.",
+            "excerpt": "Doğum günleri, yıl dönümleri ve önemli anları size özel hazırlanmış özel bir yemek deneyimiyle kutlayın.",
+            "blocks": [
+                {
+                    "type": "wbTextBlock",
+                    "fields": {
+                        "wbText": "<p>Doğum günleri, yıl dönümleri, nişanlar, mezuniyetler — bizi tanımlayan anlar, bu vesileler için yükselen bir ortamı hak eder. Etkinlik ekibimiz, menü ve şarap seçiminden çiçek düzenlemelerine ve özel baskılı menülere kadar her ayrıntıyı kişiselleştirmek için sizinle birlikte çalışır.</p><ul><li>Misafirlerinizin tercihlerine göre özel menüler</li><li>Özel baskılı menü kartları dahil</li><li>Şampanya karşılama seçeneği</li><li>Masaya getirilen pasta veya tatlı tabağı</li><li>Kişisel fotoğraf tavsiyeleri mevcuttur</li></ul>"
+                    }
+                },
+                {
+                    "type": "wbAlert",
+                    "fields": {
+                        "wbTitle": "Erken rezervasyon önerilir",
+                        "wbText": "Özel yemek odamız Cuma ve Cumartesi akşamları çok talep görmektedir. Hafta sonu kutlamaları için en az dört hafta öncesinden rezervasyon yapmanızı öneririz.",
+                        "wbAlertType": "info",
+                        "wbAlertDismissible": false
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Hediye Kartları",
+            "wbSeoTitle": "Hediye Kartları — Ember & Rye",
+            "wbSeoDescription": "Ateş ve lezzetin hediyesini verin. Ember & Rye hediye kartları herhangi bir miktarda mevcuttur, 12 ay geçerlidir.",
+            "excerpt": "Gerçekten unutulmaz bir yemeğin hediyesini verin. İstediğiniz miktarda mevcuttur.",
+            "blocks": [
+                {
+                    "type": "wbTextBlock",
+                    "fields": {
+                        "wbText": "<p>Ember & Rye hediye kartı, harika yemekleri seven herkes için mükemmel bir hediyedir. 50 dolardan başlayan herhangi bir miktarda mevcut olup yiyecek, içecek ve özel yemek rezervasyonlarında kullanılabilir. Satın alma tarihinden itibaren 12 ay geçerlidir.</p><p>Restoranda satın alın veya bizi arayın, fiziksel kart için posta teslimatı veya dijital kart için aynı gün e-posta teslimatı ayarlayabiliriz.</p>"
+                    }
+                },
+                {
+                    "type": "wbContactDetails",
+                    "fields": {
+                        "wbPhone": "+1 (202) 555-0194",
+                        "wbEmail": "gifts@emberandrye.com",
+                        "wbAddress": "1847 K Street NW, Washington DC 20006"
+                    }
+                }
+            ]
+        }
+    ],
+    "pages": [
+        {
+            "title": "Menümüz",
+            "wbSeoTitle": "Menü — Ember & Rye",
+            "wbSeoDescription": "Ember & Rye'ın birinci kalite kuru olgunlaştırılmış biftek ve ev yapımı ekşi maya ekmeğinden el yapımı tatlılara kadar mevsimsel menüsünü keşfedin.",
+            "blocks": [
+                {
+                    "type": "wbHero",
+                    "fields": {
+                        "wbTitle": "Menümüz",
+                        "wbText": "Mevsimsel. Ateşle pişirilmiş. 100 mil içinde tedarik edilmiş.",
+                        "wbAlignment": "center",
+                        "imageIndex": 1
+                    }
+                },
+                {
+                    "type": "wbTabs",
+                    "fields": {
+                        "wbTabItems": [
+                            {
+                                "wbTabTitle": "Başlangıçlar",
+                                "wbText": "<ul><li><strong>Kemik iliği ve ekmek</strong> — bütünleştirilmiş kavrulmuş kemik iliği, ekşi maya ekmeği, kornişon <em>$18</em></li><li><strong>Et tartar</strong> — el doğranmış Whitewood Farm kaburgalı, yumurta sarısı, kapari, arpacık soğan <em>$22</em></li><li><strong>Közlenmiş ahtapot</strong> — odun ateşinde ızgara, tütsülenmiş biber tereyağı, turşu rezene <em>$24</em></li><li><strong>Burrata</strong> — Blue Ridge Greens antika domates, fesleğen yağı, olgunlaştırılmış balzamik <em>$19</em></li></ul>"
+                            },
+                            {
+                                "wbTabTitle": "Ana Yemekler",
+                                "wbText": "<ul><li><strong>45 günlük kuru olgunlaştırılmış kaburgalı (12 oz)</strong> — Whitewood Farm Angus-Hereford, kemik iliği tereyağı, tere otu <em>$68</em></li><li><strong>Odun ateşinde strip loin (10 oz)</strong> — chimichurri, kavrulmuş sarımsak, çıtır arpacık <em>$54</em></li><li><strong>Bütün ızgara levrek</strong> — ot yağı, limon, közlenmiş pırasa, esmer tereyağı <em>$46</em></li><li><strong>Mantar ve ceviz Wellington</strong> — yabani mantar duxelles, ceviz kabuğu, trüf sosu <em>$38</em></li></ul>"
+                            },
+                            {
+                                "wbTabTitle": "Garnitürler",
+                                "wbText": "<ul><li><strong>Üç kez pişirilmiş dana yağı patates kızartması</strong> <em>$12</em></li><li><strong>Izgara kuşkonmaz</strong> — hollandaise, çıtır kapari <em>$11</em></li><li><strong>Kremalı ıspanak</strong> — küçük hindistan cevizi, olgunlaştırılmış Parmesan <em>$10</em></li><li><strong>Kavrulmuş kemik iliği püresi</strong> <em>$13</em></li><li><strong>Ev salatası</strong> — Blue Ridge Greens yaprakları, şampanya vinegreti <em>$9</em></li></ul>"
+                            },
+                            {
+                                "wbTabTitle": "Tatlılar",
+                                "wbText": "<ul><li><strong>Bitter çikolata ve kakule fondanı</strong> — vanilyalı dondurma, altın yaprak <em>$16</em></li><li><strong>Tütsülenmiş bal panna cotta</strong> — Bees of the Chesapeake balı, kurabiye ufalantısı <em>$14</em></li><li><strong>Mevsimsel tart</strong> — bugünkü seçim için garsonunuza sorun <em>$13</em></li><li><strong>Peynir tabağı</strong> — üç Piedmont Artisan seçimi, ayva, cevizli kraker <em>$22</em></li></ul>"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "wbSpacing",
+                    "fields": { "wbSpacingSize": "3" }
+                },
+                {
+                    "type": "wbAlert",
+                    "fields": {
+                        "wbTitle": "Mevsimsel müsaitlik",
+                        "wbText": "Menümüz üç ayda bir değişir. Bazı yemekler o gece mevcut olmayabilir — mevcut tam menü ve bu gecenin spesiyalleri için garsonunuza sorun.",
+                        "wbAlertType": "info",
+                        "wbAlertDismissible": false
+                    }
+                },
+                {
+                    "type": "wbCallToAction",
+                    "fields": {
+                        "wbTitle": "Yemek yemeye hazır mısınız?",
+                        "wbText": "Masanızı ayırtın ve gerisini bize bırakın.",
+                        "wbButtonLabel": "Rezervasyon Yap",
+                        "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    }
+                }
+            ]
+        }
+    ],
+    "contact": {
+        "wbSeoTitle": "Rezervasyon ve İletişim — Ember & Rye",
+        "wbSeoDescription": "Ember & Rye'da masanızı ayırtın veya özel yemek, hediye kartları ve genel sorularınız için bizimle iletişime geçin.",
+        "blocks": [
+            {
+                "type": "wbHero",
+                "fields": {
+                    "wbTitle": "Rezervasyon ve İletişim",
+                    "wbText": "Masanızı ayırtın veya özel yemek, hediye kartları ya da başka konular hakkında bize ulaşın.",
+                    "wbAlignment": "center"
+                }
+            },
+            {
+                "type": "wbContactDetails",
+                "fields": {
+                    "wbPhone": "+1 (202) 555-0194",
+                    "wbEmail": "hello@emberandrye.com",
+                    "wbAddress": "1847 K Street NW, Washington DC 20006"
+                }
+            },
+            {
+                "type": "wbColumns",
+                "fields": { "wbColumnsCount": "2" },
+                "columns": [
+                    {
+                        "blocks": [
+                            {
+                                "type": "wbTable",
+                                "fields": {
+                                    "wbTitle": "Çalışma Saatleri",
+                                    "wbBorder": true,
+                                    "wbBorderColor": "secondary",
+                                    "wbRounded": "rounded-3",
+                                    "wbPadding": "p-4",
+                                    "wbTableColumns": [
+                                        { "heading": "Gün" },
+                                        { "heading": "Öğle" },
+                                        { "heading": "Akşam" }
+                                    ],
+                                    "wbTableRows": [
+                                        { "cell1": "Pazartesi – Salı",     "cell2": "Kapalı",              "cell3": "17:30 – 22:00" },
+                                        { "cell1": "Çarşamba – Cuma",      "cell2": "12:00 – 14:30",       "cell3": "17:30 – 22:30" },
+                                        { "cell1": "Cumartesi",            "cell2": "11:30 – 15:00",       "cell3": "17:00 – 23:00" },
+                                        { "cell1": "Pazar",                "cell2": "11:30 – 15:30",       "cell3": "17:00 – 21:30" }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "blocks": [
+                            {
+                                "type": "wbForm",
+                                "recipient": "hello@emberandrye.com",
+                                "subject": "Yeni masa rezervasyonu talebi",
+                                "submitLabel": "Talep Gönder",
+                                "successMsg": "Teşekkürler! Rezervasyonunuzu bir iş günü içinde onaylayacağız.",
+                                "wbTitle": "Rezervasyon Yap",
+                                "wbBorder": true,
+                                "wbBorderColor": "secondary",
+                                "wbRounded": "rounded-3",
+                                "wbPadding": "p-4",
+                                "fields": [
+                                    { "label": "Adınız", "type": "text", "required": true, "placeholder": "Ali Yıldız" },
+                                    { "label": "E-posta adresi", "type": "email", "required": true, "placeholder": "ali@ornek.com" },
+                                    { "label": "Telefon numarası", "type": "tel", "required": true, "placeholder": "+90 (555) 000 0000" },
+                                    { "label": "Tercih edilen tarih", "type": "text", "required": true, "placeholder": "örn. Cumartesi 15 Mart" },
+                                    {
+                                        "label": "Tercih edilen saat",
+                                        "type": "select",
+                                        "required": true,
+                                        "options": [
+                                            { "label": "Öğle (12:00 – 14:30)", "value": "lunch" },
+                                            { "label": "Erken akşam (17:30 – 19:00)", "value": "early-dinner" },
+                                            { "label": "Akşam (19:00 – 21:00)", "value": "dinner" },
+                                            { "label": "Geç akşam (21:00+)", "value": "late-dinner" }
+                                        ]
+                                    },
+                                    {
+                                        "label": "Misafir sayısı",
+                                        "type": "select",
+                                        "required": true,
+                                        "options": [
+                                            { "label": "1 – 2 misafir", "value": "2" },
+                                            { "label": "3 – 4 misafir", "value": "4" },
+                                            { "label": "5 – 6 misafir", "value": "6" },
+                                            { "label": "7+ misafir (özel yemek sorgusu)", "value": "7+" }
+                                        ]
+                                    },
+                                    { "label": "Diyet gereksinimleri veya özel istekler", "type": "textarea", "required": false, "placeholder": "Alerjiler, kutlamalar, erişilebilirlik ihtiyaçları..." }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p class=\"text-muted\">Walk-in müşteriler müsaitliğe göre kabul edilir. 7 veya daha fazla kişilik gruplar için lütfen bizi doğrudan arayın. Tüm e-posta sorgularına bir iş günü içinde yanıt vermeyi hedefliyoruz.</p>"
+                }
+            }
+        ]
+    },
+    "home_nav": {
+        "wbSeoTitle": "Ember & Rye — Modern Amerikan Steakhouse, Washington DC",
+        "wbSeoDescription": "Ateşle pişirmenin en iyisini yaşayın. Ember & Rye, 1847 K Street NW, Washington DC'de birinci kalite kuru olgunlaştırılmış et ve mevsimsel Amerikan mutfağı sunar."
+    },
+    "blogIndex": {
+        "wbSeoTitle": "Günlük — Ember & Rye",
+        "wbSeoDescription": "Ember & Rye'ın mutfağından, çiftlikten ve bardan hikayeler."
+    }
+}

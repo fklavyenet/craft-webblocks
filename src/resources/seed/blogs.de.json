@@ -1,0 +1,511 @@
+[
+    {
+        "slug": "why-we-age-our-beef-for-45-days",
+        "title": "Warum wir unser Rindfleisch 45 Tage reifen lassen",
+        "wbSeoTitle": "Warum wir unser Rindfleisch 45 Tage reifen lassen — Ember & Rye",
+        "wbSeoDescription": "Küchenchef Marcus Webb erklärt die Wissenschaft und Kunst des In-house-Dry-Agings — und warum 45 Tage der ideale Punkt für maximalen Geschmack ist.",
+        "excerpt": "Küchenchef Marcus Webb erklärt die Wissenschaft und Kunst des In-house-Dry-Agings — und warum 45 Tage der ideale Punkt ist.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Wenn Gäste uns fragen, was unser Ribeye besonders macht, lautet die ehrliche Antwort: Zeit. Die meisten Restaurants servieren Rindfleisch, das 14 bis 21 Tage gereift ist — genug, um die Muskelfasern zu zartmachen und einem Grundstandard zu genügen. Wir reifen unsere Signature-Cuts mindestens 45 Tage, und hier erklären wir, warum das wichtig ist.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Was passiert beim Dry-Aging?",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Dry-Aging ist ein kontrollierter Prozess des Feuchtigkeitsverlusts und der enzymatischen Aktivität. Das Rindfleisch wird in einer temperatur- und feuchtigkeitsgeregelten Umgebung aufgehängt oder auf Drahtregale gelegt — in unserem Fall in einem eigenen Reifraum hinten in der Küche, wo die Bedingungen innerhalb enger Toleranzen um 1°C und 80 % relativer Luftfeuchtigkeit gehalten werden.</p><p>In den ersten zwei Wochen beginnen die im Fleisch natürlich vorhandenen Enzyme, Bindegewebe und Muskelfasern abzubauen. Hier findet die Zartmachung statt. Am Tag 21 ist ein gut dry-gereiftes Steak spürbar zarter als ein frisch geschnittenes Pendant.</p><p>Ab Tag 21 beginnt etwas Interessanteres. Mit fortschreitender Verdunstung von Oberflächenfeuchtigkeit konzentriert sich der Geschmack im verbleibenden Gewebe. Die Maillard-Reaktion beim Garen — die Kruste aus karamellisierten Proteinen, die einem Steak seine Röstaromen gibt — wird ausgeprägter und komplexer. Nussige, butterartige, umamireiche Geschmacksnoten entstehen, die in jüngerem Rindfleisch schlicht nicht vorhanden sind.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Warum genau 45 Tage?",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Jenseits von 60 Tagen beginnt das Geschmacksprofil vieler Cuts in ein Terrain zu gleiten, das die Meinungen spaltet — intensiv würzige Noten, die manche Gäste lieben und andere überwältigend finden. Wir haben unser Ribeye in jeder Phase von 28 bis 75 Tagen verkostet, und 45 Tage produzieren konsistent das, was wir als ideale Balance betrachten: echte Geschmackskomplexität, ohne den Charakter des Rindfleischs selbst zu überlagern.</p><p>Es ist auch erwähnenswert, dass Dry-Aging echten Verlust bedeutet. Eine 45-tägige Reifung bedeutet, 15 bis 20 % des ursprünglichen Gewichts durch Feuchtigkeitsverdunstung zu verlieren, plus die äußere Kruste — die Pellikel — die abgeschnitten werden muss. Man bezahlt für ein kleineres Stück Fleisch mit mehr Geschmack pro Gramm. Das halten wir für einen fairen Tausch.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Bitten Sie, den Reiferaum zu sehen",
+                    "wbText": "Wir zeigen neugierigen Gästen gerne unseren Reiferaum vor oder nach ihrem Essen. Sprechen Sie Ihren Kellner bei der Ankunft an.",
+                    "wbAlertType": "info",
+                    "wbAlertDismissible": false
+                }
+            }
+        ]
+    },
+    {
+        "slug": "guide-to-our-seasonal-cocktail-menu",
+        "title": "Unser saisonales Cocktailmenü — ein Überblick",
+        "wbSeoTitle": "Unser saisonales Cocktailmenü — Ember & Rye",
+        "wbSeoDescription": "Chefbartender Tomás Rivera erläutert die Zutaten, Inspirationen und Techniken hinter unserem Frühjahrs-Cocktailmenü.",
+        "excerpt": "Chefbartender Tomás Rivera erläutert die Inspirationen und Zutaten hinter unserem neuen Frühjahrs-Cocktailmenü.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Als ich unser Frühjahrsmenü entwarf, wollte ich, dass jedes Getränk zur Saison gehört — nicht weil eine Garnitur hübsch aussieht, sondern weil die Aromen wirklich widerspiegeln, was gerade wächst und verfügbar ist. Hier ein Blick auf vier unserer aktuellen Cocktails.</p>"
+                }
+            },
+            {
+                "type": "wbTabs",
+                "fields": {
+                    "wbTabItems": [
+                        {
+                            "wbTabTitle": "Char & Smoke",
+                            "wbText": "<p><strong>Roggenwhisky, Aktivkohle-Sirup, geräucherte Kirschbitter, Zitronenschale.</strong></p><p>Das ist der Ember & Rye-Cocktail auf der Karte schlechthin — wir räuchern unsere eigenen Kirschen über Apfelholz, demselben Holz, das wir im Grill verwenden. Der Aktivkohle-Sirup verleiht ihm visuelle Dramatik und einen feinen Mineralton, der die Süße der Kirsche durchschneidet. Über einem einzigen großen Eiswürfel servieren.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Rye Garden",
+                            "wbText": "<p><strong>Gin, Gurkenwasser, frischer Dill, Holunderblüten-Tonic, Zitrone.</strong></p><p>Wir pressen jeden Morgen frisches Gurkenwasser im Haus. Das klingt aufwendig, aber kommerzielle Gurkenaroma-Spirituosen schmecken künstlich im Vergleich zur echten Sache — klar, grün und leicht süß. Der Dill kommt von einem Maryland-Kräuterhof, der auch unsere Küche beliefert. Ein echter Frühjahrs-Drink.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Blut & Honig",
+                            "wbText": "<p><strong>Mezcal, Blutorange, Wildblumenhonig, Amaro, Salzrand.</strong></p><p>Blutorange ist gerade auf dem Höhepunkt. Wir reduzieren sie mit Wildblumenhonig von einem Virginia-Imker zu einem dicken Sirup, der die Rauchigkeit des Mezcals ausbalanciert. Der Amaro fügt Bitterkeit und Komplexität hinzu. Einer der am meisten nachgefragten Drinks, den wir je auf der Karte hatten.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Alkoholfreie Auswahl",
+                            "wbText": "<p><strong>Shrub-basierte alkoholfreie Optionen für alle Gänge verfügbar.</strong></p><p>Wir nehmen unser alkoholfreies Programm ernst. Unsere Shrubs — Trinkessige aus saisonalem Obst und Kräutern — bilden die Basis von drei dedizierten alkoholfreien Cocktails in dieser Saison. Komplex, interessant und wirklich paarungswürdig zum Essen.</p>"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Kommen Sie zur Cocktailstunde",
+                    "wbText": "Mittwoch bis Freitag von 17:00 bis 18:30 Uhr. Alle Cocktails 20 % reduziert, Barsnacks kostenlos.",
+                    "wbButtonLabel": "Barplatz reservieren",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    },
+    {
+        "slug": "meet-the-farms-behind-our-menu",
+        "title": "Die Höfe hinter unserer Speisekarte",
+        "wbSeoTitle": "Die Höfe hinter unserer Speisekarte — Ember & Rye",
+        "wbSeoDescription": "Wir beziehen direkt von fünf Familienbetrieben innerhalb von 100 Meilen von Washington DC. Hier sind sie und warum sie uns wichtig sind.",
+        "excerpt": "Wir beziehen direkt von fünf Familienbetrieben innerhalb von 100 Meilen von DC. Hier sind sie und warum sie uns wichtig sind.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Wir reden viel über lokalen Einkauf, aber wir wollen konkret sagen, was das bedeutet. Das ist kein vages Versprechen, regionale Produkte zu kaufen, wenn es gerade passt — es ist ein Netzwerk von Beziehungen, das über sieben Jahre mit fünf Betrieben aufgebaut wurde, denen wir vollständig vertrauen.</p>"
+                }
+            },
+            {
+                "type": "wbAccordion",
+                "title": "Unsere Farmpartner",
+                "items": [
+                    {
+                        "wbTitle": "Whitewood Farm — Warrenton, Virginia",
+                        "wbText": "<p>Whitewood ist die Herkunft unseres Rindfleischs. Die Familie Hartley betreibt einen 400-Hektar-Regenerativbetrieb 60 Meilen vom Restaurant entfernt. Ihr Angus-Hereford-Kreuzvieh wird das ganze Jahr über auf rotierenden Weiden grasgefüttert. Wir nehmen jeden Dienstag und Freitag Lieferung. James Hartley, der die dritte Generation des Hofes leitet, besucht uns vierteljährlich, um das neue Menü durchzukosten.</p>"
+                    },
+                    {
+                        "wbTitle": "Blue Ridge Greens — Shenandoah Valley",
+                        "wbText": "<p>Blue Ridge liefert unsere Salatblätter, Microgreens und essbaren Blüten. Sie bauen sowohl auf Freilandfeldern als auch in klimakontrollierten Polytunneln an, was bedeutet, dass wir selbst bei extremer Sommerhitze konstante Qualität erhalten. Ihr Buttersalat ist ohne Frage das Beste, das wir je serviert haben.</p>"
+                    },
+                    {
+                        "wbTitle": "Bees of the Chesapeake — Eastern Shore, Maryland",
+                        "wbText": "<p>Unser Honiglieferant und — über Tomás — die Geheimwaffe unseres Cocktailprogramms. Die Chesapeake-Region produziert aufgrund der außergewöhnlichen Biodiversität der Gezeitenfeuchtgebiete einige der komplexesten Wildblumenhonige des Landes. Wir verwenden ihn in unseren Glasuren, unserem Brotservice und drei Cocktails auf der aktuellen Karte.</p>"
+                    },
+                    {
+                        "wbTitle": "Sunstone Herb Collective — Frederick, Maryland",
+                        "wbText": "<p>Ein kleines Kollektiv aus fünf Erzeugern, die ihre Ernten bündeln und uns zweimal wöchentlich liefern. Sie liefern den Dill, Estragon, Kerbel und Bronzefenchel, der auf beiden Küchen- und Barkarten erscheint. Wir arbeiten seit Jahr eins mit ihnen zusammen und sie sind zu echten Mitarbeitern geworden — manchmal bauen sie auf Anfrage bestimmte Sorten an.</p>"
+                    },
+                    {
+                        "wbTitle": "Piedmont Artisan Dairy — Culpeper, Virginia",
+                        "wbText": "<p>Priyas Patisserieküche arbeitet mit Piedmont-Butter und -Sahne. Sie produzieren in kleinen Chargen von einer gemischten Herde aus Brown Swiss und Guernsey-Kühen — beide Rassen bekannt für höheren Fettgehalt. Der Unterschied zwischen ihrer Butter und einer kommerziellen Alternative ist sofort erkennbar. Reich, goldgelb und intensiv aromatisch.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Jede Saison veröffentlichen wir eine vollständige Herkunftskarte auf unserer Speisekarte, damit Gäste genau sehen können, woher ihr Essen stammt. Wir glauben, dass Transparenz über die Herkunft Teil des Speiseerlebnisses ist — kein Fußnotentext.</p>"
+                }
+            }
+        ]
+    },
+    {
+        "slug": "private-dining-what-to-expect",
+        "title": "Private Dining: Was Sie erwartet",
+        "wbSeoTitle": "Private Dining bei Ember & Rye — Was Sie erwartet",
+        "wbSeoDescription": "Denken Sie darüber nach, unser privates Speisezimmer zu buchen? Hier ist alles, was Sie über den Ablauf, die Menüoptionen und den Unterschied zur normalen Reservierung wissen müssen.",
+        "excerpt": "Denken Sie über eine Buchung unseres privaten Speisezimmers nach? Hier ist alles, was Sie vorher wissen sollten.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Wir erhalten viele Fragen zu unserem privaten Speisezimmer — von der Frage, wie weit im Voraus man buchen sollte, bis hin zu Gästen mit komplexen Ernährungsbedürfnissen und dem Mindestausgabebetrag. Dieser Beitrag beantwortet sie alle.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Der Raum",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Unser privates Speisezimmer ist durch eine raumhohe schallgedämmte Trennwand vom Hauptspeisesaal getrennt. Es fasst bis zu 20 Gäste an einem einzigen Walnuss-Maßtisch. Der Raum hat eigenen Barservice, dedizierte Lichtsteuerung und einen 65-Zoll-Bildschirm für Präsentationen. Es ist ein wirklich privater Raum — keine abgetrennte Ecke eines belebten Restaurants.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Das Menü",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Private Dining-Gäste wählen aus einem Set-Menü-Format: vier Gänge (Canapé, Vorspeise, Hauptgericht, Dessert) mit je zwei Optionen pro Gang. Wir schicken Ihnen drei Wochen vor Ihrer Veranstaltung ein vorgeschlagenes Menü basierend auf der aktuellen saisonalen Verfügbarkeit. Sie können zu diesem Zeitpunkt Gerichte tauschen, Gänge entfernen und Ernährungsanforderungen angeben. Vegetarisch, vegan, glutenfrei und nussfrei werden standardmäßig berücksichtigt.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Preise und Buchung",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Das private Speisezimmer hat einen Mindestverzehr von 1.200 $ exklusive Service und Getränke. Es gibt keine Raummiete — der Mindestverzehr deckt diese ab. Wir bitten um eine Anzahlung von 300 $ zur Bestätigung der Buchung, die auf Ihre Abschlussrechnung angerechnet wird.</p><p>Wir empfehlen, mindestens sechs Wochen im Voraus für Wochenenddaten und vier Wochen für Wochentagesvents zu buchen. Der Raum ist täglich von 12:00 bis 23:00 Uhr verfügbar.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Dezember ist schnell ausgebucht",
+                    "wbText": "Unser privates Speisezimmer ist typischerweise bis Mitte Oktober für Dezember-Firmenevents vollständig ausgebucht. Wenn Sie ein Weihnachtsdinner planen, melden Sie sich so früh wie möglich.",
+                    "wbAlertType": "warning",
+                    "wbAlertDismissible": false
+                }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Bereit zur Anfrage?",
+                    "wbText": "Kontaktieren Sie unser Eventteam und wir melden uns innerhalb eines Werktages zur Besprechung der Verfügbarkeit und Ihrer Anforderungen.",
+                    "wbButtonLabel": "Private Dining anfragen",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    },
+    {
+        "slug": "bread-butter-and-the-case-for-a-proper-bread-course",
+        "title": "Brot, Butter und das Argument für einen richtigen Brotgang",
+        "wbSeoTitle": "Unser hausgebackenes Sauerteigbrot — Ember & Rye",
+        "wbSeoDescription": "Patissièrin Priya Nair darüber, warum wir täglich Sauerteig im Haus backen, den 48-stündigen Fermentationsprozess und die Butter, die jeden Kalorie wert macht.",
+        "excerpt": "Patissièrin Priya Nair darüber, warum wir täglich Sauerteig im Haus backen und die Butter, die jeden Kalorie wert macht.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Der Brotgang in einem Restaurant ist oft eine Nachgedanke — ein Körbchen Brötchen vom Catering-Lieferanten, lauwarm serviert mit in Folie gewickelten Butterportionen. Wir halten das für eine verpasste Gelegenheit und haben unseren Brotgang seit der ersten Woche unserer Eröffnung ernst genommen.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Das Sauerteigbrot",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Wir backen zwei Sauerteigbrote pro Service, jeden Tag. Unser Starter — benannt Margot, nach Marcus' Großmutter — wird kontinuierlich seit der Restauranteröffnung 2018 gepflegt. Wir verwenden eine Mischung aus Steinmahl-Vollweizen und hochextrahiertem Brotmehl einer Virginia-Mühle. Der Teig fermentiert 48 Stunden kalt, bevor er in einem gusseisernen Kombobrenner gebacken wird.</p><p>Das Ergebnis ist ein Brot mit knuspriger Kruste, offener Krume und einer Säure, die präsent, aber nicht aufdringlich ist. Es lässt sich gut schneiden, hält Butter und schmeckt wie etwas, das jemand heute gemacht hat — weil es das ist.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Die Butter",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Wir mischen unsere Butter im Haus mit Piedmont Artisan Dairy Kulturbutter als Basis. Die aktuelle Version ist eine geräucherte Shenandoah-Honig-Meersalz-Komposite — wir räuchern die Butter leicht über Kirschholz, falten dann eine kleine Menge Blue Ridge Greens Wildblumenhonig und Maldon-Meersalz hinein. Sie wird bei Zimmertemperatur serviert, damit sie sofort streichfähig ist.</p><p>Gäste fragen nach dieser Butter häufiger als nach fast allem anderen auf der Karte. Sie wird nie weggehen.</p>"
+                }
+            },
+            {
+                "type": "wbListGroup",
+                "fields": {
+                    "wbTitle": "Brotgang auf einen Blick"
+                },
+                "items": [
+                    { "wbTitle": "Hausgemachter Sauerteig, zweimal täglich gebacken", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "48-stündige Kaltfermentation mit Virginia-Steinmahlmehl", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "Geräucherte Honig-Meersalz-Komposite-Butter", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "Warm aus dem Ofen, am Tisch aufgeschnitten serviert", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "Kostenlos bei allen Abendbuchungen", "wbButtonUrl": "", "wbButtonTarget": "" }
+                ]
+            }
+        ]
+    },
+    {
+        "slug": "how-we-built-our-wine-list-from-scratch",
+        "title": "Wie wir unsere Weinkarte von Grund auf aufgebaut haben",
+        "wbSeoTitle": "Unsere Weinkarte aufbauen — Ember & Rye",
+        "wbSeoDescription": "Sommelière Delphine Aubert über die Philosophie, die Beschaffungsreisen und die schwierigen Entscheidungen, die unser 200-Flaschen-Weinprogramm geprägt haben.",
+        "excerpt": "Sommelière Delphine Aubert über die Philosophie und Beschaffungsreisen, die unser 200-Flaschen-Weinprogramm geprägt haben.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Bei der Eröffnung hatte unsere Weinkarte 40 Labels. Heute sind es etwas über 200. Diese Liste aufzubauen dauerte drei Jahre Beschaffungsreisen, Blindverkostungen und ein Leitprinzip: Jede Flasche musste etwas sein, das wir wirklich gerne mit unserem Essen trinken wollten — nicht etwas, das wir vorrätig hatten, weil es erwartet wurde.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Die Philosophie",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Wir haben frühzeitig die bewusste Entscheidung getroffen, die Liste zu kleineren Erzeugern hin zu gewichten — négociant-freies Burgund, Erzeuger-Champagner, Naturproduzenten aus Loire und Jura. Nicht weil Naturwein modisch ist, sondern weil diese Produzenten dazu neigen, Weine mit der Art von Textur und Säure herzustellen, die gut zu rotem Fleisch passen. Unsere Liste ist keine Statement-Liste. Sie ist eine Food-Liste.</p><p>Wir haben auch bewusst den Aufschlag auf ältere Jahrgänge niedrig gehalten. Ein zehn Jahre alter Barolo sollte für jemanden, der etwas Besonderes feiert, erschwinglich sein. Wir kalkulieren Preise, um Menschen zu ermutigen, gut zu trinken — nicht um maximalen Margin pro Flasche herauszuholen.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Fragen Sie Delphine",
+                    "wbText": "Delphine ist Mittwoch bis Samstag im Speisesaal. Wenn Sie Hilfe bei der Weinauswahl oder beim Dekantieren von etwas Besonderem wünschen, spricht sie gerne mit Ihnen über die Karte.",
+                    "wbAlertType": "info",
+                    "wbAlertDismissible": false
+                }
+            }
+        ]
+    },
+    {
+        "slug": "behind-the-pass-a-week-in-our-kitchen",
+        "title": "Hinter dem Pass: Eine Woche in unserer Küche",
+        "wbSeoTitle": "Hinter dem Pass — Eine Woche in der Ember & Rye Küche",
+        "wbSeoDescription": "Ein ehrlicher Blick auf eine vollständige Servicewoche bei Ember & Rye — von der Dienstagsvorbereitung bis zum Samstagabend-Service.",
+        "excerpt": "Ein ehrlicher Blick auf eine vollständige Servicewoche bei Ember & Rye — von der Dienstagsvorbereitung bis zum Samstagabend.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Menschen fragen oft, wie eine Woche in einer Restaurantküche wirklich aussieht. Hier ist ein ehrlicher Bericht — nicht die romantisierte Version, sondern die echte Wochenstruktur von Dienstag bis Samstagservice.</p>"
+                }
+            },
+            {
+                "type": "wbAccordion",
+                "title": "Tag für Tag",
+                "items": [
+                    {
+                        "wbTitle": "Dienstag — Lieferungen und intensive Vorbereitung",
+                        "wbText": "<p>Dienstag ist der intensivste Vorbereitungstag. Whitewood Farm liefert Rindfleisch um 7 Uhr. Die dry-gereiften Cuts gehen sofort zum Portionieren und Parieren — bis 10 Uhr ist der Reifraum wieder aufgefüllt. Blue Ridge Greens kommen am Vormittag. Wir zerteilen die ganzen Tiere für Fonds und beginnen die Langkochposten: Rinderbäckchen kommen um 11 Uhr für ein sechsstündiges Schmoren in den Ofen.</p>"
+                    },
+                    {
+                        "wbTitle": "Mittwoch — Menüentwicklung",
+                        "wbText": "<p>Der Mittwagslunch ist klein, was uns Zeit zur Entwicklung gibt. Marcus verbringt nach dem Service normalerweise eine Stunde damit, neue Gerichte mit dem Senior-Team zu testen. Wir kosten, diskutieren, justieren. Etwas, das es auf die Karte schafft, braucht in der Regel drei oder vier Mittwochssitzungen, bis es fertig ist. Der Brot-Starter bekommt seine wöchentliche Mitte-Fütterung.</p>"
+                    },
+                    {
+                        "wbTitle": "Donnerstag — Momentum aufbauen",
+                        "wbText": "<p>Der Donnerstagabend-Service ist unser erster wirklich voller Service der Woche — rund 60 Gedecke. Die Brigade fährt zum ersten Mal seit dem Wochenende das vollständige Menü. Wir nutzen den Donnerstag, um das Timing zu rekalibrieren und alles zu identifizieren, das sich in der Ausführung holprig anfühlte. Notizen hängen bis 22 Uhr am Pass.</p>"
+                    },
+                    {
+                        "wbTitle": "Freitag & Samstag — Vollservice",
+                        "wbText": "<p>Freitag und Samstag fahren wir 90 bis 110 Gedecke pro Service. Die Küche ist auf voller Kapazität. Jede Station ist besetzt, alle Mise en place bis 17 Uhr fertig. Das Adrenalin ist real, aber auch die Disziplin — auf diesem Service-Niveau ist Disziplin das, was eine gute Nacht von einer großartigen trennt. Bis Mitternacht ist die Küche sauber und das Debriefing dauert zehn Minuten. Dann machen wir es wieder.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "slug": "the-art-of-the-sauce",
+        "title": "Die Kunst der Sauce: Reduktionen, Jus und warum sie wichtig sind",
+        "wbSeoTitle": "Die Kunst der Sauce — Ember & Rye",
+        "wbSeoDescription": "Warum wir 18 Stunden für unseren Rindfleisch-Jus aufwenden — und warum Abkürzungen in der Saucenherstellung sich immer auf dem Teller zeigen.",
+        "excerpt": "Warum wir 18 Stunden für unseren Rindfleisch-Jus aufwenden — und warum Abkürzungen in der Saucenherstellung sich immer auf dem Teller zeigen.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Unser Rindfleisch-Jus braucht 18 Stunden. Wir rösten Kalbs- und Rinderknochen bei hoher Hitze, bis sie tief karamellisiert sind, köcheln sie dann 12 Stunden mit Aromaten und Rotwein, reduzieren erneut, passieren und reduzieren ein letztes Mal, bis die Sauce einen Löffel überzieht und nach konzentriertem Rindfleisch schmeckt. Das ist keine Übertreibung. Das ist der Prozess.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Warum keine kommerzielle Basis?",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Kommerzielles Demi-Glace existiert. Es ist praktisch und konsistent. Es schmeckt auch nach kommerziellem Demi-Glace — ein spezifischer Geschmackston, eine leichte Süße und Flachheit, die Gäste, die viel essen, erkennen werden und die auf einem Teller, für den wir 55 $ verlangen, nichts verloren hat. Wenn man seinen eigenen Jus aus eigenen Knochen vom eigenen Lieferanten kocht, schmeckt die Sauce wie das Fleisch, zu dem sie serviert wird. Diese Kohärenz ist 18 Stunden wert.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Die anderen Saucen",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Jenseits des Jus führen wir ein rotierendes Saucenprogramm, das an die Jahreszeit gebunden ist. Gerade: eine Estragon-Beurre-Blanc für den Heilbutt, eine Röstknoblauchcreme für das Pilzgericht, eine Salsa Verde für das Lamm. Jede wird auf Bestellung oder in sehr kleinen Mengen zubereitet — nichts steht während des Services im Bain-Marie. Eine Sauce, die zwei Stunden gestanden hat, hat bereits das verloren, was sie es wert macht herzustellen.</p>"
+                }
+            }
+        ]
+    },
+    {
+        "slug": "designing-a-menu-around-dietary-restrictions",
+        "title": "Eine Speisekarte rund um Ernährungseinschränkungen gestalten",
+        "wbSeoTitle": "Ernährungseinschränkungen und Menügestaltung — Ember & Rye",
+        "wbSeoDescription": "Wie wir unsere Speisekarte so gestalten, dass Ernährungseinschränkungen sorgfältig behandelt werden — nicht als Nachgedanke.",
+        "excerpt": "Wie wir unsere Speisekarte so gestalten, dass Ernährungseinschränkungen sich nach durchdachter Gastfreundschaft anfühlen — nicht nach einem Nachgedanken.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>In einer typischen Woche kommen etwa 30 % unserer Gedecke mit mindestens einer angegebenen Ernährungsanforderung. Vegetarisch, glutenfrei, laktosefrei, Nussallergie, halal — das Spektrum ist breit. Wir haben frühzeitig entschieden, dass diese Gäste keine mindere Version des Dinners erhalten. Sie erhalten eine andere Version, die ebenso durchdacht ist.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Wie es in der Praxis funktioniert",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Jedes neue Gericht auf der Karte wird in der Entwicklungsphase auf Anpassungsfähigkeit geprüft. Wenn eine Sauce Milchprodukte enthält, entwickeln wir während des Testens eine parallele Version ohne sie — nicht als Nachgedanke, nachdem das Gericht auf die Karte gesetzt wurde, sondern als Teil des Prozesses. Dasselbe gilt für Gluten. Wir führen eine vollständige Liste allergenfreier Varianten für jedes Gericht, die bei jeder Kartenänderung aktualisiert wird.</p><p>Für Gäste mit Allergien oder Unverträglichkeiten bitten wir, diese bei der Reservierung anzugeben. Das ermöglicht der Küche, sich vor dem Service richtig vorzubereiten, anstatt mitten im Betrieb zu improvisieren. Wir nehmen Allergien ernst — jede Allergiemeldung wird als echt behandelt, unabhängig davon, ob der Gast es als Unverträglichkeit oder Präferenz bezeichnet.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Immer im Voraus mitteilen",
+                    "wbText": "Das sicherste und beste Erlebnis entsteht durch die Angabe Ihrer Anforderungen bei der Reservierung. Walk-in-Ernährungsanforderungen können immer berücksichtigt werden, aber Vorankündigung erlaubt es uns, mehr zu tun.",
+                    "wbAlertType": "warning",
+                    "wbAlertDismissible": false
+                }
+            }
+        ]
+    },
+    {
+        "slug": "our-approach-to-seasonal-ingredients",
+        "title": "Unser Umgang mit saisonalen Zutaten",
+        "wbSeoTitle": "Saisonale Zutaten bei Ember & Rye",
+        "wbSeoDescription": "Warum saisonal kochen für uns kein Trend ist — es ist die Grundlage, wie wir Speisekarten schreiben und Zutaten beschaffen.",
+        "excerpt": "Warum saisonal kochen für uns kein Marketingslogan ist — es ist die Grundlage, wie wir Speisekarten schreiben und Produkte beschaffen.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Unsere Speisekarte wechselt viermal im Jahr mit den Jahreszeiten und passt sich weiter an, wenn bestimmte Zutaten in und aus dem Höhepunkt kommen. Das ist kein Marketingslogan. Es ist die praktische Konsequenz des Kaufens von Höfen statt von Händlern.</p>"
+                }
+            },
+            {
+                "type": "wbTabs",
+                "fields": {
+                    "wbTabItems": [
+                        {
+                            "wbTabTitle": "Frühling",
+                            "wbText": "<p>Spargel, Bärlauch, Morcheln, Zuckerschoten, frische Kräuter. Das Frühlingsmenü ist leichter und gemüsebetonter als jede andere Jahreszeit. Die Bärlaucheison dauert etwa drei Wochen — wir nutzen ihn aggressiv, solange er hier ist: in einer Komposite-Butter, einem Vinaigrette und angebrannt als Garnitur.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Sommer",
+                            "wbText": "<p>Tomaten, Mais, Sommerkürbis, Steinobst, frische Schalenbohnen. Der Sommer ist die Jahreszeit, in der die vegetarischen Gerichte auf der Karte genauso aufregend sind wie die Rindfleischgerichte. Eine Spitzensaison-Erbstücktomate mit gutem Olivenöl braucht kaum etwas.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Herbst",
+                            "wbText": "<p>Kürbis, Wurzelgemüse, Wildpilze, Äpfel, Kastanien. Der Herbst ist die Zeit, in der das Kochen schwerer und komfortabler wird. Schmorgerichte kehren auf die Karte zurück. Kürbis erscheint im Dessertbereich. Die Weinkarte neigt sich zu kräftigeren Rotweinen.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Winter",
+                            "wbText": "<p>Zitrusfrüchte, Chicorée, Knollensellerie, schwarze Trüffel, konservierte Sommerprodukte. Winter ist die technisch anspruchsvollste Jahreszeit, weil die Zutatenliste am kürzesten ist. Das Team muss härter arbeiten, um Abwechslung zu schaffen. Es produziert einige unserer besten Gerichte.</p>"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "slug": "service-standards-what-hospitality-really-means",
+        "title": "Servicestandards: Was Gastfreundschaft wirklich bedeutet",
+        "wbSeoTitle": "Was Gastfreundschaft wirklich bedeutet — Ember & Rye",
+        "wbSeoDescription": "Gastgeberin Sofia Reyes über die Servicestandards, die wir uns setzen, und warum echte Gastfreundschaft schwerer ist als sie aussieht.",
+        "excerpt": "Gastgeberin Sofia Reyes über die Servicestandards, die wir uns setzen, und warum echte Gastfreundschaft schwerer ist als sie aussieht.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Gastfreundschaft ist ein Wort, das locker verwendet wird. In der Branche meint es oft eine Reihe von geskripteten Verhaltensweisen: Gäste mit Namen begrüßen, still oder Sprudel anbieten, fragen, ob es ihr erster Besuch ist. Diese Dinge sind wichtig. Aber sie sind keine Gastfreundschaft. Sie sind die Oberfläche der Gastfreundschaft.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Den Raum lesen",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Echte Gastfreundschaft ist Aufmerksamkeit. Es ist zu bemerken, dass das Paar an Tisch 12 ein schwieriges Gespräch führt, und den Zeitpunkt des Herantretens entsprechend anzupassen. Es ist zu erkennen, dass die Gäste an Tisch 7 etwas feiern — auch wenn sie es nicht gesagt haben — und das Tempo und die Wärme des Services anzupassen. Das lässt sich nicht skripten. Man kann nur Menschen trainieren, genug zu kümmern, um hinzuschauen.</p><p>Wir stellen Empathie vor Wissen ein. Ein Kellner, der sich um den Gast kümmert, aber unsere Weinkarte noch nicht kennt, kann die Weinkarte lernen. Ein Kellner, der die Weinkarte kennt, sich aber nicht von Natur aus auf die Menschen vor ihm einstellt, ist viel schwieriger zu entwickeln.</p>"
+                }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Überzeugen Sie sich selbst",
+                    "wbText": "Wir glauben, der beste Weg zu verstehen, was wir mit Gastfreundschaft meinen, ist es zu erleben. Wir freuen uns darauf, Sie willkommen zu heißen.",
+                    "wbButtonLabel": "Einen Tisch reservieren",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    }
+]

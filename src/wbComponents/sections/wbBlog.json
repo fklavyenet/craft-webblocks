@@ -4,5 +4,6 @@
     "type": "channel",
     "template": "wb/sections/post",
     "uriFormat": "blog/{slug}",
+    "enableVersioning": false,
     "entryTypes": ["wbPost"]
 }

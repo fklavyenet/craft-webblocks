@@ -1,0 +1,511 @@
+[
+    {
+        "slug": "why-we-age-our-beef-for-45-days",
+        "title": "Etlerimizi Neden 45 Gün Olgunlaştırıyoruz",
+        "wbSeoTitle": "Etlerimizi Neden 45 Gün Olgunlaştırıyoruz — Ember & Rye",
+        "wbSeoDescription": "Genel Şef Marcus Webb, evi kuru olgunlaştırmanın bilimini ve sanatını açıklıyor — 45 günün neden maksimum lezzet için ideal nokta olduğunu.",
+        "excerpt": "Genel Şef Marcus Webb, evi kuru olgunlaştırmanın bilimini ve sanatını açıklıyor — 45 gün neden ideal noktadır.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Misafirler bizden kaburgalı biftekimizin ne farkı olduğunu sorduğunda, dürüst cevap zamandır. Çoğu restoran 14 ila 21 gün olgunlaştırılmış et servis eder — kas liflerini yumuşatmaya ve temel bir standardı karşılamaya yeterli. Biz imza kesimlerimizi en az 45 gün olgunlaştırıyoruz ve bunun neden önemli olduğunu açıklıyoruz.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Kuru olgunlaştırma sürecinde ne olur?",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Kuru olgunlaştırma, nem kaybı ve enzimatik aktivitenin kontrollü bir sürecidir. Biftek, sıcaklık ve nem kontrollü bir ortamda askıya alınır veya tel raflara yerleştirilir — bizim durumumuzda, mutfağın arka kısmındaki ve 34°F ile %80 bağıl nemde dar toleranslar içinde koşulların korunduğu özel bir olgunlaştırma odasında.</p><p>İlk iki hafta boyunca, ette doğal olarak bulunan enzimler bağ dokusunu ve kas liflerini parçalamaya başlar. Yumuşama burada gerçekleşir. 21. günde, iyi kuru olgunlaştırılmış bir biftek, taze kesilmiş bir muadilinden belirgin şekilde daha yumuşaktır.</p><p>21. günden itibaren daha ilginç bir şey başlar. Yüzey nemi buharlaşmaya devam ettikçe, kalan dokuda lezzet yoğunlaşır. Pişirme sırasındaki Maillard reaksiyonu — harika bir bifteğe kızartma kabuğunu veren karamelleşmiş proteinler — daha belirgin, daha karmaşık hale gelir. Genç ette simply mevcut olmayan fındıklı, tereyağlı, umami açısından zengin lezzet notaları ortaya çıkar.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Neden özellikle 45 gün?",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>60 günün ötesinde, birçok kesimin lezzet profili görüşleri bölen bölgeye girmeye başlar — bazı misafirlerin sevdiği, bazılarının bunaltıcı bulduğu yoğun, keskin notalar. Kaburgalımızı 28 ila 75 gün arasındaki her aşamada tattık ve 45 gün sürekli olarak ideal denge olarak gördüğümüzü üretir: besinin karakterini ezmeden gerçekten karmaşık lezzet.</p><p>Kuru olgunlaştırmanın gerçek bir kayıp içerdiğini de belirtmek gerekir. 45 günlük olgunlaştırma, nem buharlaşmasına bağlı olarak orijinal ağırlığın %15 ila %20'sini kaybetmek anlamına gelir, ayrıca kırmızıya dönen dış tabaka — pellicle — budanmalıdır. Daha az et için ödüyorsunuz ancak gram başına daha fazla lezzet alıyorsunuz. Bunun adil bir takas olduğunu düşünüyoruz.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Olgunlaştırma odasını görmeyi isteyin",
+                    "wbText": "Meraklı misafirlerimize yemeklerinden önce veya sonra olgunlaştırma odamızı göstermekten her zaman memnuniyet duyarız. Geldiğinizde garsonunuza sorun.",
+                    "wbAlertType": "info",
+                    "wbAlertDismissible": false
+                }
+            }
+        ]
+    },
+    {
+        "slug": "guide-to-our-seasonal-cocktail-menu",
+        "title": "Mevsimsel Kokteyl Menümüze Rehber",
+        "wbSeoTitle": "Mevsimsel Kokteyl Menümüz — Ember & Rye",
+        "wbSeoDescription": "Baş Barmen Tomás Rivera, bahar kokteyl menümüzün arkasındaki malzemeleri, ilhamları ve teknikleri anlatıyor.",
+        "excerpt": "Baş Barmen Tomás Rivera, yeni bahar kokteyl menümüzün ilhamlarını ve malzemelerini anlatıyor.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Bahar menümüzü tasarlarken, her içeceğin mevsime ait hissettirmesini istedim — sadece bir garnitür güzel göründüğü için değil, lezzetlerin gerçekten şu an yetişen ve mevcut olanı yansıttığı için. İşte mevcut dört kokteylimizin nasıl oluştuğuna dair bir bakış.</p>"
+                }
+            },
+            {
+                "type": "wbTabs",
+                "fields": {
+                    "wbTabItems": [
+                        {
+                            "wbTabTitle": "Char & Smoke",
+                            "wbText": "<p><strong>Çavdar viskisi, aktif kömür şurubu, tütsülenmiş kiraz bitter, limon kabuğu.</strong></p><p>Bu, menüdeki en çok Ember & Rye ruhunu taşıyan kokteyl — kendi kirişlerimizi, ızgarada kullandığımız aynı odunla, elma ağacı üzerinde tütsülüyoruz. Aktif kömür şurubu görsel bir drama ve kirazın tatlılığını kesen hafif bir mineral notu katıyor. Tek büyük buz küpü üzerinde servis edin.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Rye Bahçesi",
+                            "wbText": "<p><strong>Cin, salatalık suyu, taze dereotu, mürver çiçeği tonigi, limon.</strong></p><p>Kendi salatalık suyumuzu her sabah evde sıkıyoruz. Titiz görünebilir ama ticari salatalık aromalı alkollere kıyasla gerçek şey — temiz, yeşil ve hafif tatlı — çok daha üstün. Dereotu, mutfağımıza da tedarikçi olan Maryland'daki bir bitkisel çiftlikten geliyor. Çok bahar hissi veren bir içki.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Kan ve Bal",
+                            "wbText": "<p><strong>Mezcal, kan portakalı, yabani çiçek balı, Amaro, tuzlu rim.</strong></p><p>Kan portakalı şu anda en iyi halinde. Virginia'lı bir arıcıdan gelen yabani çiçek balıyla birlikte mezcal'ın dumanlılığını dengeleyen kalın bir şuruba dönüştürüyoruz. Amaro acılık ve karmaşıklık ekliyor. Menüye koyduğumuz en çok talep edilen içeceklerden biri.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Alkolsüz Seçenekler",
+                            "wbText": "<p><strong>Tüm kurslar için shrub bazlı alkolsüz seçenekler mevcuttur.</strong></p><p>Alkolsüz programımızı ciddiye alıyoruz. Mevsimlik meyve ve bitkilerden yapılan içme sirkeleri olan shrub'larımız, bu sezonda üç özel alkolsüz kokteyle temel oluşturuyor. Karmaşık, ilginç ve yemeklerle gerçekten eşleşmeye değer.</p>"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Kokteyl saatimize katılın",
+                    "wbText": "Çarşamba'dan Cuma'ya 17:00 – 18:30 arası. Tüm kokteyller %20 indirimli ve bar atıştırmalıkları ücretsiz.",
+                    "wbButtonLabel": "Bar Koltuğu Rezervasyonu",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    },
+    {
+        "slug": "meet-the-farms-behind-our-menu",
+        "title": "Menümüzün Arkasındaki Çiftliklerle Tanışın",
+        "wbSeoTitle": "Menümüzün Arkasındaki Çiftliklerle Tanışın — Ember & Rye",
+        "wbSeoDescription": "Washington DC'nin 100 mil yakınındaki beş aile çiftliğinden doğrudan tedarik ediyoruz. İşte bunlar kimler ve bizim için neden önemli.",
+        "excerpt": "DC'nin 100 mil yakınındaki beş aile çiftliğinden doğrudan tedarik ediyoruz. İşte kimler oldukları ve bizim için neden önemli oldukları.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Yerel tedarik hakkında çok konuşuyoruz, ama bunun ne anlama geldiği konusunda spesifik olmak istiyoruz. Bu, bölgesel ürünleri elverişli olduğunda satın almaya yönelik belirsiz bir taahhüt değil — tamamen güvendiğimiz beş çiftlikle yedi yılda inşa edilmiş ilişkiler ağı.</p>"
+                }
+            },
+            {
+                "type": "wbAccordion",
+                "title": "Çiftlik Ortaklarımız",
+                "items": [
+                    {
+                        "wbTitle": "Whitewood Farm — Warrenton, Virginia",
+                        "wbText": "<p>Whitewood, bifteklerimizin geldiği yer. Hartley ailesi, restoranın 60 mil uzağında 400 dönümlük yenileyici bir sığır çiftliği işletiyor. Angus-Hereford melez sığırları, yıl boyunca dönen meralarda otla besleniyor. Her Salı ve Cuma teslimat alıyoruz. Çiftliğin üçüncü kuşağını yöneten James Hartley, her üç ayda bir yeni menüyü tatmak için bizi ziyaret ediyor.</p>"
+                    },
+                    {
+                        "wbTitle": "Blue Ridge Greens — Shenandoah Vadisi",
+                        "wbText": "<p>Blue Ridge, salata yapraklarımızı, mikro yeşillikleri ve yenilebilir çiçekleri tedarik ediyor. Hem açık alanda hem de iklim kontrollü politünellerde yetişiyor, bu da aşırı yaz sıcaklarında bile tutarlı kalite elde ettiğimiz anlamına geliyor. Kelebek marulları, şimdiye kadar servis ettiğimizin tartışmasız en iyisidir.</p>"
+                    },
+                    {
+                        "wbTitle": "Bees of the Chesapeake — Eastern Shore, Maryland",
+                        "wbText": "<p>Bal tedarikçimiz ve aynı zamanda Tomás aracılığıyla kokteyl programımızın gizli silahı. Chesapeake bölgesi, gelgit sulak arazilerinin olağanüstü biyoçeşitliği sayesinde ülkedeki en karmaşık yabani çiçek ballarından bazılarını üretiyor. Sırlamalarımızda, ekmek servisimizde ve mevcut menüdeki üç kokteyılda kullanıyoruz.</p>"
+                    },
+                    {
+                        "wbTitle": "Sunstone Herb Collective — Frederick, Maryland",
+                        "wbText": "<p>Hasatlarını havuza alan ve bize haftada iki kez teslimat yapan beş üreticiden oluşan küçük bir kolektif. Hem mutfak hem de bar menülerinde yer alan dereotu, tarhun, frenk maydanozu ve bronz dereotunu tedarik ediyorlar. Birinci yılımızdan bu yana birlikte çalışıyoruz ve gerçek işbirlikçiler haline geldiler — bazen talep üzerine belirli çeşitleri yetiştiriyorlar.</p>"
+                    },
+                    {
+                        "wbTitle": "Piedmont Artisan Dairy — Culpeper, Virginia",
+                        "wbText": "<p>Priya'nın pastane mutfağı Piedmont tereyağı ve kreması üzerinde çalışıyor. Brown Swiss ve Guernsey ineklerinin karışık sürüsünden küçük partilerde üretim yapıyorlar — her iki ırk da daha yüksek yağ içeriğiyle biliniyor. Tereyağları ile ticari bir alternatif arasındaki fark hemen göze çarpıyor. Zengin, altın rengi ve derin lezzetli.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Her mevsim misafirlerin yemeğinin nereden geldiğini tam olarak görebilmesi için menümüzde tam bir kaynak haritası yayınlıyoruz. Köken hakkındaki şeffaflığın yemek deneyiminin bir parçası olduğuna inanıyoruz — bir dipnot değil.</p>"
+                }
+            }
+        ]
+    },
+    {
+        "slug": "private-dining-what-to-expect",
+        "title": "Özel Yemek: Ne Beklemeli",
+        "wbSeoTitle": "Ember & Rye'da Özel Yemek — Ne Beklemeli",
+        "wbSeoDescription": "Özel yemek odamızı rezerve etmeyi düşünüyor musunuz? Süreç, menü seçenekleri ve standart rezervasyondan ne farkı olduğu hakkında bilmeniz gereken her şey.",
+        "excerpt": "Özel yemek odamızı rezerve etmeyi düşünüyor musunuz? Ulaşmadan önce bilmeniz gereken her şey.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Özel yemek odamız hakkında çok sayıda soru alıyoruz — ne kadar önceden rezervasyon yapılacağından, karmaşık diyet gereksinimli bir misafiri karşılayıp karşılayamayacağımıza, minimum harcamanın ne olduğuna kadar. Bu yazı hepsini yanıtlıyor.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Alan",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Özel yemek odamız, ana yemek odasından tam boy ses geçirmez bir bölmeyle ayrılmıştır. Tek bir özel ceviz masasının etrafında 20 konuğa kadar kapasiteye sahiptir. Odanın kendi bar servisi, özel aydınlatma kontrolleri ve 65 inçlik sunum ekranı vardır. Bu, meşgul bir restoranın perdeli bir köşesi değil — gerçek bir özel alandır.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Menü",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Özel yemek misafirleri, set menü formatından seçim yapar: her kurs için iki seçenekli dört kurs (kanape, başlangıç, ana yemek, tatlı). Etkinliğinizden üç hafta önce mevcut mevsimsel müsaitliğe göre önerilen bir menü gönderiyoruz. O aşamada yemekleri değiştirebilir, kursları çıkarabilir ve diyet gereksinimlerini belirtebilirsiniz. Vejetaryen, vegan, glutensiz ve fındıksız gereksinimleri standart olarak karşılıyoruz.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Fiyatlandırma ve Rezervasyon",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Özel yemek odasının servis ve içecekler hariç minimum harcaması 1.200 $'dır. Oda kiralama ücreti yoktur — minimum harcama bunu karşılar. Rezervasyonu onaylamak için 300 $ depozito istiyoruz; bu depozito son faturanıza uygulanır.</p><p>Hafta sonu tarihleri için en az altı hafta öncesinden, hafta içi etkinlikler için dört hafta öncesinden rezervasyon yapmanızı öneririz. Oda haftanın yedi günü 12:00 – 23:00 saatleri arasında kullanılabilir.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Aralık ayı hızlı doluyor",
+                    "wbText": "Özel yemek odamız genellikle Ekim ortasına kadar Aralık kurumsal etkinlikleri için tamamen dolu oluyor. Noel yemeği planlıyorsanız, mümkün olduğunca erken ulaşın.",
+                    "wbAlertType": "warning",
+                    "wbAlertDismissible": false
+                }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Sormaya hazır mısınız?",
+                    "wbText": "Etkinlik ekibimizle iletişime geçin; müsaitlik durumunu ve gereksinimlerinizi görüşmek için bir iş günü içinde size geri döneceğiz.",
+                    "wbButtonLabel": "Özel Yemek Hakkında Soru Sorun",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    },
+    {
+        "slug": "bread-butter-and-the-case-for-a-proper-bread-course",
+        "title": "Ekmek, Tereyağı ve Gerçek Bir Ekmek Kursunun Önemi",
+        "wbSeoTitle": "Ev Yapımı Ekşi Maya Ekmeğimiz — Ember & Rye",
+        "wbSeoDescription": "Pastane Şefi Priya Nair, neden her gün ekşi maya ekmeği pişirdiğimizi, 48 saatlik fermantasyon sürecini ve her kaloriyi değer kılan tereyağını anlatıyor.",
+        "excerpt": "Pastane Şefi Priya Nair, neden her gün ekşi maya ekmeği pişirdiğimizi ve her kaloriyi değer kılan tereyağını anlatıyor.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Bir restoranda ekmek kursu çoğunlukla sonradan düşünülen bir şeydir — yemek tedarikçisinden alınan, folyoya sarılmış tereyağı paketleriyle, ılık servis edilen bir sepet ekmek. Bunun kaçırılmış bir fırsat olduğunu düşünüyoruz ve açılışımızdan bu yana ekmek kursunu ciddiye alıyoruz.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Ekşi Maya Ekmeği",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Her gün, her servis için iki somun ekşi maya ekmeği pişiriyoruz. Mayamız — Marcus'un büyükannesinin adıyla Margot olarak adlandırılmış — restoran 2018'de açıldığından bu yana sürekli besleniyor. Virginia'daki bir değirmenden tam buğday ve yüksek ekstraksiyonlu ekmek ununun bir karışımını kullanıyoruz. Hamur, dökme demir pişirme kabında pişirilmeden önce 48 saat soğuk fermente edilir.</p><p>Sonuç; çıtır bir kabuğu, açık bir gözenekli yapısı ve mevcut ama baskın olmayan bir ekşiliği olan bir somundur. İyi dilimlenebilir, tereyağı tutar ve bugün birinin yaptığı bir şey gibi tatlanır — çünkü öyledir.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Tereyağı",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Tereyağımızı, Piedmont Artisan Dairy kültürlü tereyağını baz alarak evde karıştırıyoruz. Mevcut versiyon; tütsülenmiş Shenandoah balı ve deniz tuzlu bileşik — tereyağını kiraz odunu üzerinde hafifçe soğuk tütsülüyoruz, ardından Blue Ridge Greens yabani çiçek balı ve Maldon deniz tuzu ile katlıyoruz. Hemen sürülebilmesi için oda sıcaklığında servis ediliyor.</p><p>Misafirler bu tereyağını menüdeki neredeyse her şeyden daha fazla soruyor. Asla menüden kalkmayacak.</p>"
+                }
+            },
+            {
+                "type": "wbListGroup",
+                "fields": {
+                    "wbTitle": "Ekmek Kursu Özeti"
+                },
+                "items": [
+                    { "wbTitle": "Günde iki kez pişirilen ev yapımı ekşi maya", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "Virginia taş değirmen unuyla 48 saat soğuk fermente", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "Tütsülenmiş bal ve deniz tuzlu bileşik tereyağı", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "Fırından sıcak, masada dilimlenmiş servis", "wbButtonUrl": "", "wbButtonTarget": "" },
+                    { "wbTitle": "Tüm akşam rezervasyonlarında ücretsiz", "wbButtonUrl": "", "wbButtonTarget": "" }
+                ]
+            }
+        ]
+    },
+    {
+        "slug": "how-we-built-our-wine-list-from-scratch",
+        "title": "Şarap Listemizi Sıfırdan Nasıl Oluşturduk",
+        "wbSeoTitle": "Şarap Listemizi Oluşturmak — Ember & Rye",
+        "wbSeoDescription": "Sommelier Delphine Aubert, 200 şişelik şarap programımızı şekillendiren felsefe, tedarik gezileri ve zor kararlar hakkında konuşuyor.",
+        "excerpt": "Sommelier Delphine Aubert, 200 şişelik şarap programımızı şekillendiren felsefe ve tedarik gezileri hakkında konuşuyor.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Açıldığımızda şarap listemizde 40 etiket vardı. Bugün 200'ün biraz üzerinde. Bu listeyi oluşturmak üç yıllık tedarik gezileri, kör tatmalar ve tek bir yol gösterici ilke gerektirdi: her şişe, stoklamayı beklediğimiz için değil, yemeklerimizle gerçekten içmek istediğimiz bir şey olmalıydı.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Felsefe",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Erken bir aşamada listeyi daha küçük üreticilere yönlendirme konusunda bilinçli bir karar aldık — négociant'sız Burgundy, üretici Şampanya, Loire ve Jura'dan doğal üreticiler. Doğal şarabın moda olmasından değil, bu üreticilerin kırmızı etle birlikte iyi çalışan doku ve asit türünde şaraplar yapmaya eğilimli olmaları nedeniyle. Listemiz bir ifade listesi değil. Yemek listesi.</p><p>Ayrıca eski vintajlarda bilinçli olarak marjı düşük tuttuk. On yıllık bir Barolo, özel bir şeyi kutlayan biri için ulaşılabilir olmalı. İnsanları iyi içmeye teşvik etmek için fiyatlandırıyoruz, şişe başına maksimum kar elde etmek için değil.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Delphine'e Sorun",
+                    "wbText": "Delphine, Çarşamba'dan Cumartesi'ye yemek salonunda bulunuyor. Şarap seçimi konusunda yardım almak veya özel bir şeyi dekante ettirmek isterseniz, listeyi sizinle konuşmaktan her zaman mutluluk duyar.",
+                    "wbAlertType": "info",
+                    "wbAlertDismissible": false
+                }
+            }
+        ]
+    },
+    {
+        "slug": "behind-the-pass-a-week-in-our-kitchen",
+        "title": "Pass'ın Arkası: Mutfağımızda Bir Hafta",
+        "wbSeoTitle": "Pass'ın Arkası — Ember & Rye Mutfağında Bir Hafta",
+        "wbSeoDescription": "Ember & Rye'da tam bir hizmet haftasının nasıl göründüğüne dürüst bir bakış — Salı hazırlığından Cumartesi akşam servisine.",
+        "excerpt": "Ember & Rye'da tam bir hizmet haftasının nasıl göründüğüne dürüst bir bakış — Salı hazırlığından Cumartesi akşam servisine.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>İnsanlar genellikle bir restoran mutfağında bir haftanın nasıl göründüğünü soruyor. İşte Salı'dan Cumartesi servisine kadar olan dürüst bir hesap — romantize edilmiş versiyon değil, haftanın gerçek şekli.</p>"
+                }
+            },
+            {
+                "type": "wbAccordion",
+                "title": "Günden Güne",
+                "items": [
+                    {
+                        "wbTitle": "Salı — Teslimatlar ve Derin Hazırlık",
+                        "wbText": "<p>Salı, en yoğun hazırlık günüdür. Whitewood Farm saat 7'de biftek teslim ediyor. Kuru olgunlaştırılmış kesimler hemen bölümleme ve budamaya gidiyor — saat 10'a kadar olgunlaştırma odası yeniden stoklanıyor. Blue Ridge Greens sabah ortasında geliyor. Stoklar ve uzun pişirme işlemleri için bütün hayvanları parçalıyoruz: dana yanakları saat 11'de altı saatlik bir braise için fırına giriyor.</p>"
+                    },
+                    {
+                        "wbTitle": "Çarşamba — Menü Geliştirme",
+                        "wbText": "<p>Çarşamba öğle servisi küçük, bu da geliştirme için zaman tanıyor. Marcus genellikle servisten sonra kıdemli ekiple yeni yemekleri test etmek için bir saat geçiriyor. Tadıyoruz, tartışıyoruz, ayarlıyoruz. Menüye giren bir şey genellikle hazır olmadan önce üç veya dört Çarşamba oturumu alır. Ekmek mayası orta hafta beslemesini alıyor.</p>"
+                    },
+                    {
+                        "wbTitle": "Perşembe — Momentum Kazanma",
+                        "wbText": "<p>Perşembe akşam servisi, haftanın gerçek anlamda ilk yoğun servisidir — yaklaşık 60 kişi. Ekip, haftasonundan bu yana tam menüyü ilk kez çalıştırıyor. Zamanlamayı yeniden kalibre etmek ve icraat açısından pürüzlü hissettiren her şeyi belirlemek için Perşembe'yi kullanıyoruz. Notlar gece 22'ye kadar pass'a asılıyor.</p>"
+                    },
+                    {
+                        "wbTitle": "Cuma ve Cumartesi — Tam Servis",
+                        "wbText": "<p>Cuma ve Cumartesi servis başına 90 ila 110 kişilik kapasiteyle çalışıyoruz. Mutfak tam kapasitede. Her istasyon kadrolanmış, tüm mise en place saat 17'ye kadar tamamlanmış. Adrenalin gerçek ama disiplin de öyle — bu servis seviyesinde disiplin, iyi bir geceyi harika bir geceden ayırandır. Gece yarısına kadar mutfak temiz ve brifing on dakika sürüyor. Sonra tekrar yapıyoruz.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "slug": "the-art-of-the-sauce",
+        "title": "Sos Sanatı: Redüksiyonlar, Jus ve Neden Önemlidir",
+        "wbSeoTitle": "Sos Sanatı — Ember & Rye",
+        "wbSeoDescription": "Dana jus'umuzu yapmak için neden 18 saat harcadığımız ve sos yapımındaki kısayolların neden her zaman tabakta belli olduğu.",
+        "excerpt": "Dana jus'umuzu yapmak için neden 18 saat harcadığımız ve sos yapımındaki kısayolların neden her zaman tabakta belli olduğu.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Dana jus'umuz yapılması 18 saat alıyor. Dana ve sığır kemiklerini yüksek ısıda derinden karamelleşene kadar kavuruyoruz, ardından aromatlı malzemeler ve kırmızı şarapla 12 saat pişiriyoruz, tekrar indiriyoruz, süzüyoruz ve sos bir kaşığı kaplayıp derişik dana tadı alana kadar bir kez daha indiriyoruz. Bu abartı değil. Bu süreç.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Neden ticari bir baz kullanmıyoruz?",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Ticari demi-glace var. Pratik ve tutarlı. Ama aynı zamanda ticari demi-glace gibi tatlanıyor — geniş yemek yiyen misafirlerin tanıyacağı ve 55 $ ödediğimiz bir tabakta yeri olmayan belirli bir lezzet notu, hafif bir tatlılık ve düzlük var. Kendi kaynaklarınızdan kendi kemiklerinizden kendi jus'unuzu yaptığınızda, sos servis edileceği etle aynı tatlanıyor. Bu uyum 18 saate değer.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Diğer soslar",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Jus'un ötesinde, mevsime bağlı dönen bir sos programı yürütüyoruz. Şu anda: kalkan balığı için tarhun beurre blanc, mantar yemeği için kavrulmuş sarımsak kreması, kuzu için salsa verde. Her biri sipariş üzerine veya çok küçük miktarlarda yapılıyor — hiçbir şey bain-marie'de servis için bekletilmiyor. İki saat bekletilmiş bir sos, onu yapmaya değer kılan şeyi zaten kaybetmiştir.</p>"
+                }
+            }
+        ]
+    },
+    {
+        "slug": "designing-a-menu-around-dietary-restrictions",
+        "title": "Diyet Kısıtlamaları Etrafında Menü Tasarlamak",
+        "wbSeoTitle": "Diyet Kısıtlamaları ve Menü Tasarımı — Ember & Rye",
+        "wbSeoDescription": "Menümüzü diyet kısıtlamalarının sonradan akıl olarak değil, özenle ele alındığı şekilde nasıl tasarlıyoruz.",
+        "excerpt": "Menümüzü diyet kısıtlamalarının sonradan akıl değil, düşünceli misafirperverlik gibi hissettirdiği şekilde nasıl tasarlıyoruz.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Herhangi bir haftada, rezervasyonlarımızın yaklaşık %30'u en az bir diyet gereksinimi belirtilerek geliyor. Vejetaryen, glutensiz, sütsüz, fındık alerjisi, helal — yelpaze geniş. Erken bir aşamada bu misafirlerin akşam yemeğinin daha az iyi bir versiyonunu almayacağına karar verdik. Eşit derecede düşünülmüş farklı bir versiyon alacaklar.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Pratikte nasıl işliyor",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Menüdeki her yeni yemek, geliştirme aşamasında uyarlanabilirlik açısından inceleniyor. Bir sos süt ürünleri içeriyorsa, yemek menüye eklendikten sonra değil, süreçin bir parçası olarak test aşamasında süt ürünü içermeyen paralel bir versiyon geliştiriyoruz. Aynısı gluten için de geçerli. Menü her değiştiğinde güncellenen tüm yemekler için alerjenden arındırılmış varyantların tam listesini tutuyoruz.</p><p>Alerjisi veya intoleransı olan misafirler için, rezervasyon yaparken bunları belirtmenizi rica ediyoruz. Bu, mutfağın servis sırasında doğaçlama yapmak yerine servisten önce düzgün hazırlanmasını sağlıyor. Alerjileri ciddiye alıyoruz — her alerji iddiası, misafirin bunu intolerans mı yoksa tercih mi olarak nitelendirdiğinden bağımsız olarak gerçek kabul ediliyor.</p>"
+                }
+            },
+            {
+                "type": "wbAlert",
+                "fields": {
+                    "wbTitle": "Her zaman önceden bildirin",
+                    "wbText": "En güvenli ve en iyi deneyim, gereksinimlerinizi rezervasyon sırasında bildirmenizden gelir. Walk-in diyet gereksinimleri her zaman karşılanabilir, ancak önceden bildirim daha fazlasını yapmamıza olanak tanır.",
+                    "wbAlertType": "warning",
+                    "wbAlertDismissible": false
+                }
+            }
+        ]
+    },
+    {
+        "slug": "our-approach-to-seasonal-ingredients",
+        "title": "Mevsimsel Malzemelere Yaklaşımımız",
+        "wbSeoTitle": "Ember & Rye'da Mevsimsel Malzemeler",
+        "wbSeoDescription": "Neden mevsimsel pişirme bizim için bir trend değil — menü yazma ve malzeme tedarik etme şeklimizin temeli.",
+        "excerpt": "Neden mevsimsel pişirme bizim için bir pazarlama sloganı değil — menü yazma ve ürün tedarik etme şeklimizin temeli.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Menümüz mevsimlere göre yılda dört kez değişiyor ve belirli malzemeler en iyi koşula girip çıktıkça daha da ayarlanıyor. Bu bir pazarlama sloganı değil. Distribütörler yerine çiftliklerden satın almanın pratik sonucu.</p>"
+                }
+            },
+            {
+                "type": "wbTabs",
+                "fields": {
+                    "wbTabItems": [
+                        {
+                            "wbTabTitle": "İlkbahar",
+                            "wbText": "<p>Kuşkonmaz, ramp soğanı, mor mantar, bahçe bezelyesi, taze otlar. İlkbahar menüsü, diğer mevsimlerden daha hafif ve sebze ağırlıklıdır. Ramp sezonu yaklaşık üç hafta sürer — burada varken agresif şekilde kullanıyoruz: bileşik tereyağında, vinegret'te ve yanık garnisyon olarak.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Yaz",
+                            "wbText": "<p>Domates, mısır, kabak, taş meyvesi, taze şeker fasulye. Yaz, menüdeki vejetaryen yemeklerin biftek yemekleri kadar heyecan verici olduğu mevsimdir. Zirvedeki bir ıslak antika domates, iyi zeytinyağıyla neredeyse hiçbir şey yapılmasına gerek duymaz.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Sonbahar",
+                            "wbText": "<p>Kabak, kök sebzeler, yabani mantarlar, elma, kestane. Sonbahar, pişirmenin daha ağır ve rahat hale geldiği zamandır. Braise'ler menüye geri döner. Balkabağı tatlı bölümünde belirir. Şarap listesi daha büyük kırmızılara döner.</p>"
+                        },
+                        {
+                            "wbTabTitle": "Kış",
+                            "wbText": "<p>Narenciye, zorlanmış hindiba, kereviz, siyah trüf, korunmuş yaz ürünleri. Kış, malzeme listesi en kısa olduğu için teknik açıdan en zorlu mevsimdir. Ekibin çeşitlilik yaratmak için daha sıkı çalışması gerekir. En iyi pişirmelerimizden bazılarını üretir.</p>"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "slug": "service-standards-what-hospitality-really-means",
+        "title": "Hizmet Standartları: Misafirperverlik Gerçekte Ne Anlama Gelir",
+        "wbSeoTitle": "Misafirperverlik Gerçekte Ne Anlama Gelir — Ember & Rye",
+        "wbSeoDescription": "Genel Müdür Sofia Reyes, kendimize koyduğumuz hizmet standartları ve gerçek misafirperverliğin göründüğünden neden daha zor olduğu hakkında konuşuyor.",
+        "excerpt": "Genel Müdür Sofia Reyes, kendimize koyduğumuz hizmet standartları ve gerçek misafirperverliğin göründüğünden neden daha zor olduğunu konuşuyor.",
+        "blocks": [
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Misafirperverlik, sektörde çoğunlukla bir dizi komut dosyalı davranışı ifade eder: misafirlere isimleriyle hitap etmek, sade mi köpüklü mü sunmak, ilk ziyaretleri mi diye sormak. Bunlar önemli. Ama misafirperverlik değil. Misafirperverliğin yüzeyi.</p>"
+                }
+            },
+            {
+                "type": "wbHeading",
+                "fields": {
+                    "wbTitle": "Ortamı okumak",
+                    "wbHeadingLevel": "h2",
+                    "wbHeadingAlign": "start"
+                }
+            },
+            {
+                "type": "wbTextBlock",
+                "fields": {
+                    "wbText": "<p>Gerçek misafirperverlik dikkat etmektir. 12. masadaki çiftin zor bir konuşma yaptığını fark edip yaklaşma zamanınızı ona göre ayarlamaktır. 7. masadaki misafirlerin bir şeyi kutladığını, söylemedikleri halde, fark etmek ve servisin ritmini ve sıcaklığını buna göre ayarlamaktır. Bunu komut dosyasına yapamazsınız. Sadece insanlara yeterince önem vermeleri için eğitim verebilirsiniz.</p><p>Empatiye bilgiden önce işe alıyoruz. Misafiri önemseyen ama şarap listemizi henüz bilmeyen bir garson, şarap listesini öğrenebilir. Şarap listesini bilen ama karşısındaki insanlara doğal olarak uyum sağlamayan bir garson geliştirmek çok daha zordur.</p>"
+                }
+            },
+            {
+                "type": "wbCallToAction",
+                "fields": {
+                    "wbTitle": "Kendiniz görün",
+                    "wbText": "Misafirperverlikten ne kastettiğimizi anlamanın en iyi yolunun bunu deneyimlemek olduğuna inanıyoruz. Sizi ağırlamayı dört gözle bekliyoruz.",
+                    "wbButtonLabel": "Rezervasyon Yap",
+                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                }
+            }
+        ]
+    }
+]

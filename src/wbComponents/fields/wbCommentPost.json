@@ -1,0 +1,13 @@
+{
+    "name": "Comment Post",
+    "handle": "wbCommentPost",
+    "instructions": "The blog post this comment belongs to.",
+    "type": "Entries",
+    "typesettings": {
+        "sources": "*",
+        "limit": 1,
+        "localizeRelations": false
+    },
+    "translationMethod": "none",
+    "searchable": false
+}

@@ -1,0 +1,16 @@
+{
+    "handle": "wbComment",
+    "name": "Comment",
+    "hasTitleField": false,
+    "titleTranslationMethod": "none",
+    "tabs": [
+        {
+            "name": "Comment",
+            "fields": ["wbCommentAuthorName", "wbEmail", "wbCommentBody", "wbCommentPost"]
+        },
+        {
+            "name": "Spam",
+            "fields": ["wbCommentHoneypot"]
+        }
+    ]
+}

@@ -23,4 +23,10 @@
 
     {% include "wb/index" with { entry: entry } %}
 
+    {# ── Comments ───────────────────────────────────────────────────────────── #}
+    <div class="wb-comments-section mt-5 pt-4 border-top">
+        {% include "wb/partials/comment-list" with { entry: entry } %}
+        {% include "wb/partials/comment-form" with { entry: entry } %}
+    </div>
+
 {% endblock %}

@@ -1,0 +1,76 @@
+{#
+  wb/partials/comment-list.twig
+  Variables expected:
+    entry  — the wbPost entry whose comments to list
+#}
+{% set lang = currentSite.language|slice(0, 2) %}
+
+{% set labels = {
+    en: {
+        heading:    'Comments',
+        noComments: 'Be the first to comment!',
+        one:        '1 comment',
+        many:       '%d comments',
+    },
+    tr: {
+        heading:    'Yorumlar',
+        noComments: 'İlk yorumu sen yap!',
+        one:        '1 yorum',
+        many:       '%d yorum',
+    },
+    de: {
+        heading:    'Kommentare',
+        noComments: 'Sei der Erste, der kommentiert!',
+        one:        '1 Kommentar',
+        many:       '%d Kommentare',
+    }
+} %}
+{% set t = labels[lang] ?? labels['en'] %}
+
+{# Fetch approved (enabled/live) comments for this post #}
+{% set comments = craft.entries()
+    .section('wbComments')
+    .wbCommentPost(entry.id)
+    .status('live')
+    .orderBy('postDate asc')
+    .all() %}
+
+{% if comments|length %}
+    <section id="wb-comments" class="wb-comment-list mt-5">
+        {% set count = comments|length %}
+        <h3 class="mb-4">
+            {% if count == 1 %}
+                {{ t.one }}
+            {% else %}
+                {{ t.many|replace({'%d': count}) }}
+            {% endif %}
+        </h3>
+
+        {% for comment in comments %}
+            <div class="wb-comment d-flex gap-3 mb-4">
+
+                {# Avatar placeholder #}
+                <div class="wb-comment-avatar flex-shrink-0 rounded-circle bg-secondary-subtle d-flex align-items-center justify-content-center"
+                     style="width:44px;height:44px;font-size:1.1rem;font-weight:600;color:var(--bs-secondary);">
+                    {{ comment.wbCommentAuthorName|slice(0,1)|upper }}
+                </div>
+
+                <div class="flex-grow-1">
+                    <div class="d-flex align-items-baseline gap-2 mb-1">
+                        <strong class="wb-comment-author">{{ comment.wbCommentAuthorName }}</strong>
+                        <small class="text-body-secondary">{{ comment.postDate|date('d.m.Y') }}</small>
+                    </div>
+                    <p class="mb-0 wb-comment-body">{{ comment.wbCommentBody|nl2br }}</p>
+                </div>
+
+            </div>
+            {% if not loop.last %}
+                <hr class="wb-comment-divider my-3">
+            {% endif %}
+        {% endfor %}
+    </section>
+{% else %}
+    <section id="wb-comments" class="wb-comment-list mt-5">
+        <p class="text-body-secondary fst-italic">{{ t.noComments }}</p>
+    </section>
+{% endif %}

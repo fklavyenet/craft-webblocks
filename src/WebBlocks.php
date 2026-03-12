@@ -37,7 +37,8 @@ class WebBlocks extends BasePlugin
             'controllerMap' => [
                 'wipe' => \fklavyenet\webblocks\console\WipeController::class,
                 'seed' => \fklavyenet\webblocks\console\SeedController::class,
-                'form' => \fklavyenet\webblocks\controllers\FormController::class,
+                'form'    => \fklavyenet\webblocks\controllers\FormController::class,
+                'comment' => \fklavyenet\webblocks\controllers\CommentController::class,
             ],
         ];
     }

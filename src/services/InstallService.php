@@ -533,9 +533,9 @@ class InstallService extends Component
                 // Primary site
                 $primarySettings = new Section_SiteSettings();
                 $primarySettings->siteId = $primarySite->id;
-                $primarySettings->hasUrls = true;
-                $primarySettings->uriFormat = $def['uriFormat'];
-                $primarySettings->template = $def['template'];
+                $primarySettings->hasUrls = !empty($def['uriFormat']);
+                $primarySettings->uriFormat = $def['uriFormat'] ?: null;
+                $primarySettings->template = $def['template'] ?: null;
                 $primarySettings->enabledByDefault = true;
                 $allSiteSettings[$primarySite->id] = $primarySettings;
 
@@ -547,9 +547,9 @@ class InstallService extends Component
                     }
                     $extraSettings = new Section_SiteSettings();
                     $extraSettings->siteId = $extraSite->id;
-                    $extraSettings->hasUrls = true;
-                    $extraSettings->uriFormat = $def['uriFormat'];
-                    $extraSettings->template = $def['template'];
+                    $extraSettings->hasUrls = !empty($def['uriFormat']);
+                    $extraSettings->uriFormat = $def['uriFormat'] ?: null;
+                    $extraSettings->template = $def['template'] ?: null;
                     $extraSettings->enabledByDefault = true;
                     $allSiteSettings[$extraSite->id] = $extraSettings;
                 }

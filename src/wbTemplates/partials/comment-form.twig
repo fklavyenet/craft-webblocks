@@ -1,0 +1,193 @@
+{#
+  wb/partials/comment-form.twig
+  Variables expected:
+    entry  — the wbPost entry this form belongs to
+#}
+{% set lang = currentSite.language|slice(0, 2) %}
+
+{% set labels = {
+    en: {
+        heading:     'Leave a comment',
+        name:        'Name',
+        email:       'Email address',
+        comment:     'Comment',
+        submit:      'Post comment',
+        namePh:      'Your name',
+        emailPh:     'your@email.com',
+        commentPh:   'Write your comment here…',
+        nameReq:     'Please enter your name.',
+        emailReq:    'Please enter a valid email address.',
+        commentReq:  'Please write your comment.',
+        success:     'Thank you! Your comment is awaiting moderation.',
+        emailNote:   'Your email will not be published.',
+        privacy:     'We keep your information private.',
+    },
+    tr: {
+        heading:     'Yorum yap',
+        name:        'Ad Soyad',
+        email:       'E-posta adresi',
+        comment:     'Yorum',
+        submit:      'Yorum gönder',
+        namePh:      'Adınızı girin',
+        emailPh:     'eposta@adresiniz.com',
+        commentPh:   'Yorumunuzu buraya yazın…',
+        nameReq:     'Lütfen adınızı girin.',
+        emailReq:    'Lütfen geçerli bir e-posta adresi girin.',
+        commentReq:  'Lütfen yorumunuzu yazın.',
+        success:     'Teşekkürler! Yorumunuz onay bekliyor.',
+        emailNote:   'E-posta adresiniz yayınlanmayacak.',
+        privacy:     'Bilgileriniz gizli tutulur.',
+    },
+    de: {
+        heading:     'Kommentar hinterlassen',
+        name:        'Name',
+        email:       'E-Mail-Adresse',
+        comment:     'Kommentar',
+        submit:      'Kommentar senden',
+        namePh:      'Ihr Name',
+        emailPh:     'ihre@email.de',
+        commentPh:   'Schreiben Sie Ihren Kommentar hier…',
+        nameReq:     'Bitte geben Sie Ihren Namen ein.',
+        emailReq:    'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+        commentReq:  'Bitte schreiben Sie Ihren Kommentar.',
+        success:     'Danke! Ihr Kommentar wartet auf Freischaltung.',
+        emailNote:   'Ihre E-Mail-Adresse wird nicht veröffentlicht.',
+        privacy:     'Ihre Daten werden vertraulich behandelt.',
+    }
+} %}
+
+{% set t = labels[lang] ?? labels['en'] %}
+
+{% set formId = 'wb-comment-form-' ~ entry.id %}
+{% set actionUrl = actionUrl('webblocks/comment/submit') %}
+
+{# ── Flash success ──────────────────────────────────────────────────────────── #}
+{% if craft.app.session.getFlash('wbCommentSuccess') %}
+    <div class="alert alert-success" role="alert">
+        {{ t.success }}
+    </div>
+{% else %}
+
+<div class="wb-comment-form mt-5">
+    <h3 class="mb-4">{{ t.heading }}</h3>
+
+    {# ── Validation errors (non-Ajax fallback) ── #}
+    {% if craft.app.session.getFlash('wbCommentError') %}
+        <div class="alert alert-danger" role="alert">
+            {{ craft.app.session.getFlash('wbCommentError') }}
+        </div>
+    {% endif %}
+
+    <form id="{{ formId }}" method="post" action="{{ actionUrl }}" novalidate>
+        {{ csrfInput() }}
+        <input type="hidden" name="postEntryId" value="{{ entry.id }}">
+        {{ redirectInput(craft.app.request.url ~ '#wb-comments') }}
+
+        {# ── Honeypot (hidden, must stay empty) ── #}
+        <div class="wb-hp" aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+            <label for="{{ formId }}-hp">Leave this blank</label>
+            <input type="text" id="{{ formId }}-hp" name="wbhp" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="row g-3">
+            {# Name #}
+            <div class="col-md-6">
+                <label for="{{ formId }}-name" class="form-label fw-semibold">
+                    {{ t.name }}<span class="text-danger ms-1" aria-hidden="true">*</span>
+                </label>
+                <input type="text"
+                       id="{{ formId }}-name"
+                       name="wbCommentAuthorName"
+                       class="form-control"
+                       placeholder="{{ t.namePh }}"
+                       maxlength="100"
+                       required>
+                <div class="invalid-feedback" id="{{ formId }}-name-error">{{ t.nameReq }}</div>
+            </div>
+
+            {# Email #}
+            <div class="col-md-6">
+                <label for="{{ formId }}-email" class="form-label fw-semibold">
+                    {{ t.email }}<span class="text-danger ms-1" aria-hidden="true">*</span>
+                </label>
+                <input type="email"
+                       id="{{ formId }}-email"
+                       name="wbEmail"
+                       class="form-control"
+                       placeholder="{{ t.emailPh }}"
+                       required>
+                <div class="invalid-feedback" id="{{ formId }}-email-error">{{ t.emailReq }}</div>
+                <div class="form-text">{{ t.emailNote }}</div>
+            </div>
+
+            {# Comment body #}
+            <div class="col-12">
+                <label for="{{ formId }}-body" class="form-label fw-semibold">
+                    {{ t.comment }}<span class="text-danger ms-1" aria-hidden="true">*</span>
+                </label>
+                <textarea id="{{ formId }}-body"
+                          name="wbCommentBody"
+                          class="form-control"
+                          rows="5"
+                          placeholder="{{ t.commentPh }}"
+                          maxlength="1000"
+                          required></textarea>
+                <div class="invalid-feedback" id="{{ formId }}-body-error">{{ t.commentReq }}</div>
+            </div>
+
+            {# Submit #}
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">{{ t.submit }}</button>
+            </div>
+        </div>
+    </form>
+
+    {# Success (Ajax) #}
+    <div id="{{ formId }}-success" class="alert alert-success d-none mt-3" role="alert">
+        {{ t.success }}
+    </div>
+</div>
+
+{# ── JavaScript ─────────────────────────────────────────────────────────────── #}
+<script>
+(function () {
+    var form    = document.getElementById('{{ formId }}');
+    var success = document.getElementById('{{ formId }}-success');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Clear previous errors
+        form.querySelectorAll('.is-invalid').forEach(function (el) { el.classList.remove('is-invalid'); });
+
+        var data = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            body: data
+        })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+            if (json.success) {
+                form.style.display = 'none';
+                success.classList.remove('d-none');
+            } else {
+                var errors = json.errors || {};
+                ['wbCommentAuthorName', 'wbEmail', 'wbCommentBody'].forEach(function (field) {
+                    if (errors[field]) {
+                        var input = form.querySelector('[name="' + field + '"]');
+                        if (input) input.classList.add('is-invalid');
+                    }
+                });
+            }
+        })
+        .catch(function () {
+            form.submit();
+        });
+    });
+}());
+</script>
+
+{% endif %} {# end flash success check #}

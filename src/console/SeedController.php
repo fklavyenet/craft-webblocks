@@ -135,6 +135,10 @@ class SeedController extends Controller
         $this->stdout("\nSeeding blog posts...\n");
         $this->seedBlogPosts($seedPath, $assetIds);
 
+        // 8b. Seed blog comments
+        $this->stdout("\nSeeding blog comments...\n");
+        $this->seedBlogComments();
+
         // 9. Seed about, services, contact pages
         $this->stdout("\nSeeding static pages...\n");
         $this->seedStaticPages($seedPath, $assetIds);
@@ -381,6 +385,105 @@ class SeedController extends Controller
                 }
             }
         }
+    }
+
+    /**
+     * Seeds sample comments (disabled/pending) for the first two blog posts.
+     */
+    private function seedBlogComments(): void
+    {
+        $section = Craft::$app->getEntries()->getSectionByHandle('wbComments');
+        if (!$section) {
+            $this->stderr("  Warning: Section 'wbComments' not found. Skipping comments.\n");
+            return;
+        }
+
+        $entryType = null;
+        foreach ($section->getEntryTypes() as $et) {
+            if ($et->handle === 'wbComment') {
+                $entryType = $et;
+                break;
+            }
+        }
+        if (!$entryType) {
+            $this->stderr("  Warning: Entry type 'wbComment' not found. Skipping comments.\n");
+            return;
+        }
+
+        // Get the first two published blog posts to attach comments to
+        $posts = Entry::find()->section('wbBlog')->status('live')->limit(2)->orderBy('postDate asc')->all();
+        if (empty($posts)) {
+            $this->stderr("  Warning: No live blog posts found. Skipping comments.\n");
+            return;
+        }
+
+        $siteId = Craft::$app->getSites()->getPrimarySite()->id;
+
+        $samples = [
+            [
+                'authorName' => 'Emma Johnson',
+                'email'      => 'emma.j@example.com',
+                'body'       => 'Great article! Really enjoyed reading this. The tips were very practical and easy to follow.',
+            ],
+            [
+                'authorName' => 'Marcus Bauer',
+                'email'      => 'marcus.b@example.com',
+                'body'       => 'Thanks for sharing this. I had a few questions about the third point — could you elaborate a bit more?',
+            ],
+            [
+                'authorName' => 'Sophie Martin',
+                'email'      => 'sophie.m@example.com',
+                'body'       => 'Loved the style of this post. Looking forward to more content like this!',
+            ],
+        ];
+
+        $count = 0;
+
+        foreach ($posts as $postIndex => $post) {
+            // Attach one or two sample comments per post
+            $commentsForPost = $postIndex === 0 ? [$samples[0], $samples[1]] : [$samples[2]];
+
+            foreach ($commentsForPost as $sample) {
+                // Skip if a comment with the same title already exists
+                $titleCheck = $sample['authorName'] . ' — ' . date('Y-m-d');
+                $existing = Entry::find()
+                    ->section('wbComments')
+                    ->title($titleCheck)
+                    ->status(null)
+                    ->one();
+
+                if ($existing) {
+                    $this->stdout("  - Comment by '{$sample['authorName']}' for '{$post->title}' already exists, skipping.\n");
+                    continue;
+                }
+
+                $comment = new Entry();
+                $comment->sectionId = $section->id;
+                $comment->typeId    = $entryType->id;
+                $comment->siteId    = $siteId;
+                $comment->title     = $sample['authorName'] . ' — ' . date('Y-m-d');
+                $comment->enabled   = false; // pending moderation
+
+                $comment->setFieldValue('wbCommentAuthorName', $sample['authorName']);
+                $comment->setFieldValue('wbEmail', $sample['email']);
+                $comment->setFieldValue('wbCommentBody', $sample['body']);
+                $comment->setFieldValue('wbCommentPost', [$post->id]);
+
+                if (Craft::$app->getElements()->saveElement($comment)) {
+                    $this->stdout("  - Comment by '{$sample['authorName']}' for '{$post->title}' saved (ID: {$comment->id}, pending)\n");
+                    $count++;
+                } else {
+                    $this->stderr("  ! Failed to save comment:\n");
+                    foreach ($comment->getErrors() as $attr => $errors) {
+                        foreach ($errors as $error) {
+                            $this->stderr("    [$attr] $error\n");
+                        }
+                    }
+                }
+            }
+        }
+
+        $this->stdout("  $count comment(s) seeded (all pending moderation).\n");
     }
 
     /**

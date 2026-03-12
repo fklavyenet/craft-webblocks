@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-03-12
+
+### Fixed
+- Cookie consent privacy policy URL was hardcoded to `restaurant.ddev.site`. It now resolves dynamically from each site's base URL, so the correct domain is used on any installation.
+
 ## [1.4.0] - 2026-03-12
 
 ### Added

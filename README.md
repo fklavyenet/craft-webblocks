@@ -197,6 +197,9 @@ The `wbCookieSettings` global set powers a built-in GDPR-friendly cookie consent
 - **Four categories:** Necessary (always on), Analytics, Marketing, Preferences
 - **Vanilla JS** — no external libraries. Consent is stored in `localStorage` as `wb_cookie_consent`
 - **`window.wbCookieConsent`** is published for third-party scripts to read consent state
+- **`window.wbOpenCookieBanner()`** re-opens the banner programmatically from any script
+- **Footer trigger:** A "Cookie Settings" link is automatically rendered in the footer when `wbCookieBannerEnabled` is on. Any element with `data-wb-cookie-trigger` attribute also re-opens the banner
+- **Design:** Bottom-right card (380 px max-width); full-width bar on mobile
 - **Toggle** the banner on/off with `wbCookieBannerEnabled` (lightswitch field)
 - **Seed content** provided in EN, TR, and DE
 

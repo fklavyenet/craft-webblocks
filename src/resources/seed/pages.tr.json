@@ -439,6 +439,27 @@
                     }
                 }
             ]
+        },
+        {
+            "title": "Yasal Bildirim",
+            "wbSeoTitle": "Yasal Bildirim — Ember & Rye",
+            "wbSeoDescription": "Ember & Rye restoranı, Washington DC için işletmeci bilgileri ve yasal açıklamalar.",
+            "blocks": [
+                {
+                    "type": "wbHero",
+                    "fields": {
+                        "wbTitle": "Yasal Bildirim",
+                        "wbText": "Ember & Rye için işletmeci bilgileri ve yasal açıklamalar.",
+                        "wbAlignment": "center"
+                    }
+                },
+                {
+                    "type": "wbTextBlock",
+                    "fields": {
+                        "wbText": "<h4>İşletmeci</h4><p>Ember & Rye LLC<br>1847 K Street NW<br>Washington, DC 20006<br>Amerika Birleşik Devletleri</p><h4>İletişim</h4><p>Telefon: +1 (202) 555-0194<br>E-posta: <a href=\"mailto:hello@emberandrye.com\">hello@emberandrye.com</a></p><h4>Yönetici Ortak</h4><p>Marcus Webb</p><h4>İçerik Sorumluluğu</h4><p>Bu web sitesinin içeriği özenle hazırlanmıştır. Ancak, sağlanan bilgilerin doğruluğu, eksiksizliği veya güncelliği konusunda garanti veremeyiz. Hizmet sağlayıcı olarak, genel yasalar çerçevesinde bu sayfalardaki kendi içeriğimizden sorumluyuz. İletilen veya depolanan harici bilgileri izleme ya da yasadışı faaliyete işaret eden durumları araştırma yükümlülüğümüz bulunmamaktadır.</p><h4>Bağlantı Sorumluluğu</h4><p>Bu web sitesi, içerikleri kontrolümüz dışında olan harici üçüncü taraf web sitelerine bağlantılar içermektedir. Bu nedenle bu harici içerik için herhangi bir sorumluluk kabul edemeyiz. Bağlantılı sayfaların içeriğinden her zaman ilgili sağlayıcı veya işletmeci sorumludur.</p><h4>Telif Hakkı</h4><p>Bu sayfalarda site işletmecileri tarafından oluşturulan içerik ve eserler telif hakkı yasasına tabidir. Telif hakkı yasasının kapsamı dışında çoğaltma, işleme, dağıtım veya herhangi bir ticari kullanım, ilgili yazarın veya yaratıcının yazılı onayını gerektirir.</p>"
+                    }
+                }
+            ]
         }
     ],
     "contact": {

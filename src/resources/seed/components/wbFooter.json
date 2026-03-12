@@ -25,6 +25,10 @@
         {
             "wbFooterLinkLabel": "Reservations",
             "wbFooterLinkUrl": "/contact"
+        },
+        {
+            "wbFooterLinkLabel": "Legal Notice",
+            "wbFooterLinkUrl": "/impressum"
         }
     ]
 }

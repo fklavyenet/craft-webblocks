@@ -492,6 +492,34 @@
                     }
                 }
             ]
+        },
+        {
+            "section": "wbPage",
+            "entryType": "wbPage",
+            "title": "Legal Notice",
+            "slug": "impressum",
+            "wbSeoTitle": "Legal Notice — Ember & Rye",
+            "wbSeoDescription": "Legal notice and operator information for Ember & Rye restaurant, Washington DC.",
+            "wbShowInNav": false,
+            "wbNavOrder": 0,
+            "wbShowInFooter": true,
+            "wbFooterOrder": 90,
+            "blocks": [
+                {
+                    "type": "wbHero",
+                    "fields": {
+                        "wbTitle": "Legal Notice",
+                        "wbText": "Operator information and legal disclosures for Ember & Rye.",
+                        "wbAlignment": "center"
+                    }
+                },
+                {
+                    "type": "wbTextBlock",
+                    "fields": {
+                        "wbText": "<h4>Operator</h4><p>Ember & Rye LLC<br>1847 K Street NW<br>Washington, DC 20006<br>United States</p><h4>Contact</h4><p>Phone: +1 (202) 555-0194<br>Email: <a href=\"mailto:hello@emberandrye.com\">hello@emberandrye.com</a></p><h4>Managing Member</h4><p>Marcus Webb</p><h4>Liability for Content</h4><p>The content of this website has been compiled with great care. However, we cannot guarantee the accuracy, completeness, or timeliness of the information provided. As a service provider, we are responsible under general laws for our own content on these pages. We are not obligated to monitor transmitted or stored external information or to investigate circumstances that indicate unlawful activity. Obligations to remove or block the use of information under general laws remain unaffected.</p><h4>Liability for Links</h4><p>This website contains links to external third-party websites, the content of which is beyond our control. We therefore cannot accept any liability for this external content. The respective provider or operator of the linked pages is always responsible for their content. The linked pages were checked for possible legal violations at the time of linking; no illegal content was identifiable at that time.</p><h4>Copyright</h4><p>The content and works created by the site operators on these pages are subject to copyright law. Duplication, processing, distribution, or any form of commercialisation beyond the scope of copyright law requires the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use.</p>"
+                    }
+                }
+            ]
         }
     ],
     "contact": {

@@ -1,8 +1,8 @@
 {% set footerLinks = item.wbFooterLinks.all() %}
-{% set brand = item.wbNavbarBrand ?? null %}
-{% set logo = item.wbNavbarLogo.one() ?? null %}
-{% set tagline = item.wbFooterTagline ?? null %}
-{% set copyright = item.wbFooterCopyright ?? null %}
+{% set brand      = item.wbNavbarBrand ?? null %}
+{% set logo       = item.wbNavbarLogo.one() ?? null %}
+{% set tagline    = item.wbFooterTagline ?? null %}
+{% set copyright  = item.wbFooterCopyright ?? null %}
 
 {# Auto-collect entries with wbShowInFooter enabled when no manual links are defined #}
 {% if not footerLinks|length %}
@@ -14,61 +14,60 @@
         ) %}
 {% endif %}
 
-{% set hasLinks = footerLinks|length or (autoFooterEntries is defined and autoFooterEntries|length) %}
+{% set resolvedLinks = footerLinks|length ? footerLinks : (autoFooterEntries is defined ? autoFooterEntries : []) %}
 
-<footer class="wb-footer bg-dark text-light py-4 mt-5">
+<footer class="wb-footer border-top bg-body-tertiary mt-auto pt-5 pb-4">
     <div class="container">
-        <div class="row align-items-start">
 
-            {# Brand column #}
-            <div class="col-md-4 mb-3 mb-md-0">
+        {# ── Top row: brand + links ── #}
+        <div class="row pb-4">
+
+            {# Brand + tagline #}
+            <div class="col-md-5 mb-4 mb-md-0">
                 {% if logo %}
                     <img src="{{ logo.url }}" alt="{{ brand ?? logo.alt ?: logo.title }}" height="32" class="d-block mb-2">
                 {% endif %}
                 {% if brand %}
-                    <div class="fw-semibold">{{ brand }}</div>
+                    <div class="fw-semibold fs-5 mb-1">{{ brand }}</div>
                 {% endif %}
                 {% if tagline %}
-                    <small class="text-muted">{{ tagline }}</small>
+                    <p class="text-body-secondary small mb-0">{{ tagline }}</p>
                 {% endif %}
             </div>
 
-            {# Links column — manual mode (wbFooterLinks defined) #}
-            {% if footerLinks|length %}
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <ul class="list-unstyled mb-0">
-                        {% for link in footerLinks %}
-                            <li>
-                                <a href="{{ link.wbFooterLinkUrl ?? '#' }}" class="text-light text-decoration-none">
-                                    {{ link.wbFooterLinkLabel }}
-                                </a>
-                            </li>
+            {# Nav links #}
+            {% if resolvedLinks|length %}
+                <div class="col-md-7">
+                    <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0 justify-content-md-end">
+                        {% for link in resolvedLinks %}
+                            {% if link.wbFooterLinkUrl is defined %}
+                                {# manual link entry #}
+                                <li>
+                                    <a href="{{ link.wbFooterLinkUrl ?? '#' }}" class="text-body-secondary text-decoration-none wb-footer-link">
+                                        {{ link.wbFooterLinkLabel }}
+                                    </a>
+                                </li>
+                            {% else %}
+                                {# auto entry #}
+                                <li>
+                                    <a href="{{ link.url }}" class="text-body-secondary text-decoration-none wb-footer-link">
+                                        {{ link.title }}
+                                    </a>
+                                </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
-                </div>
-
-            {# Links column — auto mode (entries with wbShowInFooter enabled) #}
-            {% elseif autoFooterEntries is defined and autoFooterEntries|length %}
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <ul class="list-unstyled mb-0">
-                        {% for footerEntry in autoFooterEntries %}
-                            <li>
-                                <a href="{{ footerEntry.url }}" class="text-light text-decoration-none">
-                                    {{ footerEntry.title }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-
-            {# Copyright #}
-            {% if copyright %}
-                <div class="col-md-4 text-md-end">
-                    <small class="text-muted">{{ copyright }}</small>
                 </div>
             {% endif %}
 
         </div>
+
+        {# ── Bottom row: copyright ── #}
+        {% if copyright %}
+            <div class="border-top pt-3">
+                <small class="text-body-secondary">{{ copyright }}</small>
+            </div>
+        {% endif %}
+
     </div>
 </footer>

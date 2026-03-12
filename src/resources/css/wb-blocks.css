@@ -309,3 +309,10 @@ main > .wb-block.wb-fullscreen-image {
 .wb-lb-next:hover { opacity: 1; }
 .wb-lb-prev { left: 4px; }
 .wb-lb-next { right: 4px; }
+
+/* =============================================================================
+   Footer
+   ============================================================================= */
+.wb-footer-link:hover {
+    color: var(--bs-body-color) !important;
+}

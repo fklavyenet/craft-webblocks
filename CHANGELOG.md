@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- Legal Notice page with EN, TR, and DE seed content (`/impressum`). EN uses standard liability/copyright text; DE follows § 5 TMG Impressum format; TR provides a Turkish yasal bildirim. Page is hidden from the navbar and linked from the footer.
+- "Legal Notice" footer link added to `wbFooter.json` seed component.
+
 ## [1.3.0] - 2026-03-12
 
 ### Added

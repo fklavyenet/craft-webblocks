@@ -183,6 +183,16 @@ src/
 
 Bootstrap 5.3.3 is loaded via CDN (MIT licence). No build step is required. All other JS (masonry layout, lightbox, fullscreen slider) is vanilla JavaScript bundled in `wb-blocks.js` via the WebBlocksAsset bundle — zero external slider or UI library dependencies.
 
+## Blog Comment Moderation
+
+WebBlocks includes a built-in comment system for blog posts:
+
+- Comments submitted on the front end are saved to the `wbComments` section with `enabled = false` (pending) by default.
+- Honeypot field silently blocks spam bots — no CAPTCHA required.
+- In the Craft CP, navigate to **Entries → Comments** to review pending submissions.
+- Select one or more comments and use the **Approve** or **Reject** actions from the action menu to publish or hide them.
+- Approved comments (`enabled = true`) are automatically displayed on the relevant blog post page.
+
 ## Global Sets
 
 | Handle              | Description                                                                                                           |

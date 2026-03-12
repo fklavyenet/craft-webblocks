@@ -4,12 +4,16 @@ namespace fklavyenet\webblocks;
 
 use craft\base\Model;
 use craft\base\Plugin as BasePlugin;
+use craft\elements\Entry;
+use craft\events\RegisterElementActionsEvent;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\events\RegisterUrlRulesEvent;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\UrlManager;
 use craft\web\View;
 use fklavyenet\webblocks\assetbundles\WebBlocksAsset;
+use fklavyenet\webblocks\elementactions\ApproveComment;
+use fklavyenet\webblocks\elementactions\RejectComment;
 use fklavyenet\webblocks\models\Settings;
 use fklavyenet\webblocks\variables\WebBlocksVariable;
 use yii\base\Event;
@@ -52,6 +56,7 @@ class WebBlocks extends BasePlugin
         $this->_registerCpTemplateRoots();
         $this->_registerSiteUrlRules();
         $this->_registerAssetBundle();
+        $this->_registerCommentActions();
     }
 
     protected function createSettingsModel(): ?Model
@@ -274,6 +279,31 @@ class WebBlocks extends BasePlugin
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['sitemap.xml'] = ['template' => 'wb/sitemap'];
+            }
+        );
+    }
+
+    private function _registerCommentActions(): void
+    {
+        Event::on(
+            Entry::class,
+            Entry::EVENT_REGISTER_ACTIONS,
+            function (RegisterElementActionsEvent $event) {
+                $section = \Craft::$app->getEntries()->getSectionByHandle('wbComments');
+                if (!$section) {
+                    return;
+                }
+
+                $source = $event->source ?? '';
+                if (
+                    $source !== 'section:' . $section->uid &&
+                    $source !== 'section:' . $section->id
+                ) {
+                    return;
+                }
+
+                array_unshift($event->actions, RejectComment::class);
+                array_unshift($event->actions, ApproveComment::class);
             }
         );
     }

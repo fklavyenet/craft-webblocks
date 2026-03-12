@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-03-13
+
+### Added
+- Blog comment moderation via the Craft control panel. Comments are stored as entries in the `wbComments` section with `enabled = false` (pending) by default.
+- `ApproveComment` and `RejectComment` element actions — appear in the CP element index action menu for the `wbComments` section. Selecting one or more comments and choosing **Approve** sets `enabled = true`; **Reject** sets `enabled = false`.
+- `wbComment` entry type: `titleFormat` set to `{wbCommentAuthorName}` so each comment shows the author's name instead of "Untitled Entry" in the CP list.
+- `src/elementactions/ApproveComment.php` and `src/elementactions/RejectComment.php` — both extend `craft\base\ElementAction` directly (not `SetStatus`) to avoid Craft's `defineRules()` validation dropping the actions before they reach the menu.
+- 3 seed comments (all pending) seeded automatically as part of `webblocks/seed`.
+
+### Fixed
+- Element actions extending `SetStatus` were silently discarded by Craft's `createAction()` pipeline because `SetStatus::defineRules()` marks `$status` as required, and validation runs before `init()` sets the value. Both actions now extend `ElementAction` directly and hardcode their enable/disable logic in `performAction()`.
+
 ## [1.4.2] - 2026-03-12
 
 ### Added

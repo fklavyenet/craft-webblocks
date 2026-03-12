@@ -2,6 +2,7 @@
     "handle": "wbComment",
     "name": "Comment",
     "hasTitleField": false,
+    "titleFormat": "{wbCommentAuthorName}",
     "titleTranslationMethod": "none",
     "tabs": [
         {

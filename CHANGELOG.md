@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - Legal Notice page with EN, TR, and DE seed content (`/impressum`). EN uses standard liability/copyright text; DE follows § 5 TMG Impressum format; TR provides a Turkish yasal bildirim. Page is hidden from the navbar and linked from the footer.
 - "Legal Notice" footer link added to `wbFooter.json` seed component.
+- Cookie consent banner via `wbCookieSettings` global set. Four consent categories: Necessary (always on), Analytics, Marketing, and Preferences. Vanilla JS consent manager stores user choice in `localStorage` as `wb_cookie_consent` and publishes `window.wbCookieConsent` for third-party scripts. Banner is included via `wb/partials/cookie-banner.twig` in `layout.twig` and can be toggled with the `wbCookieBannerEnabled` lightswitch. EN/TR/DE seed content included.
+- `LICENSE.md` — Craft License with `fklavye.net` copyright holder.
 
 ## [1.3.0] - 2026-03-12
 

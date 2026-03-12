@@ -183,6 +183,23 @@ src/
 
 Bootstrap 5.3.3 is loaded via CDN (MIT licence). No build step is required. All other JS (masonry layout, lightbox, fullscreen slider) is vanilla JavaScript bundled in `wb-blocks.js` via the WebBlocksAsset bundle — zero external slider or UI library dependencies.
 
+## Global Sets
+
+| Handle              | Description                                                                                                           |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `wbSiteConfig`      | Site-wide configuration: site name, logo, contact details, social links, and footer text                              |
+| `wbCookieSettings`  | Cookie consent banner configuration: enable/disable toggle, title, body text, privacy policy URL, and category labels |
+
+### Cookie Consent Banner
+
+The `wbCookieSettings` global set powers a built-in GDPR-friendly cookie consent banner:
+
+- **Four categories:** Necessary (always on), Analytics, Marketing, Preferences
+- **Vanilla JS** — no external libraries. Consent is stored in `localStorage` as `wb_cookie_consent`
+- **`window.wbCookieConsent`** is published for third-party scripts to read consent state
+- **Toggle** the banner on/off with `wbCookieBannerEnabled` (lightswitch field)
+- **Seed content** provided in EN, TR, and DE
+
 ## Prefix Convention
 
 All plugin-owned handles use the `wb` prefix (fields, entry types, matrix fields, sections, volumes, transforms) to avoid conflicts with site-level content.

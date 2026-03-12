@@ -18,11 +18,11 @@ ddev craft webblocks/seed --interactive=0
 
 ## Console Commands
 
-| Command | Description |
-|---|---|
+| Command                                             | Description                                          |
+|-----------------------------------------------------|------------------------------------------------------|
 | `ddev craft plugin/install webblocks --interactive=0` | Install plugin (runs InstallService automatically) |
-| `ddev craft webblocks/seed --interactive=0` | Seed demo content |
-| `ddev craft webblocks/wipe/all --interactive=0` | Wipe all plugin data and uninstall plugin |
+| `ddev craft webblocks/seed --interactive=0`         | Seed demo content                                    |
+| `ddev craft webblocks/wipe/all --interactive=0`     | Wipe all plugin data and uninstall plugin            |
 
 ## Usage
 
@@ -40,95 +40,95 @@ All components are registered as entry types under the `wbBlocks` matrix field. 
 
 ### Content Blocks
 
-| Handle | Description |
-|---|---|
-| `wbHero` | Full-width hero section with background image, overlay, heading, text, and CTA button |
-| `wbTextBlock` | Rich text block with optional title, alignment, background colour, and border |
-| `wbCard` | Bootstrap card with image, title, body text, and button |
-| `wbCallToAction` | Prominent CTA section with heading, text, and button |
-| `wbAlert` | Bootstrap alert (info / success / warning / danger) with optional dismiss button |
-| `wbButton` | Standalone button with configurable label, URL, style, size, and target |
-| `wbHeading` | Standalone heading (h1–h6) with alignment |
+| Handle           | Description                                                                          |
+|------------------|--------------------------------------------------------------------------------------|
+| `wbHero`         | Full-width hero section with background image, overlay, heading, text, and CTA button |
+| `wbTextBlock`    | Rich text block with optional title, alignment, background colour, and border        |
+| `wbCard`         | Bootstrap card with image, title, body text, and button                              |
+| `wbCallToAction` | Prominent CTA section with heading, text, and button                                 |
+| `wbAlert`        | Bootstrap alert (info / success / warning / danger) with optional dismiss button     |
+| `wbButton`       | Standalone button with configurable label, URL, style, size, and target              |
+| `wbHeading`      | Standalone heading (h1–h6) with alignment                                            |
 
 ### Layout
 
-| Handle | Description |
-|---|---|
-| `wbColumns` | Multi-column layout (2, 3, or 4 columns). Each column contains its own `wbBlocks` matrix — fully nested block support |
-| `wbSpacing` | Configurable vertical spacer (Bootstrap spacing utilities) |
+| Handle      | Description                                                                                             |
+|-------------|---------------------------------------------------------------------------------------------------------|
+| `wbColumns` | Multi-column layout (2, 3, or 4 columns). Each column contains its own `wbBlocks` matrix — fully nested |
+| `wbSpacing` | Configurable vertical spacer (Bootstrap spacing utilities)                                              |
 
 ### Media
 
-| Handle | Description |
-|---|---|
-| `wbGallery` | Masonry image gallery with lightbox. Supports configurable gap |
-| `wbCarousel` | Bootstrap carousel with autoplay, controls, indicators, and frosted-glass captions |
-| `wbFullscreenImage` | Fullscreen slider with per-slide background image, dark overlay, title, subtitle, and caption alignment. Vanilla JS fade transitions — no external slider library required |
-| `wbVideoEmbed` | Embedded video (YouTube / Vimeo) with configurable aspect ratio |
+| Handle               | Description                                                                                                      |
+|----------------------|------------------------------------------------------------------------------------------------------------------|
+| `wbGallery`          | Masonry image gallery with lightbox. Supports configurable gap                                                   |
+| `wbCarousel`         | Bootstrap carousel with autoplay, controls, indicators, and frosted-glass captions                               |
+| `wbFullscreenImage`  | Fullscreen slider with per-slide background image, overlay, title, subtitle, and caption alignment. Vanilla JS   |
+| `wbVideoEmbed`       | Embedded video (YouTube / Vimeo) with configurable aspect ratio                                                  |
 
 ### Data
 
-| Handle | Description |
-|---|---|
-| `wbTable` | Data table with configurable columns and rows. Supports caption, striped, bordered, hover, small, and responsive variants |
-| `wbAccordion` | Bootstrap accordion with any number of items |
-| `wbTabs` | Bootstrap tabs with configurable alignment |
-| `wbProgressBar` | Bootstrap progress bars with label, value, colour, and striped option |
-| `wbListGroup` | Bootstrap list group with optional flush style |
+| Handle          | Description                                                                                    |
+|-----------------|------------------------------------------------------------------------------------------------|
+| `wbTable`       | Data table with configurable columns and rows. Supports caption, striped, bordered, and hover  |
+| `wbAccordion`   | Bootstrap accordion with any number of items                                                   |
+| `wbTabs`        | Bootstrap tabs with configurable alignment                                                     |
+| `wbProgressBar` | Bootstrap progress bars with label, value, colour, and striped option                          |
+| `wbListGroup`   | Bootstrap list group with optional flush style                                                 |
 
 ### Forms & Contact
 
-| Handle | Description |
-|---|---|
-| `wbForm` | Configurable contact form. Fields support text, email, textarea, select, radio, and checkbox types. Sends to a configurable recipient |
-| `wbContactDetails` | Contact details block: phone, email, and address |
+| Handle             | Description                                                                                              |
+|--------------------|----------------------------------------------------------------------------------------------------------|
+| `wbForm`           | Configurable contact form. Supports text, email, textarea, select, radio, and checkbox fields            |
+| `wbContactDetails` | Contact details block: phone, email, and address                                                         |
 
 ### Navigation
 
-| Handle | Description |
-|---|---|
-| `wbNavbar` | Bootstrap navbar with brand, logo, colour scheme, nav items, and optional search |
-| `wbBreadcrumb` | Bootstrap breadcrumb |
-| `wbModal` | Bootstrap modal trigger and content |
-| `wbLeftRight` | Two-column image + text layout with switchable sides |
+| Handle        | Description                                                              |
+|---------------|--------------------------------------------------------------------------|
+| `wbNavbar`    | Bootstrap navbar with brand, logo, colour scheme, nav items, and search  |
+| `wbBreadcrumb`| Bootstrap breadcrumb                                                     |
+| `wbModal`     | Bootstrap modal trigger and content                                      |
+| `wbLeftRight` | Two-column image + text layout with switchable sides                     |
 
 ### UI Components
 
-| Handle | Description |
-|---|---|
-| `wbBadge` | Bootstrap badge with colour variant and optional pill style |
-| `wbPagination` | Bootstrap pagination with configurable page count, size, and alignment |
-| `wbToast` | Bootstrap toast notification with title, body, and colour variant |
-| `wbSpinner` | Bootstrap spinner (border or grow) with colour and size options |
-| `wbPopover` | Bootstrap popover trigger button with configurable placement and content |
-| `wbButtonGroup` | Group of buttons with shared style, size, and optional vertical orientation |
-| `wbOffcanvas` | Off-canvas panel with configurable placement, backdrop, and nested block content |
+| Handle          | Description                                                                       |
+|-----------------|-----------------------------------------------------------------------------------|
+| `wbBadge`       | Bootstrap badge with colour variant and optional pill style                       |
+| `wbPagination`  | Bootstrap pagination with configurable page count, size, and alignment            |
+| `wbToast`       | Bootstrap toast notification with title, body, and colour variant                 |
+| `wbSpinner`     | Bootstrap spinner (border or grow) with colour and size options                   |
+| `wbPopover`     | Bootstrap popover trigger button with configurable placement and content          |
+| `wbButtonGroup` | Group of buttons with shared style, size, and optional vertical orientation       |
+| `wbOffcanvas`   | Off-canvas panel with configurable placement, backdrop, and nested block content  |
 
 ## Appearance Fields
 
 Most components include an **Appearance** tab in the Craft control panel with the following fields:
 
-| Field | Options |
-|---|---|
-| `wbBorder` | Toggle border on/off |
-| `wbBorderColor` | Bootstrap colour utility (primary / secondary / etc.) |
-| `wbRounded` | Border-radius utility class |
-| `wbPadding` | Padding utility class |
-| `wbTitlePosition` | Title placement: **Outside** (above the box) or **Inside** (inside the box) |
+| Field              | Options                                                          |
+|--------------------|------------------------------------------------------------------|
+| `wbBorder`         | Toggle border on/off                                             |
+| `wbBorderColor`    | Bootstrap colour utility (primary / secondary / etc.)            |
+| `wbRounded`        | Border-radius utility class                                      |
+| `wbPadding`        | Padding utility class                                            |
+| `wbTitlePosition`  | Title placement: **Outside** (above the box) or **Inside** (inside the box) |
 
 ## Image Transforms
 
-| Handle | Usage |
-|---|---|
-| `wbHero` | Hero background images |
-| `wbCarousel` | Carousel slide images |
-| `wbFullscreen` | Fullscreen slider slide images (1920 px wide) |
-| `wbGalleryThumb` | Gallery thumbnails (800 px wide) |
-| `wbGalleryFull` | Gallery lightbox images (1920 px wide) |
-| `wbFeaturedImage` | Blog post and reference featured images |
-| `wbCard` | Card component images |
-| `wbLeftRight` | Left/right layout images |
-| `wbOgImage` | Open Graph / social share images |
+| Handle           | Usage                                       |
+|------------------|---------------------------------------------|
+| `wbHero`         | Hero background images                      |
+| `wbCarousel`     | Carousel slide images                       |
+| `wbFullscreen`   | Fullscreen slider slide images (1920 px)    |
+| `wbGalleryThumb` | Gallery thumbnails (800 px wide)            |
+| `wbGalleryFull`  | Gallery lightbox images (1920 px wide)      |
+| `wbFeaturedImage`| Blog post and reference featured images     |
+| `wbCard`         | Card component images                       |
+| `wbLeftRight`    | Left/right layout images                    |
+| `wbOgImage`      | Open Graph / social share images            |
 
 ## Asset Volumes
 

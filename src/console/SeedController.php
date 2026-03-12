@@ -205,10 +205,28 @@ class SeedController extends Controller
             return;
         }
 
+        $primarySiteBaseUrl = rtrim(Craft::$app->getSites()->getPrimarySite()->getBaseUrl(), '/');
+
+        // Build per-site base URLs — extra sites may have relative baseUrls (e.g. /tr/)
+        $siteBaseUrl = function(string $handle) use ($primarySiteBaseUrl): string {
+            $site = Craft::$app->getSites()->getSiteByHandle($handle);
+            if (!$site) {
+                return $primarySiteBaseUrl;
+            }
+            $url = $site->getBaseUrl();
+            // If relative, prefix with primary site origin
+            if (str_starts_with($url, '/')) {
+                preg_match('#^(https?://[^/]+)#', $primarySiteBaseUrl, $m);
+                $origin = $m[1] ?? $primarySiteBaseUrl;
+                $url = $origin . '/' . ltrim($url, '/');
+            }
+            return rtrim($url, '/');
+        };
+
         $globalSet->setFieldValue('wbCookieBannerEnabled', true);
         $globalSet->setFieldValue('wbCookieBannerTitle', 'We use cookies');
         $globalSet->setFieldValue('wbCookieBannerText', 'We use cookies to improve your experience, analyse traffic and enable personalised content. You can choose which categories to allow.');
-        $globalSet->setFieldValue('wbCookiePrivacyUrl', 'https://restaurant.ddev.site/legal');
+        $globalSet->setFieldValue('wbCookiePrivacyUrl', $primarySiteBaseUrl . '/legal');
         $globalSet->setFieldValue('wbCookieLabelAnalytics', 'Analytics');
         $globalSet->setFieldValue('wbCookieLabelMarketing', 'Marketing');
         $globalSet->setFieldValue('wbCookieLabelPreferences', 'Preferences');
@@ -229,7 +247,7 @@ class SeedController extends Controller
             'tr' => [
                 'wbCookieBannerTitle'       => 'Çerezleri kullanıyoruz',
                 'wbCookieBannerText'        => 'Deneyiminizi geliştirmek, trafiği analiz etmek ve kişiselleştirilmiş içerik sunmak için çerezler kullanıyoruz. Hangi kategorilere izin vereceğinizi seçebilirsiniz.',
-                'wbCookiePrivacyUrl'        => 'https://restaurant.ddev.site/tr/legal',
+                'wbCookiePrivacyUrl'        => $siteBaseUrl('tr') . '/legal',
                 'wbCookieLabelAnalytics'    => 'Analitik',
                 'wbCookieLabelMarketing'    => 'Pazarlama',
                 'wbCookieLabelPreferences'  => 'Tercihler',
@@ -237,7 +255,7 @@ class SeedController extends Controller
             'de' => [
                 'wbCookieBannerTitle'       => 'Wir verwenden Cookies',
                 'wbCookieBannerText'        => 'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Datenverkehr zu analysieren und personalisierte Inhalte bereitzustellen. Sie können wählen, welche Kategorien Sie zulassen möchten.',
-                'wbCookiePrivacyUrl'        => 'https://restaurant.ddev.site/de/legal',
+                'wbCookiePrivacyUrl'        => $siteBaseUrl('de') . '/legal',
                 'wbCookieLabelAnalytics'    => 'Analyse',
                 'wbCookieLabelMarketing'    => 'Marketing',
                 'wbCookieLabelPreferences'  => 'Einstellungen',
@@ -258,6 +276,11 @@ class SeedController extends Controller
             }
             if (!Craft::$app->getElements()->saveElement($localSet)) {
                 $this->stderr("  Error saving wbCookieSettings for site '$siteHandle'.\n");
+                foreach ($localSet->getErrors() as $attr => $errors) {
+                    foreach ($errors as $error) {
+                        $this->stderr("    [$attr] $error\n");
+                    }
+                }
             } else {
                 $this->stdout("  wbCookieSettings propagated to '$siteHandle'\n");
             }

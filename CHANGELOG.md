@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [1.4.2] - 2026-03-12
+
+### Added
+- "Cookie Settings" link in footer — visible whenever `wbCookieBannerEnabled` is on. Clicking it re-opens the consent banner so visitors can change their preferences at any time.
+- Cookie banner redesigned as a bottom-right card (380 px max-width, rounded corners, box shadow). Categories are listed vertically with label + description on the left and toggle on the right. Fully responsive — becomes a full-width bottom bar on small screens.
+
+### Fixed
+- Cookie banner action buttons (Accept all / Save preferences) did not work when the banner was re-opened after consent was already stored. Listener registration moved before the early-return so buttons are always wired.
+
 ## [1.4.1] - 2026-03-12
 
 ### Fixed

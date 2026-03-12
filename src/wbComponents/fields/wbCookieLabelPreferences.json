@@ -1,0 +1,8 @@
+{
+    "name": "Cookie Label — Preferences",
+    "handle": "wbCookieLabelPreferences",
+    "instructions": "Optional custom label for the Preferences consent category.",
+    "type": "PlainText",
+    "typesettings": {},
+    "translationMethod": "site"
+}

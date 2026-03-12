@@ -1,0 +1,13 @@
+{
+    "handle": "wbCookieSettings",
+    "name": "WB Cookie Settings",
+    "fields": [
+        "wbCookieBannerEnabled",
+        "wbCookieBannerTitle",
+        "wbCookieBannerText",
+        "wbCookiePrivacyUrl",
+        "wbCookieLabelAnalytics",
+        "wbCookieLabelMarketing",
+        "wbCookieLabelPreferences"
+    ]
+}

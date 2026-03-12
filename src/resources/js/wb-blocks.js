@@ -256,3 +256,64 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 })();
+
+/* ── WB Cookie Consent ───────────────────────────────────────────────────── */
+// Storage key: "wb_cookie_consent"  →  { necessary:true, analytics:bool, marketing:bool, preferences:bool }
+// window.wbCookieConsent is published so third-party scripts can gate on it.
+(function () {
+    var STORAGE_KEY = 'wb_cookie_consent';
+    var banner      = document.getElementById('wb-cookie-banner');
+    if (!banner) { return; } // banner not rendered (wbCookieBannerEnabled = false)
+
+    var btnAcceptAll = document.getElementById('wb-cookie-accept-all');
+    var btnSave      = document.getElementById('wb-cookie-save');
+    var chkAnalytics    = document.getElementById('wb_cat_analytics');
+    var chkMarketing    = document.getElementById('wb_cat_marketing');
+    var chkPreferences  = document.getElementById('wb_cat_preferences');
+
+    /** Read stored consent, or null if not yet decided. */
+    function getConsent() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); }
+        catch (e) { return null; }
+    }
+
+    /** Persist consent, publish window.wbCookieConsent, hide banner. */
+    function saveConsent(analytics, marketing, preferences) {
+        var consent = { necessary: true, analytics: !!analytics, marketing: !!marketing, preferences: !!preferences };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+        window.wbCookieConsent = consent;
+        banner.hidden = true;
+    }
+
+    /** Restore checkbox state from stored consent (so "save" reflects real choices). */
+    function restoreCheckboxes(consent) {
+        if (!consent) { return; }
+        if (chkAnalytics)   { chkAnalytics.checked   = !!consent.analytics; }
+        if (chkMarketing)   { chkMarketing.checked   = !!consent.marketing; }
+        if (chkPreferences) { chkPreferences.checked = !!consent.preferences; }
+    }
+
+    var stored = getConsent();
+
+    if (stored) {
+        // Already decided — publish and stay hidden
+        window.wbCookieConsent = stored;
+        restoreCheckboxes(stored);
+        return;
+    }
+
+    // No decision yet — show banner
+    banner.hidden = false;
+
+    btnAcceptAll && btnAcceptAll.addEventListener('click', function () {
+        saveConsent(true, true, true);
+    });
+
+    btnSave && btnSave.addEventListener('click', function () {
+        saveConsent(
+            chkAnalytics   ? chkAnalytics.checked   : false,
+            chkMarketing   ? chkMarketing.checked   : false,
+            chkPreferences ? chkPreferences.checked : false
+        );
+    });
+})();

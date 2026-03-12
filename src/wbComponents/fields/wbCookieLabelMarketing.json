@@ -1,0 +1,8 @@
+{
+    "name": "Cookie Label — Marketing",
+    "handle": "wbCookieLabelMarketing",
+    "instructions": "Optional custom label for the Marketing consent category.",
+    "type": "PlainText",
+    "typesettings": {},
+    "translationMethod": "site"
+}

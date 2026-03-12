@@ -1,0 +1,76 @@
+{# ── Cookie Consent Banner ────────────────────────────────────────────────── #}
+{# Reads settings from the wbCookieSettings global set.
+   If wbCookieBannerEnabled is false the banner is not rendered at all.
+   Consent is stored in localStorage under the key "wb_cookie_consent" as JSON:
+     { necessary: true, analytics: bool, marketing: bool, preferences: bool }
+   window.wbCookieConsent is published after the user saves their choice so
+   third-party scripts can gate themselves on it. #}
+
+{% set _cs = craft.app.globals.getSetByHandle('wbCookieSettings') ?? null %}
+{% if _cs and _cs.wbCookieBannerEnabled %}
+
+{% set _bannerTitle      = _cs.wbCookieBannerTitle ?? 'We use cookies' %}
+{% set _bannerText       = _cs.wbCookieBannerText ?? '' %}
+{% set _privacyUrl       = _cs.wbCookiePrivacyUrl ?? '' %}
+{% set _labelAnalytics   = _cs.wbCookieLabelAnalytics is not empty ? _cs.wbCookieLabelAnalytics : 'Analytics' %}
+{% set _labelMarketing   = _cs.wbCookieLabelMarketing is not empty ? _cs.wbCookieLabelMarketing : 'Marketing' %}
+{% set _labelPreferences = _cs.wbCookieLabelPreferences is not empty ? _cs.wbCookieLabelPreferences : 'Preferences' %}
+
+<div id="wb-cookie-banner" class="wb-cookie-banner" role="dialog" aria-modal="false" aria-label="{{ _bannerTitle | e('html_attr') }}" hidden>
+    <div class="wb-cookie-inner">
+
+        <div class="wb-cookie-header">
+            <strong class="wb-cookie-title">{{ _bannerTitle }}</strong>
+            {% if _privacyUrl %}
+                <a href="{{ _privacyUrl }}" class="wb-cookie-privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            {% endif %}
+        </div>
+
+        {% if _bannerText %}
+            <p class="wb-cookie-text">{{ _bannerText }}</p>
+        {% endif %}
+
+        {# ── Category toggles ── #}
+        <div class="wb-cookie-categories">
+
+            {# Necessary — always on, disabled #}
+            <label class="wb-cookie-category wb-cookie-category--required">
+                <span class="wb-cookie-category-label">Necessary</span>
+                <span class="wb-cookie-category-desc">Required for the site to function. Cannot be disabled.</span>
+                <input type="checkbox" name="wb_cat_necessary" checked disabled aria-checked="true">
+                <span class="wb-cookie-toggle wb-cookie-toggle--on" aria-hidden="true"></span>
+            </label>
+
+            <label class="wb-cookie-category">
+                <span class="wb-cookie-category-label">{{ _labelAnalytics }}</span>
+                <span class="wb-cookie-category-desc">Help us understand how visitors interact with the site.</span>
+                <input type="checkbox" name="wb_cat_analytics" id="wb_cat_analytics">
+                <span class="wb-cookie-toggle" aria-hidden="true"></span>
+            </label>
+
+            <label class="wb-cookie-category">
+                <span class="wb-cookie-category-label">{{ _labelMarketing }}</span>
+                <span class="wb-cookie-category-desc">Used to deliver personalised advertisements.</span>
+                <input type="checkbox" name="wb_cat_marketing" id="wb_cat_marketing">
+                <span class="wb-cookie-toggle" aria-hidden="true"></span>
+            </label>
+
+            <label class="wb-cookie-category">
+                <span class="wb-cookie-category-label">{{ _labelPreferences }}</span>
+                <span class="wb-cookie-category-desc">Remember your preferences such as language and region.</span>
+                <input type="checkbox" name="wb_cat_preferences" id="wb_cat_preferences">
+                <span class="wb-cookie-toggle" aria-hidden="true"></span>
+            </label>
+
+        </div>{# /.wb-cookie-categories #}
+
+        {# ── Action buttons ── #}
+        <div class="wb-cookie-actions">
+            <button type="button" class="btn btn-sm btn-outline-secondary" id="wb-cookie-save">Save preferences</button>
+            <button type="button" class="btn btn-sm btn-secondary" id="wb-cookie-accept-all">Accept all</button>
+        </div>
+
+    </div>{# /.wb-cookie-inner #}
+</div>{# /#wb-cookie-banner #}
+
+{% endif %}

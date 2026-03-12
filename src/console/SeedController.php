@@ -127,6 +127,10 @@ class SeedController extends Controller
         $this->stdout("Seeding wbSiteConfig global set...\n");
         $this->seedGlobalSet($seedPath, $assetIds);
 
+        // 7b. Seed the wbCookieSettings global set
+        $this->stdout("\nSeeding wbCookieSettings global set...\n");
+        $this->seedCookieSettings();
+
         // 8. Seed blog posts
         $this->stdout("\nSeeding blog posts...\n");
         $this->seedBlogPosts($seedPath, $assetIds);
@@ -186,6 +190,77 @@ class SeedController extends Controller
             }
         } else {
             $this->stdout("  wbSiteConfig saved (ID: {$globalSet->id})\n");
+        }
+    }
+
+    /**
+     * Seeds the wbCookieSettings global set with default EN banner content.
+     */
+    private function seedCookieSettings(): void
+    {
+        $primarySiteId = Craft::$app->getSites()->getPrimarySite()->id;
+        $globalSet = Craft::$app->getGlobals()->getSetByHandle('wbCookieSettings', $primarySiteId);
+        if (!$globalSet) {
+            $this->stderr("  Warning: Global set 'wbCookieSettings' not found. Skipping.\n");
+            return;
+        }
+
+        $globalSet->setFieldValue('wbCookieBannerEnabled', true);
+        $globalSet->setFieldValue('wbCookieBannerTitle', 'We use cookies');
+        $globalSet->setFieldValue('wbCookieBannerText', 'We use cookies to improve your experience, analyse traffic and enable personalised content. You can choose which categories to allow.');
+        $globalSet->setFieldValue('wbCookiePrivacyUrl', 'https://restaurant.ddev.site/legal');
+        $globalSet->setFieldValue('wbCookieLabelAnalytics', 'Analytics');
+        $globalSet->setFieldValue('wbCookieLabelMarketing', 'Marketing');
+        $globalSet->setFieldValue('wbCookieLabelPreferences', 'Preferences');
+
+        if (!Craft::$app->getElements()->saveElement($globalSet)) {
+            $this->stderr("  Error saving wbCookieSettings global set:\n");
+            foreach ($globalSet->getErrors() as $attr => $errors) {
+                foreach ($errors as $error) {
+                    $this->stderr("    [$attr] $error\n");
+                }
+            }
+        } else {
+            $this->stdout("  wbCookieSettings saved (ID: {$globalSet->id})\n");
+        }
+
+        // Propagate translated content to extra sites
+        $translations = [
+            'tr' => [
+                'wbCookieBannerTitle'       => 'Çerezleri kullanıyoruz',
+                'wbCookieBannerText'        => 'Deneyiminizi geliştirmek, trafiği analiz etmek ve kişiselleştirilmiş içerik sunmak için çerezler kullanıyoruz. Hangi kategorilere izin vereceğinizi seçebilirsiniz.',
+                'wbCookiePrivacyUrl'        => 'https://restaurant.ddev.site/tr/legal',
+                'wbCookieLabelAnalytics'    => 'Analitik',
+                'wbCookieLabelMarketing'    => 'Pazarlama',
+                'wbCookieLabelPreferences'  => 'Tercihler',
+            ],
+            'de' => [
+                'wbCookieBannerTitle'       => 'Wir verwenden Cookies',
+                'wbCookieBannerText'        => 'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Datenverkehr zu analysieren und personalisierte Inhalte bereitzustellen. Sie können wählen, welche Kategorien Sie zulassen möchten.',
+                'wbCookiePrivacyUrl'        => 'https://restaurant.ddev.site/de/legal',
+                'wbCookieLabelAnalytics'    => 'Analyse',
+                'wbCookieLabelMarketing'    => 'Marketing',
+                'wbCookieLabelPreferences'  => 'Einstellungen',
+            ],
+        ];
+
+        foreach ($translations as $siteHandle => $fields) {
+            $site = Craft::$app->getSites()->getSiteByHandle($siteHandle);
+            if (!$site) {
+                continue;
+            }
+            $localSet = Craft::$app->getGlobals()->getSetByHandle('wbCookieSettings', $site->id);
+            if (!$localSet) {
+                continue;
+            }
+            foreach ($fields as $fieldHandle => $value) {
+                $localSet->setFieldValue($fieldHandle, $value);
+            }
+            if (!Craft::$app->getElements()->saveElement($localSet)) {
+                $this->stderr("  Error saving wbCookieSettings for site '$siteHandle'.\n");
+            } else {
+                $this->stdout("  wbCookieSettings propagated to '$siteHandle'\n");
+            }
         }
     }
 

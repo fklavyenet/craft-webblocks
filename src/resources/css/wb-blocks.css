@@ -316,3 +316,134 @@ main > .wb-block.wb-fullscreen-image {
 .wb-footer-link:hover {
     color: var(--bs-body-color) !important;
 }
+
+/* =============================================================================
+   Cookie Consent Banner
+   ============================================================================= */
+
+/* Banner wrapper — fixed to bottom, hidden until JS shows it */
+.wb-cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1080; /* above Bootstrap navbar (1030) and modals (1055) */
+    background: var(--bs-body-bg);
+    border-top: 1px solid var(--bs-border-color);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
+    padding: 1rem;
+}
+.wb-cookie-banner[hidden] { display: none !important; }
+
+.wb-cookie-inner {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+/* Header row */
+.wb-cookie-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+.wb-cookie-title {
+    font-size: 1rem;
+}
+.wb-cookie-privacy {
+    font-size: 0.8125rem;
+    color: var(--bs-secondary-color);
+    text-decoration: underline;
+    white-space: nowrap;
+}
+.wb-cookie-privacy:hover { color: var(--bs-body-color); }
+
+/* Body text */
+.wb-cookie-text {
+    font-size: 0.875rem;
+    color: var(--bs-secondary-color);
+    margin-bottom: 0.75rem;
+}
+
+/* Category list */
+.wb-cookie-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.875rem;
+}
+
+.wb-cookie-category {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.875rem;
+}
+.wb-cookie-category--required { opacity: 0.55; cursor: default; }
+
+.wb-cookie-category-label { font-weight: 500; }
+
+.wb-cookie-category-desc {
+    display: none; /* shown on wider screens via media query below */
+    font-size: 0.75rem;
+    color: var(--bs-secondary-color);
+}
+
+/* Hide the real checkbox visually */
+.wb-cookie-category input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Toggle pill */
+.wb-cookie-toggle {
+    display: inline-block;
+    width: 2.25rem;
+    height: 1.25rem;
+    border-radius: 999px;
+    background: var(--bs-secondary-bg);
+    border: 1px solid var(--bs-border-color);
+    position: relative;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+}
+.wb-cookie-toggle::after {
+    content: '';
+    position: absolute;
+    top: 0.1875rem;
+    left: 0.1875rem;
+    width: 0.8125rem;
+    height: 0.8125rem;
+    border-radius: 50%;
+    background: var(--bs-secondary-color);
+    transition: left 0.2s, background 0.2s;
+}
+/* Checked state */
+.wb-cookie-category input[type="checkbox"]:checked ~ .wb-cookie-toggle,
+.wb-cookie-toggle--on {
+    background: var(--bs-success);
+    border-color: var(--bs-success);
+}
+.wb-cookie-category input[type="checkbox"]:checked ~ .wb-cookie-toggle::after,
+.wb-cookie-toggle--on::after {
+    left: calc(100% - 1rem);
+    background: #fff;
+}
+
+/* Action buttons */
+.wb-cookie-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+    .wb-cookie-category-desc { display: block; }
+    .wb-cookie-category { align-items: flex-start; flex-direction: column; gap: 0.125rem; }
+    .wb-cookie-category { flex-direction: row; align-items: center; }
+}

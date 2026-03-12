@@ -1,0 +1,8 @@
+{
+    "name": "Cookie Privacy Policy URL",
+    "handle": "wbCookiePrivacyUrl",
+    "instructions": "Link to the privacy policy page (shown in the banner).",
+    "type": "Url",
+    "typesettings": {},
+    "translationMethod": "site"
+}

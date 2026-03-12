@@ -260,6 +260,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /* ── WB Cookie Consent ───────────────────────────────────────────────────── */
 // Storage key: "wb_cookie_consent"  →  { necessary:true, analytics:bool, marketing:bool, preferences:bool }
 // window.wbCookieConsent is published so third-party scripts can gate on it.
+// window.wbOpenCookieBanner() can be called by external links/buttons to re-open the banner.
 (function () {
     var STORAGE_KEY = 'wb_cookie_consent';
     var banner      = document.getElementById('wb-cookie-banner');
@@ -293,18 +294,25 @@ document.addEventListener('DOMContentLoaded', function () {
         if (chkPreferences) { chkPreferences.checked = !!consent.preferences; }
     }
 
-    var stored = getConsent();
-
-    if (stored) {
-        // Already decided — publish and stay hidden
-        window.wbCookieConsent = stored;
-        restoreCheckboxes(stored);
-        return;
+    /** Re-open the banner (e.g. triggered from a footer link). */
+    function openBanner() {
+        restoreCheckboxes(getConsent());
+        banner.hidden = false;
+        banner.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
 
-    // No decision yet — show banner
-    banner.hidden = false;
+    // Expose globally so footer trigger and any external script can call it
+    window.wbOpenCookieBanner = openBanner;
 
+    // Wire footer / any other trigger links
+    document.querySelectorAll('[data-wb-cookie-trigger]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            openBanner();
+        });
+    });
+
+    // Wire action buttons — always, so they work when banner is re-opened later
     btnAcceptAll && btnAcceptAll.addEventListener('click', function () {
         saveConsent(true, true, true);
     });
@@ -316,4 +324,16 @@ document.addEventListener('DOMContentLoaded', function () {
             chkPreferences ? chkPreferences.checked : false
         );
     });
+
+    var stored = getConsent();
+
+    if (stored) {
+        // Already decided — publish and stay hidden
+        window.wbCookieConsent = stored;
+        restoreCheckboxes(stored);
+        return;
+    }
+
+    // No decision yet — show banner
+    banner.hidden = false;
 })();

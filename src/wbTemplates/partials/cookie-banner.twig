@@ -19,6 +19,7 @@
 <div id="wb-cookie-banner" class="wb-cookie-banner" role="dialog" aria-modal="false" aria-label="{{ _bannerTitle | e('html_attr') }}" hidden>
     <div class="wb-cookie-inner">
 
+        {# ── Title row ── #}
         <div class="wb-cookie-header">
             <strong class="wb-cookie-title">{{ _bannerTitle }}</strong>
             {% if _privacyUrl %}
@@ -33,31 +34,38 @@
         {# ── Category toggles ── #}
         <div class="wb-cookie-categories">
 
-            {# Necessary — always on, disabled #}
             <label class="wb-cookie-category wb-cookie-category--required">
-                <span class="wb-cookie-category-label">Necessary</span>
-                <span class="wb-cookie-category-desc">Required for the site to function. Cannot be disabled.</span>
+                <div class="wb-cookie-category-info">
+                    <span class="wb-cookie-category-label">Necessary</span>
+                    <span class="wb-cookie-category-desc">Required for the site to function. Cannot be disabled.</span>
+                </div>
                 <input type="checkbox" name="wb_cat_necessary" checked disabled aria-checked="true">
                 <span class="wb-cookie-toggle wb-cookie-toggle--on" aria-hidden="true"></span>
             </label>
 
             <label class="wb-cookie-category">
-                <span class="wb-cookie-category-label">{{ _labelAnalytics }}</span>
-                <span class="wb-cookie-category-desc">Help us understand how visitors interact with the site.</span>
+                <div class="wb-cookie-category-info">
+                    <span class="wb-cookie-category-label">{{ _labelAnalytics }}</span>
+                    <span class="wb-cookie-category-desc">Help us understand how visitors interact with the site.</span>
+                </div>
                 <input type="checkbox" name="wb_cat_analytics" id="wb_cat_analytics">
                 <span class="wb-cookie-toggle" aria-hidden="true"></span>
             </label>
 
             <label class="wb-cookie-category">
-                <span class="wb-cookie-category-label">{{ _labelMarketing }}</span>
-                <span class="wb-cookie-category-desc">Used to deliver personalised advertisements.</span>
+                <div class="wb-cookie-category-info">
+                    <span class="wb-cookie-category-label">{{ _labelMarketing }}</span>
+                    <span class="wb-cookie-category-desc">Used to deliver personalised advertisements.</span>
+                </div>
                 <input type="checkbox" name="wb_cat_marketing" id="wb_cat_marketing">
                 <span class="wb-cookie-toggle" aria-hidden="true"></span>
             </label>
 
             <label class="wb-cookie-category">
-                <span class="wb-cookie-category-label">{{ _labelPreferences }}</span>
-                <span class="wb-cookie-category-desc">Remember your preferences such as language and region.</span>
+                <div class="wb-cookie-category-info">
+                    <span class="wb-cookie-category-label">{{ _labelPreferences }}</span>
+                    <span class="wb-cookie-category-desc">Remember your preferences such as language and region.</span>
+                </div>
                 <input type="checkbox" name="wb_cat_preferences" id="wb_cat_preferences">
                 <span class="wb-cookie-toggle" aria-hidden="true"></span>
             </label>

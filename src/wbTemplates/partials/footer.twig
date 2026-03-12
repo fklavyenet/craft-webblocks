@@ -62,10 +62,20 @@
 
         </div>
 
-        {# ── Bottom row: copyright ── #}
-        {% if copyright %}
-            <div class="border-top pt-3">
-                <small class="text-body-secondary">{{ copyright }}</small>
+        {# ── Bottom row: copyright + cookie settings ── #}
+        {% set _cs = craft.app.globals.getSetByHandle('wbCookieSettings') ?? null %}
+        {% if copyright or (_cs and _cs.wbCookieBannerEnabled) %}
+            <div class="border-top pt-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
+                {% if copyright %}
+                    <small class="text-body-secondary">{{ copyright }}</small>
+                {% endif %}
+                {% if _cs and _cs.wbCookieBannerEnabled %}
+                    <small>
+                        <a href="#" data-wb-cookie-trigger class="text-body-secondary text-decoration-none wb-footer-link">
+                            Cookie Settings
+                        </a>
+                    </small>
+                {% endif %}
             </div>
         {% endif %}
 

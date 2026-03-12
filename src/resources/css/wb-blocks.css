@@ -322,77 +322,85 @@ main > .wb-block.wb-fullscreen-image {
    ============================================================================= */
 
 /* Banner wrapper — fixed to bottom, hidden until JS shows it */
+/* ── Cookie Consent Banner ─────────────────────────────────────────────────── */
+
 .wb-cookie-banner {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1080; /* above Bootstrap navbar (1030) and modals (1055) */
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1080;
+    width: 100%;
+    max-width: 380px;
     background: var(--bs-body-bg);
-    border-top: 1px solid var(--bs-border-color);
-    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
-    padding: 1rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+    padding: 1.25rem;
 }
 .wb-cookie-banner[hidden] { display: none !important; }
 
-.wb-cookie-inner {
-    max-width: 860px;
-    margin: 0 auto;
-}
+.wb-cookie-inner { display: flex; flex-direction: column; gap: 0.875rem; }
 
-/* Header row */
+/* Header */
 .wb-cookie-header {
     display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
 }
-.wb-cookie-title {
-    font-size: 1rem;
-}
+.wb-cookie-title { font-size: 0.9375rem; }
 .wb-cookie-privacy {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     color: var(--bs-secondary-color);
     text-decoration: underline;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 .wb-cookie-privacy:hover { color: var(--bs-body-color); }
 
 /* Body text */
 .wb-cookie-text {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--bs-secondary-color);
-    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    margin: 0;
 }
 
-/* Category list */
+/* Category list — each row: info left, toggle right */
 .wb-cookie-categories {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    margin-bottom: 0.875rem;
+    flex-direction: column;
+    gap: 0.625rem;
 }
 
 .wb-cookie-category {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: 0.75rem;
     cursor: pointer;
     user-select: none;
-    font-size: 0.875rem;
 }
-.wb-cookie-category--required { opacity: 0.55; cursor: default; }
+.wb-cookie-category--required { opacity: 0.5; cursor: default; }
 
-.wb-cookie-category-label { font-weight: 500; }
-
+.wb-cookie-category-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+}
+.wb-cookie-category-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
 .wb-cookie-category-desc {
-    display: none; /* shown on wider screens via media query below */
-    font-size: 0.75rem;
+    font-size: 0.71875rem;
     color: var(--bs-secondary-color);
+    line-height: 1.4;
 }
 
-/* Hide the real checkbox visually */
+/* Hide real checkbox */
 .wb-cookie-category input[type="checkbox"] {
     position: absolute;
     opacity: 0;
@@ -423,7 +431,6 @@ main > .wb-block.wb-fullscreen-image {
     background: var(--bs-secondary-color);
     transition: left 0.2s, background 0.2s;
 }
-/* Checked state */
 .wb-cookie-category input[type="checkbox"]:checked ~ .wb-cookie-toggle,
 .wb-cookie-toggle--on {
     background: var(--bs-success);
@@ -435,15 +442,27 @@ main > .wb-block.wb-fullscreen-image {
     background: #fff;
 }
 
+/* Divider between categories */
+.wb-cookie-category + .wb-cookie-category {
+    padding-top: 0.625rem;
+    border-top: 1px solid var(--bs-border-color-translucent);
+}
+
 /* Action buttons */
 .wb-cookie-actions {
     display: flex;
     gap: 0.5rem;
-    flex-wrap: wrap;
 }
+.wb-cookie-actions .btn { flex: 1; }
 
-@media (min-width: 640px) {
-    .wb-cookie-category-desc { display: block; }
-    .wb-cookie-category { align-items: flex-start; flex-direction: column; gap: 0.125rem; }
-    .wb-cookie-category { flex-direction: row; align-items: center; }
+/* Mobile: full-width bottom bar */
+@media (max-width: 479px) {
+    .wb-cookie-banner {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        max-width: 100%;
+        border-radius: 0.75rem 0.75rem 0 0;
+        border-bottom: none;
+    }
 }

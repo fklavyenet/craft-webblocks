@@ -177,6 +177,39 @@
                     </form>
                 {% endif %}
 
+                {# Language switcher — only shown when more than one site exists #}
+                {% set _allSites = craft.app.sites.getAllSites() %}
+                {% if _allSites|length > 1 %}
+                    {% set _activeLang = currentSite.language|slice(0, 2)|upper %}
+                    <div class="dropdown ms-2">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle wb-lang-btn"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                aria-label="Select language">
+                            {{ _activeLang }}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            {% for _site in _allSites %}
+                                {% set _lang = _site.language|slice(0, 2)|upper %}
+                                {% set _isActive = (_site.id == currentSite.id) %}
+                                <li>
+                                    {% if _isActive %}
+                                        <span class="dropdown-item active" aria-current="true">{{ _lang }}</span>
+                                    {% else %}
+                                        {% set _localizedEntry = entry is defined ? craft.entries().id(entry.id).siteId(_site.id).one() : null %}
+                                        {% set _localizedUrl = _localizedEntry ? _localizedEntry.url : _site.baseUrl %}
+                                        <a class="dropdown-item"
+                                           href="{{ _localizedUrl }}"
+                                           hreflang="{{ _site.language }}"
+                                           lang="{{ _site.language }}">{{ _lang }}</a>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
                 {# Color mode toggle (light → dark → auto) #}
                 <button class="btn border-0 bg-transparent nav-link px-2 wb-color-mode-toggle ms-2"
                         type="button"

@@ -1,0 +1,12 @@
+{
+    "wbFooterTagline": "Modern Amerikan steakhouse. Ateşle pişirme, gerçek lezzet.",
+    "wbFooterCopyright": "© 2026 Ember & Rye. Tüm hakları saklıdır.",
+    "items": [
+        { "wbFooterLinkLabel": "Ana Sayfa",      "wbFooterLinkUrl": "/tr/" },
+        { "wbFooterLinkLabel": "Hakkımızda",     "wbFooterLinkUrl": "/tr/about" },
+        { "wbFooterLinkLabel": "Özel Yemek",     "wbFooterLinkUrl": "/tr/private-dining" },
+        { "wbFooterLinkLabel": "Blog",            "wbFooterLinkUrl": "/tr/blog" },
+        { "wbFooterLinkLabel": "Rezervasyon",    "wbFooterLinkUrl": "/tr/contact" },
+        { "wbFooterLinkLabel": "Yasal Bildirim", "wbFooterLinkUrl": "/tr/impressum" }
+    ]
+}

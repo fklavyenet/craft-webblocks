@@ -1,0 +1,12 @@
+{
+    "wbFooterTagline": "Modernes amerikanisches Steakhouse. Feuergetriebene Küche, ehrlicher Geschmack.",
+    "wbFooterCopyright": "© 2026 Ember & Rye. Alle Rechte vorbehalten.",
+    "items": [
+        { "wbFooterLinkLabel": "Startseite",      "wbFooterLinkUrl": "/de/" },
+        { "wbFooterLinkLabel": "Über uns",        "wbFooterLinkUrl": "/de/about" },
+        { "wbFooterLinkLabel": "Private Dining",  "wbFooterLinkUrl": "/de/private-dining" },
+        { "wbFooterLinkLabel": "Blog",             "wbFooterLinkUrl": "/de/blog" },
+        { "wbFooterLinkLabel": "Reservierungen",  "wbFooterLinkUrl": "/de/contact" },
+        { "wbFooterLinkLabel": "Impressum",       "wbFooterLinkUrl": "/de/impressum" }
+    ]
+}

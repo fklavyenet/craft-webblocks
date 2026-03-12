@@ -70,9 +70,13 @@
                     <small class="text-body-secondary">{{ copyright }}</small>
                 {% endif %}
                 {% if _cs and _cs.wbCookieBannerEnabled %}
+                    {% set _cookieLinkLabel = {
+                        'tr': 'Çerez Ayarları',
+                        'de': 'Cookie-Einstellungen'
+                    }[currentSite.language|slice(0,2)] ?? 'Cookie Settings' %}
                     <small>
                         <a href="#" data-wb-cookie-trigger class="text-body-secondary text-decoration-none wb-footer-link">
-                            Cookie Settings
+                            {{ _cookieLinkLabel }}
                         </a>
                     </small>
                 {% endif %}

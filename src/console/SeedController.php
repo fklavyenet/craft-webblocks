@@ -195,6 +195,90 @@ class SeedController extends Controller
         } else {
             $this->stdout("  wbSiteConfig saved (ID: {$globalSet->id})\n");
         }
+
+        // Propagate footer and navbar to extra sites
+        $this->propagateGlobalComponents($seedPath);
+    }
+
+    /**
+     * Propagate footer (tagline, copyright, link labels) and navbar brand
+     * to TR and DE sites by updating existing nested entries in-place.
+     */
+    private function propagateGlobalComponents(string $seedPath): void
+    {
+        $primarySiteId = Craft::$app->getSites()->getPrimarySite()->id;
+        $globalSet = Craft::$app->getGlobals()->getSetByHandle('wbSiteConfig', $primarySiteId);
+        if (!$globalSet) {
+            return;
+        }
+
+        $enFooterEntry = $globalSet->wbSiteFooter->one();
+        if (!$enFooterEntry) {
+            return;
+        }
+
+        $locales = [
+            'tr' => $this->loadJson($seedPath . '/components/wbFooter.tr.json'),
+            'de' => $this->loadJson($seedPath . '/components/wbFooter.de.json'),
+        ];
+
+        foreach ($locales as $siteHandle => $footerTrans) {
+            $site = Craft::$app->getSites()->getSiteByHandle($siteHandle);
+            if (!$site || !$footerTrans) {
+                continue;
+            }
+
+            $localFooter = Entry::find()
+                ->id($enFooterEntry->id)
+                ->siteId($site->id)
+                ->status(null)
+                ->one();
+
+            if (!$localFooter) {
+                $this->stderr("  ! Could not load footer entry for site '$siteHandle'\n");
+                continue;
+            }
+
+            // Update plain text fields on the footer entry itself
+            if (!empty($footerTrans['wbFooterTagline'])) {
+                $localFooter->setFieldValue('wbFooterTagline', $footerTrans['wbFooterTagline']);
+            }
+            if (!empty($footerTrans['wbFooterCopyright'])) {
+                $localFooter->setFieldValue('wbFooterCopyright', $footerTrans['wbFooterCopyright']);
+            }
+
+            if (!Craft::$app->getElements()->saveElement($localFooter)) {
+                $this->stderr("  ! Failed to save footer for site '$siteHandle'.\n");
+                continue;
+            }
+
+            // Update footer link labels in-place (nested entries)
+            if (!empty($footerTrans['items'])) {
+                $linkEntries = Entry::find()
+                    ->field('wbFooterLinks')
+                    ->ownerId($localFooter->id)
+                    ->siteId($site->id)
+                    ->status(null)
+                    ->orderBy('lft ASC')
+                    ->all();
+
+                foreach ($linkEntries as $li => $linkEntry) {
+                    if (!isset($footerTrans['items'][$li])) {
+                        break;
+                    }
+                    $itemTrans = $footerTrans['items'][$li];
+                    if (!empty($itemTrans['wbFooterLinkLabel'])) {
+                        $linkEntry->setFieldValue('wbFooterLinkLabel', $itemTrans['wbFooterLinkLabel']);
+                    }
+                    if (!empty($itemTrans['wbFooterLinkUrl'])) {
+                        $linkEntry->setFieldValue('wbFooterLinkUrl', $itemTrans['wbFooterLinkUrl']);
+                    }
+                    Craft::$app->getElements()->saveElement($linkEntry, false);
+                }
+            }
+
+            $this->stdout("  footer propagated to '$siteHandle'\n");
+        }
     }
 
     /**
@@ -1142,18 +1226,142 @@ class SeedController extends Controller
             $localEntry->setFieldValue('wbExcerpt', $translatedDef['excerpt']);
         }
 
-        // wbBlocks
-        if (!empty($translatedDef['blocks'])) {
-            $blocksData = $this->buildInlineBlocksData($translatedDef['blocks'], $assetIds);
-            $localEntry->setFieldValue('wbBlocks', $blocksData);
-        }
-
         if (!Craft::$app->getElements()->saveElement($localEntry)) {
             $this->stderr("      ! Failed to propagate entry to siteId $siteId:\n");
             foreach ($localEntry->getErrors() as $attr => $errors) {
                 foreach ($errors as $error) {
                     $this->stderr("        [$attr] $error\n");
                 }
+            }
+            return;
+        }
+
+        // wbBlocks — update existing nested entries in-place (never recreate them)
+        if (!empty($translatedDef['blocks'])) {
+            $this->propagateBlocksToSite($localEntry, $siteId, $translatedDef['blocks']);
+        }
+    }
+
+    /**
+     * Walk the existing wbBlocks tree of $parentEntry (for $siteId) and overwrite
+     * translatable text fields using the translation block defs from the JSON file.
+     *
+     * Matching is index-based: block[0] in the DB corresponds to blockDef[0] in JSON.
+     * This avoids creating new elements (which would clobber other sites' content).
+     */
+    private function propagateBlocksToSite(Entry $parentEntry, int $siteId, array $blockDefs): void
+    {
+        $existingBlocks = Entry::find()
+            ->field('wbBlocks')
+            ->ownerId($parentEntry->id)
+            ->siteId($siteId)
+            ->status(null)
+            ->orderBy('lft ASC')
+            ->all();
+
+        foreach ($existingBlocks as $index => $block) {
+            if (!isset($blockDefs[$index])) {
+                break;
+            }
+            $def = $blockDefs[$index];
+            $handle = $block->type->handle;
+
+            $changed = false;
+
+            // ── Common translatable fields ───────────────────────────────────
+            foreach (['wbTitle', 'wbText', 'wbCaption', 'wbButtonLabel', 'wbExcerpt'] as $f) {
+                if (array_key_exists($f, $def['fields'] ?? [])) {
+                    $block->setFieldValue($f, $def['fields'][$f]);
+                    $changed = true;
+                }
+            }
+
+            // ── Block-specific nested structures ─────────────────────────────
+            switch ($handle) {
+                case 'wbFullscreenImage':
+                    if (!empty($def['slides'])) {
+                        $slides = Entry::find()
+                            ->field('wbFsSlides')
+                            ->ownerId($block->id)
+                            ->siteId($siteId)
+                            ->status(null)
+                            ->orderBy('lft ASC')
+                            ->all();
+                        foreach ($slides as $si => $slide) {
+                            if (!isset($def['slides'][$si])) break;
+                            $sd = $def['slides'][$si];
+                            if (isset($sd['wbTitle'])) $slide->setFieldValue('wbTitle', $sd['wbTitle']);
+                            if (isset($sd['wbText']))  $slide->setFieldValue('wbText',  $sd['wbText']);
+                            Craft::$app->getElements()->saveElement($slide, false);
+                        }
+                    }
+                    break;
+
+                case 'wbHero':
+                case 'wbCallToAction':
+                case 'wbTextBlock':
+                case 'wbHeading':
+                case 'wbAlert':
+                    // all handled by the common loop above
+                    break;
+
+                case 'wbColumns':
+                    if (!empty($def['columns'])) {
+                        $cols = Entry::find()
+                            ->field('wbColumnItems')
+                            ->ownerId($block->id)
+                            ->siteId($siteId)
+                            ->status(null)
+                            ->orderBy('lft ASC')
+                            ->all();
+                        foreach ($cols as $ci => $col) {
+                            if (!isset($def['columns'][$ci]['blocks'])) continue;
+                            $this->propagateBlocksToSite($col, $siteId, $def['columns'][$ci]['blocks']);
+                        }
+                    }
+                    break;
+
+                case 'wbAccordion':
+                    if (!empty($def['items'])) {
+                        $items = Entry::find()
+                            ->field('wbAccordionItems')
+                            ->ownerId($block->id)
+                            ->siteId($siteId)
+                            ->status(null)
+                            ->orderBy('lft ASC')
+                            ->all();
+                        foreach ($items as $ii => $item) {
+                            if (!isset($def['items'][$ii])) break;
+                            $id = $def['items'][$ii];
+                            if (isset($id['wbTitle'])) $item->setFieldValue('wbTitle', $id['wbTitle']);
+                            if (isset($id['wbText']))  $item->setFieldValue('wbText',  $id['wbText']);
+                            Craft::$app->getElements()->saveElement($item, false);
+                        }
+                    }
+                    break;
+
+                case 'wbLeftRight':
+                    foreach (['wbTitle', 'wbText', 'wbButtonLabel'] as $f) {
+                        if (array_key_exists($f, $def['fields'] ?? [])) {
+                            $block->setFieldValue($f, $def['fields'][$f]);
+                            $changed = true;
+                        }
+                    }
+                    break;
+
+                case 'wbCard':
+                case 'wbHero':
+                    foreach (['wbTitle', 'wbText', 'wbCaption', 'wbButtonLabel'] as $f) {
+                        if (array_key_exists($f, $def['fields'] ?? [])) {
+                            $block->setFieldValue($f, $def['fields'][$f]);
+                            $changed = true;
+                        }
+                    }
+                    break;
+            }
+
+            if ($changed) {
+                Craft::$app->getElements()->saveElement($block, false);
             }
         }
     }

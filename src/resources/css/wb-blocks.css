@@ -466,3 +466,12 @@ main > .wb-block.wb-fullscreen-image {
         border-bottom: none;
     }
 }
+
+/* =============================================================================
+   Language switcher
+   ============================================================================= */
+.wb-lang-btn {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.55rem;
+}

@@ -190,7 +190,8 @@ WebBlocks includes a built-in comment system for blog posts:
 - Comments submitted on the front end are saved to the `wbComments` section with `enabled = false` (pending) by default.
 - Honeypot field silently blocks spam bots — no CAPTCHA required.
 - In the Craft CP, navigate to **Entries → Comments** to review pending submissions.
-- Select one or more comments and use the **Approve** or **Reject** actions from the action menu to publish or hide them.
+- **Index view:** select one or more comments and use the **Approve** or **Reject** bulk actions from the action menu.
+- **Edit view:** an **Approved** lightswitch is shown in the metadata panel (below "Updated at"). Toggle it on or off to approve or reject the comment instantly — no page save required.
 - Approved comments (`enabled = true`) are automatically displayed on the relevant blog post page.
 
 ## Form Submission Storage

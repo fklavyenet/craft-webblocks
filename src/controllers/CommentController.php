@@ -22,7 +22,7 @@ use yii\web\Response;
  */
 class CommentController extends Controller
 {
-    // Allow anonymous front-end submissions
+    // Allow anonymous front-end submissions; all other actions require a CP login
     protected array|bool|int $allowAnonymous = ['submit'];
 
     /**
@@ -133,9 +133,71 @@ class CommentController extends Controller
         return $this->_successResponse($isAjax);
     }
 
+    /**
+     * Approves a wbComment entry (sets enabled = true).
+     *
+     * POST  /actions/webblocks/comment/approve
+     *
+     * Expected POST fields:
+     *   commentId  — ID of the wbComment entry
+     *   redirect   — URL to redirect to after saving (optional, falls back to referrer)
+     */
+    public function actionApprove(): Response
+    {
+        $this->requirePostRequest();
+        $this->requireCpRequest();
+
+        return $this->_setCommentEnabled(true);
+    }
+
+    /**
+     * Rejects a wbComment entry (sets enabled = false).
+     *
+     * POST  /actions/webblocks/comment/reject
+     *
+     * Expected POST fields:
+     *   commentId  — ID of the wbComment entry
+     *   redirect   — URL to redirect to after saving (optional, falls back to referrer)
+     */
+    public function actionReject(): Response
+    {
+        $this->requirePostRequest();
+        $this->requireCpRequest();
+
+        return $this->_setCommentEnabled(false);
+    }
+
     // =========================================================================
     // Helpers
     // =========================================================================
+
+    private function _setCommentEnabled(bool $enabled): Response
+    {
+        $request   = Craft::$app->getRequest();
+        $commentId = (int) $request->getRequiredBodyParam('commentId');
+
+        $comment = Entry::find()->id($commentId)->section('wbComments')->status(null)->one();
+
+        if (!$comment) {
+            Craft::$app->getSession()->setFlash('error', Craft::t('webblocks', 'Comment not found.'));
+            return $this->redirectToPostedUrl();
+        }
+
+        $comment->enabled = $enabled;
+
+        if (!Craft::$app->getElements()->saveElement($comment)) {
+            Craft::$app->getSession()->setFlash('error', Craft::t('webblocks', 'Could not update comment.'));
+            return $this->redirectToPostedUrl();
+        }
+
+        $label = $enabled
+            ? Craft::t('webblocks', 'Comment approved.')
+            : Craft::t('webblocks', 'Comment rejected.');
+
+        Craft::$app->getSession()->setFlash('notice', $label);
+
+        return $this->redirectToPostedUrl($comment, $comment->cpEditUrl);
+    }
 
     private function _successResponse(bool $isAjax): Response
     {

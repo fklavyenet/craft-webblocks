@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [1.6.1] - 2026-03-13
+
+### Added
+- Inline approval toggle on the `wbComment` entry edit page. An **Approved** lightswitch row is injected into the metadata panel (below "Updated at") via `Element::EVENT_DEFINE_METADATA`. Toggling it fires `Craft.sendActionRequest` to `webblocks/comment/approve` or `webblocks/comment/reject` and reloads the page — no full save required.
+- `CommentController::actionApprove()` and `actionApprove::actionReject()` — CP-only POST actions that set `enabled = true` / `false` on the target comment entry and flash a notice. Used by both the inline toggle and (if re-enabled in future) any toolbar menu item.
+
+### Changed
+- `WebBlocks::_registerCommentApprovalToggle()` replaces the earlier `_registerCommentSidebarButton()`. The metadata row approach (`EVENT_DEFINE_METADATA`) is cleaner than prepending raw HTML to the sidebar, and the toggle is correctly positioned by anchoring `Created at` and `Updated at` placeholder keys in `$event->metadata` before adding `Approved` — exploiting PHP `array_merge` string-key ordering (first occurrence wins position; last occurrence wins value).
+
 ## [1.6.0] - 2026-03-13
 
 ### Added

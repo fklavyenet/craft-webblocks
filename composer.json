@@ -1,7 +1,7 @@
 {
     "name": "fklavyenet/craft-webblocks",
     "description": "A portable website building toolkit for Craft CMS — create modern business websites with reusable content blocks, flexible page layouts, and built-in SEO.",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "type": "craft-plugin",
     "keywords": ["craft", "cms", "website", "starter-kit", "blocks", "pages", "seo"],
     "license": "proprietary",

@@ -2,12 +2,17 @@
 
 namespace fklavyenet\webblocks;
 
+use craft\base\Element;
 use craft\base\Model;
 use craft\base\Plugin as BasePlugin;
 use craft\elements\Entry;
+use craft\events\DefineAttributeHtmlEvent;
+use craft\events\DefineMetadataEvent;
 use craft\events\RegisterElementActionsEvent;
+use craft\events\RegisterElementTableAttributesEvent;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\events\RegisterUrlRulesEvent;
+use craft\helpers\Cp;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\UrlManager;
 use craft\web\View;
@@ -61,6 +66,8 @@ class WebBlocks extends BasePlugin
         $this->_registerAssetBundle();
         $this->_registerCommentActions();
         $this->_registerSubmissionActions();
+        $this->_registerCommentTableAttribute();
+        $this->_registerCommentApprovalToggle();
     }
 
     protected function createSettingsModel(): ?Model
@@ -338,4 +345,160 @@ class WebBlocks extends BasePlugin
         );
     }
 
+    private function _registerCommentTableAttribute(): void
+    {
+        // Register the "Approval Status" column in the Columns picker for all Entry indexes.
+        // The column only renders meaningful HTML for wbComments entries (guarded below).
+        Event::on(
+            Entry::class,
+            Element::EVENT_REGISTER_TABLE_ATTRIBUTES,
+            function (RegisterElementTableAttributesEvent $event) {
+                $event->tableAttributes['wbApprovalStatus'] = [
+                    'label' => \Craft::t('webblocks', 'Approval Status'),
+                ];
+            }
+        );
+
+        // Read-only cell: coloured status badge shown when the column is NOT in edit mode.
+        Event::on(
+            Entry::class,
+            Element::EVENT_DEFINE_ATTRIBUTE_HTML,
+            function (DefineAttributeHtmlEvent $event) {
+                if ($event->attribute !== 'wbApprovalStatus') {
+                    return;
+                }
+
+                /** @var Entry $entry */
+                $entry = $event->sender;
+                $section = method_exists($entry, 'getSection') ? $entry->getSection() : null;
+
+                if (!$section || $section->handle !== 'wbComments') {
+                    return;
+                }
+
+                if ($entry->enabled) {
+                    $event->html = Cp::statusLabelHtml([
+                        'color' => 'green',
+                        'label' => \Craft::t('webblocks', 'Approved'),
+                    ]);
+                } else {
+                    $event->html = Cp::statusLabelHtml([
+                        'color' => 'orange',
+                        'label' => \Craft::t('webblocks', 'Pending'),
+                    ]);
+                }
+            }
+        );
+
+        // Inline editable cell: lightswitch widget shown when the user clicks the cell.
+        // Craft's element-save pipeline reads `enabled` from the POST body and saves it.
+        Event::on(
+            Entry::class,
+            Element::EVENT_DEFINE_INLINE_ATTRIBUTE_INPUT_HTML,
+            function (DefineAttributeHtmlEvent $event) {
+                if ($event->attribute !== 'wbApprovalStatus') {
+                    return;
+                }
+
+                /** @var Entry $entry */
+                $entry = $event->sender;
+                $section = method_exists($entry, 'getSection') ? $entry->getSection() : null;
+
+                if (!$section || $section->handle !== 'wbComments') {
+                    return;
+                }
+
+                $event->html = Cp::lightswitchHtml([
+                    'id'       => 'wbApprovalStatus-' . $entry->id,
+                    'name'     => 'enabled',
+                    'on'       => (bool) $entry->enabled,
+                    'onLabel'  => \Craft::t('webblocks', 'Approved'),
+                    'offLabel' => \Craft::t('webblocks', 'Pending'),
+                ]);
+            }
+        );
+    }
+
+    private function _registerCommentApprovalToggle(): void
+    {
+        Event::on(
+            Entry::class,
+            Element::EVENT_DEFINE_METADATA,
+            function (DefineMetadataEvent $event) {
+                /** @var Entry $entry */
+                $entry   = $event->sender;
+                $section = method_exists($entry, 'getSection') ? $entry->getSection() : null;
+
+                if (!$section || $section->handle !== 'wbComments') {
+                    return;
+                }
+
+                $isApproved = (bool) $entry->enabled;
+                $switchId   = 'wb-approval-toggle-' . $entry->id;
+                $action     = $isApproved ? 'webblocks/comment/reject' : 'webblocks/comment/approve';
+                $confirm    = $isApproved
+                    ? \Craft::t('webblocks', 'Are you sure you want to reject this comment?')
+                    : null;
+
+                // Render the lightswitch HTML now (we are still in the request context)
+                $switchHtml = Cp::lightswitchHtml([
+                    'id'       => $switchId,
+                    'name'     => 'wbApproval',
+                    'on'       => $isApproved,
+                    'onLabel'  => \Craft::t('webblocks', 'Approved'),
+                    'offLabel' => \Craft::t('webblocks', 'Pending'),
+                ]);
+
+                // Wire up toggle via Craft.sendActionRequest
+                \Craft::$app->getView()->registerJsWithVars(
+                    function ($switchId, $action, $commentId, $confirm, $redirectUrl) {
+                        return <<<JS
+(function() {
+    var sw = document.getElementById($switchId);
+    if (!sw) return;
+    sw.addEventListener('change', function() {
+        if ($confirm !== null && !window.confirm($confirm)) {
+            // revert the toggle visually
+            sw.checked = !sw.checked;
+            sw.dispatchEvent(new Event('change', { bubbles: false }));
+            return;
+        }
+        sw.disabled = true;
+        Craft.sendActionRequest('POST', $action, {
+            data: { commentId: $commentId }
+        }).then(function() {
+            window.location.href = $redirectUrl;
+        }).catch(function(err) {
+            Craft.cp.displayError((err.response && err.response.data && err.response.data.message) || 'Error');
+            sw.disabled = false;
+        });
+    });
+})();
+JS;
+                    },
+                    [
+                        $switchId,
+                        $action,
+                        $entry->id,
+                        $confirm,
+                        $entry->cpEditUrl,
+                    ]
+                );
+
+                // Position "Approved" after "Updated at" in the metadata panel.
+                //
+                // getMetadata() does: array_merge([ID, Status], $event->metadata, [Created at, Updated at, Notes])
+                // With string keys, array_merge keeps the *first* occurrence's position and uses the
+                // *last* occurrence's value. By inserting 'Created at' and 'Updated at' placeholders
+                // into $event->metadata first, we anchor their slots here; Craft's own values later
+                // overwrite them (correct). 'Approved' then sits right after 'Updated at'.
+                $event->metadata[\Craft::t('app', 'Created at')] = false; // placeholder — Craft overwrites value
+                $event->metadata[\Craft::t('app', 'Updated at')] = false; // placeholder — Craft overwrites value
+                $event->metadata[\Craft::t('webblocks', 'Approved')] = $switchHtml;
+            }
+        );
+    }
+
 }
+
+

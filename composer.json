@@ -26,6 +26,8 @@
         "handle": "webblocks",
         "developer": "fklavyenet",
         "developerUrl": "https://fklavye.net",
+        "documentationUrl": "https://github.com/fklavyenet/craft-webblocks",
+        "schemaVersion": "1.0.0",
         "class": "fklavyenet\\webblocks\\WebBlocks"
     }
 }

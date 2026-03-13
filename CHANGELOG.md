@@ -4,9 +4,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## Unreleased
 
-## [1.6.1] - 2026-03-13
+## 1.6.1 - 2026-03-13
 
 ### Added
 - Inline approval toggle on the `wbComment` entry edit page. An **Approved** lightswitch row is injected into the metadata panel (below "Updated at") via `Element::EVENT_DEFINE_METADATA`. Toggling it fires `Craft.sendActionRequest` to `webblocks/comment/approve` or `webblocks/comment/reject` and reloads the page — no full save required.
@@ -15,7 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 - `WebBlocks::_registerCommentApprovalToggle()` replaces the earlier `_registerCommentSidebarButton()`. The metadata row approach (`EVENT_DEFINE_METADATA`) is cleaner than prepending raw HTML to the sidebar, and the toggle is correctly positioned by anchoring `Created at` and `Updated at` placeholder keys in `$event->metadata` before adding `Approved` — exploiting PHP `array_merge` string-key ordering (first occurrence wins position; last occurrence wins value).
 
-## [1.6.0] - 2026-03-13
+## 1.6.0 - 2026-03-13
 
 ### Added
 - Form submission storage: every contact form submission is saved as a `wbSubmission` entry in the new `wbSubmissions` channel section. Entries store visitor email, a field/value data table, and a relation to the originating form entry.
@@ -28,7 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 - `FormController::actionSubmit()` refactored: collects admin vs. confirmation field lists separately, saves a `wbSubmission` entry via new `_saveSubmission()` private method, and dispatches the confirmation email via `_buildConfirmationBody()` + `_replacePlaceholders()`.
 
-## [1.5.0] - 2026-03-13
+## 1.5.0 - 2026-03-13
 
 ### Added
 - Blog comment moderation via the Craft control panel. Comments are stored as entries in the `wbComments` section with `enabled = false` (pending) by default.
@@ -40,7 +40,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 - Element actions extending `SetStatus` were silently discarded by Craft's `createAction()` pipeline because `SetStatus::defineRules()` marks `$status` as required, and validation runs before `init()` sets the value. Both actions now extend `ElementAction` directly and hardcode their enable/disable logic in `performAction()`.
 
-## [1.4.2] - 2026-03-12
+## 1.4.2 - 2026-03-12
 
 ### Added
 - "Cookie Settings" link in footer — visible whenever `wbCookieBannerEnabled` is on. Clicking it re-opens the consent banner so visitors can change their preferences at any time.
@@ -49,12 +49,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 - Cookie banner action buttons (Accept all / Save preferences) did not work when the banner was re-opened after consent was already stored. Listener registration moved before the early-return so buttons are always wired.
 
-## [1.4.1] - 2026-03-12
+## 1.4.1 - 2026-03-12
 
 ### Fixed
 - Cookie consent privacy policy URL was hardcoded to `restaurant.ddev.site`. It now resolves dynamically from each site's base URL, so the correct domain is used on any installation.
 
-## [1.4.0] - 2026-03-12
+## 1.4.0 - 2026-03-12
 
 ### Added
 - Legal Notice page with EN, TR, and DE seed content (`/impressum`). EN uses standard liability/copyright text; DE follows § 5 TMG Impressum format; TR provides a Turkish yasal bildirim. Page is hidden from the navbar and linked from the footer.
@@ -62,7 +62,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Cookie consent banner via `wbCookieSettings` global set. Four consent categories: Necessary (always on), Analytics, Marketing, and Preferences. Vanilla JS consent manager stores user choice in `localStorage` as `wb_cookie_consent` and publishes `window.wbCookieConsent` for third-party scripts. Banner is included via `wb/partials/cookie-banner.twig` in `layout.twig` and can be toggled with the `wbCookieBannerEnabled` lightswitch. EN/TR/DE seed content included.
 - `LICENSE.md` — Craft License with `fklavye.net` copyright holder.
 
-## [1.3.0] - 2026-03-12
+## 1.3.0 - 2026-03-12
 
 ### Added
 - Multi-language seed content: full TR (Turkish) and DE (German) translations for all 11 blog posts and all static pages (About, Philosophy, Sustainability, Services, Contact, Home, Blog index).
@@ -74,7 +74,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Craft 5 multi-site `elements_owners` integrity constraint violation during seed: added `enableVersioning: false` to all section JSON definitions so Craft does not attempt to create nested-element revisions across multiple sites.
 - Extra-site URI formats incorrectly included the language path prefix (e.g. `tr/{slug}`), causing all TR/DE content pages to return 404. URI formats now match the primary site; routing uses the site `baseUrl` to distinguish locales.
 
-## [1.2.0] - 2026-03-11
+## 1.2.0 - 2026-03-11
 
 ### Added
 - `wbBadge` block: Bootstrap badge with colour variant (`wbBadgeType`) and optional pill style (`wbBadgePill`).
@@ -85,7 +85,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - `wbButtonGroup` block: Nested block — `wbButtonGroupItems` matrix containing `wbButtonGroupItem` entry types. Supports shared button variant/outline style, size, and horizontal/vertical orientation.
 - `wbOffcanvas` block: Off-canvas panel with configurable placement, backdrop, trigger button label and size, and fully nested `wbBlocks` content.
 
-## [1.1.0] - 2026-03-11
+## 1.1.0 - 2026-03-11
 
 ### Added
 - `wbFullscreenImage` block: new fullscreen slider component with per-slide background image, overlay, title, subtitle, portrait image, horizontal/vertical caption alignment, autoplay, and configurable minimum height.
@@ -99,7 +99,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Slider nav button arrows were visually off-centre due to font metrics of `‹`/`›` HTML entities. Replaced with CSS `border` chevrons that are always precisely centred regardless of font stack.
 - Soft-deleted `elements` rows were not purged during wipe, causing the `elements` table to grow by ~500 rows per wipe+reinstall cycle. Hard-delete now runs as part of `webblocks/wipe/all`.
 
-## [1.0.0] - 2026-03-11
+## 1.0.0 - 2026-03-11
 
 ### Added
 - Initial release of WebBlocks — a portable website building toolkit for Craft CMS 5.

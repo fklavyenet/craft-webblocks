@@ -314,7 +314,7 @@ class SeedController extends Controller
         $globalSet->setFieldValue('wbCookieBannerEnabled', true);
         $globalSet->setFieldValue('wbCookieBannerTitle', 'We use cookies');
         $globalSet->setFieldValue('wbCookieBannerText', 'We use cookies to improve your experience, analyse traffic and enable personalised content. You can choose which categories to allow.');
-        $globalSet->setFieldValue('wbCookiePrivacyUrl', $primarySiteBaseUrl . '/legal');
+        $globalSet->setFieldValue('wbCookiePrivacyUrl', $primarySiteBaseUrl . '/impressum');
         $globalSet->setFieldValue('wbCookieLabelAnalytics', 'Analytics');
         $globalSet->setFieldValue('wbCookieLabelMarketing', 'Marketing');
         $globalSet->setFieldValue('wbCookieLabelPreferences', 'Preferences');
@@ -335,7 +335,7 @@ class SeedController extends Controller
             'tr' => [
                 'wbCookieBannerTitle'       => 'Çerezleri kullanıyoruz',
                 'wbCookieBannerText'        => 'Deneyiminizi geliştirmek, trafiği analiz etmek ve kişiselleştirilmiş içerik sunmak için çerezler kullanıyoruz. Hangi kategorilere izin vereceğinizi seçebilirsiniz.',
-                'wbCookiePrivacyUrl'        => $siteBaseUrl('tr') . '/legal',
+                'wbCookiePrivacyUrl'        => $siteBaseUrl('tr') . '/impressum',
                 'wbCookieLabelAnalytics'    => 'Analitik',
                 'wbCookieLabelMarketing'    => 'Pazarlama',
                 'wbCookieLabelPreferences'  => 'Tercihler',
@@ -343,7 +343,7 @@ class SeedController extends Controller
             'de' => [
                 'wbCookieBannerTitle'       => 'Wir verwenden Cookies',
                 'wbCookieBannerText'        => 'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Datenverkehr zu analysieren und personalisierte Inhalte bereitzustellen. Sie können wählen, welche Kategorien Sie zulassen möchten.',
-                'wbCookiePrivacyUrl'        => $siteBaseUrl('de') . '/legal',
+                'wbCookiePrivacyUrl'        => $siteBaseUrl('de') . '/impressum',
                 'wbCookieLabelAnalytics'    => 'Analyse',
                 'wbCookieLabelMarketing'    => 'Marketing',
                 'wbCookieLabelPreferences'  => 'Einstellungen',

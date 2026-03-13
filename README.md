@@ -138,47 +138,6 @@ Three volumes are created on install:
 - **wbVideos** — video files
 - **wbDocuments** — PDFs and other documents
 
-## Architecture
-
-- `wbBlocks` is the top-level matrix field. Add it to any section's field layout to enable page-builder functionality.
-- Nested columns: `wbColumns` → `wbColumnItems` matrix → `wbColumn` entry type → `wbBlocks` matrix (recursive).
-- Templates live in `src/wbTemplates/` and are registered under the `wb` Twig namespace.
-- Component definitions (fields, entry types, matrix fields) live in `src/wbComponents/` as JSON files and are auto-discovered on install.
-
-## File Structure
-
-```
-src/
-├── WebBlocks.php                   Plugin bootstrap; registers wb/ template root
-├── services/
-│   ├── InstallService.php          Orchestrates install order and field layout building
-│   └── FieldInstallService.php     Creates Craft fields from JSON definitions
-├── console/
-│   ├── WipeController.php          Wipe command (Craft 5 API)
-│   └── SeedController.php          Seeds demo content
-├── wbComponents/
-│   ├── fields/                     Plain field definitions (JSON)
-│   ├── entrytypes/                 Entry type + field layout definitions (JSON)
-│   ├── matrixfields/               Matrix field + entry type assignments (JSON)
-│   ├── imagetransforms/            Image transform definitions (JSON)
-│   ├── sections/                   Section definitions (JSON)
-│   ├── volumes/                    Asset volume definitions (JSON)
-│   ├── filesystems/                Filesystem definitions (JSON)
-│   └── globalsets/                 Global set definitions (JSON)
-├── wbTemplates/
-│   ├── index.twig                  Entry point; dispatches to wb/components/{handle}
-│   ├── layout.twig                 Bootstrap CDN, WB Masonry JS, WB Lightbox JS
-│   ├── components/                 One Twig file per component handle
-│   ├── sections/                   Section-level page templates
-│   └── partials/                   Shared partial templates
-└── resources/
-    └── seed/
-        ├── pages.json              Page definitions with inline block data
-        ├── blogs.json              Blog post seed data
-        ├── images.json             Sample image manifest
-        └── components/             Named block files for the demo test page
-```
-
 ## Frontend Dependencies
 
 Bootstrap 5.3.3 is loaded via CDN (MIT licence). No build step is required. All other JS (masonry layout, lightbox, fullscreen slider) is vanilla JavaScript bundled in `wb-blocks.js` via the WebBlocksAsset bundle — zero external slider or UI library dependencies.
@@ -242,3 +201,7 @@ The `wbCookieSettings` global set powers a built-in GDPR-friendly cookie consent
 ## Prefix Convention
 
 All plugin-owned handles use the `wb` prefix (fields, entry types, matrix fields, sections, volumes, transforms) to avoid conflicts with site-level content.
+
+## Contributing
+
+See [DEVELOPERS.md](DEVELOPERS.md) for architecture notes, local environment setup, and instructions for adding new blocks.

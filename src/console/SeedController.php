@@ -702,10 +702,12 @@ class SeedController extends Controller
             $required  = $fieldDef['required'] ?? false;
 
             $fieldFields = [
-                'wbFormFieldLabel'       => $fieldDef['label'] ?? '',
-                'wbFormFieldType'        => $fieldType,
-                'wbFormFieldRequired'    => (bool) $required,
-                'wbFormFieldPlaceholder' => $fieldDef['placeholder'] ?? '',
+                'wbFormFieldLabel'          => $fieldDef['label'] ?? '',
+                'wbFormFieldType'           => $fieldType,
+                'wbFormFieldRequired'       => (bool) $required,
+                'wbFormFieldPlaceholder'    => $fieldDef['placeholder'] ?? '',
+                'wbFormFieldInAdminEmail'   => (bool) ($fieldDef['inAdminEmail'] ?? true),
+                'wbFormFieldInConfirmEmail' => (bool) ($fieldDef['inConfirmEmail'] ?? false),
             ];
 
             // Build nested options for select / radio fields
@@ -735,16 +737,19 @@ class SeedController extends Controller
         return [
             'type' => 'wbForm',
             'fields' => [
-                'wbTitle'            => $blockDef['wbTitle'] ?? '',
-                'wbFormRecipient'    => $blockDef['recipient'] ?? '',
-                'wbFormSubject'      => $blockDef['subject'] ?? '',
-                'wbFormSubmitLabel'  => $blockDef['submitLabel'] ?? 'Send',
-                'wbFormSuccessMsg'   => $blockDef['successMsg'] ?? '',
-                'wbBorder'           => (bool) ($blockDef['wbBorder'] ?? false),
-                'wbBorderColor'      => $blockDef['wbBorderColor'] ?? '',
-                'wbRounded'          => $blockDef['wbRounded'] ?? '',
-                'wbPadding'          => $blockDef['wbPadding'] ?? '',
-                'wbFormFields'       => $formFields,
+                'wbTitle'                   => $blockDef['wbTitle'] ?? '',
+                'wbFormRecipient'           => $blockDef['recipient'] ?? '',
+                'wbFormSubject'             => $blockDef['subject'] ?? '',
+                'wbFormSubmitLabel'         => $blockDef['submitLabel'] ?? 'Send',
+                'wbFormSuccessMsg'          => $blockDef['successMsg'] ?? '',
+                'wbFormConfirmationEnabled' => (bool) ($blockDef['confirmationEnabled'] ?? false),
+                'wbFormConfirmationSubject' => $blockDef['confirmationSubject'] ?? '',
+                'wbFormConfirmationBody'    => $blockDef['confirmationBody'] ?? '',
+                'wbBorder'                  => (bool) ($blockDef['wbBorder'] ?? false),
+                'wbBorderColor'             => $blockDef['wbBorderColor'] ?? '',
+                'wbRounded'                 => $blockDef['wbRounded'] ?? '',
+                'wbPadding'                 => $blockDef['wbPadding'] ?? '',
+                'wbFormFields'              => $formFields,
             ],
         ];
     }

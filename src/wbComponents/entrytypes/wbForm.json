@@ -18,6 +18,14 @@
             ]
         },
         {
+            "name": "Confirmation Email",
+            "fields": [
+                "wbFormConfirmationEnabled",
+                "wbFormConfirmationSubject",
+                "wbFormConfirmationBody"
+            ]
+        },
+        {
             "name": "Appearance",
             "fields": [
                 "wbBorder",

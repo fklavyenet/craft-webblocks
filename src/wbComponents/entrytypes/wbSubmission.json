@@ -1,0 +1,20 @@
+{
+    "handle": "wbSubmission",
+    "name": "Form Submission",
+    "showSlugField": false,
+    "showStatusField": false,
+    "hasTitleField": false,
+    "titleFormat": "{wbSubmissionForm.one.wbTitle|default('Form')} — {dateCreated|date('d M Y H:i')}",
+    "titleTranslationMethod": "none",
+    "tabs": [
+        {
+            "name": "Submission",
+            "fields": [
+                "wbSubmissionStatus",
+                "wbSubmissionForm",
+                "wbSubmissionEmail",
+                "wbSubmissionData"
+            ]
+        }
+    ]
+}

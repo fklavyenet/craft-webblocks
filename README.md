@@ -78,10 +78,10 @@ All components are registered as entry types under the `wbBlocks` matrix field. 
 
 ### Forms & Contact
 
-| Handle             | Description                                                                                              |
-|--------------------|----------------------------------------------------------------------------------------------------------|
-| `wbForm`           | Configurable contact form. Supports text, email, textarea, select, radio, and checkbox fields            |
-| `wbContactDetails` | Contact details block: phone, email, and address                                                         |
+| Handle             | Description                                                                                                                          |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `wbForm`           | Configurable contact form. Supports text, email, textarea, select, radio, and checkbox fields. Built-in submission storage and optional visitor confirmation email |
+| `wbContactDetails` | Contact details block: phone, email, and address                                                                                     |
 
 ### Navigation
 
@@ -192,6 +192,30 @@ WebBlocks includes a built-in comment system for blog posts:
 - In the Craft CP, navigate to **Entries → Comments** to review pending submissions.
 - Select one or more comments and use the **Approve** or **Reject** actions from the action menu to publish or hide them.
 - Approved comments (`enabled = true`) are automatically displayed on the relevant blog post page.
+
+## Form Submission Storage
+
+Every `wbForm` submission is automatically stored in the Craft CP:
+
+- Submissions are saved as entries in the `wbSubmissions` section. Each entry stores the visitor's email address, a field/value data table, and a relation to the originating form entry.
+- Navigate to **Entries → Submissions** in the CP to review all received submissions.
+- Bulk-update status with the **Mark as Read**, **Mark as Unread**, and **Archive** element actions.
+- Default status is **Unread**; transitions to Read or Archived via the action menu.
+
+### Visitor Confirmation Email
+
+Each `wbForm` entry has a **Confirmation Email** tab in the CP:
+
+- `wbFormConfirmationEnabled` — toggle the confirmation email on or off per form.
+- `wbFormConfirmationSubject` — subject line sent to the visitor.
+- `wbFormConfirmationBody` — plain-text body. Use `{FieldLabel}` placeholders (e.g. `{Email address}`) to include the submitted value for any field.
+
+### Per-field Email Filters
+
+Each field in a `wbForm` has two toggles in the CP:
+
+- **Include in admin email** (`wbFormFieldInAdminEmail`) — on by default. Controls whether this field appears in the notification sent to the form recipient.
+- **Include in confirmation email** (`wbFormFieldInConfirmEmail`) — off by default. Controls whether this field appears in the visitor confirmation email.
 
 ## Global Sets
 

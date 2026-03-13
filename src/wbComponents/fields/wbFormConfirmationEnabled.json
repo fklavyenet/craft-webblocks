@@ -1,0 +1,10 @@
+{
+    "name": "Send Confirmation Email",
+    "handle": "wbFormConfirmationEnabled",
+    "instructions": "Send an automatic confirmation email to the visitor after they submit this form. Requires an email-type field in the form.",
+    "type": "Lightswitch",
+    "typesettings": {
+        "default": false
+    },
+    "translationMethod": "site"
+}

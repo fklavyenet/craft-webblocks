@@ -524,11 +524,14 @@
                                 "wbBorderColor": "secondary",
                                 "wbRounded": "rounded-3",
                                 "wbPadding": "p-4",
+                                "confirmationEnabled": true,
+                                "confirmationSubject": "Ember & Rye rezervasyon talebiniz",
+                                "confirmationBody": "Merhaba {Adınız},\n\nEmber & Rye'da rezervasyon talebiniz için teşekkür ederiz. Aşağıdaki bilgileri aldık:\n\nTelefon: {Telefon numarası}\nTarih: {Tercih edilen tarih}\nSaat: {Tercih edilen saat}\nMisafir sayısı: {Misafir sayısı}\n\nRezervasyon onayınızı bir iş günü içinde yapacağız.\n\nSaygılarımızla,\nEmber & Rye",
                                 "fields": [
-                                    { "label": "Adınız", "type": "text", "required": true, "placeholder": "Ali Yıldız" },
-                                    { "label": "E-posta adresi", "type": "email", "required": true, "placeholder": "ali@ornek.com" },
-                                    { "label": "Telefon numarası", "type": "tel", "required": true, "placeholder": "+90 (555) 000 0000" },
-                                    { "label": "Tercih edilen tarih", "type": "text", "required": true, "placeholder": "örn. Cumartesi 15 Mart" },
+                                    { "label": "Adınız", "type": "text", "required": true, "placeholder": "Ali Yıldız", "inAdminEmail": true, "inConfirmEmail": false },
+                                    { "label": "E-posta adresi", "type": "email", "required": true, "placeholder": "ali@ornek.com", "inAdminEmail": true, "inConfirmEmail": false },
+                                    { "label": "Telefon numarası", "type": "tel", "required": true, "placeholder": "+90 (555) 000 0000", "inAdminEmail": true, "inConfirmEmail": true },
+                                    { "label": "Tercih edilen tarih", "type": "text", "required": true, "placeholder": "örn. Cumartesi 15 Mart", "inAdminEmail": true, "inConfirmEmail": true },
                                     {
                                         "label": "Tercih edilen saat",
                                         "type": "select",
@@ -538,7 +541,9 @@
                                             { "label": "Erken akşam (17:30 – 19:00)", "value": "early-dinner" },
                                             { "label": "Akşam (19:00 – 21:00)", "value": "dinner" },
                                             { "label": "Geç akşam (21:00+)", "value": "late-dinner" }
-                                        ]
+                                        ],
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": true
                                     },
                                     {
                                         "label": "Misafir sayısı",
@@ -549,9 +554,11 @@
                                             { "label": "3 – 4 misafir", "value": "4" },
                                             { "label": "5 – 6 misafir", "value": "6" },
                                             { "label": "7+ misafir (özel yemek sorgusu)", "value": "7+" }
-                                        ]
+                                        ],
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": true
                                     },
-                                    { "label": "Diyet gereksinimleri veya özel istekler", "type": "textarea", "required": false, "placeholder": "Alerjiler, kutlamalar, erişilebilirlik ihtiyaçları..." }
+                                    { "label": "Diyet gereksinimleri veya özel istekler", "type": "textarea", "required": false, "placeholder": "Alerjiler, kutlamalar, erişilebilirlik ihtiyaçları...", "inAdminEmail": true, "inConfirmEmail": false }
                                 ]
                             }
                         ]

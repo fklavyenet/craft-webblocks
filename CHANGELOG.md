@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-03-13
+
+### Added
+- Form submission storage: every contact form submission is saved as a `wbSubmission` entry in the new `wbSubmissions` channel section. Entries store visitor email, a field/value data table, and a relation to the originating form entry.
+- Visitor confirmation email: `wbForm` now has a **Confirmation Email** tab with `wbFormConfirmationEnabled` (lightswitch), `wbFormConfirmationSubject`, and `wbFormConfirmationBody` fields. The body supports `{FieldLabel}` placeholders that are replaced with the submitted value at send time.
+- Per-field email filters: each `wbFormField` has two new toggles — `wbFormFieldInAdminEmail` (default on) and `wbFormFieldInConfirmEmail` (default off) — so editors control independently which fields appear in the admin notification and in the visitor confirmation.
+- `MarkSubmissionRead`, `MarkSubmissionUnread`, and `ArchiveSubmission` element actions on the `wbSubmissions` CP index, extending `craft\base\ElementAction` directly (same pattern as comment actions).
+- `wbSubmissionStatus` dropdown field (unread / read / archived) on the `wbSubmission` entry type.
+- Seed data for all three form blocks (EN, TR, DE) updated with `confirmationEnabled`, `confirmationSubject`, `confirmationBody`, and per-field `inAdminEmail` / `inConfirmEmail` values.
+
+### Changed
+- `FormController::actionSubmit()` refactored: collects admin vs. confirmation field lists separately, saves a `wbSubmission` entry via new `_saveSubmission()` private method, and dispatches the confirmation email via `_buildConfirmationBody()` + `_replacePlaceholders()`.
+
 ## [1.5.0] - 2026-03-13
 
 ### Added

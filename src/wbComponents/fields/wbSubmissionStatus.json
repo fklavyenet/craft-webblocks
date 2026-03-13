@@ -1,0 +1,14 @@
+{
+    "name": "Submission Status",
+    "handle": "wbSubmissionStatus",
+    "instructions": "Current processing status of this form submission",
+    "type": "Dropdown",
+    "typesettings": {
+        "options": [
+            { "label": "Unread", "value": "unread", "default": true },
+            { "label": "Read",   "value": "read",   "default": false },
+            { "label": "Archived", "value": "archived", "default": false }
+        ]
+    },
+    "translationMethod": "none"
+}

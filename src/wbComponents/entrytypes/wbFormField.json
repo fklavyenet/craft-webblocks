@@ -15,6 +15,13 @@
                 "wbFormFieldRequired",
                 "wbFormFieldPlaceholder"
             ]
+        },
+        {
+            "name": "Email Options",
+            "fields": [
+                "wbFormFieldInAdminEmail",
+                "wbFormFieldInConfirmEmail"
+            ]
         }
     ],
     "matrixFields": ["wbFormOptions"]

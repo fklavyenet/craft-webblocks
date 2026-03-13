@@ -1,0 +1,9 @@
+{
+    "handle": "wbSubmissions",
+    "name": "Form Submissions",
+    "type": "channel",
+    "template": "",
+    "uriFormat": null,
+    "enableVersioning": false,
+    "entryTypes": ["wbSubmission"]
+}

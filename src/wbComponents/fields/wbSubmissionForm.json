@@ -1,0 +1,10 @@
+{
+    "name": "Submission Form",
+    "handle": "wbSubmissionForm",
+    "instructions": "The form this submission belongs to",
+    "type": "Entries",
+    "typesettings": {
+        "limit": 1
+    },
+    "translationMethod": "none"
+}

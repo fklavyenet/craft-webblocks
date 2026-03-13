@@ -48,14 +48,19 @@ class FormController extends Controller
         }
 
         // Collect submitted values and validate required fields
-        $errors = [];
-        $submittedValues = [];
+        $errors        = [];
+        $allValues     = [];   // all field values: label => value
+        $adminValues   = [];   // filtered for admin email
+        $confirmValues = [];   // filtered for confirmation email
+        $visitorEmail  = null; // first email-type field value
 
         foreach ($formEntry->wbFormFields->all() as $fieldEntry) {
-            $label = (string) $fieldEntry->wbFormFieldLabel;
-            $type = (string) $fieldEntry->wbFormFieldType;
-            $required = (bool) $fieldEntry->wbFormFieldRequired;
-            $inputName = $this->_fieldKey($label);
+            $label        = (string) $fieldEntry->wbFormFieldLabel;
+            $type         = (string) $fieldEntry->wbFormFieldType;
+            $required     = (bool)   $fieldEntry->wbFormFieldRequired;
+            $inAdmin      = (bool)   ($fieldEntry->wbFormFieldInAdminEmail ?? true);
+            $inConfirm    = (bool)   ($fieldEntry->wbFormFieldInConfirmEmail ?? false);
+            $inputName    = $this->_fieldKey($label);
 
             $value = $request->getBodyParam($inputName, '');
 
@@ -63,22 +68,37 @@ class FormController extends Controller
                 $errors[$inputName] = Craft::t('site', '{label} is required.', ['label' => $label]);
             }
 
-            $submittedValues[$label] = $value;
+            $allValues[$label] = $value;
+
+            if ($inAdmin) {
+                $adminValues[$label] = $value;
+            }
+
+            if ($inConfirm) {
+                $confirmValues[$label] = $value;
+            }
+
+            // Capture the first email-type field as the visitor's address
+            if ($type === 'email' && $visitorEmail === null && trim((string) $value) !== '') {
+                $visitorEmail = trim((string) $value);
+            }
         }
 
         if (!empty($errors)) {
             return $this->_errorResponse($errors, $request->getIsAjax());
         }
 
-        // Send email
-        $recipient = (string) $formEntry->wbFormRecipient;
-        $subject = (string) $formEntry->wbFormSubject ?: Craft::t('site', 'New form submission');
+        $recipient  = (string) $formEntry->wbFormRecipient;
+        $subject    = (string) $formEntry->wbFormSubject ?: Craft::t('site', 'New form submission');
         $successMsg = (string) $formEntry->wbFormSuccessMsg
             ?: Craft::t('site', 'Thank you! We will be in touch shortly.');
 
-        if ($recipient) {
-            $body = $this->_buildEmailBody($submittedValues);
+        // 1. Save submission entry
+        $this->_saveSubmission($formEntry, $allValues, $visitorEmail);
 
+        // 2. Send admin notification email (filtered fields)
+        if ($recipient) {
+            $body = $this->_buildEmailBody($adminValues);
             try {
                 Craft::$app->getMailer()
                     ->compose()
@@ -88,8 +108,32 @@ class FormController extends Controller
                     ->setTextBody(strip_tags($body))
                     ->send();
             } catch (\Throwable $e) {
-                Craft::error('wbForm mail error: ' . $e->getMessage(), __METHOD__);
-                // Don't expose mail errors to the visitor — just log them
+                Craft::error('wbForm admin mail error: ' . $e->getMessage(), __METHOD__);
+            }
+        }
+
+        // 3. Send visitor confirmation email (if enabled and email address found)
+        $confirmEnabled = (bool) ($formEntry->wbFormConfirmationEnabled ?? false);
+        if ($confirmEnabled && $visitorEmail) {
+            $confirmSubject = (string) ($formEntry->wbFormConfirmationSubject ?? '')
+                ?: Craft::t('site', 'We received your message');
+            $confirmBody = (string) ($formEntry->wbFormConfirmationBody ?? '');
+
+            // Replace {FieldLabel} placeholders with submitted values
+            $confirmBody = $this->_replacePlaceholders($confirmBody, $allValues);
+
+            $confirmHtml = $this->_buildConfirmationBody($confirmBody, $confirmValues);
+
+            try {
+                Craft::$app->getMailer()
+                    ->compose()
+                    ->setTo($visitorEmail)
+                    ->setSubject($confirmSubject)
+                    ->setHtmlBody($confirmHtml)
+                    ->setTextBody(strip_tags($confirmHtml))
+                    ->send();
+            } catch (\Throwable $e) {
+                Craft::error('wbForm confirmation mail error: ' . $e->getMessage(), __METHOD__);
             }
         }
 
@@ -110,6 +154,59 @@ class FormController extends Controller
     // =========================================================================
 
     /**
+     * Saves a wbSubmission entry for every form submission.
+     */
+    private function _saveSubmission(Entry $formEntry, array $allValues, ?string $visitorEmail): void
+    {
+        $section = Craft::$app->getEntries()->getSectionByHandle('wbSubmissions');
+        if (!$section) {
+            Craft::warning('wbSubmissions section not found — skipping submission save.', __METHOD__);
+            return;
+        }
+
+        $entryType = null;
+        foreach ($section->getEntryTypes() as $et) {
+            if ($et->handle === 'wbSubmission') {
+                $entryType = $et;
+                break;
+            }
+        }
+
+        if (!$entryType) {
+            Craft::warning('wbSubmission entry type not found — skipping submission save.', __METHOD__);
+            return;
+        }
+
+        // Build table rows: one row per submitted field
+        $tableRows = [];
+        foreach ($allValues as $label => $value) {
+            $tableRows[] = [
+                'field' => (string) $label,
+                'value' => (string) $value,
+            ];
+        }
+
+        $submission = new Entry();
+        $submission->sectionId = $section->id;
+        $submission->typeId    = $entryType->id;
+        $submission->enabled   = true;
+
+        $submission->setFieldValue('wbSubmissionStatus', 'unread');
+        $submission->setFieldValue('wbSubmissionEmail', $visitorEmail ?? '');
+        $submission->setFieldValue('wbSubmissionData', $tableRows);
+
+        // Relate to the form entry
+        $submission->setFieldValue('wbSubmissionForm', [$formEntry->id]);
+
+        if (!Craft::$app->getElements()->saveElement($submission)) {
+            Craft::error(
+                'wbForm: failed to save submission — ' . json_encode($submission->getErrors()),
+                __METHOD__
+            );
+        }
+    }
+
+    /**
      * Converts a field label to a safe HTML input name (lowercase, hyphenated).
      */
     private function _fieldKey(string $label): string
@@ -120,7 +217,19 @@ class FormController extends Controller
     }
 
     /**
-     * Builds a simple HTML email body from submitted field values.
+     * Replaces {FieldLabel} placeholders in a string with submitted values.
+     */
+    private function _replacePlaceholders(string $text, array $values): string
+    {
+        foreach ($values as $label => $value) {
+            $placeholder = '{' . $label . '}';
+            $text = str_replace($placeholder, (string) $value, $text);
+        }
+        return $text;
+    }
+
+    /**
+     * Builds an HTML admin notification email body.
      */
     private function _buildEmailBody(array $values): string
     {
@@ -142,6 +251,49 @@ class FormController extends Controller
     <table style="border-collapse:collapse;width:100%;max-width:600px;">
         {$rows}
     </table>
+</body>
+</html>
+HTML;
+    }
+
+    /**
+     * Builds an HTML confirmation email body.
+     *
+     * The main message body is the CP-authored text (with placeholders already
+     * replaced). If any fields were marked "include in confirmation email",
+     * they are appended as a summary table below the message.
+     */
+    private function _buildConfirmationBody(string $bodyText, array $confirmValues): string
+    {
+        $escapedBody = nl2br(htmlspecialchars($bodyText, ENT_QUOTES));
+
+        $summaryTable = '';
+        if (!empty($confirmValues)) {
+            $rows = '';
+            foreach ($confirmValues as $label => $value) {
+                $escapedLabel = htmlspecialchars((string) $label, ENT_QUOTES);
+                $escapedValue = nl2br(htmlspecialchars((string) $value, ENT_QUOTES));
+                $rows .= "<tr>
+                    <th style=\"text-align:left;padding:8px 12px;background:#f5f5f5;border:1px solid #ddd;\">{$escapedLabel}</th>
+                    <td style=\"padding:8px 12px;border:1px solid #ddd;\">{$escapedValue}</td>
+                </tr>\n";
+            }
+            $summaryTable = <<<HTML
+
+    <hr style="border:none;border-top:1px solid #ddd;margin:24px 0;">
+    <h3 style="font-size:14px;color:#555;">Your submission summary</h3>
+    <table style="border-collapse:collapse;width:100%;max-width:600px;">
+        {$rows}
+    </table>
+HTML;
+        }
+
+        return <<<HTML
+<!DOCTYPE html>
+<html>
+<body style="font-family:sans-serif;font-size:14px;color:#333;max-width:600px;margin:0 auto;padding:24px;">
+    <p style="line-height:1.6;">{$escapedBody}</p>
+    {$summaryTable}
 </body>
 </html>
 HTML;

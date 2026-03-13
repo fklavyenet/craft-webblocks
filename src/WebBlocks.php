@@ -14,6 +14,9 @@ use craft\web\View;
 use fklavyenet\webblocks\assetbundles\WebBlocksAsset;
 use fklavyenet\webblocks\elementactions\ApproveComment;
 use fklavyenet\webblocks\elementactions\RejectComment;
+use fklavyenet\webblocks\elementactions\MarkSubmissionRead;
+use fklavyenet\webblocks\elementactions\MarkSubmissionUnread;
+use fklavyenet\webblocks\elementactions\ArchiveSubmission;
 use fklavyenet\webblocks\models\Settings;
 use fklavyenet\webblocks\variables\WebBlocksVariable;
 use yii\base\Event;
@@ -57,6 +60,7 @@ class WebBlocks extends BasePlugin
         $this->_registerSiteUrlRules();
         $this->_registerAssetBundle();
         $this->_registerCommentActions();
+        $this->_registerSubmissionActions();
     }
 
     protected function createSettingsModel(): ?Model
@@ -304,6 +308,32 @@ class WebBlocks extends BasePlugin
 
                 array_unshift($event->actions, RejectComment::class);
                 array_unshift($event->actions, ApproveComment::class);
+            }
+        );
+    }
+
+    private function _registerSubmissionActions(): void
+    {
+        Event::on(
+            Entry::class,
+            Entry::EVENT_REGISTER_ACTIONS,
+            function (RegisterElementActionsEvent $event) {
+                $section = \Craft::$app->getEntries()->getSectionByHandle('wbSubmissions');
+                if (!$section) {
+                    return;
+                }
+
+                $source = $event->source ?? '';
+                if (
+                    $source !== 'section:' . $section->uid &&
+                    $source !== 'section:' . $section->id
+                ) {
+                    return;
+                }
+
+                array_unshift($event->actions, ArchiveSubmission::class);
+                array_unshift($event->actions, MarkSubmissionUnread::class);
+                array_unshift($event->actions, MarkSubmissionRead::class);
             }
         );
     }

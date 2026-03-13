@@ -591,30 +591,41 @@
                                 "wbBorderColor": "secondary",
                                 "wbRounded": "rounded-3",
                                 "wbPadding": "p-4",
+                                "confirmationEnabled": true,
+                                "confirmationSubject": "Your reservation request at Ember & Rye",
+                                "confirmationBody": "Hi {Your name},\n\nThank you for your reservation request at Ember & Rye. We have received the following details:\n\nEmail: {Email address}\nPhone: {Phone number}\nDate: {Preferred date}\nTime: {Preferred time}\nGuests: {Number of guests}\n\nWe will confirm your reservation within one business day.\n\nWarm regards,\nEmber & Rye",
                                 "fields": [
                                     {
                                         "label": "Your name",
                                         "type": "text",
                                         "required": true,
-                                        "placeholder": "Jane Smith"
+                                        "placeholder": "Jane Smith",
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": false
                                     },
                                     {
                                         "label": "Email address",
                                         "type": "email",
                                         "required": true,
-                                        "placeholder": "jane@example.com"
+                                        "placeholder": "jane@example.com",
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": false
                                     },
                                     {
                                         "label": "Phone number",
                                         "type": "tel",
                                         "required": true,
-                                        "placeholder": "+1 (555) 000-0000"
+                                        "placeholder": "+1 (555) 000-0000",
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": true
                                     },
                                     {
                                         "label": "Preferred date",
                                         "type": "text",
                                         "required": true,
-                                        "placeholder": "e.g. Saturday 15 March"
+                                        "placeholder": "e.g. Saturday 15 March",
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": true
                                     },
                                     {
                                         "label": "Preferred time",
@@ -625,7 +636,9 @@
                                             { "label": "Early dinner (17:30 – 19:00)", "value": "early-dinner" },
                                             { "label": "Dinner (19:00 – 21:00)", "value": "dinner" },
                                             { "label": "Late dinner (21:00+)", "value": "late-dinner" }
-                                        ]
+                                        ],
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": true
                                     },
                                     {
                                         "label": "Number of guests",
@@ -636,13 +649,17 @@
                                             { "label": "3 – 4 guests", "value": "4" },
                                             { "label": "5 – 6 guests", "value": "6" },
                                             { "label": "7+ guests (private dining enquiry)", "value": "7+" }
-                                        ]
+                                        ],
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": true
                                     },
                                     {
                                         "label": "Dietary requirements or special requests",
                                         "type": "textarea",
                                         "required": false,
-                                        "placeholder": "Allergies, celebrations, accessibility needs..."
+                                        "placeholder": "Allergies, celebrations, accessibility needs...",
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": false
                                     }
                                 ]
                             }

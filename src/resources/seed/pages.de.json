@@ -524,11 +524,14 @@
                                 "wbBorderColor": "secondary",
                                 "wbRounded": "rounded-3",
                                 "wbPadding": "p-4",
+                                "confirmationEnabled": true,
+                                "confirmationSubject": "Ihre Reservierungsanfrage bei Ember & Rye",
+                                "confirmationBody": "Hallo {Ihr Name},\n\nVielen Dank für Ihre Reservierungsanfrage bei Ember & Rye. Wir haben folgende Angaben erhalten:\n\nTelefon: {Telefonnummer}\nDatum: {Gewünschtes Datum}\nUhrzeit: {Gewünschte Uhrzeit}\nGäste: {Anzahl der Gäste}\n\nWir bestätigen Ihre Reservierung innerhalb eines Werktages.\n\nHerzliche Grüße\nEmber & Rye",
                                 "fields": [
-                                    { "label": "Ihr Name", "type": "text", "required": true, "placeholder": "Max Mustermann" },
-                                    { "label": "E-Mail-Adresse", "type": "email", "required": true, "placeholder": "max@beispiel.de" },
-                                    { "label": "Telefonnummer", "type": "tel", "required": true, "placeholder": "+49 (555) 000-0000" },
-                                    { "label": "Gewünschtes Datum", "type": "text", "required": true, "placeholder": "z.B. Samstag, 15. März" },
+                                    { "label": "Ihr Name", "type": "text", "required": true, "placeholder": "Max Mustermann", "inAdminEmail": true, "inConfirmEmail": false },
+                                    { "label": "E-Mail-Adresse", "type": "email", "required": true, "placeholder": "max@beispiel.de", "inAdminEmail": true, "inConfirmEmail": false },
+                                    { "label": "Telefonnummer", "type": "tel", "required": true, "placeholder": "+49 (555) 000-0000", "inAdminEmail": true, "inConfirmEmail": true },
+                                    { "label": "Gewünschtes Datum", "type": "text", "required": true, "placeholder": "z.B. Samstag, 15. März", "inAdminEmail": true, "inConfirmEmail": true },
                                     {
                                         "label": "Gewünschte Uhrzeit",
                                         "type": "select",
@@ -538,7 +541,9 @@
                                             { "label": "Frühes Abendessen (17:30 – 19:00)", "value": "early-dinner" },
                                             { "label": "Abendessen (19:00 – 21:00)", "value": "dinner" },
                                             { "label": "Spätes Abendessen (21:00+)", "value": "late-dinner" }
-                                        ]
+                                        ],
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": true
                                     },
                                     {
                                         "label": "Anzahl der Gäste",
@@ -549,9 +554,11 @@
                                             { "label": "3 – 4 Gäste", "value": "4" },
                                             { "label": "5 – 6 Gäste", "value": "6" },
                                             { "label": "7+ Gäste (Private Dining Anfrage)", "value": "7+" }
-                                        ]
+                                        ],
+                                        "inAdminEmail": true,
+                                        "inConfirmEmail": true
                                     },
-                                    { "label": "Ernährungsanforderungen oder besondere Wünsche", "type": "textarea", "required": false, "placeholder": "Allergien, Feierlichkeiten, Zugänglichkeitsbedarf..." }
+                                    { "label": "Ernährungsanforderungen oder besondere Wünsche", "type": "textarea", "required": false, "placeholder": "Allergien, Feierlichkeiten, Zugänglichkeitsbedarf...", "inAdminEmail": true, "inConfirmEmail": false }
                                 ]
                             }
                         ]

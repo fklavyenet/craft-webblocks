@@ -63,7 +63,7 @@
 {% set searchEntry = craft.entries().section('wbSearch').one() %}
 {% set searchUrl = searchEntry ? searchEntry.url : '/search' %}
 
-<nav class="wb-block wb-navbar mb-4 navbar {{ expand }} {{ colorScheme }} {{ bg }}">
+<nav class="wb-block wb-navbar sticky-top navbar {{ expand }} {{ colorScheme }} {{ bg }}">
     <div class="container-fluid">
 
         {# Brand #}

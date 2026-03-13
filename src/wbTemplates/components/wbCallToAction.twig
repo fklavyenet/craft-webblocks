@@ -1,4 +1,4 @@
-{% set hasBorder  = item.wbBorder ?? false %}
+{% set hasBorder   = item.wbBorder ?? false %}
 {% set borderColor = item.wbBorderColor.value ?? item.wbBorderColor ?? '' %}
 {% set rounded     = item.wbRounded.value ?? item.wbRounded ?? '' %}
 {% set padding     = item.wbPadding.value ?? item.wbPadding ?? '' %}
@@ -21,7 +21,7 @@
             <p>{{ item.wbText }}</p>
         {% endif %}
         {% if item.wbButtonUrl and item.wbButtonLabel %}
-            <a href="{{ item.wbButtonUrl }}" class="btn" style="{% if item.wbButtonColor %}background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }}; color: #333;{% endif %}">
+            <a href="{{ item.wbButtonUrl }}" class="btn{% if not item.wbButtonColor %} wb-theme-btn btn-primary{% endif %}" style="{% if item.wbButtonColor %}background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }}; color: #333;{% endif %}">
                 {{ item.wbButtonLabel }}
             </a>
         {% endif %}

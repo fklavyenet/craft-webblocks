@@ -1,5 +1,6 @@
 {% set _siteConfig = craft.app.globals.getSetByHandle('wbSiteConfig') ?? null %}
 {% set _siteColorMode = _siteConfig ? (_siteConfig.wbColorMode.value ?? 'auto') : 'auto' %}
+{% set _siteColorTheme = _siteConfig ? (_siteConfig.wbColorTheme.value ?? 'default') : 'default' %}
 <!doctype html>
 <html lang="{{ currentSite.language }}" data-bs-theme="{{ _siteColorMode == 'dark' ? 'dark' : 'light' }}" data-wb-mode="{{ _siteColorMode == 'dark' ? 'dark' : (_siteColorMode == 'light' ? 'light' : 'auto') }}">
 <head>
@@ -74,7 +75,7 @@
     {% block head %}{% endblock %}
     {{ head() }}
 </head>
-<body class="d-flex flex-column min-vh-100 {% block bodyClass %}{% endblock %}">
+<body class="d-flex flex-column min-vh-100 {% block bodyClass %}{% endblock %}" data-wb-theme="{{ _siteColorTheme }}">
 {{ beginBody() }}
 
 {# ── Navbar ── #}

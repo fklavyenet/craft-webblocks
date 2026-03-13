@@ -589,16 +589,11 @@ class InstallService extends Component
         foreach ($this->loadComponents('globalsets') as $def) {
             $handle = $def['handle'];
 
-            // Check if already exists (use primary site to avoid console-context current-site issues)
+            // Use primary site to avoid console-context current-site issues
             $primarySiteId = Craft::$app->getSites()->getPrimarySite()->id;
-            if (Craft::$app->getGlobals()->getSetByHandle($handle, $primarySiteId)) {
-                continue;
-            }
+            $existing = Craft::$app->getGlobals()->getSetByHandle($handle, $primarySiteId);
 
-            $globalSet = new GlobalSet();
-            $globalSet->name = $def['name'];
-            $globalSet->handle = $handle;
-
+            // Always (re)build the field layout so new fields are added on reinstall
             $layout = new FieldLayout(['type' => GlobalSet::class]);
             $tab = new FieldLayoutTab(['name' => 'Content']);
             $tab->setLayout($layout);
@@ -614,10 +609,22 @@ class InstallService extends Component
                 $tab->setElements($elements);
             }
             $layout->setTabs([$tab]);
-            $globalSet->setFieldLayout($layout);
 
-            if (!Craft::$app->getGlobals()->saveSet($globalSet)) {
-                Craft::error("Failed to save global set '$handle': " . implode(', ', $globalSet->getFirstErrors()), __METHOD__);
+            if ($existing) {
+                // Update field layout on existing global set
+                $existing->setFieldLayout($layout);
+                if (!Craft::$app->getGlobals()->saveSet($existing)) {
+                    Craft::error("Failed to update global set '$handle': " . implode(', ', $existing->getFirstErrors()), __METHOD__);
+                }
+            } else {
+                $globalSet = new GlobalSet();
+                $globalSet->name = $def['name'];
+                $globalSet->handle = $handle;
+                $globalSet->setFieldLayout($layout);
+
+                if (!Craft::$app->getGlobals()->saveSet($globalSet)) {
+                    Craft::error("Failed to save global set '$handle': " . implode(', ', $globalSet->getFirstErrors()), __METHOD__);
+                }
             }
         }
     }

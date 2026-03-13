@@ -1,5 +1,5 @@
 <div class="wb-block mb-4">
-<a href="{{ item.wbButtonUrl }}" class="btn{% if item.wbButtonSize %} btn-{{ item.wbButtonSize }}{% endif %}" style="{% if item.wbButtonColor %}background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }}; color: #fff;{% endif %}" {% if item.wbButtonTarget %}target="{{ item.wbButtonTarget }}"{% endif %}>
+<a href="{{ item.wbButtonUrl }}" class="btn{% if not item.wbButtonColor %} wb-theme-btn btn-primary{% endif %}{% if item.wbButtonSize %} btn-{{ item.wbButtonSize }}{% endif %}" style="{% if item.wbButtonColor %}background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }}; color: #fff;{% endif %}" {% if item.wbButtonTarget %}target="{{ item.wbButtonTarget }}"{% endif %}>
     {{ item.wbTitle }}
 </a>
 </div>

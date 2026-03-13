@@ -17,6 +17,7 @@ use craft\web\twig\variables\CraftVariable;
 use craft\web\UrlManager;
 use craft\web\View;
 use fklavyenet\webblocks\assetbundles\WebBlocksAsset;
+use fklavyenet\webblocks\assetbundles\WebBlocksCpAsset;
 use fklavyenet\webblocks\elementactions\ApproveComment;
 use fklavyenet\webblocks\elementactions\RejectComment;
 use fklavyenet\webblocks\elementactions\MarkSubmissionRead;
@@ -64,6 +65,7 @@ class WebBlocks extends BasePlugin
         $this->_registerCpTemplateRoots();
         $this->_registerSiteUrlRules();
         $this->_registerAssetBundle();
+        $this->_registerCpAssetBundle();
         $this->_registerCommentActions();
         $this->_registerSubmissionActions();
         $this->_registerCommentTableAttribute();
@@ -491,6 +493,22 @@ JS;
                 $event->metadata[\Craft::t('app', 'Created at')] = false; // placeholder — Craft overwrites value
                 $event->metadata[\Craft::t('app', 'Updated at')] = false; // placeholder — Craft overwrites value
                 $event->metadata[\Craft::t('webblocks', 'Approved')] = $switchHtml;
+            }
+        );
+    }
+
+    private function _registerCpAssetBundle(): void
+    {
+        // Only register on CP requests (not console)
+        if (!\Craft::$app->getRequest()->getIsCpRequest()) {
+            return;
+        }
+
+        Event::on(
+            View::class,
+            View::EVENT_BEFORE_RENDER_PAGE_TEMPLATE,
+            function () {
+                \Craft::$app->getView()->registerAssetBundle(WebBlocksCpAsset::class);
             }
         );
     }

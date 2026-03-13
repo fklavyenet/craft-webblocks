@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.7.0 - 2026-03-13
+
+### Added
+- **CSS Color Theme system** — a `wbColorTheme` dropdown (Default / Dark / Warm / Cool / Forest / Ocean / Custom) on `wbSiteConfig`. The selected value is written as `data-wb-theme="…"` on the `<body>` element; all theme styling is handled via CSS `[data-wb-theme]` selectors in `wb-blocks.css` targeting stable helper classes (`.wb-footer`, `.wb-theme-btn`, `.wb-theme-badge`, `.wb-theme-alert`) — no per-field values stored.
+- `WebBlocksCpAsset` — dedicated CP-only asset bundle (`wb-cp.js`) ready for future CP enhancements.
+- `InstallService::installGlobalSets()` now updates the field layout of existing global sets on reinstall instead of skipping them — prevents new fields from being invisible in the CP after a wipe+reinstall cycle.
+
+### Changed
+- `wbSiteConfig` global set reduced to four fields: `wbColorMode`, `wbColorTheme`, `wbSiteNavbar`, `wbSiteFooter`. The four deprecated variant fields (`wbFooterBg`, `wbDefaultButtonVariant`, `wbDefaultBadgeVariant`, `wbDefaultAlertVariant`) have been removed in favour of the CSS theme approach.
+- `footer.twig`, `wbButton.twig`, `wbCallToAction.twig`, `wbBadge.twig`, `wbAlert.twig` — all global set lookups removed; templates now emit stable helper CSS classes (`wb-footer`, `wb-theme-btn`, `wb-theme-badge`, `wb-theme-alert`) that the theme stylesheet targets.
+- `wb-cp.js` gutted of auto-fill logic (no longer needed); kept as a placeholder for future CP scripting.
+
 ## 1.6.2 - 2026-03-13
 
 ### Fixed

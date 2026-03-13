@@ -39,6 +39,7 @@ class WebBlocks extends BasePlugin
 {
     public string $schemaVersion = '1.0.0';
     public bool $hasCpSettings = true;
+    public bool $hasCpSection = true;
 
     public static function config(): array
     {
@@ -52,6 +53,7 @@ class WebBlocks extends BasePlugin
                 'seed' => \fklavyenet\webblocks\console\SeedController::class,
                 'form'    => \fklavyenet\webblocks\controllers\FormController::class,
                 'comment' => \fklavyenet\webblocks\controllers\CommentController::class,
+                'help'    => \fklavyenet\webblocks\controllers\HelpController::class,
             ],
         ];
     }
@@ -64,6 +66,7 @@ class WebBlocks extends BasePlugin
         $this->_registerSiteTemplateRoots();
         $this->_registerCpTemplateRoots();
         $this->_registerSiteUrlRules();
+        $this->_registerCpUrlRules();
         $this->_registerAssetBundle();
         $this->_registerCpAssetBundle();
         $this->_registerCommentActions();
@@ -82,6 +85,23 @@ class WebBlocks extends BasePlugin
         return \Craft::$app->getView()->renderTemplate('webblocks-cp/_settings', [
             'settings' => $this->getSettings(),
         ]);
+    }
+
+    public function getCpNavItem(): ?array
+    {
+        $item = parent::getCpNavItem();
+        $item['url'] = 'webblocks/help';
+        $item['subnav'] = [
+            'settings' => [
+                'label' => \Craft::t('app', 'Settings'),
+                'url'   => 'settings/plugins/webblocks',
+            ],
+            'help' => [
+                'label' => \Craft::t('webblocks', 'Help'),
+                'url'   => 'webblocks/help',
+            ],
+        ];
+        return $item;
     }
 
     protected function afterInstall(): void
@@ -292,6 +312,17 @@ class WebBlocks extends BasePlugin
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['sitemap.xml'] = ['template' => 'wb/sitemap'];
+            }
+        );
+    }
+
+    private function _registerCpUrlRules(): void
+    {
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_CP_URL_RULES,
+            function (RegisterUrlRulesEvent $event) {
+                $event->rules['webblocks/help'] = 'webblocks/help/index';
             }
         );
     }

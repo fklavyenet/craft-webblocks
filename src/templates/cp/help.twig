@@ -1,0 +1,165 @@
+{% extends "_layouts/cp" %}
+
+{% set title = "WebBlocks — Help" %}
+{% set selectedSubnavItem = "help" %}
+
+{% block content %}
+<div class="readable" style="max-width: 860px;">
+
+    {# ── Intro ─────────────────────────────────────────────────────────────── #}
+    <p class="light" style="font-size:1.1em; margin-bottom: 2rem;">
+        WebBlocks is a portable website-building toolkit for Craft CMS 5.
+        Install it, run the seeder, and get a fully working multi-language
+        business site — complete with pages, blog, forms, SEO, cookie consent,
+        and a colour theme system — in minutes.
+    </p>
+
+    {# ── Quick-start ───────────────────────────────────────────────────────── #}
+    <h2>Quick Start</h2>
+    <ol>
+        <li>Install the plugin via the Plugin Store or Composer.</li>
+        <li>Run the seed command from your project root:<br>
+            <code>php craft webblocks/seed</code></li>
+        <li>Visit <strong>Globals → Site Config</strong> to set the site name, navbar, footer links, and colour theme.</li>
+        <li>Edit, duplicate, or delete the seeded entries in <strong>Entries</strong> as needed.</li>
+    </ol>
+
+    {# ── Content blocks ────────────────────────────────────────────────────── #}
+    <h2>Content Blocks (<code>wbBlocks</code> matrix)</h2>
+    <p>Every page uses a <code>wbBlocks</code> matrix field. Add, remove, and reorder blocks freely.</p>
+
+    <table class="data fullwidth">
+        <thead>
+            <tr><th>Block</th><th>What it renders</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><code>wbHero</code></td><td>Full-width hero banner with optional overlay, headline, text, and CTA button.</td></tr>
+            <tr><td><code>wbFullscreenImage</code></td><td>Auto-playing fullscreen slider with dot pagination and caption alignment controls.</td></tr>
+            <tr><td><code>wbCarousel</code></td><td>Bootstrap carousel with optional captions and frosted-glass overlay.</td></tr>
+            <tr><td><code>wbGallery</code></td><td>Masonry photo gallery with a built-in lightbox.</td></tr>
+            <tr><td><code>wbCard</code></td><td>Bootstrap card grid — title, image, text, optional link button.</td></tr>
+            <tr><td><code>wbLeftRight</code></td><td>Two-column image + text layout with swappable sides.</td></tr>
+            <tr><td><code>wbColumns</code></td><td>2/3/4-column layout; each column holds its own full <code>wbBlocks</code> stack (recursive nesting).</td></tr>
+            <tr><td><code>wbTextBlock</code></td><td>Rich-text prose with optional heading.</td></tr>
+            <tr><td><code>wbHeading</code></td><td>Standalone heading (h1–h6) with alignment and colour variant.</td></tr>
+            <tr><td><code>wbCallToAction</code></td><td>Centred CTA section with heading, text, and button.</td></tr>
+            <tr><td><code>wbForm</code></td><td>Contact/enquiry form — stores submissions, sends admin email, optional visitor confirmation email with reCAPTCHA support.</td></tr>
+            <tr><td><code>wbAccordion</code></td><td>Bootstrap accordion / FAQ block.</td></tr>
+            <tr><td><code>wbTabs</code></td><td>Bootstrap tabbed content panels.</td></tr>
+            <tr><td><code>wbTable</code></td><td>Data table with configurable column headers.</td></tr>
+            <tr><td><code>wbListGroup</code></td><td>Bootstrap list group — plain, linked, or with badges.</td></tr>
+            <tr><td><code>wbVideoEmbed</code></td><td>Responsive YouTube / Vimeo embed.</td></tr>
+            <tr><td><code>wbContactDetails</code></td><td>Address, phone, email, and map embed.</td></tr>
+            <tr><td><code>wbAlert</code></td><td>Bootstrap alert box — dismissible, with theme-aware default colour.</td></tr>
+            <tr><td><code>wbBadge</code></td><td>Inline Bootstrap badge — pill option, theme-aware default colour.</td></tr>
+            <tr><td><code>wbButtonGroup</code></td><td>Horizontal or vertical Bootstrap button group.</td></tr>
+            <tr><td><code>wbModal</code></td><td>Bootstrap modal dialog triggered by a button.</td></tr>
+            <tr><td><code>wbOffcanvas</code></td><td>Bootstrap offcanvas panel (drawer) with nested blocks.</td></tr>
+            <tr><td><code>wbPopover</code></td><td>Bootstrap popover tooltip on a button.</td></tr>
+            <tr><td><code>wbProgressBar</code></td><td>Bootstrap progress bar with label and colour variant.</td></tr>
+            <tr><td><code>wbSpinner</code></td><td>Bootstrap loading spinner.</td></tr>
+            <tr><td><code>wbToast</code></td><td>Bootstrap toast notification (always visible, no JS trigger required).</td></tr>
+            <tr><td><code>wbPagination</code></td><td>Bootstrap pagination demo block.</td></tr>
+            <tr><td><code>wbNavbar</code></td><td>Sticky top navigation bar — auto-populated from entries marked "Show in nav".</td></tr>
+            <tr><td><code>wbSpacing</code></td><td>Vertical whitespace spacer.</td></tr>
+        </tbody>
+    </table>
+
+    {# ── Global sets ───────────────────────────────────────────────────────── #}
+    <h2>Global Sets</h2>
+
+    <h3><code>wbSiteConfig</code></h3>
+    <p>Master configuration for the site: navbar block, footer block, colour mode (light/dark/auto), and colour theme.</p>
+    <table class="data fullwidth">
+        <thead><tr><th>Field</th><th>Purpose</th></tr></thead>
+        <tbody>
+            <tr><td><code>wbColorMode</code></td><td>Bootstrap colour mode — <code>light</code>, <code>dark</code>, or <code>auto</code> (follows OS preference).</td></tr>
+            <tr><td><code>wbColorTheme</code></td><td>Colour theme — Default / Dark / Warm / Cool / Forest / Ocean / Custom. Sets <code>data-wb-theme</code> on <code>&lt;body&gt;</code>; all theming is handled by CSS.</td></tr>
+            <tr><td><code>wbSiteNavbar</code></td><td>A single <code>wbNavbar</code> block used site-wide.</td></tr>
+            <tr><td><code>wbSiteFooter</code></td><td>A single footer block used site-wide.</td></tr>
+        </tbody>
+    </table>
+
+    <h3><code>wbCookieSettings</code></h3>
+    <p>Controls the cookie consent banner. Enable the banner, set the title, body text, and privacy URL. Four categories: <strong>Necessary</strong> (always on), Analytics, Marketing, Preferences. Consent is stored in <code>localStorage</code> as <code>wb_cookie_consent</code>; the <code>window.wbCookieConsent</code> object is published for third-party scripts.</p>
+
+    {# ── Sections ──────────────────────────────────────────────────────────── #}
+    <h2>Sections &amp; Entry Types</h2>
+    <table class="data fullwidth">
+        <thead><tr><th>Section</th><th>Type</th><th>Purpose</th></tr></thead>
+        <tbody>
+            <tr><td><code>wbHome</code></td><td>Single</td><td>Homepage — full <code>wbBlocks</code> stack.</td></tr>
+            <tr><td><code>wbPage</code></td><td>Structure</td><td>General-purpose pages with <code>wbBlocks</code>.</td></tr>
+            <tr><td><code>wbAbout</code></td><td>Structure</td><td>About / team pages.</td></tr>
+            <tr><td><code>wbServices</code></td><td>Structure</td><td>Services / products pages.</td></tr>
+            <tr><td><code>wbBlogIndex</code></td><td>Single</td><td>Blog listing page with pagination.</td></tr>
+            <tr><td><code>wbBlog</code></td><td>Channel</td><td>Blog posts — featured image, categories, tags, comments.</td></tr>
+            <tr><td><code>wbComments</code></td><td>Channel</td><td>Blog comments (pending by default). Approve / Reject via CP element actions or the inline toggle on the edit page.</td></tr>
+            <tr><td><code>wbContact</code></td><td>Single</td><td>Contact page with a <code>wbForm</code> block.</td></tr>
+            <tr><td><code>wbSubmissions</code></td><td>Channel</td><td>Stores every form submission. Manage status (Unread / Read / Archived) via CP element actions.</td></tr>
+            <tr><td><code>wbSearch</code></td><td>Single</td><td>Site search — uses <code>craft.entries.search()</code>.</td></tr>
+            <tr><td><code>wbReferences</code></td><td>Channel</td><td>Client logos / references for a references block.</td></tr>
+        </tbody>
+    </table>
+
+    {# ── Forms ─────────────────────────────────────────────────────────────── #}
+    <h2>Forms &amp; Submissions</h2>
+    <ul>
+        <li>Add a <code>wbForm</code> block to any page. Fields are built in the CP — text, email, phone, textarea, select, checkbox, radio.</li>
+        <li>Each submission is stored in <strong>Entries → Submissions</strong> with the submitted data, originating form reference, and visitor email.</li>
+        <li>Admin notification email is sent immediately (Craft mail queue). Only fields with <strong>Include in admin email</strong> toggled on are included.</li>
+        <li>Visitor confirmation email is optional — enable it per form and set a subject and body template. Use <code>{FieldLabel}</code> placeholders in the body.</li>
+        <li>Honeypot spam protection is built in.</li>
+        <li>To enable Google reCAPTCHA, add your site and secret keys in <strong>Settings → Plugins → WebBlocks</strong>.</li>
+    </ul>
+
+    {# ── Blog comments ─────────────────────────────────────────────────────── #}
+    <h2>Blog Comments</h2>
+    <ul>
+        <li>Comments are submitted via the front end and stored in <strong>Entries → Comments</strong> with <code>enabled = false</code> (pending).</li>
+        <li>Approve or reject in bulk from the index using the element action menu, or use the <strong>Approved</strong> lightswitch on the individual comment edit page.</li>
+        <li>Only approved comments appear on the front end.</li>
+    </ul>
+
+    {# ── SEO ───────────────────────────────────────────────────────────────── #}
+    <h2>SEO</h2>
+    <p>Every entry type that powers a page has <code>wbSeoTitle</code> and <code>wbSeoDescription</code> fields. Leave them blank to fall back to the entry title and site name. The <code>&lt;head&gt;</code> partial outputs the correct <code>&lt;title&gt;</code>, <code>&lt;meta name="description"&gt;</code>, and Open Graph tags automatically.</p>
+
+    {# ── Colour themes ─────────────────────────────────────────────────────── #}
+    <h2>Colour Themes</h2>
+    <p>Select a theme in <strong>Globals → Site Config → Color Theme</strong>. The value is written as <code>data-wb-theme="…"</code> on <code>&lt;body&gt;</code> and all visual changes are driven by CSS rules in <code>wb-blocks.css</code>. No page rebuild is required — just save the global set.</p>
+    <table class="data fullwidth">
+        <thead><tr><th>Theme</th><th>Character</th></tr></thead>
+        <tbody>
+            <tr><td>Default</td><td>Bootstrap defaults — no overrides applied.</td></tr>
+            <tr><td>Dark</td><td>Dark footer, light buttons and badges.</td></tr>
+            <tr><td>Warm</td><td>Light background, warm amber/yellow accents.</td></tr>
+            <tr><td>Cool</td><td>Teal/info accents throughout.</td></tr>
+            <tr><td>Forest</td><td>Green success tones, subtle green footer.</td></tr>
+            <tr><td>Ocean</td><td>Blue primary tones, outline buttons on a blue footer.</td></tr>
+            <tr><td>Custom</td><td>No CSS overrides — apply your own styles freely.</td></tr>
+        </tbody>
+    </table>
+
+    {# ── Multi-language ────────────────────────────────────────────────────── #}
+    <h2>Multi-language</h2>
+    <p>WebBlocks seeds content in English, Turkish, and German when those sites exist in Craft. Add more sites in <strong>Settings → Sites</strong> and translate entries normally via the site switcher on each entry's edit page.</p>
+
+    {# ── Wipe & reseed ─────────────────────────────────────────────────────── #}
+    <h2>Wipe &amp; Reseed</h2>
+    <p>To reset all demo content and reinstall the full schema:</p>
+    <pre>php craft webblocks/wipe/all
+php craft plugin/install webblocks
+php craft webblocks/seed</pre>
+    <p class="warning">This is destructive — all existing WebBlocks content will be permanently deleted.</p>
+
+    {# ── Requirements ──────────────────────────────────────────────────────── #}
+    <h2>Requirements</h2>
+    <ul>
+        <li>Craft CMS 5.x</li>
+        <li>CKEditor plugin (installed automatically as a dependency)</li>
+        <li>Bootstrap 5.3 CDN (loaded from the default layout template — no npm required)</li>
+    </ul>
+
+</div>
+{% endblock %}

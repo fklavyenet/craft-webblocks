@@ -45,4 +45,12 @@ return [
     '1 result for "{query}"'               => '1 Ergebnis für „{query}"',
     '{total} results for "{query}"'        => '{total} Ergebnisse für „{query}"',
     'Search result pages'                  => 'Suchergebnisseiten',
+
+    // =========================================================================
+    // Comment moderation (CP)
+    // =========================================================================
+    'Approval Status'                                   => 'Genehmigungsstatus',
+    'Approved'                                          => 'Genehmigt',
+    'Pending'                                           => 'Ausstehend',
+    'Are you sure you want to reject this comment?'     => 'Möchten Sie diesen Kommentar wirklich ablehnen?',
 ];

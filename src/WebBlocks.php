@@ -409,11 +409,9 @@ class WebBlocks extends BasePlugin
                 }
 
                 $event->html = Cp::lightswitchHtml([
-                    'id'       => 'wbApprovalStatus-' . $entry->id,
-                    'name'     => 'enabled',
-                    'on'       => (bool) $entry->enabled,
-                    'onLabel'  => \Craft::t('webblocks', 'Approved'),
-                    'offLabel' => \Craft::t('webblocks', 'Pending'),
+                    'id'   => 'wbApprovalStatus-' . $entry->id,
+                    'name' => 'enabled',
+                    'on'   => (bool) $entry->enabled,
                 ]);
             }
         );
@@ -442,11 +440,9 @@ class WebBlocks extends BasePlugin
 
                 // Render the lightswitch HTML now (we are still in the request context)
                 $switchHtml = Cp::lightswitchHtml([
-                    'id'       => $switchId,
-                    'name'     => 'wbApproval',
-                    'on'       => $isApproved,
-                    'onLabel'  => \Craft::t('webblocks', 'Approved'),
-                    'offLabel' => \Craft::t('webblocks', 'Pending'),
+                    'id'   => $switchId,
+                    'name' => 'wbApproval',
+                    'on'   => $isApproved,
                 ]);
 
                 // Wire up toggle via Craft.sendActionRequest

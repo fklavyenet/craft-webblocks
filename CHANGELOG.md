@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.6.2 - 2026-03-13
+
+### Fixed
+- Comment approval lightswitch label ("Approved" / "Pending") did not translate when the CP language was changed to Turkish or German. `onLabel` and `offLabel` removed from `Cp::lightswitchHtml()` calls; the row label ("Approved") is now the sole visual indicator and is translated via `\Craft::t('webblocks', ...)`.
+- Added CP translation strings (`Approved`, `Pending`, `Approval Status`, rejection confirm dialog) to `src/translations/{en,tr,de}/webblocks.php` so all comment moderation UI respects the active CP language.
+
 ## 1.6.1 - 2026-03-13
 
 ### Added

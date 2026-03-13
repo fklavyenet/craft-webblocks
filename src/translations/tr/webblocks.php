@@ -45,4 +45,12 @@ return [
     '1 result for "{query}"'               => '"{query}" için 1 sonuç',
     '{total} results for "{query}"'        => '"{query}" için {total} sonuç',
     'Search result pages'                  => 'Arama sonucu sayfaları',
+
+    // =========================================================================
+    // Comment moderation (CP)
+    // =========================================================================
+    'Approval Status'                                   => 'Onay Durumu',
+    'Approved'                                          => 'Onaylandı',
+    'Pending'                                           => 'Beklemede',
+    'Are you sure you want to reject this comment?'     => 'Bu yorumu reddetmek istediğinizden emin misiniz?',
 ];

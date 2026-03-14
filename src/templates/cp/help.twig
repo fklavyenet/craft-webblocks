@@ -1,6 +1,6 @@
 {% extends "_layouts/cp" %}
 
-{% set title = "WebBlocks — Help" %}
+{% set title = "WebBlocks — " ~ "Help"|t('webblocks') %}
 {% set selectedSubnavItem = "help" %}
 
 {% block content %}
@@ -8,159 +8,174 @@
 
     {# ── Intro ─────────────────────────────────────────────────────────────── #}
     <p class="light" style="font-size:1.1em; margin-bottom: 2rem;">
-        WebBlocks is a portable website-building toolkit for Craft CMS 5.
-        Install it, run the seeder, and get a fully working multi-language
-        business site — complete with pages, blog, forms, SEO, cookie consent,
-        and a colour theme system — in minutes.
+        {{ "WebBlocks is a portable website-building toolkit for Craft CMS 5. Install it, run the seeder, and get a fully working multi-language business site — complete with pages, blog, forms, SEO, cookie consent, and a colour theme system — in minutes."|t('webblocks') }}
     </p>
 
     {# ── Quick-start ───────────────────────────────────────────────────────── #}
-    <h2>Quick Start</h2>
+    <h2>{{ "Quick Start"|t('webblocks') }}</h2>
     <ol>
-        <li>Install the plugin via the Plugin Store or Composer.</li>
-        <li>Run the seed command from your project root:<br>
+        <li>{{ "Install the plugin via the Plugin Store or Composer."|t('webblocks') }}</li>
+        <li>{{ "Run the seed command from your project root:"|t('webblocks') }}<br>
             <code>php craft webblocks/seed</code></li>
-        <li>Visit <strong>Globals → Site Config</strong> to set the site name, navbar, footer links, and colour theme.</li>
-        <li>Edit, duplicate, or delete the seeded entries in <strong>Entries</strong> as needed.</li>
+        <li>{{ "Visit %globals% to set the site name, navbar, footer links, and colour theme."|t('webblocks', { '%globals%': '<strong>Globals → Site Config</strong>' })|raw }}</li>
+        <li>{{ "Edit, duplicate, or delete the seeded entries in %entries% as needed."|t('webblocks', { '%entries%': '<strong>Entries</strong>' })|raw }}</li>
     </ol>
 
     {# ── Content blocks ────────────────────────────────────────────────────── #}
-    <h2>Content Blocks (<code>wbBlocks</code> matrix)</h2>
-    <p>Every page uses a <code>wbBlocks</code> matrix field. Add, remove, and reorder blocks freely.</p>
+    <h2>{{ "Content Blocks (%field% matrix)"|t('webblocks', { '%field%': '<code>wbBlocks</code>' })|raw }}</h2>
+    <p>{{ "Every page uses a %field% matrix field. Add, remove, and reorder blocks freely."|t('webblocks', { '%field%': '<code>wbBlocks</code>' })|raw }}</p>
 
     <table class="data fullwidth">
         <thead>
-            <tr><th>Block</th><th>What it renders</th></tr>
+            <tr><th>{{ "Block"|t('webblocks') }}</th><th>{{ "What it renders"|t('webblocks') }}</th></tr>
         </thead>
         <tbody>
-            <tr><td><code>wbHero</code></td><td>Full-width hero banner with optional overlay, headline, text, and CTA button.</td></tr>
-            <tr><td><code>wbFullscreenImage</code></td><td>Auto-playing fullscreen slider with dot pagination and caption alignment controls.</td></tr>
-            <tr><td><code>wbCarousel</code></td><td>Bootstrap carousel with optional captions and frosted-glass overlay.</td></tr>
-            <tr><td><code>wbGallery</code></td><td>Masonry photo gallery with a built-in lightbox.</td></tr>
-            <tr><td><code>wbCard</code></td><td>Bootstrap card grid — title, image, text, optional link button.</td></tr>
-            <tr><td><code>wbLeftRight</code></td><td>Two-column image + text layout with swappable sides.</td></tr>
-            <tr><td><code>wbColumns</code></td><td>2/3/4-column layout; each column holds its own full <code>wbBlocks</code> stack (recursive nesting).</td></tr>
-            <tr><td><code>wbTextBlock</code></td><td>Rich-text prose with optional heading.</td></tr>
-            <tr><td><code>wbHeading</code></td><td>Standalone heading (h1–h6) with alignment and colour variant.</td></tr>
-            <tr><td><code>wbCallToAction</code></td><td>Centred CTA section with heading, text, and button.</td></tr>
-            <tr><td><code>wbForm</code></td><td>Contact/enquiry form — stores submissions, sends admin email, optional visitor confirmation email with reCAPTCHA support.</td></tr>
-            <tr><td><code>wbAccordion</code></td><td>Bootstrap accordion / FAQ block.</td></tr>
-            <tr><td><code>wbTabs</code></td><td>Bootstrap tabbed content panels.</td></tr>
-            <tr><td><code>wbTable</code></td><td>Data table with configurable column headers.</td></tr>
-            <tr><td><code>wbListGroup</code></td><td>Bootstrap list group — plain, linked, or with badges.</td></tr>
-            <tr><td><code>wbVideoEmbed</code></td><td>Responsive YouTube / Vimeo embed.</td></tr>
-            <tr><td><code>wbContactDetails</code></td><td>Address, phone, email, and map embed.</td></tr>
-            <tr><td><code>wbAlert</code></td><td>Bootstrap alert box — dismissible, with theme-aware default colour.</td></tr>
-            <tr><td><code>wbBadge</code></td><td>Inline Bootstrap badge — pill option, theme-aware default colour.</td></tr>
-            <tr><td><code>wbButtonGroup</code></td><td>Horizontal or vertical Bootstrap button group.</td></tr>
-            <tr><td><code>wbModal</code></td><td>Bootstrap modal dialog triggered by a button.</td></tr>
-            <tr><td><code>wbOffcanvas</code></td><td>Bootstrap offcanvas panel (drawer) with nested blocks.</td></tr>
-            <tr><td><code>wbPopover</code></td><td>Bootstrap popover tooltip on a button.</td></tr>
-            <tr><td><code>wbProgressBar</code></td><td>Bootstrap progress bar with label and colour variant.</td></tr>
-            <tr><td><code>wbSpinner</code></td><td>Bootstrap loading spinner.</td></tr>
-            <tr><td><code>wbToast</code></td><td>Bootstrap toast notification (always visible, no JS trigger required).</td></tr>
-            <tr><td><code>wbPagination</code></td><td>Bootstrap pagination demo block.</td></tr>
-            <tr><td><code>wbNavbar</code></td><td>Sticky top navigation bar — auto-populated from entries marked "Show in nav".</td></tr>
-            <tr><td><code>wbSpacing</code></td><td>Vertical whitespace spacer.</td></tr>
+            <tr><td><code>wbHero</code></td><td>{{ "Full-width hero banner with optional overlay, headline, text, and CTA button."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbFullscreenImage</code></td><td>{{ "Auto-playing fullscreen slider with dot pagination and caption alignment controls."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbCarousel</code></td><td>{{ "Bootstrap carousel with optional captions and frosted-glass overlay."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbGallery</code></td><td>{{ "Masonry photo gallery with a built-in lightbox."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbCard</code></td><td>{{ "Bootstrap card grid — title, image, text, optional link button."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbLeftRight</code></td><td>{{ "Two-column image + text layout with swappable sides."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbColumns</code></td><td>{{ "2/3/4-column layout; each column holds its own full %field% stack (recursive nesting)."|t('webblocks', { '%field%': '<code>wbBlocks</code>' })|raw }}</td></tr>
+            <tr><td><code>wbTextBlock</code></td><td>{{ "Rich-text prose with optional heading."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbHeading</code></td><td>{{ "Standalone heading (h1–h6) with alignment and colour variant."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbCallToAction</code></td><td>{{ "Centred CTA section with heading, text, and button."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbForm</code></td><td>{{ "Contact/enquiry form — stores submissions, sends admin email, optional visitor confirmation email."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbAccordion</code></td><td>{{ "Bootstrap accordion / FAQ block."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbTabs</code></td><td>{{ "Bootstrap tabbed content panels."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbTable</code></td><td>{{ "Data table with configurable column headers."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbListGroup</code></td><td>{{ "Bootstrap list group — plain, linked, or with badges."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbVideoEmbed</code></td><td>{{ "Responsive YouTube / Vimeo embed."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbContactDetails</code></td><td>{{ "Address, phone, email, and map embed."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbAlert</code></td><td>{{ "Bootstrap alert box — dismissible, with theme-aware default colour."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbBadge</code></td><td>{{ "Inline Bootstrap badge — pill option, theme-aware default colour."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbButtonGroup</code></td><td>{{ "Horizontal or vertical Bootstrap button group."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbModal</code></td><td>{{ "Bootstrap modal dialog triggered by a button."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbOffcanvas</code></td><td>{{ "Bootstrap offcanvas panel (drawer) with nested blocks."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbPopover</code></td><td>{{ "Bootstrap popover tooltip on a button."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbProgressBar</code></td><td>{{ "Bootstrap progress bar with label and colour variant."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbSpinner</code></td><td>{{ "Bootstrap loading spinner."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbToast</code></td><td>{{ "Bootstrap toast notification (always visible, no JS trigger required)."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbPagination</code></td><td>{{ "Bootstrap pagination demo block."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbNavbar</code></td><td>{{ "Sticky top navigation bar — auto-populated from entries marked 'Show in nav'."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbSpacing</code></td><td>{{ "Vertical whitespace spacer."|t('webblocks') }}</td></tr>
         </tbody>
     </table>
 
     {# ── Global sets ───────────────────────────────────────────────────────── #}
-    <h2>Global Sets</h2>
+    <h2>{{ "Global Sets"|t('webblocks') }}</h2>
 
     <h3><code>wbSiteConfig</code></h3>
-    <p>Master configuration for the site: navbar block, footer block, colour mode (light/dark/auto), and colour theme.</p>
+    <p>{{ "Master configuration for the site: navbar block, footer block, colour mode (light/dark/auto), and colour theme."|t('webblocks') }}</p>
     <table class="data fullwidth">
-        <thead><tr><th>Field</th><th>Purpose</th></tr></thead>
+        <thead><tr><th>{{ "Field"|t('webblocks') }}</th><th>{{ "Purpose"|t('webblocks') }}</th></tr></thead>
         <tbody>
-            <tr><td><code>wbColorMode</code></td><td>Bootstrap colour mode — <code>light</code>, <code>dark</code>, or <code>auto</code> (follows OS preference).</td></tr>
-            <tr><td><code>wbColorTheme</code></td><td>Colour theme — Default / Dark / Warm / Cool / Forest / Ocean / Custom. Sets <code>data-wb-theme</code> on <code>&lt;body&gt;</code>; all theming is handled by CSS.</td></tr>
-            <tr><td><code>wbSiteNavbar</code></td><td>A single <code>wbNavbar</code> block used site-wide.</td></tr>
-            <tr><td><code>wbSiteFooter</code></td><td>A single footer block used site-wide.</td></tr>
+            <tr><td><code>wbColorMode</code></td><td>{{ "Bootstrap colour mode — %light%, %dark%, or %auto% (follows OS preference)."|t('webblocks', { '%light%': '<code>light</code>', '%dark%': '<code>dark</code>', '%auto%': '<code>auto</code>' })|raw }}</td></tr>
+            <tr><td><code>wbColorTheme</code></td><td>{{ "Colour theme — Default / Dark / Warm / Cool / Forest / Ocean / Custom. Sets %attr% on %tag%; all theming is handled by CSS."|t('webblocks', { '%attr%': '<code>data-wb-theme</code>', '%tag%': '<code>&lt;body&gt;</code>' })|raw }}</td></tr>
+            <tr><td><code>wbSiteNavbar</code></td><td>{{ "A single wbNavbar block used site-wide."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbSiteFooter</code></td><td>{{ "A single footer block used site-wide."|t('webblocks') }}</td></tr>
         </tbody>
     </table>
 
     <h3><code>wbCookieSettings</code></h3>
-    <p>Controls the cookie consent banner. Enable the banner, set the title, body text, and privacy URL. Four categories: <strong>Necessary</strong> (always on), Analytics, Marketing, Preferences. Consent is stored in <code>localStorage</code> as <code>wb_cookie_consent</code>; the <code>window.wbCookieConsent</code> object is published for third-party scripts.</p>
+    <p>{{ "Controls the cookie consent banner. Enable the banner, set the title, body text, and privacy URL. Four categories: %necessary% (always on), Analytics, Marketing, Preferences. Consent is stored in %storage% as %key%; the %obj% object is published for third-party scripts."|t('webblocks', {
+        '%necessary%': '<strong>' ~ "Necessary"|t('webblocks') ~ '</strong>',
+        '%storage%': '<code>localStorage</code>',
+        '%key%': '<code>wb_cookie_consent</code>',
+        '%obj%': '<code>window.wbCookieConsent</code>'
+    })|raw }}</p>
 
     {# ── Sections ──────────────────────────────────────────────────────────── #}
-    <h2>Sections &amp; Entry Types</h2>
+    <h2>{{ "Sections & Entry Types"|t('webblocks') }}</h2>
     <table class="data fullwidth">
-        <thead><tr><th>Section</th><th>Type</th><th>Purpose</th></tr></thead>
+        <thead><tr><th>{{ "Section"|t('webblocks') }}</th><th>{{ "Type"|t('webblocks') }}</th><th>{{ "Purpose"|t('webblocks') }}</th></tr></thead>
         <tbody>
-            <tr><td><code>wbHome</code></td><td>Single</td><td>Homepage — full <code>wbBlocks</code> stack.</td></tr>
-            <tr><td><code>wbPage</code></td><td>Structure</td><td>General-purpose pages with <code>wbBlocks</code>.</td></tr>
-            <tr><td><code>wbAbout</code></td><td>Structure</td><td>About / team pages.</td></tr>
-            <tr><td><code>wbServices</code></td><td>Structure</td><td>Services / products pages.</td></tr>
-            <tr><td><code>wbBlogIndex</code></td><td>Single</td><td>Blog listing page with pagination.</td></tr>
-            <tr><td><code>wbBlog</code></td><td>Channel</td><td>Blog posts — featured image, categories, tags, comments.</td></tr>
-            <tr><td><code>wbComments</code></td><td>Channel</td><td>Blog comments (pending by default). Approve / Reject via CP element actions or the inline toggle on the edit page.</td></tr>
-            <tr><td><code>wbContact</code></td><td>Single</td><td>Contact page with a <code>wbForm</code> block.</td></tr>
-            <tr><td><code>wbSubmissions</code></td><td>Channel</td><td>Stores every form submission. Manage status (Unread / Read / Archived) via CP element actions.</td></tr>
-            <tr><td><code>wbSearch</code></td><td>Single</td><td>Site search — uses <code>craft.entries.search()</code>.</td></tr>
-            <tr><td><code>wbReferences</code></td><td>Channel</td><td>Client logos / references for a references block.</td></tr>
+            <tr><td><code>wbHome</code></td><td>Single</td><td>{{ "Homepage — full wbBlocks stack."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbPage</code></td><td>Structure</td><td>{{ "General-purpose pages with wbBlocks."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbAbout</code></td><td>Structure</td><td>{{ "About / team pages."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbServices</code></td><td>Structure</td><td>{{ "Services / products pages."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbBlogIndex</code></td><td>Single</td><td>{{ "Blog listing page with pagination."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbBlog</code></td><td>Channel</td><td>{{ "Blog posts — featured image, categories, tags, comments."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbComments</code></td><td>Channel</td><td>{{ "Blog comments (pending by default). Approve / Reject via CP element actions or the inline toggle on the edit page."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbContact</code></td><td>Single</td><td>{{ "Contact page with a wbForm block."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbSubmissions</code></td><td>Channel</td><td>{{ "Stores every form submission. Manage status (Unread / Read / Archived) via CP element actions."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbSearch</code></td><td>Single</td><td>{{ "Site search — uses craft.entries.search()."|t('webblocks') }}</td></tr>
+            <tr><td><code>wbReferences</code></td><td>Channel</td><td>{{ "Client logos / references for a references block."|t('webblocks') }}</td></tr>
         </tbody>
     </table>
 
     {# ── Forms ─────────────────────────────────────────────────────────────── #}
-    <h2>Forms &amp; Submissions</h2>
+    <h2>{{ "Forms & Submissions"|t('webblocks') }}</h2>
     <ul>
-        <li>Add a <code>wbForm</code> block to any page. Fields are built in the CP — text, email, phone, textarea, select, checkbox, radio.</li>
-        <li>Each submission is stored in <strong>Entries → Submissions</strong> with the submitted data, originating form reference, and visitor email.</li>
-        <li>Admin notification email is sent immediately (Craft mail queue). Only fields with <strong>Include in admin email</strong> toggled on are included.</li>
-        <li>Visitor confirmation email is optional — enable it per form and set a subject and body template. Use <code>{FieldLabel}</code> placeholders in the body.</li>
-        <li>Honeypot spam protection is built in.</li>
-        <li>To enable Google reCAPTCHA, add your site and secret keys in <strong>Settings → Plugins → WebBlocks</strong>.</li>
+        <li>{{ "Add a wbForm block to any page. Fields are built in the CP — text, email, phone, textarea, select, checkbox, radio."|t('webblocks') }}</li>
+        <li>{{ "Each submission is stored in %path% with the submitted data, originating form reference, and visitor email."|t('webblocks', { '%path%': '<strong>Entries → Submissions</strong>' })|raw }}</li>
+        <li>{{ "Admin notification email is sent immediately (Craft mail queue). Only fields with %toggle% toggled on are included."|t('webblocks', { '%toggle%': '<strong>' ~ "Include in admin email"|t('webblocks') ~ '</strong>' })|raw }}</li>
+        <li>{{ "Visitor confirmation email is optional — enable it per form and set a subject and body template. Use %placeholder% placeholders in the body."|t('webblocks', { '%placeholder%': '<code>{FieldLabel}</code>' })|raw }}</li>
+        <li>{{ "Honeypot spam protection is built in."|t('webblocks') }}</li>
+        <li>{{ "To enable Google reCAPTCHA, add your site and secret keys in %path%."|t('webblocks', { '%path%': '<strong>Settings → Plugins → WebBlocks</strong>' })|raw }}</li>
     </ul>
 
     {# ── Blog comments ─────────────────────────────────────────────────────── #}
-    <h2>Blog Comments</h2>
+    <h2>{{ "Blog Comments"|t('webblocks') }}</h2>
     <ul>
-        <li>Comments are submitted via the front end and stored in <strong>Entries → Comments</strong> with <code>enabled = false</code> (pending).</li>
-        <li>Approve or reject in bulk from the index using the element action menu, or use the <strong>Approved</strong> lightswitch on the individual comment edit page.</li>
-        <li>Only approved comments appear on the front end.</li>
+        <li>{{ "Comments are submitted via the front end and stored in %path% with %status% (pending)."|t('webblocks', { '%path%': '<strong>Entries → Comments</strong>', '%status%': '<code>enabled = false</code>' })|raw }}</li>
+        <li>{{ "Approve or reject in bulk from the index using the element action menu, or use the %toggle% lightswitch on the individual comment edit page."|t('webblocks', { '%toggle%': '<strong>' ~ "Approved"|t('webblocks') ~ '</strong>' })|raw }}</li>
+        <li>{{ "Only approved comments appear on the front end."|t('webblocks') }}</li>
     </ul>
 
     {# ── SEO ───────────────────────────────────────────────────────────────── #}
-    <h2>SEO</h2>
-    <p>Every entry type that powers a page has <code>wbSeoTitle</code> and <code>wbSeoDescription</code> fields. Leave them blank to fall back to the entry title and site name. The <code>&lt;head&gt;</code> partial outputs the correct <code>&lt;title&gt;</code>, <code>&lt;meta name="description"&gt;</code>, and Open Graph tags automatically.</p>
+    <h2>{{ "SEO"|t('webblocks') }}</h2>
+    <p>{{ "Every entry type that powers a page has %seoTitle% and %seoDesc% fields. Leave them blank to fall back to the entry title and site name. The %head% partial outputs the correct %title%, %desc%, and Open Graph tags automatically."|t('webblocks', {
+        '%seoTitle%': '<code>wbSeoTitle</code>',
+        '%seoDesc%': '<code>wbSeoDescription</code>',
+        '%head%': '<code>&lt;head&gt;</code>',
+        '%title%': '<code>&lt;title&gt;</code>',
+        '%desc%': '<code>&lt;meta name="description"&gt;</code>'
+    })|raw }}</p>
 
     {# ── Colour themes ─────────────────────────────────────────────────────── #}
-    <h2>Colour Themes</h2>
-    <p>Select a theme in <strong>Globals → Site Config → Color Theme</strong>. WebBlocks automatically loads the corresponding <a href="https://bootswatch.com" target="_blank" rel="noopener">Bootswatch</a> CSS from CDN — every Bootstrap component (buttons, cards, navbar, badges, alerts, forms, typography) inherits the theme instantly. No rebuild required.</p>
+    <h2>{{ "Colour Themes"|t('webblocks') }}</h2>
+    <p>{{ "Select a theme in %path%. WebBlocks automatically loads the corresponding %bootswatch% CSS from CDN — every Bootstrap component (buttons, cards, navbar, badges, alerts, forms, typography) inherits the theme instantly. No rebuild required."|t('webblocks', {
+        '%path%': '<strong>Globals → Site Config → Color Theme</strong>',
+        '%bootswatch%': '<a href="https://bootswatch.com" target="_blank" rel="noopener">Bootswatch</a>'
+    })|raw }}</p>
     <table class="data fullwidth">
-        <thead><tr><th>Theme</th><th>Character</th></tr></thead>
+        <thead><tr><th>{{ "Theme"|t('webblocks') }}</th><th>{{ "Character"|t('webblocks') }}</th></tr></thead>
         <tbody>
-            <tr><td>Default</td><td>Bootstrap built-in styles — no overrides applied.</td></tr>
-            <tr><td>Flatly</td><td>Clean, flat design with a green primary accent. Light and professional.</td></tr>
-            <tr><td>Cerulean</td><td>Cool sky-blue primary. Light, airy, corporate feel.</td></tr>
-            <tr><td>Minty</td><td>Fresh mint-green accents. Light and friendly.</td></tr>
-            <tr><td>Lux</td><td>Refined serif typography with a premium, editorial look.</td></tr>
-            <tr><td>Darkly</td><td>Full dark background with light text. Modern dark-mode theme.</td></tr>
-            <tr><td>Slate</td><td>Muted dark-grey palette. Sophisticated and low-contrast.</td></tr>
-            <tr><td>Quartz</td><td>Vibrant gradients and glassmorphism. Bold and modern.</td></tr>
+            <tr><td>Default</td><td>{{ "Bootstrap built-in styles — no overrides applied."|t('webblocks') }}</td></tr>
+            <tr><td>Flatly</td><td>{{ "Clean, flat design with a green primary accent. Light and professional."|t('webblocks') }}</td></tr>
+            <tr><td>Cerulean</td><td>{{ "Cool sky-blue primary. Light, airy, corporate feel."|t('webblocks') }}</td></tr>
+            <tr><td>Minty</td><td>{{ "Fresh mint-green accents. Light and friendly."|t('webblocks') }}</td></tr>
+            <tr><td>Lux</td><td>{{ "Refined serif typography with a premium, editorial look."|t('webblocks') }}</td></tr>
+            <tr><td>Darkly</td><td>{{ "Full dark background with light text. Modern dark-mode theme."|t('webblocks') }}</td></tr>
+            <tr><td>Slate</td><td>{{ "Muted dark-grey palette. Sophisticated and low-contrast."|t('webblocks') }}</td></tr>
+            <tr><td>Quartz</td><td>{{ "Vibrant gradients and glassmorphism. Bold and modern."|t('webblocks') }}</td></tr>
         </tbody>
     </table>
-    <p>To apply custom styles on top of any theme, use <strong>Globals → Site Config → Custom CSS URL</strong> (external stylesheet) or <strong>Custom CSS</strong> (inline rules injected into <code>&lt;head&gt;</code>).</p>
+    <p>{{ "To apply custom styles on top of any theme, use %cssUrl% (external stylesheet) or %css% (inline rules injected into %head%)."|t('webblocks', {
+        '%cssUrl%': '<strong>Globals → Site Config → Custom CSS URL</strong>',
+        '%css%': '<strong>Custom CSS</strong>',
+        '%head%': '<code>&lt;head&gt;</code>'
+    })|raw }}</p>
 
     {# ── Multi-language ────────────────────────────────────────────────────── #}
-    <h2>Multi-language</h2>
-    <p>WebBlocks seeds content in English, Turkish, and German when those sites exist in Craft. Add more sites in <strong>Settings → Sites</strong> and translate entries normally via the site switcher on each entry's edit page.</p>
+    <h2>{{ "Multi-language"|t('webblocks') }}</h2>
+    <p>{{ "WebBlocks seeds content in English, Turkish, and German when those sites exist in Craft. Add more sites in %path% and translate entries normally via the site switcher on each entry's edit page."|t('webblocks', { '%path%': '<strong>Settings → Sites</strong>' })|raw }}</p>
 
     {# ── Wipe & reseed ─────────────────────────────────────────────────────── #}
-    <h2>Wipe &amp; Reseed</h2>
-    <p>To reset all demo content and reinstall the full schema:</p>
+    <h2>{{ "Wipe & Reseed"|t('webblocks') }}</h2>
+    <p>{{ "To reset all demo content and reinstall the full schema:"|t('webblocks') }}</p>
     <pre>php craft webblocks/wipe/all
 php craft plugin/install webblocks
 php craft webblocks/seed</pre>
-    <p class="warning">This is destructive — all existing WebBlocks content will be permanently deleted.</p>
+    <p class="warning">{{ "This is destructive — all existing WebBlocks content will be permanently deleted."|t('webblocks') }}</p>
 
     {# ── Requirements ──────────────────────────────────────────────────────── #}
-    <h2>Requirements</h2>
+    <h2>{{ "Requirements"|t('webblocks') }}</h2>
     <ul>
         <li>Craft CMS 5.x</li>
-        <li>CKEditor plugin (installed automatically as a dependency)</li>
-        <li>Bootstrap 5.3 CDN (loaded from the default layout template — no npm required)</li>
+        <li>{{ "CKEditor plugin (installed automatically as a dependency)"|t('webblocks') }}</li>
+        <li>{{ "Bootstrap 5.3 CDN (loaded from the default layout template — no npm required)"|t('webblocks') }}</li>
     </ul>
 
 </div>

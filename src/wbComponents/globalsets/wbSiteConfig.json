@@ -2,11 +2,11 @@
     "handle": "wbSiteConfig",
     "name": "WB Site Config",
     "fields": [
+        "wbSiteNavbar",
+        "wbSiteFooter",
         "wbColorMode",
         "wbColorTheme",
         "wbCustomCssUrl",
-        "wbCustomCss",
-        "wbSiteNavbar",
-        "wbSiteFooter"
+        "wbCustomCss"
     ]
 }

@@ -2,7 +2,10 @@
     "name": "Custom CSS URL",
     "handle": "wbCustomCssUrl",
     "instructions": "URL of an external stylesheet to load in <head>. Example: https://example.com/my-theme.css",
-    "type": "Url",
-    "typesettings": {},
+    "type": "PlainText",
+    "typesettings": {
+        "placeholder": "https://example.com/my-theme.css",
+        "uiMode": "normal"
+    },
     "translationMethod": "none"
 }

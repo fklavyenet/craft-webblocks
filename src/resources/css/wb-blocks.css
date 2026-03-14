@@ -5,6 +5,14 @@
    Bootstrap is loaded separately via CDN.
    ============================================================================= */
 
+/* ── Navbar ───────────────────────────────────────────────────────────────── */
+/* Bootstrap sticky-top uses z-index 1020 by default; some blocks (hero,
+   fullscreen image, carousel) use position:relative/absolute with their own
+   stacking contexts that can paint over the navbar. Force it higher. */
+.wb-navbar.sticky-top {
+    z-index: 1030;
+}
+
 /* ── Color mode toggle icons ─────────────────────────────────────────────── */
 .wb-theme-icon { display: none; }
 html[data-wb-mode="light"] .wb-theme-icon-light { display: inline; }

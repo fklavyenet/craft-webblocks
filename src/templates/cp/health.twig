@@ -1,0 +1,196 @@
+{% extends "_layouts/cp" %}
+
+{% set title = "WebBlocks — Component Health" %}
+{% set selectedSubnavItem = "health" %}
+
+{% set STATUS_OK             = 'ok' %}
+{% set STATUS_VERSION_BUMP   = 'version_bump' %}
+{% set STATUS_CHECKSUM_DRIFT = 'checksum_drift' %}
+{% set STATUS_NEW            = 'new' %}
+{% set STATUS_ORPHAN         = 'orphan' %}
+
+{% set s = report.summary %}
+{% set needsAction = s.needsAction ?? false %}
+
+{% block actionButton %}
+    {# Migrate button — only shown when migrations are pending #}
+    {% if s.version_bump > 0 or s.new > 0 %}
+        <form method="post" style="display:inline;">
+            {{ csrfInput() }}
+            <input type="hidden" name="action" value="webblocks/component-health/migrate">
+            <button type="submit" class="btn submit"
+                    onclick="return confirm('Apply all pending component migrations? This will modify the Craft schema.')">
+                {{ 'Run Migrations'|t('webblocks') }}
+            </button>
+        </form>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div style="max-width: 1100px;">
+
+    {# ── Summary badges ──────────────────────────────────────────────────── #}
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2rem;">
+        <div class="wb-health-pill wb-health-ok">
+            <strong>{{ s.ok }}</strong> OK
+        </div>
+        <div class="wb-health-pill {{ s.version_bump > 0 ? 'wb-health-warn' : 'wb-health-ok' }}">
+            <strong>{{ s.version_bump }}</strong> Version Bump
+        </div>
+        <div class="wb-health-pill {{ s.checksum_drift > 0 ? 'wb-health-drift' : 'wb-health-ok' }}">
+            <strong>{{ s.checksum_drift }}</strong> Checksum Drift
+        </div>
+        <div class="wb-health-pill {{ s.new > 0 ? 'wb-health-new' : 'wb-health-ok' }}">
+            <strong>{{ s.new }}</strong> New
+        </div>
+        <div class="wb-health-pill {{ s.orphan > 0 ? 'wb-health-error' : 'wb-health-ok' }}">
+            <strong>{{ s.orphan }}</strong> Orphan
+        </div>
+        <div class="wb-health-pill wb-health-muted">
+            <strong>{{ s.total }}</strong> Total
+        </div>
+    </div>
+
+    {# ── Action bar ──────────────────────────────────────────────────────── #}
+    <div style="display:flex; gap:0.75rem; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap;">
+
+        {# Dry-run #}
+        <form method="post" style="display:inline;">
+            {{ csrfInput() }}
+            <input type="hidden" name="action" value="webblocks/component-health/dry-run">
+            <button type="submit" class="btn">
+                {{ 'Dry Run'|t('webblocks') }}
+            </button>
+        </form>
+
+        {% if needsAction %}
+            <span style="color:var(--error-color, #cf1124); font-weight:600;">
+                Action required
+            </span>
+        {% else %}
+            <span style="color:var(--success-color, #17a34a); font-weight:600;">
+                All components up to date
+            </span>
+        {% endif %}
+    </div>
+
+    {# ── Issues table (components needing attention) ──────────────────────── #}
+    {% set issues = report.components | filter(c => c.status != STATUS_OK) %}
+
+    {% if issues | length > 0 %}
+        <h2 style="margin-bottom:0.75rem;">{{ 'Components Needing Attention'|t('webblocks') }} ({{ issues | length }})</h2>
+        <table class="data fullwidth">
+            <thead>
+                <tr>
+                    <th>{{ 'Type'|t('webblocks') }}</th>
+                    <th>{{ 'Handle'|t('webblocks') }}</th>
+                    <th>{{ 'JSON Version'|t('webblocks') }}</th>
+                    <th>{{ 'DB Version'|t('webblocks') }}</th>
+                    <th>{{ 'Status'|t('webblocks') }}</th>
+                    <th>{{ 'Message'|t('webblocks') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in issues %}
+                    <tr>
+                        <td><code>{{ row.type }}</code></td>
+                        <td><code>{{ row.handle }}</code></td>
+                        <td>{{ row.jsonVersion is not null ? 'v' ~ row.jsonVersion : '—' }}</td>
+                        <td>{{ row.dbVersion   is not null ? 'v' ~ row.dbVersion   : '—' }}</td>
+                        <td>
+                            {% if row.status == STATUS_VERSION_BUMP %}
+                                <span class="wb-health-badge wb-health-warn">Version Bump</span>
+                            {% elseif row.status == STATUS_CHECKSUM_DRIFT %}
+                                <span class="wb-health-badge wb-health-drift">Checksum Drift</span>
+                            {% elseif row.status == STATUS_NEW %}
+                                <span class="wb-health-badge wb-health-new">New</span>
+                            {% elseif row.status == STATUS_ORPHAN %}
+                                <span class="wb-health-badge wb-health-error">Orphan</span>
+                            {% else %}
+                                <span class="wb-health-badge wb-health-muted">{{ row.status }}</span>
+                            {% endif %}
+                        </td>
+                        <td style="color:#666; font-size:0.9em;">{{ row.message }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="success" style="margin-bottom:2rem;">
+            All {{ s.total }} components are installed and up to date.
+        </p>
+    {% endif %}
+
+    {# ── Full component table (collapsible) ──────────────────────────────── #}
+    <details style="margin-top:2rem;">
+        <summary style="cursor:pointer; font-weight:600; font-size:1em; margin-bottom:0.5rem;">
+            {{ 'All Components (%d)'|t('webblocks', { '%d': s.total }) }}
+        </summary>
+
+        <table class="data fullwidth" style="margin-top:0.75rem;">
+            <thead>
+                <tr>
+                    <th>{{ 'Type'|t('webblocks') }}</th>
+                    <th>{{ 'Handle'|t('webblocks') }}</th>
+                    <th>{{ 'JSON'|t('webblocks') }}</th>
+                    <th>{{ 'DB'|t('webblocks') }}</th>
+                    <th>{{ 'Status'|t('webblocks') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in report.components %}
+                    <tr>
+                        <td><code>{{ row.type }}</code></td>
+                        <td><code>{{ row.handle }}</code></td>
+                        <td>{{ row.jsonVersion is not null ? 'v' ~ row.jsonVersion : '—' }}</td>
+                        <td>{{ row.dbVersion   is not null ? 'v' ~ row.dbVersion   : '—' }}</td>
+                        <td>
+                            {% if row.status == STATUS_OK %}
+                                <span class="wb-health-badge wb-health-ok">OK</span>
+                            {% elseif row.status == STATUS_VERSION_BUMP %}
+                                <span class="wb-health-badge wb-health-warn">Version Bump</span>
+                            {% elseif row.status == STATUS_CHECKSUM_DRIFT %}
+                                <span class="wb-health-badge wb-health-drift">Checksum Drift</span>
+                            {% elseif row.status == STATUS_NEW %}
+                                <span class="wb-health-badge wb-health-new">New</span>
+                            {% elseif row.status == STATUS_ORPHAN %}
+                                <span class="wb-health-badge wb-health-error">Orphan</span>
+                            {% else %}
+                                <span class="wb-health-badge wb-health-muted">{{ row.status }}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </details>
+
+</div>
+
+{# ── Inline styles ────────────────────────────────────────────────────────── #}
+<style>
+.wb-health-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+.wb-health-badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 0.25rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.wb-health-ok    { background: #dcfce7; color: #14532d; }
+.wb-health-warn  { background: #fef9c3; color: #78350f; }
+.wb-health-drift { background: #ffedd5; color: #7c2d12; }
+.wb-health-new   { background: #dbeafe; color: #1e3a8a; }
+.wb-health-error { background: #fee2e2; color: #7f1d1d; }
+.wb-health-muted { background: #f3f4f6; color: #374151; }
+</style>
+{% endblock %}

@@ -96,6 +96,10 @@ class WebBlocks extends BasePlugin
                 'label' => \Craft::t('app', 'Settings'),
                 'url'   => 'webblocks/settings',
             ],
+            'health' => [
+                'label' => \Craft::t('webblocks', 'Component Health'),
+                'url'   => 'webblocks/health',
+            ],
             'help' => [
                 'label' => \Craft::t('webblocks', 'Help'),
                 'url'   => 'webblocks/help',
@@ -326,9 +330,12 @@ class WebBlocks extends BasePlugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['webblocks']           = 'webblocks/settings/index';
-                $event->rules['webblocks/settings'] = 'webblocks/settings/index';
-                $event->rules['webblocks/help']     = 'webblocks/help/index';
+                $event->rules['webblocks']                      = 'webblocks/settings/index';
+                $event->rules['webblocks/settings']            = 'webblocks/settings/index';
+                $event->rules['webblocks/help']                = 'webblocks/help/index';
+                $event->rules['webblocks/health']              = 'webblocks/component-health/index';
+                $event->rules['webblocks/health/dry-run']      = 'webblocks/component-health/dry-run';
+                $event->rules['webblocks/health/migrate']      = 'webblocks/component-health/migrate';
             }
         );
     }

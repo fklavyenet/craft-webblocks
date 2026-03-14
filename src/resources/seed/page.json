@@ -6,6 +6,9 @@
     "blocks": [
         "wbHero",
         "wbSpacing",
+        "wbHeadingBreadcrumb",
+        "wbBreadcrumb",
+        "wbSpacing",
         "wbFullscreenImage",
         "wbSpacing",
         "wbTextBlock",

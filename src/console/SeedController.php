@@ -168,7 +168,7 @@ class SeedController extends Controller
         $globalSet->setFieldValue('wbColorMode', 'auto');
 
         // --- Color theme ---
-        $globalSet->setFieldValue('wbColorTheme', 'default');
+        $globalSet->setFieldValue('wbColorTheme', 'flatly');
 
         // --- Navbar ---
         $navbarData = $this->loadJson($seedPath . '/components/wbNavbar.json');

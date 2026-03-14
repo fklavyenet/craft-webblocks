@@ -4,6 +4,8 @@
     "fields": [
         "wbColorMode",
         "wbColorTheme",
+        "wbCustomCssUrl",
+        "wbCustomCss",
         "wbSiteNavbar",
         "wbSiteFooter"
     ]

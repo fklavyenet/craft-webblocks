@@ -127,19 +127,21 @@
 
     {# ── Colour themes ─────────────────────────────────────────────────────── #}
     <h2>Colour Themes</h2>
-    <p>Select a theme in <strong>Globals → Site Config → Color Theme</strong>. The value is written as <code>data-wb-theme="…"</code> on <code>&lt;body&gt;</code> and all visual changes are driven by CSS rules in <code>wb-blocks.css</code>. No page rebuild is required — just save the global set.</p>
+    <p>Select a theme in <strong>Globals → Site Config → Color Theme</strong>. WebBlocks automatically loads the corresponding <a href="https://bootswatch.com" target="_blank" rel="noopener">Bootswatch</a> CSS from CDN — every Bootstrap component (buttons, cards, navbar, badges, alerts, forms, typography) inherits the theme instantly. No rebuild required.</p>
     <table class="data fullwidth">
         <thead><tr><th>Theme</th><th>Character</th></tr></thead>
         <tbody>
-            <tr><td>Default</td><td>Bootstrap defaults — no overrides applied.</td></tr>
-            <tr><td>Dark</td><td>Dark footer, light buttons and badges.</td></tr>
-            <tr><td>Warm</td><td>Light background, warm amber/yellow accents.</td></tr>
-            <tr><td>Cool</td><td>Teal/info accents throughout.</td></tr>
-            <tr><td>Forest</td><td>Green success tones, subtle green footer.</td></tr>
-            <tr><td>Ocean</td><td>Blue primary tones, outline buttons on a blue footer.</td></tr>
-            <tr><td>Custom</td><td>No CSS overrides — apply your own styles freely.</td></tr>
+            <tr><td>Default</td><td>Bootstrap built-in styles — no overrides applied.</td></tr>
+            <tr><td>Flatly</td><td>Clean, flat design with a green primary accent. Light and professional.</td></tr>
+            <tr><td>Cerulean</td><td>Cool sky-blue primary. Light, airy, corporate feel.</td></tr>
+            <tr><td>Minty</td><td>Fresh mint-green accents. Light and friendly.</td></tr>
+            <tr><td>Lux</td><td>Refined serif typography with a premium, editorial look.</td></tr>
+            <tr><td>Darkly</td><td>Full dark background with light text. Modern dark-mode theme.</td></tr>
+            <tr><td>Slate</td><td>Muted dark-grey palette. Sophisticated and low-contrast.</td></tr>
+            <tr><td>Quartz</td><td>Vibrant gradients and glassmorphism. Bold and modern.</td></tr>
         </tbody>
     </table>
+    <p>To apply custom styles on top of any theme, use <strong>Globals → Site Config → Custom CSS URL</strong> (external stylesheet) or <strong>Custom CSS</strong> (inline rules injected into <code>&lt;head&gt;</code>).</p>
 
     {# ── Multi-language ────────────────────────────────────────────────────── #}
     <h2>Multi-language</h2>

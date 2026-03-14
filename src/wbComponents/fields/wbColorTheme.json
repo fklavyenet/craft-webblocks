@@ -1,17 +1,18 @@
 {
     "name": "Color Theme",
     "handle": "wbColorTheme",
-    "instructions": "Site-wide colour theme. Selecting a theme auto-fills Footer Background, Default Button Variant, Default Badge Variant and Default Alert Variant. You can still override each field individually.",
+    "instructions": "Site-wide colour theme. Loads the corresponding Bootswatch CSS automatically. 'Default' uses Bootstrap's built-in styles with no overrides.",
     "type": "Dropdown",
     "typesettings": {
         "options": [
-            { "label": "Custom (manual overrides)", "value": "",        "default": true  },
-            { "label": "Default",                   "value": "default", "default": false },
-            { "label": "Dark",                      "value": "dark",    "default": false },
-            { "label": "Warm",                      "value": "warm",    "default": false },
-            { "label": "Cool",                      "value": "cool",    "default": false },
-            { "label": "Forest",                    "value": "forest",  "default": false },
-            { "label": "Ocean",                     "value": "ocean",   "default": false }
+            { "label": "Default",  "value": "default",  "default": true  },
+            { "label": "Flatly",   "value": "flatly",   "default": false },
+            { "label": "Cerulean", "value": "cerulean", "default": false },
+            { "label": "Minty",    "value": "minty",    "default": false },
+            { "label": "Lux",      "value": "lux",      "default": false },
+            { "label": "Darkly",   "value": "darkly",   "default": false },
+            { "label": "Slate",    "value": "slate",    "default": false },
+            { "label": "Quartz",   "value": "quartz",   "default": false }
         ]
     },
     "translationMethod": "none"

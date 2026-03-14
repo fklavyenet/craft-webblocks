@@ -1,6 +1,5 @@
 {% set navItems = item.wbNavbarItems.all() %}
 {% set navbarId = 'wbNavbar-' ~ item.id %}
-{% set expand = item.wbNavbarExpand.value ?? 'navbar-expand-lg' %}
 {% set logo = item.wbNavbarLogo.one() ?? null %}
 {% set showSearch = item.wbNavbarSearch ?? false %}
 {% set searchPlaceholder = item.wbNavbarSearchPlaceholder ?? 'Search...' %}
@@ -47,7 +46,7 @@
 {% set searchEntry = craft.entries().section('wbSearch').one() %}
 {% set searchUrl = searchEntry ? searchEntry.url : '/search' %}
 
-<nav class="wb-block wb-navbar sticky-top navbar {{ expand }}">
+<nav class="wb-block wb-navbar sticky-top navbar navbar-expand-lg">
     <div class="container-fluid">
 
         {# Brand #}

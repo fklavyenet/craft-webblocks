@@ -64,6 +64,13 @@ return [
     'Seed Content'           => 'Seed Content',
     'Seed Languages'         => 'Seed Languages',
     'Languages to seed when running the webblocks/seed command. English is always seeded. Changes take effect on the next wipe + seed cycle.' => 'Languages to seed when running the webblocks/seed command. English is always seeded. Changes take effect on the next wipe + seed cycle.',
+    'Analytics'              => 'Analytics',
+    'GA4 Measurement ID'     => 'GA4 Measurement ID',
+    'Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX). Leave blank to disable.' => 'Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX). Leave blank to disable.',
+    'Matomo URL'             => 'Matomo URL',
+    'Your Matomo instance URL (e.g. https://analytics.example.com/). Both URL and Site ID are required.' => 'Your Matomo instance URL (e.g. https://analytics.example.com/). Both URL and Site ID are required.',
+    'Matomo Site ID'         => 'Matomo Site ID',
+    'Your Matomo Site ID (e.g. 1). Both URL and Site ID are required.' => 'Your Matomo Site ID (e.g. 1). Both URL and Site ID are required.',
 
     // =========================================================================
     // Comment moderation (CP)

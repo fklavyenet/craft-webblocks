@@ -62,6 +62,38 @@
             errors: settings.getErrors('seedLanguages')
         }) }}
 
+        <h2>{{ "Analytics"|t('webblocks') }}</h2>
+
+        {{ forms.textField({
+            label:        "GA4 Measurement ID"|t('webblocks'),
+            id:           'ga4MeasurementId',
+            name:         'settings[ga4MeasurementId]',
+            instructions: "Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX). Leave blank to disable."|t('webblocks'),
+            placeholder:  'G-XXXXXXXXXX',
+            value:        settings.ga4MeasurementId,
+            errors:       settings.getErrors('ga4MeasurementId')
+        }) }}
+
+        {{ forms.textField({
+            label:        "Matomo URL"|t('webblocks'),
+            id:           'matomoUrl',
+            name:         'settings[matomoUrl]',
+            instructions: "Your Matomo instance URL (e.g. https://analytics.example.com/). Both URL and Site ID are required."|t('webblocks'),
+            placeholder:  'https://analytics.example.com/',
+            value:        settings.matomoUrl,
+            errors:       settings.getErrors('matomoUrl')
+        }) }}
+
+        {{ forms.textField({
+            label:        "Matomo Site ID"|t('webblocks'),
+            id:           'matomoSiteId',
+            name:         'settings[matomoSiteId]',
+            instructions: "Your Matomo Site ID (e.g. 1). Both URL and Site ID are required."|t('webblocks'),
+            placeholder:  '1',
+            value:        settings.matomoSiteId,
+            errors:       settings.getErrors('matomoSiteId')
+        }) }}
+
         <div class="buttons">
             <button type="submit" class="btn submit">{{ "Save"|t('app') }}</button>
         </div>

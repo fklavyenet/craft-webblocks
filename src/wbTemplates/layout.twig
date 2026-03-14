@@ -102,6 +102,38 @@
     {% if _customCss %}
         <style>{{ _customCss | raw }}</style>
     {% endif %}
+
+    {# ── Analytics ── #}
+    {% set _ga4Id     = _wbSettings.ga4MeasurementId ?? null %}
+    {% set _matomoUrl = _wbSettings.matomoUrl ?? null %}
+    {% set _matomoId  = _wbSettings.matomoSiteId ?? null %}
+
+    {% if _ga4Id %}
+        {# Google Analytics 4 #}
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ _ga4Id | e }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ _ga4Id | e }}');
+        </script>
+    {% endif %}
+
+    {% if _matomoUrl and _matomoId %}
+        {# Matomo #}
+        <script>
+            var _paq = window._paq = window._paq || [];
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+                var u = '{{ _matomoUrl | trim('/') | e }}/';
+                _paq.push(['setTrackerUrl', u + 'matomo.php']);
+                _paq.push(['setSiteId', '{{ _matomoId | e }}']);
+                var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+            })();
+        </script>
+    {% endif %}
 </head>
 <body class="d-flex flex-column min-vh-100 {% block bodyClass %}{% endblock %}" data-wb-theme="{{ _siteColorTheme }}">
 {{ beginBody() }}

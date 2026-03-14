@@ -41,6 +41,24 @@ class Settings extends Model
      */
     public string $seoTitleFormat = '{title} — {siteName}';
 
+    /**
+     * Google Analytics 4 Measurement ID (e.g. "G-XXXXXXXXXX").
+     * When set, the gtag.js snippet is injected before </head>.
+     */
+    public ?string $ga4MeasurementId = null;
+
+    /**
+     * Matomo tracking URL (e.g. "https://analytics.example.com/").
+     * Both matomoUrl and matomoSiteId must be set for the snippet to be injected.
+     */
+    public ?string $matomoUrl = null;
+
+    /**
+     * Matomo Site ID (integer, e.g. 1).
+     * Both matomoUrl and matomoSiteId must be set for the snippet to be injected.
+     */
+    public ?int $matomoSiteId = null;
+
     protected function defineRules(): array
     {
         return [
@@ -51,6 +69,10 @@ class Settings extends Model
             [['seedLanguages'], 'each', 'rule' => ['in', 'range' => ['en', 'tr', 'de']]],
             [['seoTitleFormat'], 'string'],
             [['seoTitleFormat'], 'required'],
+            [['ga4MeasurementId'], 'string'],
+            [['matomoUrl'], 'string'],
+            [['matomoUrl'], 'url'],
+            [['matomoSiteId'], 'integer'],
         ];
     }
 }

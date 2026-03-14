@@ -64,6 +64,13 @@ return [
     'Seed Content'           => 'Seed İçeriği',
     'Seed Languages'         => 'Seed Dilleri',
     'Languages to seed when running the webblocks/seed command. English is always seeded. Changes take effect on the next wipe + seed cycle.' => 'webblocks/seed komutu çalıştırıldığında seed edilecek diller. İngilizce her zaman seed edilir. Değişiklikler bir sonraki wipe + seed döngüsünde geçerli olur.',
+    'Analytics'              => 'Analitik',
+    'GA4 Measurement ID'     => 'GA4 Ölçüm Kimliği',
+    'Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX). Leave blank to disable.' => 'Google Analytics 4 Ölçüm Kimliği (örn. G-XXXXXXXXXX). Devre dışı bırakmak için boş bırakın.',
+    'Matomo URL'             => 'Matomo URL',
+    'Your Matomo instance URL (e.g. https://analytics.example.com/). Both URL and Site ID are required.' => 'Matomo örnek URL\'niz (örn. https://analytics.example.com/). Hem URL hem de Site Kimliği gereklidir.',
+    'Matomo Site ID'         => 'Matomo Site Kimliği',
+    'Your Matomo Site ID (e.g. 1). Both URL and Site ID are required.' => 'Matomo Site Kimliğiniz (örn. 1). Hem URL hem de Site Kimliği gereklidir.',
 
     // =========================================================================
     // Comment moderation (CP)

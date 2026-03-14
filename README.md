@@ -24,6 +24,11 @@ ddev craft webblocks/seed --interactive=0
 | `ddev craft webblocks/seed --interactive=0`         | Seed demo content                                    |
 | `ddev craft webblocks/seed --languages=en,tr`       | Seed specific languages only                         |
 | `ddev craft webblocks/wipe/all --interactive=0`     | Wipe all plugin data and uninstall plugin            |
+| `ddev craft webblocks/components/diff`              | Diff component JSON versions vs installed DB state   |
+| `ddev craft webblocks/components/check`             | Exit 0 if all OK, exit 1 if migrations pending (CI)  |
+| `ddev craft webblocks/components/dry-run`           | Show what a migration run would do (no changes)      |
+| `ddev craft webblocks/components/migrate`           | Apply all pending component migrations               |
+| `ddev craft webblocks/components/cleanup-deprecated`| List deprecated fields; add `--force` to purge them  |
 
 ## Plugin Settings
 
@@ -218,6 +223,47 @@ The `wbCookieSettings` global set powers a built-in GDPR-friendly cookie consent
 ## Prefix Convention
 
 All plugin-owned handles use the `wb` prefix (fields, entry types, matrix fields, sections, volumes, transforms) to avoid conflicts with site-level content.
+
+## Component Versioning & Migration System
+
+WebBlocks tracks the installed version of every component (field, entry type, matrix field, etc.) in a `webblocks_component_versions` database table. Each JSON definition file carries a `"version"` integer. When a component's JSON version is ahead of the installed version, the diff system detects it and the migrator can apply a structured migration file.
+
+### CP Health Screen
+
+Navigate to **CP → WebBlocks → Component Health** to see:
+
+- Summary pills showing OK / Version Bump / Checksum Drift / New / Orphan counts
+- A table of components needing attention
+- **Dry Run** button — shows what would be applied without making changes
+- **Run Migrations** button — applies all pending migrations
+- **Deprecated Fields** table — lists fields removed from layouts but not yet purged from the database
+
+### Migration DSL
+
+Migration files live at `src/componentMigrations/{type}/{handle}/{from}_to_{to}.php`. Each file returns a PHP array:
+
+```php
+return [
+    'from'    => 1,
+    'to'      => 2,
+    'actions' => [
+        ['type' => 'updateFieldSettings', 'handle' => 'wbTitle', 'settings' => ['instructions' => '...']],
+        ['type' => 'deprecateField',      'handle' => 'wbOldField'],
+        ['type' => 'addField',            'handle' => 'wbNewField', 'definition' => 'fields/wbNewField.json'],
+    ],
+];
+```
+
+Supported action types: `renameField`, `addField`, `removeField`, `deprecateField`, `updateFieldSettings`, `updateFieldLayout`, `addMatrixBlockType`, `removeMatrixBlockType`, `renameMatrixBlockType`, `copyContent`, `transformContent`.
+
+### Deprecated Field Lifecycle
+
+A `deprecateField` action removes a field from all entry type layouts and records it in `webblocks_deprecated_fields`. The field data is preserved. To permanently delete it:
+
+```bash
+ddev craft webblocks/components/cleanup-deprecated          # list pending
+ddev craft webblocks/components/cleanup-deprecated --force  # purge all
+```
 
 ## Contributing
 

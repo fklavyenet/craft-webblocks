@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.9.0 - 2026-03-14
+
+### Added
+- **Faz 5: Deprecated field lifecycle** — `deprecateField` migration action now records the deprecated field in a new `webblocks_deprecated_fields` tracking table. Deprecated fields are removed from all entry type layouts but their data is preserved in the database until an explicit cleanup command is run.
+- `DeprecatedFieldService` — new service with `markDeprecated()`, `getDeprecated()` (includes `fieldExists` bool), `purge()` (hard-deletes Craft field + removes tracking row), `untrack()`, and `isDeprecated()`.
+- `m260314_000001_add_deprecated_fields_table` — Craft content migration that creates `webblocks_deprecated_fields` (columns: `fieldHandle`, `deprecatedAt`, `migrationSource`, `notes`, `dateCreated`, `dateUpdated`, `uid`; unique index on `fieldHandle`) for existing installs. Fresh installs get the table via the updated `Install::safeUp()`.
+- `webblocks/components/cleanup-deprecated` console command — lists all pending deprecated fields with handle, deprecation timestamp, field-exists status, and migration source. Pass `--force` to permanently delete each field and its content data from Craft (prompts for confirmation unless `--interactive=0`). Exits 0 when no deprecated fields remain; exits 1 otherwise.
+- **CP health screen — Deprecated Fields section** — the `webblocks/health` page now shows a "Deprecated Fields" table below the issues list whenever tracked deprecated fields exist, with a reminder of the cleanup command.
+
+### Changed
+- `ComponentMigrator::dispatchAction()` — builds a `$migrationSource` string (`"type/handle vX→vY"`) and passes it to `actionDeprecateField()`.
+- `ComponentMigrator::actionDeprecateField()` — now accepts `$migrationSource`, calls `DeprecatedFieldService::markDeprecated()`, and wraps `getField()` calls in `try/catch` to guard against `craft\errors\FieldNotFoundException` on orphaned layout element references.
+- `ComponentHealthController::actionIndex()` — now fetches deprecated fields from `DeprecatedFieldService` and passes them to the health template.
+- `Install::safeDown()` — updated to also drop `webblocks_deprecated_fields` on uninstall.
+
 ## 1.8.0 - 2026-03-14
 
 ### Added

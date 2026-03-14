@@ -37,7 +37,7 @@
 
     {# ── SEO title ── #}
     {# If wbSeoTitle is set use it as-is; otherwise apply seoTitleFormat from plugin settings #}
-    {% set _wbSettings   = craft.webblocks.settings %}
+    {% set _wbSettings   = craft.app.plugins.isPluginEnabled('webblocks') ? craft.webblocks.settings : null %}
     {% set _titleFormat  = _wbSettings.seoTitleFormat ?? '{title} — {siteName}' %}
     {% set _rawTitle     = entry.wbSeoTitle ?? entry.title ?? siteName %}
     {% set _formattedTitle = entry.wbSeoTitle

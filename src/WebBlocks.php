@@ -118,6 +118,10 @@ class WebBlocks extends BasePlugin
 
     protected function beforeUninstall(): void
     {
+        \Craft::warning(
+            'WebBlocks plugin is being uninstalled. Content (entries, fields, sections) is preserved.',
+            __METHOD__
+        );
         (new services\InstallService())->uninstall();
         $this->_uninstallSiteTranslations();
     }

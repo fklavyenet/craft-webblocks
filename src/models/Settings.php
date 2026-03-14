@@ -18,11 +18,21 @@ class Settings extends Model
      */
     public ?string $adminEmail = null;
 
+    /**
+     * SEO <title> format string.
+     * Supports {title} and {siteName} placeholders.
+     * Applied when wbSeoTitle is empty; if wbSeoTitle is set it is used as-is.
+     * Default: "{title} — {siteName}"
+     */
+    public string $seoTitleFormat = '{title} — {siteName}';
+
     protected function defineRules(): array
     {
         return [
             [['adminEmail'], 'string'],
             [['adminEmail'], 'email'],
+            [['seoTitleFormat'], 'string'],
+            [['seoTitleFormat'], 'required'],
         ];
     }
 }

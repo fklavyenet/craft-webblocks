@@ -36,14 +36,23 @@
     </script>
 
     {# ── SEO title ── #}
+    {# If wbSeoTitle is set use it as-is; otherwise apply seoTitleFormat from plugin settings #}
+    {% set _wbSettings   = craft.webblocks.settings %}
+    {% set _titleFormat  = _wbSettings.seoTitleFormat ?? '{title} — {siteName}' %}
+    {% set _rawTitle     = entry.wbSeoTitle ?? entry.title ?? siteName %}
+    {% set _formattedTitle = entry.wbSeoTitle
+        ? entry.wbSeoTitle
+        : (_titleFormat
+            | replace({'{title}': (entry.title ?? siteName), '{siteName}': siteName})
+          ) %}
     {% block title %}
-        <title>{{ entry.wbSeoTitle ?? entry.title ?? siteName }}</title>
+        <title>{{ _formattedTitle }}</title>
     {% endblock %}
 
     {# ── SEO meta ── #}
     {% block meta %}
         {% if entry is defined %}
-            {% set _seoTitle = entry.wbSeoTitle ?? entry.title ?? siteName %}
+            {% set _seoTitle = _formattedTitle %}
             {% set _seoDesc  = entry.wbSeoDescription ?? '' %}
             {% set _seoImg   = (entry.wbFeaturedImage is defined and entry.wbFeaturedImage is not null) ? entry.wbFeaturedImage.one() : null %}
 

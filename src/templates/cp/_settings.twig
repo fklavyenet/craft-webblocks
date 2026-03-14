@@ -11,3 +11,14 @@
     value:        settings.adminEmail,
     errors:       settings.getErrors('adminEmail')
 }) }}
+
+<h2>{{ "SEO"|t('webblocks') }}</h2>
+
+{{ forms.textField({
+    label:        "Page Title Format"|t('webblocks'),
+    id:           'seoTitleFormat',
+    name:         'seoTitleFormat',
+    instructions: "Format for the <title> tag when wbSeoTitle is empty. Use {title} and {siteName} as placeholders. Example: {title} — {siteName}"|t('webblocks'),
+    value:        settings.seoTitleFormat,
+    errors:       settings.getErrors('seoTitleFormat')
+}) }}

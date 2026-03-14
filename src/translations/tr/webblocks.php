@@ -56,6 +56,9 @@ return [
     // =========================================================================
     'Default Admin Email'    => 'Varsayılan Yönetici E-postası',
     "Fallback recipient for wbForm admin notification emails when a form's own Recipient field is empty." => "Formun kendi Alıcı alanı boş olduğunda wbForm yönetici bildirimi e-postalarının gönderileceği yedek adres.",
+    'SEO'                    => 'SEO',
+    'Page Title Format'      => 'Sayfa Başlığı Formatı',
+    "Format for the <title> tag when wbSeoTitle is empty. Use {title} and {siteName} as placeholders. Example: {title} — {siteName}" => "wbSeoTitle boş olduğunda <title> etiketi için format. {title} ve {siteName} yer tutucularını kullanın. Örnek: {title} — {siteName}",
 
     // =========================================================================
     // Comment moderation (CP)

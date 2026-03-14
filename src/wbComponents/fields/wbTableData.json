@@ -1,19 +1,36 @@
 {
-    "name": "Table Data",
-    "handle": "wbTableData",
-    "instructions": "Table rows and columns",
-    "type": "Table",
-    "typesettings": {
-        "addRowLabel": "Add a row",
-        "maxRows": null,
-        "minRows": null,
-        "columns": {
-            "col1": { "heading": "Name", "handle": "name", "type": "singleline" },
-            "col2": { "heading": "Type", "handle": "type", "type": "singleline" },
-            "col3": { "heading": "Value", "handle": "value", "type": "singleline" },
-            "col4": { "heading": "Notes", "handle": "notes", "type": "singleline" }
-        },
-        "defaults": []
+  "version": 1,
+  "name": "Table Data",
+  "handle": "wbTableData",
+  "instructions": "Table rows and columns",
+  "type": "Table",
+  "typesettings": {
+    "addRowLabel": "Add a row",
+    "maxRows": null,
+    "minRows": null,
+    "columns": {
+      "col1": {
+        "heading": "Name",
+        "handle": "name",
+        "type": "singleline"
+      },
+      "col2": {
+        "heading": "Type",
+        "handle": "type",
+        "type": "singleline"
+      },
+      "col3": {
+        "heading": "Value",
+        "handle": "value",
+        "type": "singleline"
+      },
+      "col4": {
+        "heading": "Notes",
+        "handle": "notes",
+        "type": "singleline"
+      }
     },
-    "translationMethod": "site"
+    "defaults": []
+  },
+  "translationMethod": "site"
 }

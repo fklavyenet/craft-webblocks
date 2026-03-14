@@ -1,11 +1,12 @@
 {
-    "name": "Cookie Banner Text",
-    "handle": "wbCookieBannerText",
-    "instructions": "Body text shown in the cookie consent banner.",
-    "type": "PlainText",
-    "typesettings": {
-        "multiline": true,
-        "rows": 3
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Cookie Banner Text",
+  "handle": "wbCookieBannerText",
+  "instructions": "Body text shown in the cookie consent banner.",
+  "type": "PlainText",
+  "typesettings": {
+    "multiline": true,
+    "rows": 3
+  },
+  "translationMethod": "site"
 }

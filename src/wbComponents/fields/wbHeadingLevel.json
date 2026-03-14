@@ -1,17 +1,42 @@
 {
-    "name": "Heading Level",
-    "handle": "wbHeadingLevel",
-    "instructions": "HTML heading tag to use",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "H1", "value": "h1", "default": false },
-            { "label": "H2", "value": "h2", "default": true },
-            { "label": "H3", "value": "h3", "default": false },
-            { "label": "H4", "value": "h4", "default": false },
-            { "label": "H5", "value": "h5", "default": false },
-            { "label": "H6", "value": "h6", "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Heading Level",
+  "handle": "wbHeadingLevel",
+  "instructions": "HTML heading tag to use",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "H1",
+        "value": "h1",
+        "default": false
+      },
+      {
+        "label": "H2",
+        "value": "h2",
+        "default": true
+      },
+      {
+        "label": "H3",
+        "value": "h3",
+        "default": false
+      },
+      {
+        "label": "H4",
+        "value": "h4",
+        "default": false
+      },
+      {
+        "label": "H5",
+        "value": "h5",
+        "default": false
+      },
+      {
+        "label": "H6",
+        "value": "h6",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

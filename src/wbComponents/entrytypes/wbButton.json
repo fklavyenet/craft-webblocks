@@ -1,26 +1,27 @@
 {
-    "handle": "wbButton",
-    "name": "Button",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle",
-                "wbButtonUrl",
-                "wbButtonTarget"
-            ]
-        },
-        {
-            "name": "Style",
-            "fields": [
-                "wbButtonColor",
-                "wbButtonSize"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbButton",
+  "name": "Button",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle",
+        "wbButtonUrl",
+        "wbButtonTarget"
+      ]
+    },
+    {
+      "name": "Style",
+      "fields": [
+        "wbButtonColor",
+        "wbButtonSize"
+      ]
+    }
+  ]
 }

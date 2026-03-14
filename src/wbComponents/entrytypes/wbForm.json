@@ -1,40 +1,43 @@
 {
-    "handle": "wbForm",
-    "name": "Form",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{type.name}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Settings",
-            "fields": [
-                "wbTitle",
-                "wbFormRecipient",
-                "wbFormSubject",
-                "wbFormSubmitLabel",
-                "wbFormSuccessMsg"
-            ]
-        },
-        {
-            "name": "Confirmation Email",
-            "fields": [
-                "wbFormConfirmationEnabled",
-                "wbFormConfirmationSubject",
-                "wbFormConfirmationBody"
-            ]
-        },
-        {
-            "name": "Appearance",
-            "fields": [
-                "wbBorder",
-                "wbBorderColor",
-                "wbRounded",
-                "wbPadding",
-                "wbTitlePosition"
-            ]
-        }
-    ],
-    "matrixFields": ["wbFormFields"]
+  "version": 1,
+  "handle": "wbForm",
+  "name": "Form",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{type.name}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Settings",
+      "fields": [
+        "wbTitle",
+        "wbFormRecipient",
+        "wbFormSubject",
+        "wbFormSubmitLabel",
+        "wbFormSuccessMsg"
+      ]
+    },
+    {
+      "name": "Confirmation Email",
+      "fields": [
+        "wbFormConfirmationEnabled",
+        "wbFormConfirmationSubject",
+        "wbFormConfirmationBody"
+      ]
+    },
+    {
+      "name": "Appearance",
+      "fields": [
+        "wbBorder",
+        "wbBorderColor",
+        "wbRounded",
+        "wbPadding",
+        "wbTitlePosition"
+      ]
+    }
+  ],
+  "matrixFields": [
+    "wbFormFields"
+  ]
 }

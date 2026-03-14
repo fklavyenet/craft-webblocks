@@ -1,35 +1,36 @@
 {
-    "handle": "wbCard",
-    "name": "Card",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle",
-                "wbText"
-            ]
-        },
-        {
-            "name": "Style",
-            "fields": [
-                "wbBackgroundColor",
-                "wbTextColor"
-            ]
-        },
-        {
-            "name": "Appearance",
-            "fields": [
-                "wbBorder",
-                "wbBorderColor",
-                "wbRounded",
-                "wbPadding",
-                "wbTitlePosition"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbCard",
+  "name": "Card",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle",
+        "wbText"
+      ]
+    },
+    {
+      "name": "Style",
+      "fields": [
+        "wbBackgroundColor",
+        "wbTextColor"
+      ]
+    },
+    {
+      "name": "Appearance",
+      "fields": [
+        "wbBorder",
+        "wbBorderColor",
+        "wbRounded",
+        "wbPadding",
+        "wbTitlePosition"
+      ]
+    }
+  ]
 }

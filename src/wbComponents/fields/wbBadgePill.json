@@ -1,10 +1,11 @@
 {
-    "name": "Badge Pill",
-    "handle": "wbBadgePill",
-    "instructions": "Render as rounded pill shape",
-    "type": "Lightswitch",
-    "typesettings": {
-        "default": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Badge Pill",
+  "handle": "wbBadgePill",
+  "instructions": "Render as rounded pill shape",
+  "type": "Lightswitch",
+  "typesettings": {
+    "default": false
+  },
+  "translationMethod": "site"
 }

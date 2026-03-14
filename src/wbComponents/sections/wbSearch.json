@@ -1,9 +1,12 @@
 {
-    "handle": "wbSearch",
-    "name": "Search",
-    "type": "single",
-    "template": "wb/sections/search",
-    "uriFormat": "search",
-    "enableVersioning": false,
-    "entryTypes": ["wbSearch"]
+  "version": 1,
+  "handle": "wbSearch",
+  "name": "Search",
+  "type": "single",
+  "template": "wb/sections/search",
+  "uriFormat": "search",
+  "enableVersioning": false,
+  "entryTypes": [
+    "wbSearch"
+  ]
 }

@@ -1,17 +1,25 @@
 {
-    "handle": "wbComment",
-    "name": "Comment",
-    "hasTitleField": false,
-    "titleFormat": "{wbCommentAuthorName}",
-    "titleTranslationMethod": "none",
-    "tabs": [
-        {
-            "name": "Comment",
-            "fields": ["wbCommentAuthorName", "wbEmail", "wbCommentBody", "wbCommentPost"]
-        },
-        {
-            "name": "Spam",
-            "fields": ["wbCommentHoneypot"]
-        }
-    ]
+  "version": 1,
+  "handle": "wbComment",
+  "name": "Comment",
+  "hasTitleField": false,
+  "titleFormat": "{wbCommentAuthorName}",
+  "titleTranslationMethod": "none",
+  "tabs": [
+    {
+      "name": "Comment",
+      "fields": [
+        "wbCommentAuthorName",
+        "wbEmail",
+        "wbCommentBody",
+        "wbCommentPost"
+      ]
+    },
+    {
+      "name": "Spam",
+      "fields": [
+        "wbCommentHoneypot"
+      ]
+    }
+  ]
 }

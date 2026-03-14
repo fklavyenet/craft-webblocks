@@ -1,28 +1,29 @@
 {
-    "handle": "wbNavbar",
-    "name": "Navbar",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbNavbarBrand}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbNavbarBrand",
-                "wbNavbarLogo"
-            ]
-        },
-        {
-            "name": "Settings",
-            "fields": [
-                "wbNavbarSearch",
-                "wbNavbarSearchPlaceholder"
-            ]
-        }
-    ],
-    "matrixFields": [
-        "wbNavbarItems"
-    ]
+  "version": 1,
+  "handle": "wbNavbar",
+  "name": "Navbar",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbNavbarBrand}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbNavbarBrand",
+        "wbNavbarLogo"
+      ]
+    },
+    {
+      "name": "Settings",
+      "fields": [
+        "wbNavbarSearch",
+        "wbNavbarSearchPlaceholder"
+      ]
+    }
+  ],
+  "matrixFields": [
+    "wbNavbarItems"
+  ]
 }

@@ -1,13 +1,14 @@
 {
-    "name": "Form Subject",
-    "handle": "wbFormSubject",
-    "instructions": "Email subject line for form submissions",
-    "type": "PlainText",
-    "searchable": false,
-    "typesettings": {
-        "placeholder": "New form submission",
-        "maxLength": 255,
-        "multiline": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Form Subject",
+  "handle": "wbFormSubject",
+  "instructions": "Email subject line for form submissions",
+  "type": "PlainText",
+  "searchable": false,
+  "typesettings": {
+    "placeholder": "New form submission",
+    "maxLength": 255,
+    "multiline": false
+  },
+  "translationMethod": "site"
 }

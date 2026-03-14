@@ -1,6 +1,7 @@
 {
-    "handle": "wbGalleryThumb",
-    "name": "WB Gallery Thumbnail",
-    "width": 800,
-    "mode": "fit"
+  "version": 1,
+  "handle": "wbGalleryThumb",
+  "name": "WB Gallery Thumbnail",
+  "width": 800,
+  "mode": "fit"
 }

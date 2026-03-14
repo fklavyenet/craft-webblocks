@@ -1,7 +1,8 @@
 {
-    "name": "Video URL",
-    "handle": "wbVideoUrl",
-    "instructions": "YouTube or Vimeo video URL",
-    "type": "URL",
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Video URL",
+  "handle": "wbVideoUrl",
+  "instructions": "YouTube or Vimeo video URL",
+  "type": "URL",
+  "translationMethod": "site"
 }

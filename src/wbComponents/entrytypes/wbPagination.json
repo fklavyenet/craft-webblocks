@@ -1,25 +1,26 @@
 {
-    "handle": "wbPagination",
-    "name": "Pagination",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle",
-                "wbPaginationPages"
-            ]
-        },
-        {
-            "name": "Style",
-            "fields": [
-                "wbPaginationSize",
-                "wbPaginationAlign"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbPagination",
+  "name": "Pagination",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle",
+        "wbPaginationPages"
+      ]
+    },
+    {
+      "name": "Style",
+      "fields": [
+        "wbPaginationSize",
+        "wbPaginationAlign"
+      ]
+    }
+  ]
 }

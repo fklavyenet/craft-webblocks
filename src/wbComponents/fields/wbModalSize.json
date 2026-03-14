@@ -1,16 +1,37 @@
 {
-    "name": "Modal Size",
-    "handle": "wbModalSize",
-    "instructions": "Bootstrap modal dialog size",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "Default", "value": "", "default": true },
-            { "label": "Small", "value": "modal-sm", "default": false },
-            { "label": "Large", "value": "modal-lg", "default": false },
-            { "label": "Extra Large", "value": "modal-xl", "default": false },
-            { "label": "Full Screen", "value": "modal-fullscreen", "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Modal Size",
+  "handle": "wbModalSize",
+  "instructions": "Bootstrap modal dialog size",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Default",
+        "value": "",
+        "default": true
+      },
+      {
+        "label": "Small",
+        "value": "modal-sm",
+        "default": false
+      },
+      {
+        "label": "Large",
+        "value": "modal-lg",
+        "default": false
+      },
+      {
+        "label": "Extra Large",
+        "value": "modal-xl",
+        "default": false
+      },
+      {
+        "label": "Full Screen",
+        "value": "modal-fullscreen",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

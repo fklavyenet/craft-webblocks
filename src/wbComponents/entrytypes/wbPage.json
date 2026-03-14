@@ -1,17 +1,25 @@
 {
-    "handle": "wbPage",
-    "name": "Page",
-    "hasTitleField": true,
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": []
-        },
-        {
-            "name": "Settings",
-            "fields": ["wbShowInNav", "wbNavOrder", "wbShowInFooter", "wbFooterOrder"]
-        }
-    ],
-    "matrixFields": ["wbBlocks"]
+  "version": 1,
+  "handle": "wbPage",
+  "name": "Page",
+  "hasTitleField": true,
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": []
+    },
+    {
+      "name": "Settings",
+      "fields": [
+        "wbShowInNav",
+        "wbNavOrder",
+        "wbShowInFooter",
+        "wbFooterOrder"
+      ]
+    }
+  ],
+  "matrixFields": [
+    "wbBlocks"
+  ]
 }

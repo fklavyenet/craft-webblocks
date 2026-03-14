@@ -1,10 +1,11 @@
 {
-    "name": "Button URL",
-    "handle": "wbButtonUrl",
-    "instructions": "URL for the button link",
-    "type": "Url",
-    "typesettings": {
-        "placeholder": "https://example.com"
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Button URL",
+  "handle": "wbButtonUrl",
+  "instructions": "URL for the button link",
+  "type": "Url",
+  "typesettings": {
+    "placeholder": "https://example.com"
+  },
+  "translationMethod": "site"
 }

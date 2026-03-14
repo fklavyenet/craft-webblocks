@@ -1,7 +1,8 @@
 {
-    "handle": "wbDocuments",
-    "name": "WB Documents",
-    "fs": "wbMedia",
-    "subpath": "documents",
-    "sortOrder": 3
+  "version": 1,
+  "handle": "wbDocuments",
+  "name": "WB Documents",
+  "fs": "wbMedia",
+  "subpath": "documents",
+  "sortOrder": 3
 }

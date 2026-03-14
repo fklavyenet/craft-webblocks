@@ -1,7 +1,8 @@
 {
-    "handle": "wbLeftRight",
-    "name": "WB Left-Right",
-    "width": 800,
-    "height": 600,
-    "mode": "crop"
+  "version": 1,
+  "handle": "wbLeftRight",
+  "name": "WB Left-Right",
+  "width": 800,
+  "height": 600,
+  "mode": "crop"
 }

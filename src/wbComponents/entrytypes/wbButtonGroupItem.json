@@ -1,19 +1,20 @@
 {
-    "handle": "wbButtonGroupItem",
-    "name": "Button Group Item",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbButtonLabel}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbButtonLabel",
-                "wbButtonUrl",
-                "wbButtonTarget"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbButtonGroupItem",
+  "name": "Button Group Item",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbButtonLabel}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbButtonLabel",
+        "wbButtonUrl",
+        "wbButtonTarget"
+      ]
+    }
+  ]
 }

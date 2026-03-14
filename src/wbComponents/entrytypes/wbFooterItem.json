@@ -1,12 +1,13 @@
 {
-    "handle": "wbFooterItem",
-    "name": "Footer Link",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbFooterLinkLabel}",
-    "fields": [
-        "wbFooterLinkLabel",
-        "wbFooterLinkUrl"
-    ]
+  "version": 1,
+  "handle": "wbFooterItem",
+  "name": "Footer Link",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbFooterLinkLabel}",
+  "fields": [
+    "wbFooterLinkLabel",
+    "wbFooterLinkUrl"
+  ]
 }

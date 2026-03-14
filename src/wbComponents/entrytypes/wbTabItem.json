@@ -1,13 +1,14 @@
 {
-    "handle": "wbTabItem",
-    "name": "Tab Item",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTabTitle}",
-    "titleTranslationMethod": "site",
-    "fields": [
-        "wbTabTitle",
-        "wbText"
-    ]
+  "version": 1,
+  "handle": "wbTabItem",
+  "name": "Tab Item",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTabTitle}",
+  "titleTranslationMethod": "site",
+  "fields": [
+    "wbTabTitle",
+    "wbText"
+  ]
 }

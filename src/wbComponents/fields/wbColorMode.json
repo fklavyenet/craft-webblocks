@@ -1,14 +1,27 @@
 {
-    "name": "Color Mode",
-    "handle": "wbColorMode",
-    "instructions": "Default color mode for the site. Auto follows the visitor's system preference.",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "Auto (system preference)", "value": "auto", "default": true },
-            { "label": "Light",                    "value": "light", "default": false },
-            { "label": "Dark",                     "value": "dark",  "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Color Mode",
+  "handle": "wbColorMode",
+  "instructions": "Default color mode for the site. Auto follows the visitor's system preference.",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Auto (system preference)",
+        "value": "auto",
+        "default": true
+      },
+      {
+        "label": "Light",
+        "value": "light",
+        "default": false
+      },
+      {
+        "label": "Dark",
+        "value": "dark",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

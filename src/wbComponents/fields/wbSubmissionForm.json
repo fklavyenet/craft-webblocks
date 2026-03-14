@@ -1,10 +1,11 @@
 {
-    "name": "Submission Form",
-    "handle": "wbSubmissionForm",
-    "instructions": "The form this submission belongs to",
-    "type": "Entries",
-    "typesettings": {
-        "limit": 1
-    },
-    "translationMethod": "none"
+  "version": 1,
+  "name": "Submission Form",
+  "handle": "wbSubmissionForm",
+  "instructions": "The form this submission belongs to",
+  "type": "Entries",
+  "typesettings": {
+    "limit": 1
+  },
+  "translationMethod": "none"
 }

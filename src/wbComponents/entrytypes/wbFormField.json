@@ -1,28 +1,31 @@
 {
-    "handle": "wbFormField",
-    "name": "Form Field",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbFormFieldLabel}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Field",
-            "fields": [
-                "wbFormFieldLabel",
-                "wbFormFieldType",
-                "wbFormFieldRequired",
-                "wbFormFieldPlaceholder"
-            ]
-        },
-        {
-            "name": "Email Options",
-            "fields": [
-                "wbFormFieldInAdminEmail",
-                "wbFormFieldInConfirmEmail"
-            ]
-        }
-    ],
-    "matrixFields": ["wbFormOptions"]
+  "version": 1,
+  "handle": "wbFormField",
+  "name": "Form Field",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbFormFieldLabel}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Field",
+      "fields": [
+        "wbFormFieldLabel",
+        "wbFormFieldType",
+        "wbFormFieldRequired",
+        "wbFormFieldPlaceholder"
+      ]
+    },
+    {
+      "name": "Email Options",
+      "fields": [
+        "wbFormFieldInAdminEmail",
+        "wbFormFieldInConfirmEmail"
+      ]
+    }
+  ],
+  "matrixFields": [
+    "wbFormOptions"
+  ]
 }

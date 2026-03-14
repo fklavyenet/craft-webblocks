@@ -1,13 +1,14 @@
 {
-    "name": "Pagination Pages",
-    "handle": "wbPaginationPages",
-    "instructions": "Total number of pages to display",
-    "type": "Number",
-    "typesettings": {
-        "min": 2,
-        "max": 20,
-        "defaultValue": 5,
-        "decimals": 0
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Pagination Pages",
+  "handle": "wbPaginationPages",
+  "instructions": "Total number of pages to display",
+  "type": "Number",
+  "typesettings": {
+    "min": 2,
+    "max": 20,
+    "defaultValue": 5,
+    "decimals": 0
+  },
+  "translationMethod": "site"
 }

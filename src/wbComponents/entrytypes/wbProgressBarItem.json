@@ -1,15 +1,16 @@
 {
-    "handle": "wbProgressBarItem",
-    "name": "Progress Bar Item",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbProgressLabel}",
-    "titleTranslationMethod": "site",
-    "fields": [
-        "wbProgressLabel",
-        "wbProgressValue",
-        "wbProgressColor",
-        "wbProgressStriped"
-    ]
+  "version": 1,
+  "handle": "wbProgressBarItem",
+  "name": "Progress Bar Item",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbProgressLabel}",
+  "titleTranslationMethod": "site",
+  "fields": [
+    "wbProgressLabel",
+    "wbProgressValue",
+    "wbProgressColor",
+    "wbProgressStriped"
+  ]
 }

@@ -1,7 +1,8 @@
 {
-    "handle": "wbFullscreen",
-    "name": "WB Fullscreen",
-    "width": 1920,
-    "height": 1080,
-    "mode": "crop"
+  "version": 1,
+  "handle": "wbFullscreen",
+  "name": "WB Fullscreen",
+  "width": 1920,
+  "height": 1080,
+  "mode": "crop"
 }

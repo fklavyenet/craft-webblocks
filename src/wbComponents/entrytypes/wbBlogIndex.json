@@ -1,21 +1,37 @@
 {
-    "handle": "wbBlogIndex",
-    "name": "Blog Index",
-    "hasTitleField": true,
-    "titleTranslationMethod": "site",
-    "tabs": [
+  "version": 1,
+  "handle": "wbBlogIndex",
+  "name": "Blog Index",
+  "hasTitleField": true,
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": []
+    },
+    {
+      "name": "SEO",
+      "fields": [
+        "wbSeoTitle",
+        "wbSeoDescription",
         {
-            "name": "Content",
-            "fields": []
-        },
-        {
-            "name": "SEO",
-            "fields": ["wbSeoTitle", "wbSeoDescription", {"handle": "wbFeaturedImage", "label": "SEO Featured Image"}]
-        },
-        {
-            "name": "Settings",
-            "fields": ["wbShowInNav", "wbNavOrder", "wbShowInFooter", "wbFooterOrder", "wbPerPage"]
+          "handle": "wbFeaturedImage",
+          "label": "SEO Featured Image"
         }
-    ],
-    "matrixFields": ["wbBlocks"]
+      ]
+    },
+    {
+      "name": "Settings",
+      "fields": [
+        "wbShowInNav",
+        "wbNavOrder",
+        "wbShowInFooter",
+        "wbFooterOrder",
+        "wbPerPage"
+      ]
+    }
+  ],
+  "matrixFields": [
+    "wbBlocks"
+  ]
 }

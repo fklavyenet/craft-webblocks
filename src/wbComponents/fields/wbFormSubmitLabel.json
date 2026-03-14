@@ -1,13 +1,14 @@
 {
-    "name": "Submit Button Label",
-    "handle": "wbFormSubmitLabel",
-    "instructions": "Label for the form submit button",
-    "type": "PlainText",
-    "searchable": false,
-    "typesettings": {
-        "placeholder": "Send",
-        "maxLength": 100,
-        "multiline": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Submit Button Label",
+  "handle": "wbFormSubmitLabel",
+  "instructions": "Label for the form submit button",
+  "type": "PlainText",
+  "searchable": false,
+  "typesettings": {
+    "placeholder": "Send",
+    "maxLength": 100,
+    "multiline": false
+  },
+  "translationMethod": "site"
 }

@@ -1,6 +1,9 @@
 {
-    "handle": "wbColumnItems",
-    "name": "Column Items",
-    "translationMethod": "site",
-    "entryTypes": ["wbColumn"]
+  "version": 1,
+  "handle": "wbColumnItems",
+  "name": "Column Items",
+  "translationMethod": "site",
+  "entryTypes": [
+    "wbColumn"
+  ]
 }

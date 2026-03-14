@@ -1,26 +1,29 @@
 {
-    "handle": "wbButtonGroup",
-    "name": "Button Group",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle"
-            ]
-        },
-        {
-            "name": "Style",
-            "fields": [
-                "wbButtonGroupType",
-                "wbButtonSize",
-                "wbButtonGroupOrientation"
-            ]
-        }
-    ],
-    "matrixFields": ["wbButtonGroupItems"]
+  "version": 1,
+  "handle": "wbButtonGroup",
+  "name": "Button Group",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle"
+      ]
+    },
+    {
+      "name": "Style",
+      "fields": [
+        "wbButtonGroupType",
+        "wbButtonSize",
+        "wbButtonGroupOrientation"
+      ]
+    }
+  ],
+  "matrixFields": [
+    "wbButtonGroupItems"
+  ]
 }

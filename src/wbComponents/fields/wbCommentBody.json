@@ -1,14 +1,15 @@
 {
-    "name": "Comment Body",
-    "handle": "wbCommentBody",
-    "instructions": "The comment text.",
-    "type": "PlainText",
-    "typesettings": {
-        "placeholder": "",
-        "multiline": true,
-        "initialRows": 4,
-        "charLimit": 1000
-    },
-    "translationMethod": "none",
-    "searchable": true
+  "version": 1,
+  "name": "Comment Body",
+  "handle": "wbCommentBody",
+  "instructions": "The comment text.",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "",
+    "multiline": true,
+    "initialRows": 4,
+    "charLimit": 1000
+  },
+  "translationMethod": "none",
+  "searchable": true
 }

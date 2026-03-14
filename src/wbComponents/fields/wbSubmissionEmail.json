@@ -1,12 +1,13 @@
 {
-    "name": "Submission Email",
-    "handle": "wbSubmissionEmail",
-    "instructions": "Email address of the visitor who submitted the form",
-    "type": "PlainText",
-    "searchable": true,
-    "typesettings": {
-        "maxLength": 255,
-        "multiline": false
-    },
-    "translationMethod": "none"
+  "version": 1,
+  "name": "Submission Email",
+  "handle": "wbSubmissionEmail",
+  "instructions": "Email address of the visitor who submitted the form",
+  "type": "PlainText",
+  "searchable": true,
+  "typesettings": {
+    "maxLength": 255,
+    "multiline": false
+  },
+  "translationMethod": "none"
 }

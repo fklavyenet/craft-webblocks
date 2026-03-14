@@ -1,10 +1,11 @@
 {
-    "name": "Hover Highlight",
-    "handle": "wbTableHover",
-    "instructions": "Row highlight on mouse over (table-hover)",
-    "type": "Lightswitch",
-    "typesettings": {
-        "default": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Hover Highlight",
+  "handle": "wbTableHover",
+  "instructions": "Row highlight on mouse over (table-hover)",
+  "type": "Lightswitch",
+  "typesettings": {
+    "default": false
+  },
+  "translationMethod": "site"
 }

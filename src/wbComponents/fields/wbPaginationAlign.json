@@ -1,14 +1,27 @@
 {
-    "name": "Pagination Alignment",
-    "handle": "wbPaginationAlign",
-    "instructions": "Horizontal alignment of the pagination nav",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "Start",  "value": "start",  "default": true  },
-            { "label": "Center", "value": "center", "default": false },
-            { "label": "End",    "value": "end",    "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Pagination Alignment",
+  "handle": "wbPaginationAlign",
+  "instructions": "Horizontal alignment of the pagination nav",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Start",
+        "value": "start",
+        "default": true
+      },
+      {
+        "label": "Center",
+        "value": "center",
+        "default": false
+      },
+      {
+        "label": "End",
+        "value": "end",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

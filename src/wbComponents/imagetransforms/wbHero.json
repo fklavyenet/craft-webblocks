@@ -1,7 +1,8 @@
 {
-    "handle": "wbHero",
-    "name": "WB Hero",
-    "width": 1920,
-    "height": 640,
-    "mode": "crop"
+  "version": 1,
+  "handle": "wbHero",
+  "name": "WB Hero",
+  "width": 1920,
+  "height": 640,
+  "mode": "crop"
 }

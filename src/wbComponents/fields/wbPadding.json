@@ -1,16 +1,37 @@
 {
-    "name": "Padding",
-    "handle": "wbPadding",
-    "instructions": "Inner padding of the component",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "None",        "value": "",   "default": true  },
-            { "label": "Extra Small", "value": "p-2", "default": false },
-            { "label": "Small",       "value": "p-3", "default": false },
-            { "label": "Medium",      "value": "p-4", "default": false },
-            { "label": "Large",       "value": "p-5", "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Padding",
+  "handle": "wbPadding",
+  "instructions": "Inner padding of the component",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "None",
+        "value": "",
+        "default": true
+      },
+      {
+        "label": "Extra Small",
+        "value": "p-2",
+        "default": false
+      },
+      {
+        "label": "Small",
+        "value": "p-3",
+        "default": false
+      },
+      {
+        "label": "Medium",
+        "value": "p-4",
+        "default": false
+      },
+      {
+        "label": "Large",
+        "value": "p-5",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

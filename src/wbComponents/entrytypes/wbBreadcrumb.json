@@ -1,15 +1,16 @@
 {
-    "handle": "wbBreadcrumb",
-    "name": "Breadcrumb",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "Breadcrumb",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": []
-        }
-    ]
+  "version": 1,
+  "handle": "wbBreadcrumb",
+  "name": "Breadcrumb",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "Breadcrumb",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": []
+    }
+  ]
 }

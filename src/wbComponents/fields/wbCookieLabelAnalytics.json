@@ -1,8 +1,9 @@
 {
-    "name": "Cookie Label — Analytics",
-    "handle": "wbCookieLabelAnalytics",
-    "instructions": "Optional custom label for the Analytics consent category.",
-    "type": "PlainText",
-    "typesettings": {},
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Cookie Label — Analytics",
+  "handle": "wbCookieLabelAnalytics",
+  "instructions": "Optional custom label for the Analytics consent category.",
+  "type": "PlainText",
+  "typesettings": {},
+  "translationMethod": "site"
 }

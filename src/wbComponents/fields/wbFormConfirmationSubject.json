@@ -1,13 +1,14 @@
 {
-    "name": "Confirmation Email Subject",
-    "handle": "wbFormConfirmationSubject",
-    "instructions": "Subject line for the confirmation email sent to the visitor",
-    "type": "PlainText",
-    "searchable": false,
-    "typesettings": {
-        "placeholder": "We received your message",
-        "maxLength": 255,
-        "multiline": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Confirmation Email Subject",
+  "handle": "wbFormConfirmationSubject",
+  "instructions": "Subject line for the confirmation email sent to the visitor",
+  "type": "PlainText",
+  "searchable": false,
+  "typesettings": {
+    "placeholder": "We received your message",
+    "maxLength": 255,
+    "multiline": false
+  },
+  "translationMethod": "site"
 }

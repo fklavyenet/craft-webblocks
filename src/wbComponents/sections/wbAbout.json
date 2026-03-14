@@ -1,10 +1,13 @@
 {
-    "handle": "wbAbout",
-    "name": "About",
-    "type": "structure",
-    "template": "wb/sections/page",
-    "uriFormat": "{parent.uri}/{slug}",
-    "maxLevels": 2,
-    "enableVersioning": false,
-    "entryTypes": ["wbAboutPage"]
+  "version": 1,
+  "handle": "wbAbout",
+  "name": "About",
+  "type": "structure",
+  "template": "wb/sections/page",
+  "uriFormat": "{parent.uri}/{slug}",
+  "maxLevels": 2,
+  "enableVersioning": false,
+  "entryTypes": [
+    "wbAboutPage"
+  ]
 }

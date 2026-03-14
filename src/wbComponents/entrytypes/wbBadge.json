@@ -1,25 +1,26 @@
 {
-    "handle": "wbBadge",
-    "name": "Badge",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle",
-                "wbText"
-            ]
-        },
-        {
-            "name": "Style",
-            "fields": [
-                "wbBadgeType",
-                "wbBadgePill"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbBadge",
+  "name": "Badge",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle",
+        "wbText"
+      ]
+    },
+    {
+      "name": "Style",
+      "fields": [
+        "wbBadgeType",
+        "wbBadgePill"
+      ]
+    }
+  ]
 }

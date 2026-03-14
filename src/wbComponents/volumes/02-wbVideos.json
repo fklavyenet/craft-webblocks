@@ -1,7 +1,8 @@
 {
-    "handle": "wbVideos",
-    "name": "WB Videos",
-    "fs": "wbMedia",
-    "subpath": "videos",
-    "sortOrder": 2
+  "version": 1,
+  "handle": "wbVideos",
+  "name": "WB Videos",
+  "fs": "wbMedia",
+  "subpath": "videos",
+  "sortOrder": 2
 }

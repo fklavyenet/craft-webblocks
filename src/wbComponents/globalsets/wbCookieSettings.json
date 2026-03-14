@@ -1,13 +1,14 @@
 {
-    "handle": "wbCookieSettings",
-    "name": "WB Cookie Settings",
-    "fields": [
-        "wbCookieBannerEnabled",
-        "wbCookieBannerTitle",
-        "wbCookieBannerText",
-        "wbCookiePrivacyUrl",
-        "wbCookieLabelAnalytics",
-        "wbCookieLabelMarketing",
-        "wbCookieLabelPreferences"
-    ]
+  "version": 1,
+  "handle": "wbCookieSettings",
+  "name": "WB Cookie Settings",
+  "fields": [
+    "wbCookieBannerEnabled",
+    "wbCookieBannerTitle",
+    "wbCookieBannerText",
+    "wbCookiePrivacyUrl",
+    "wbCookieLabelAnalytics",
+    "wbCookieLabelMarketing",
+    "wbCookieLabelPreferences"
+  ]
 }

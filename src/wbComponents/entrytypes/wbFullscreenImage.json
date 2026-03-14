@@ -1,28 +1,31 @@
 {
-    "handle": "wbFullscreenImage",
-    "name": "Fullscreen Image",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "Fullscreen Image",
-    "titleTranslationMethod": "site",
-    "matrixFields": ["wbFsSlides"],
-    "tabs": [
-        {
-            "name": "Slides",
-            "fields": [
-                "wbFsSlides"
-            ]
-        },
-        {
-            "name": "Settings",
-            "fields": [
-                "wbMinHeight",
-                "wbAutoplay",
-                "wbInterval",
-                "wbShowControls",
-                "wbShowIndicators"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbFullscreenImage",
+  "name": "Fullscreen Image",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "Fullscreen Image",
+  "titleTranslationMethod": "site",
+  "matrixFields": [
+    "wbFsSlides"
+  ],
+  "tabs": [
+    {
+      "name": "Slides",
+      "fields": [
+        "wbFsSlides"
+      ]
+    },
+    {
+      "name": "Settings",
+      "fields": [
+        "wbMinHeight",
+        "wbAutoplay",
+        "wbInterval",
+        "wbShowControls",
+        "wbShowIndicators"
+      ]
+    }
+  ]
 }

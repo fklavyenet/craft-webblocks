@@ -1,9 +1,10 @@
 {
-    "handle": "wbImages",
-    "name": "WB Images",
-    "fs": "wbMedia",
-    "subpath": "images",
-    "transformFs": "wbMediaTransforms",
-    "transformSubpath": "",
-    "sortOrder": 1
+  "version": 1,
+  "handle": "wbImages",
+  "name": "WB Images",
+  "fs": "wbMedia",
+  "subpath": "images",
+  "transformFs": "wbMediaTransforms",
+  "transformSubpath": "",
+  "sortOrder": 1
 }

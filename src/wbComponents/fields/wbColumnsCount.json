@@ -1,14 +1,27 @@
 {
-    "name": "Columns Count",
-    "handle": "wbColumnsCount",
-    "instructions": "Number of columns in the gallery grid.",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "2 Columns", "value": "2", "default": false },
-            { "label": "3 Columns", "value": "3", "default": true },
-            { "label": "4 Columns", "value": "4", "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Columns Count",
+  "handle": "wbColumnsCount",
+  "instructions": "Number of columns in the gallery grid.",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "2 Columns",
+        "value": "2",
+        "default": false
+      },
+      {
+        "label": "3 Columns",
+        "value": "3",
+        "default": true
+      },
+      {
+        "label": "4 Columns",
+        "value": "4",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

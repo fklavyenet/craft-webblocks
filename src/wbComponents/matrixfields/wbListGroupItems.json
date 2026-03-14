@@ -1,8 +1,9 @@
 {
-    "handle": "wbListGroupItems",
-    "name": "List Group Items",
-    "translationMethod": "site",
-    "entryTypes": [
-        "wbListGroupItem"
-    ]
+  "version": 1,
+  "handle": "wbListGroupItems",
+  "name": "List Group Items",
+  "translationMethod": "site",
+  "entryTypes": [
+    "wbListGroupItem"
+  ]
 }

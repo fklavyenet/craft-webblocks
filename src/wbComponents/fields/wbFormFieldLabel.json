@@ -1,13 +1,14 @@
 {
-    "name": "Field Label",
-    "handle": "wbFormFieldLabel",
-    "instructions": "Label shown above this form field",
-    "type": "PlainText",
-    "searchable": false,
-    "typesettings": {
-        "placeholder": "Your name",
-        "maxLength": 255,
-        "multiline": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Field Label",
+  "handle": "wbFormFieldLabel",
+  "instructions": "Label shown above this form field",
+  "type": "PlainText",
+  "searchable": false,
+  "typesettings": {
+    "placeholder": "Your name",
+    "maxLength": 255,
+    "multiline": false
+  },
+  "translationMethod": "site"
 }

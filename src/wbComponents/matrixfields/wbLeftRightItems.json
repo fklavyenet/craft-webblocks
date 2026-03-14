@@ -1,6 +1,9 @@
 {
-    "handle": "wbLeftRightItems",
-    "name": "Left Right Items",
-    "translationMethod": "site",
-    "entryTypes": ["wbLeftRightItem"]
+  "version": 1,
+  "handle": "wbLeftRightItems",
+  "name": "Left Right Items",
+  "translationMethod": "site",
+  "entryTypes": [
+    "wbLeftRightItem"
+  ]
 }

@@ -1,9 +1,12 @@
 {
-    "handle": "wbComments",
-    "name": "Blog Comments",
-    "type": "channel",
-    "template": "",
-    "uriFormat": null,
-    "enableVersioning": false,
-    "entryTypes": ["wbComment"]
+  "version": 1,
+  "handle": "wbComments",
+  "name": "Blog Comments",
+  "type": "channel",
+  "template": "",
+  "uriFormat": null,
+  "enableVersioning": false,
+  "entryTypes": [
+    "wbComment"
+  ]
 }

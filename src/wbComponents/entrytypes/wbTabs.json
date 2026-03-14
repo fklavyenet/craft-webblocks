@@ -1,24 +1,27 @@
 {
-    "handle": "wbTabs",
-    "name": "Tabs",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle"
-            ]
-        },
-        {
-            "name": "Style",
-            "fields": [
-                "wbTabAlign"
-            ]
-        }
-    ],
-    "matrixFields": ["wbTabItems"]
+  "version": 1,
+  "handle": "wbTabs",
+  "name": "Tabs",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle"
+      ]
+    },
+    {
+      "name": "Style",
+      "fields": [
+        "wbTabAlign"
+      ]
+    }
+  ],
+  "matrixFields": [
+    "wbTabItems"
+  ]
 }

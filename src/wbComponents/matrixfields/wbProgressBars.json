@@ -1,8 +1,9 @@
 {
-    "handle": "wbProgressBars",
-    "name": "Progress Bars",
-    "translationMethod": "site",
-    "entryTypes": [
-        "wbProgressBarItem"
-    ]
+  "version": 1,
+  "handle": "wbProgressBars",
+  "name": "Progress Bars",
+  "translationMethod": "site",
+  "entryTypes": [
+    "wbProgressBarItem"
+  ]
 }

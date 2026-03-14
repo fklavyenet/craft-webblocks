@@ -1,51 +1,52 @@
 {
-    "name": "Alert Type",
-    "handle": "wbAlertType",
-    "instructions": "Alert style",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            {
-                "label": "Primary",
-                "value": "primary",
-                "default": false
-            },
-            {
-                "label": "Secondary",
-                "value": "secondary",
-                "default": false
-            },
-            {
-                "label": "Success",
-                "value": "success",
-                "default": false
-            },
-            {
-                "label": "Danger",
-                "value": "danger",
-                "default": false
-            },
-            {
-                "label": "Warning",
-                "value": "warning",
-                "default": true
-            },
-            {
-                "label": "Info",
-                "value": "info",
-                "default": false
-            },
-            {
-                "label": "Light",
-                "value": "light",
-                "default": false
-            },
-            {
-                "label": "Dark",
-                "value": "dark",
-                "default": false
-            }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Alert Type",
+  "handle": "wbAlertType",
+  "instructions": "Alert style",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Primary",
+        "value": "primary",
+        "default": false
+      },
+      {
+        "label": "Secondary",
+        "value": "secondary",
+        "default": false
+      },
+      {
+        "label": "Success",
+        "value": "success",
+        "default": false
+      },
+      {
+        "label": "Danger",
+        "value": "danger",
+        "default": false
+      },
+      {
+        "label": "Warning",
+        "value": "warning",
+        "default": true
+      },
+      {
+        "label": "Info",
+        "value": "info",
+        "default": false
+      },
+      {
+        "label": "Light",
+        "value": "light",
+        "default": false
+      },
+      {
+        "label": "Dark",
+        "value": "dark",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

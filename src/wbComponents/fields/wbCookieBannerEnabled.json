@@ -1,10 +1,11 @@
 {
-    "name": "Cookie Banner Enabled",
-    "handle": "wbCookieBannerEnabled",
-    "instructions": "Show the cookie consent banner to visitors.",
-    "type": "Lightswitch",
-    "typesettings": {
-        "default": true
-    },
-    "translationMethod": "none"
+  "version": 1,
+  "name": "Cookie Banner Enabled",
+  "handle": "wbCookieBannerEnabled",
+  "instructions": "Show the cookie consent banner to visitors.",
+  "type": "Lightswitch",
+  "typesettings": {
+    "default": true
+  },
+  "translationMethod": "none"
 }

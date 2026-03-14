@@ -1,8 +1,9 @@
 {
-    "name": "Cookie Banner Title",
-    "handle": "wbCookieBannerTitle",
-    "instructions": "Heading text displayed in the cookie consent banner.",
-    "type": "PlainText",
-    "typesettings": {},
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Cookie Banner Title",
+  "handle": "wbCookieBannerTitle",
+  "instructions": "Heading text displayed in the cookie consent banner.",
+  "type": "PlainText",
+  "typesettings": {},
+  "translationMethod": "site"
 }

@@ -1,16 +1,37 @@
 {
-    "name": "Spacing Size",
-    "handle": "wbSpacingSize",
-    "instructions": "Amount of vertical space to insert",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "Extra Small (0.25rem)", "value": "1", "default": false },
-            { "label": "Small (0.5rem)",        "value": "2", "default": false },
-            { "label": "Medium (1rem)",         "value": "3", "default": true  },
-            { "label": "Large (1.5rem)",        "value": "4", "default": false },
-            { "label": "Extra Large (3rem)",    "value": "5", "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Spacing Size",
+  "handle": "wbSpacingSize",
+  "instructions": "Amount of vertical space to insert",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Extra Small (0.25rem)",
+        "value": "1",
+        "default": false
+      },
+      {
+        "label": "Small (0.5rem)",
+        "value": "2",
+        "default": false
+      },
+      {
+        "label": "Medium (1rem)",
+        "value": "3",
+        "default": true
+      },
+      {
+        "label": "Large (1.5rem)",
+        "value": "4",
+        "default": false
+      },
+      {
+        "label": "Extra Large (3rem)",
+        "value": "5",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

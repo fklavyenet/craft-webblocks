@@ -1,25 +1,26 @@
 {
-    "handle": "wbSpinner",
-    "name": "Spinner",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle"
-            ]
-        },
-        {
-            "name": "Style",
-            "fields": [
-                "wbSpinnerType",
-                "wbSpinnerColor",
-                "wbSpinnerSize"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbSpinner",
+  "name": "Spinner",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle"
+      ]
+    },
+    {
+      "name": "Style",
+      "fields": [
+        "wbSpinnerType",
+        "wbSpinnerColor",
+        "wbSpinnerSize"
+      ]
+    }
+  ]
 }

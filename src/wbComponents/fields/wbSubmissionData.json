@@ -1,14 +1,25 @@
 {
-    "name": "Submission Data",
-    "handle": "wbSubmissionData",
-    "instructions": "Submitted field values stored as key-value pairs",
-    "type": "Table",
-    "typesettings": {
-        "columns": {
-            "col1": { "heading": "Field", "handle": "field", "type": "singleline", "width": "" },
-            "col2": { "heading": "Value", "handle": "value", "type": "multiline",  "width": "" }
-        },
-        "defaults": []
+  "version": 1,
+  "name": "Submission Data",
+  "handle": "wbSubmissionData",
+  "instructions": "Submitted field values stored as key-value pairs",
+  "type": "Table",
+  "typesettings": {
+    "columns": {
+      "col1": {
+        "heading": "Field",
+        "handle": "field",
+        "type": "singleline",
+        "width": ""
+      },
+      "col2": {
+        "heading": "Value",
+        "handle": "value",
+        "type": "multiline",
+        "width": ""
+      }
     },
-    "translationMethod": "none"
+    "defaults": []
+  },
+  "translationMethod": "none"
 }

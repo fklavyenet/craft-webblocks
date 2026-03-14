@@ -1,13 +1,14 @@
 {
-    "name": "Address",
-    "handle": "wbAddress",
-    "instructions": "Physical address",
-    "type": "PlainText",
-    "typesettings": {
-        "placeholder": "Street, City, Country",
-        "multiline": true,
-        "initialRows": 3
-    },
-    "translationMethod": "site",
-    "searchable": true
+  "version": 1,
+  "name": "Address",
+  "handle": "wbAddress",
+  "instructions": "Physical address",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "Street, City, Country",
+    "multiline": true,
+    "initialRows": 3
+  },
+  "translationMethod": "site",
+  "searchable": true
 }

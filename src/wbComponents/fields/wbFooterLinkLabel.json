@@ -1,11 +1,12 @@
 {
-    "name": "Footer Link Label",
-    "handle": "wbFooterLinkLabel",
-    "instructions": "Display text for this footer link",
-    "type": "PlainText",
-    "typesettings": {
-        "placeholder": "Privacy Policy",
-        "multiline": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Footer Link Label",
+  "handle": "wbFooterLinkLabel",
+  "instructions": "Display text for this footer link",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "Privacy Policy",
+    "multiline": false
+  },
+  "translationMethod": "site"
 }

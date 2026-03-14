@@ -1,10 +1,11 @@
 {
-    "name": "Include in Confirmation Email",
-    "handle": "wbFormFieldInConfirmEmail",
-    "instructions": "Include this field's value in the confirmation email sent to the visitor",
-    "type": "Lightswitch",
-    "typesettings": {
-        "default": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Include in Confirmation Email",
+  "handle": "wbFormFieldInConfirmEmail",
+  "instructions": "Include this field's value in the confirmation email sent to the visitor",
+  "type": "Lightswitch",
+  "typesettings": {
+    "default": false
+  },
+  "translationMethod": "site"
 }

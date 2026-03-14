@@ -1,14 +1,19 @@
 {
-    "name": "Featured Image",
-    "handle": "wbFeaturedImage",
-    "instructions": "Choose an image that represents the page content.",
-    "type": "Assets",
-    "typesettings": {
-        "allowedKinds": ["image"],
-        "limit": 1,
-        "sources": ["volume:wbImages"],
-        "defaultUploadLocationVolume": "wbImages",
-        "restrictFiles": true
-    },
-    "translationMethod": "none"
+  "version": 1,
+  "name": "Featured Image",
+  "handle": "wbFeaturedImage",
+  "instructions": "Choose an image that represents the page content.",
+  "type": "Assets",
+  "typesettings": {
+    "allowedKinds": [
+      "image"
+    ],
+    "limit": 1,
+    "sources": [
+      "volume:wbImages"
+    ],
+    "defaultUploadLocationVolume": "wbImages",
+    "restrictFiles": true
+  },
+  "translationMethod": "none"
 }

@@ -1,12 +1,13 @@
 {
-    "name": "Progress Value",
-    "handle": "wbProgressValue",
-    "instructions": "Progress percentage (0–100)",
-    "type": "Number",
-    "typesettings": {
-        "min": 0,
-        "max": 100,
-        "defaultValue": 50
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Progress Value",
+  "handle": "wbProgressValue",
+  "instructions": "Progress percentage (0–100)",
+  "type": "Number",
+  "typesettings": {
+    "min": 0,
+    "max": 100,
+    "defaultValue": 50
+  },
+  "translationMethod": "site"
 }

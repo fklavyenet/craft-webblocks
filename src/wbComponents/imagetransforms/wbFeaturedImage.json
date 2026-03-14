@@ -1,7 +1,8 @@
 {
-    "handle": "wbFeaturedImage",
-    "name": "WB Featured Image",
-    "width": 1200,
-    "height": 480,
-    "mode": "crop"
+  "version": 1,
+  "handle": "wbFeaturedImage",
+  "name": "WB Featured Image",
+  "width": 1200,
+  "height": 480,
+  "mode": "crop"
 }

@@ -1,6 +1,9 @@
 {
-    "handle": "wbFsSlides",
-    "name": "Fullscreen Slides",
-    "translationMethod": "site",
-    "entryTypes": ["wbFsSlide"]
+  "version": 1,
+  "handle": "wbFsSlides",
+  "name": "Fullscreen Slides",
+  "translationMethod": "site",
+  "entryTypes": [
+    "wbFsSlide"
+  ]
 }

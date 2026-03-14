@@ -1,10 +1,13 @@
 {
-    "handle": "wbPage",
-    "name": "Pages",
-    "type": "structure",
-    "template": "wb/sections/page",
-    "uriFormat": "{slug}",
-    "maxLevels": 3,
-    "enableVersioning": false,
-    "entryTypes": ["wbPage"]
+  "version": 1,
+  "handle": "wbPage",
+  "name": "Pages",
+  "type": "structure",
+  "template": "wb/sections/page",
+  "uriFormat": "{slug}",
+  "maxLevels": 3,
+  "enableVersioning": false,
+  "entryTypes": [
+    "wbPage"
+  ]
 }

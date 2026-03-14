@@ -1,17 +1,18 @@
 {
-    "name": "Background Image",
-    "handle": "wbBackgroundImage",
-    "instructions": "",
-    "type": "Assets",
-    "typesettings": {
-        "sources": "*",
-        "defaultUploadLocationVolume": "wbImages",
-        "restrictFiles": true,
-        "allowedKinds": [
-            "image"
-        ],
-        "limit": 1,
-        "viewMode": "large"
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Background Image",
+  "handle": "wbBackgroundImage",
+  "instructions": "",
+  "type": "Assets",
+  "typesettings": {
+    "sources": "*",
+    "defaultUploadLocationVolume": "wbImages",
+    "restrictFiles": true,
+    "allowedKinds": [
+      "image"
+    ],
+    "limit": 1,
+    "viewMode": "large"
+  },
+  "translationMethod": "site"
 }

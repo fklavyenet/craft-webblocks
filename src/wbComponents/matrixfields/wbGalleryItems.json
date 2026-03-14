@@ -1,6 +1,9 @@
 {
-    "handle": "wbGalleryItems",
-    "name": "Gallery Items",
-    "translationMethod": "site",
-    "entryTypes": ["wbGalleryItem"]
+  "version": 1,
+  "handle": "wbGalleryItems",
+  "name": "Gallery Items",
+  "translationMethod": "site",
+  "entryTypes": [
+    "wbGalleryItem"
+  ]
 }

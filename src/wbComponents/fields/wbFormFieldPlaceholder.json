@@ -1,13 +1,14 @@
 {
-    "name": "Field Placeholder",
-    "handle": "wbFormFieldPlaceholder",
-    "instructions": "Placeholder text shown inside the input",
-    "type": "PlainText",
-    "searchable": false,
-    "typesettings": {
-        "placeholder": "",
-        "maxLength": 255,
-        "multiline": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Field Placeholder",
+  "handle": "wbFormFieldPlaceholder",
+  "instructions": "Placeholder text shown inside the input",
+  "type": "PlainText",
+  "searchable": false,
+  "typesettings": {
+    "placeholder": "",
+    "maxLength": 255,
+    "multiline": false
+  },
+  "translationMethod": "site"
 }

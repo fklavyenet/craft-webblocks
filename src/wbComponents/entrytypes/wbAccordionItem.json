@@ -1,18 +1,19 @@
 {
-    "handle": "wbAccordionItem",
-    "name": "Accordion Item",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle",
-                "wbText"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbAccordionItem",
+  "name": "Accordion Item",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle",
+        "wbText"
+      ]
+    }
+  ]
 }

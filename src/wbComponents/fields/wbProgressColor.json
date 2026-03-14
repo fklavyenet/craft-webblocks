@@ -1,17 +1,42 @@
 {
-    "name": "Progress Color",
-    "handle": "wbProgressColor",
-    "instructions": "Bootstrap contextual color for the bar",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "Primary",   "value": "bg-primary",   "default": true  },
-            { "label": "Secondary", "value": "bg-secondary", "default": false },
-            { "label": "Success",   "value": "bg-success",   "default": false },
-            { "label": "Danger",    "value": "bg-danger",    "default": false },
-            { "label": "Warning",   "value": "bg-warning",   "default": false },
-            { "label": "Info",      "value": "bg-info",      "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Progress Color",
+  "handle": "wbProgressColor",
+  "instructions": "Bootstrap contextual color for the bar",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Primary",
+        "value": "bg-primary",
+        "default": true
+      },
+      {
+        "label": "Secondary",
+        "value": "bg-secondary",
+        "default": false
+      },
+      {
+        "label": "Success",
+        "value": "bg-success",
+        "default": false
+      },
+      {
+        "label": "Danger",
+        "value": "bg-danger",
+        "default": false
+      },
+      {
+        "label": "Warning",
+        "value": "bg-warning",
+        "default": false
+      },
+      {
+        "label": "Info",
+        "value": "bg-info",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

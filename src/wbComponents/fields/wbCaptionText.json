@@ -1,13 +1,14 @@
 {
-    "name": "Caption Text",
-    "handle": "wbCaptionText",
-    "instructions": "Slide caption body text",
-    "type": "PlainText",
-    "typesettings": {
-        "placeholder": "",
-        "maxLength": null,
-        "multiline": true
-    },
-    "translationMethod": "site",
-    "searchable": true
+  "version": 1,
+  "name": "Caption Text",
+  "handle": "wbCaptionText",
+  "instructions": "Slide caption body text",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "",
+    "maxLength": null,
+    "multiline": true
+  },
+  "translationMethod": "site",
+  "searchable": true
 }

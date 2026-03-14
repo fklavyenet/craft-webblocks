@@ -1,10 +1,11 @@
 {
-    "name": "Autoplay",
-    "handle": "wbAutoplay",
-    "instructions": "Automatically cycle through slides",
-    "type": "Lightswitch",
-    "typesettings": {
-        "default": true
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Autoplay",
+  "handle": "wbAutoplay",
+  "instructions": "Automatically cycle through slides",
+  "type": "Lightswitch",
+  "typesettings": {
+    "default": true
+  },
+  "translationMethod": "site"
 }

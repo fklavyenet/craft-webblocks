@@ -1,33 +1,34 @@
 {
-    "handle": "wbLeftRightItem",
-    "name": "Left Right Item",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle",
-                "wbText"
-            ]
-        },
-        {
-            "name": "Image",
-            "fields": [
-                "wbImage"
-            ]
-        },
-        {
-            "name": "Button",
-            "fields": [
-                "wbButtonLabel",
-                "wbButtonUrl",
-                "wbButtonTarget",
-                "wbButtonSize"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbLeftRightItem",
+  "name": "Left Right Item",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle",
+        "wbText"
+      ]
+    },
+    {
+      "name": "Image",
+      "fields": [
+        "wbImage"
+      ]
+    },
+    {
+      "name": "Button",
+      "fields": [
+        "wbButtonLabel",
+        "wbButtonUrl",
+        "wbButtonTarget",
+        "wbButtonSize"
+      ]
+    }
+  ]
 }

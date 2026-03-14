@@ -1,11 +1,12 @@
 {
-    "handle": "wbMediaTransforms",
-    "name": "Media Transforms",
-    "type": "craft\\fs\\Local",
-    "hasUrls": true,
-    "path": "@webroot/media/_transforms",
-    "url": "/media/_transforms",
-    "settings": {
-        "createDirs": true
-    }
+  "version": 1,
+  "handle": "wbMediaTransforms",
+  "name": "Media Transforms",
+  "type": "craft\\fs\\Local",
+  "hasUrls": true,
+  "path": "@webroot/media/_transforms",
+  "url": "/media/_transforms",
+  "settings": {
+    "createDirs": true
+  }
 }

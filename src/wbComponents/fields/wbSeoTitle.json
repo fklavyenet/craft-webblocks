@@ -1,12 +1,13 @@
 {
-    "name": "SEO Title",
-    "handle": "wbSeoTitle",
-    "instructions": "Page title for search engines. Maximum 50–60 characters. Leave blank to use the entry title.",
-    "type": "PlainText",
-    "typesettings": {
-        "placeholder": "",
-        "multiline": false,
-        "charLimit": 60
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "SEO Title",
+  "handle": "wbSeoTitle",
+  "instructions": "Page title for search engines. Maximum 50–60 characters. Leave blank to use the entry title.",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "",
+    "multiline": false,
+    "charLimit": 60
+  },
+  "translationMethod": "site"
 }

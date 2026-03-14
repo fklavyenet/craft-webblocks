@@ -1,12 +1,13 @@
 {
-    "handle": "wbSearch",
-    "name": "Search Results",
-    "hasTitleField": true,
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": []
-        }
-    ]
+  "version": 1,
+  "handle": "wbSearch",
+  "name": "Search Results",
+  "hasTitleField": true,
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": []
+    }
+  ]
 }

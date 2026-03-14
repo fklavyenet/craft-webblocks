@@ -1,12 +1,13 @@
 {
-    "handle": "wbSiteConfig",
-    "name": "WB Site Config",
-    "fields": [
-        "wbSiteNavbar",
-        "wbSiteFooter",
-        "wbColorMode",
-        "wbColorTheme",
-        "wbCustomCssUrl",
-        "wbCustomCss"
-    ]
+  "version": 1,
+  "handle": "wbSiteConfig",
+  "name": "WB Site Config",
+  "fields": [
+    "wbSiteNavbar",
+    "wbSiteFooter",
+    "wbColorMode",
+    "wbColorTheme",
+    "wbCustomCssUrl",
+    "wbCustomCss"
+  ]
 }

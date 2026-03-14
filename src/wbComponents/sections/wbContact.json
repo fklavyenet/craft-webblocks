@@ -1,9 +1,12 @@
 {
-    "handle": "wbContact",
-    "name": "Contact",
-    "type": "single",
-    "template": "wb/sections/contact",
-    "uriFormat": "contact",
-    "enableVersioning": false,
-    "entryTypes": ["wbContactPage"]
+  "version": 1,
+  "handle": "wbContact",
+  "name": "Contact",
+  "type": "single",
+  "template": "wb/sections/contact",
+  "uriFormat": "contact",
+  "enableVersioning": false,
+  "entryTypes": [
+    "wbContactPage"
+  ]
 }

@@ -1,13 +1,14 @@
 {
-    "name": "Title",
-    "handle": "wbTitle",
-    "instructions": "",
-    "type": "PlainText",
-    "searchable": true,
-    "typesettings": {
-        "placeholder": "",
-        "maxLength": null,
-        "multiline": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Title",
+  "handle": "wbTitle",
+  "instructions": "",
+  "type": "PlainText",
+  "searchable": true,
+  "typesettings": {
+    "placeholder": "",
+    "maxLength": null,
+    "multiline": false
+  },
+  "translationMethod": "site"
 }

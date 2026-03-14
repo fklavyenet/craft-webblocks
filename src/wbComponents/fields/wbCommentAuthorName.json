@@ -1,13 +1,14 @@
 {
-    "name": "Comment Author Name",
-    "handle": "wbCommentAuthorName",
-    "instructions": "Name of the comment author.",
-    "type": "PlainText",
-    "typesettings": {
-        "placeholder": "",
-        "maxLength": 100,
-        "multiline": false
-    },
-    "translationMethod": "none",
-    "searchable": true
+  "version": 1,
+  "name": "Comment Author Name",
+  "handle": "wbCommentAuthorName",
+  "instructions": "Name of the comment author.",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "",
+    "maxLength": 100,
+    "multiline": false
+  },
+  "translationMethod": "none",
+  "searchable": true
 }

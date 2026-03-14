@@ -1,19 +1,20 @@
 {
-    "handle": "wbCarouselItem",
-    "name": "Carousel Item",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbCaption}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbImage",
-                "wbCaption",
-                "wbCaptionText"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbCarouselItem",
+  "name": "Carousel Item",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbCaption}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbImage",
+        "wbCaption",
+        "wbCaptionText"
+      ]
+    }
+  ]
 }

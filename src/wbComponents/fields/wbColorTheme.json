@@ -1,19 +1,52 @@
 {
-    "name": "Color Theme",
-    "handle": "wbColorTheme",
-    "instructions": "Site-wide colour theme. Loads the corresponding Bootswatch CSS automatically. 'Default' uses Bootstrap's built-in styles with no overrides.",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "Default",  "value": "default",  "default": true  },
-            { "label": "Flatly",   "value": "flatly",   "default": false },
-            { "label": "Cerulean", "value": "cerulean", "default": false },
-            { "label": "Minty",    "value": "minty",    "default": false },
-            { "label": "Lux",      "value": "lux",      "default": false },
-            { "label": "Darkly",   "value": "darkly",   "default": false },
-            { "label": "Slate",    "value": "slate",    "default": false },
-            { "label": "Quartz",   "value": "quartz",   "default": false }
-        ]
-    },
-    "translationMethod": "none"
+  "version": 1,
+  "name": "Color Theme",
+  "handle": "wbColorTheme",
+  "instructions": "Site-wide colour theme. Loads the corresponding Bootswatch CSS automatically. 'Default' uses Bootstrap's built-in styles with no overrides.",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Default",
+        "value": "default",
+        "default": true
+      },
+      {
+        "label": "Flatly",
+        "value": "flatly",
+        "default": false
+      },
+      {
+        "label": "Cerulean",
+        "value": "cerulean",
+        "default": false
+      },
+      {
+        "label": "Minty",
+        "value": "minty",
+        "default": false
+      },
+      {
+        "label": "Lux",
+        "value": "lux",
+        "default": false
+      },
+      {
+        "label": "Darkly",
+        "value": "darkly",
+        "default": false
+      },
+      {
+        "label": "Slate",
+        "value": "slate",
+        "default": false
+      },
+      {
+        "label": "Quartz",
+        "value": "quartz",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "none"
 }

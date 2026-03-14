@@ -1,10 +1,11 @@
 {
-    "name": "Background Color",
-    "handle": "wbBackgroundColor",
-    "instructions": "Background colour for the block",
-    "type": "Color",
-    "typesettings": {
-        "defaultColor": ""
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Background Color",
+  "handle": "wbBackgroundColor",
+  "instructions": "Background colour for the block",
+  "type": "Color",
+  "typesettings": {
+    "defaultColor": ""
+  },
+  "translationMethod": "site"
 }

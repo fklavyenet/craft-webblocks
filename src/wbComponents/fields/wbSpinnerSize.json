@@ -1,13 +1,22 @@
 {
-    "name": "Spinner Size",
-    "handle": "wbSpinnerSize",
-    "instructions": "Size of the spinner",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "Default", "value": "",   "default": true  },
-            { "label": "Small",   "value": "sm", "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Spinner Size",
+  "handle": "wbSpinnerSize",
+  "instructions": "Size of the spinner",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Default",
+        "value": "",
+        "default": true
+      },
+      {
+        "label": "Small",
+        "value": "sm",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

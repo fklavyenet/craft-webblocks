@@ -1,12 +1,13 @@
 {
-    "name": "Comment Honeypot",
-    "handle": "wbCommentHoneypot",
-    "instructions": "Spam protection — must be empty on submission. Do not display to users.",
-    "type": "PlainText",
-    "typesettings": {
-        "placeholder": "",
-        "multiline": false
-    },
-    "translationMethod": "none",
-    "searchable": false
+  "version": 1,
+  "name": "Comment Honeypot",
+  "handle": "wbCommentHoneypot",
+  "instructions": "Spam protection — must be empty on submission. Do not display to users.",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "",
+    "multiline": false
+  },
+  "translationMethod": "none",
+  "searchable": false
 }

@@ -1,11 +1,12 @@
 {
-    "name": "Search Placeholder",
-    "handle": "wbNavbarSearchPlaceholder",
-    "instructions": "Placeholder text for the search input",
-    "type": "PlainText",
-    "typesettings": {
-        "placeholder": "Search...",
-        "multiline": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Search Placeholder",
+  "handle": "wbNavbarSearchPlaceholder",
+  "instructions": "Placeholder text for the search input",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "Search...",
+    "multiline": false
+  },
+  "translationMethod": "site"
 }

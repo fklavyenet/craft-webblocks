@@ -1,24 +1,25 @@
 {
-    "handle": "wbToast",
-    "name": "Toast",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle",
-                "wbText"
-            ]
-        },
-        {
-            "name": "Style",
-            "fields": [
-                "wbToastType"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbToast",
+  "name": "Toast",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle",
+        "wbText"
+      ]
+    },
+    {
+      "name": "Style",
+      "fields": [
+        "wbToastType"
+      ]
+    }
+  ]
 }

@@ -1,13 +1,14 @@
 {
-    "name": "SEO Description",
-    "handle": "wbSeoDescription",
-    "instructions": "Meta description for search engines. Should reflect the page content, ideally 130–160 characters.",
-    "type": "PlainText",
-    "typesettings": {
-        "placeholder": "",
-        "multiline": true,
-        "initialRows": 3,
-        "charLimit": 160
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "SEO Description",
+  "handle": "wbSeoDescription",
+  "instructions": "Meta description for search engines. Should reflect the page content, ideally 130–160 characters.",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "",
+    "multiline": true,
+    "initialRows": 3,
+    "charLimit": 160
+  },
+  "translationMethod": "site"
 }

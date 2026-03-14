@@ -1,13 +1,14 @@
 {
-    "name": "Option Label",
-    "handle": "wbFormOptionLabel",
-    "instructions": "Display label for this option",
-    "type": "PlainText",
-    "searchable": false,
-    "typesettings": {
-        "placeholder": "Option label",
-        "maxLength": 255,
-        "multiline": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Option Label",
+  "handle": "wbFormOptionLabel",
+  "instructions": "Display label for this option",
+  "type": "PlainText",
+  "searchable": false,
+  "typesettings": {
+    "placeholder": "Option label",
+    "maxLength": 255,
+    "multiline": false
+  },
+  "translationMethod": "site"
 }

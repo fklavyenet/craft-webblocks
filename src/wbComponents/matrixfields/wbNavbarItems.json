@@ -1,6 +1,9 @@
 {
-    "handle": "wbNavbarItems",
-    "name": "Navbar Items",
-    "translationMethod": "site",
-    "entryTypes": ["wbNavItem"]
+  "version": 1,
+  "handle": "wbNavbarItems",
+  "name": "Navbar Items",
+  "translationMethod": "site",
+  "entryTypes": [
+    "wbNavItem"
+  ]
 }

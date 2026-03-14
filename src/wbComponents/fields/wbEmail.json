@@ -1,11 +1,12 @@
 {
-    "name": "Email",
-    "handle": "wbEmail",
-    "instructions": "Email address",
-    "type": "Email",
-    "typesettings": {
-        "placeholder": "info@example.com"
-    },
-    "translationMethod": "site",
-    "searchable": true
+  "version": 1,
+  "name": "Email",
+  "handle": "wbEmail",
+  "instructions": "Email address",
+  "type": "Email",
+  "typesettings": {
+    "placeholder": "info@example.com"
+  },
+  "translationMethod": "site",
+  "searchable": true
 }

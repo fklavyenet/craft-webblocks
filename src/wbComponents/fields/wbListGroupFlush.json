@@ -1,10 +1,11 @@
 {
-    "name": "List Group Flush",
-    "handle": "wbListGroupFlush",
-    "instructions": "Remove borders and rounded corners to render the list group edge-to-edge",
-    "type": "Lightswitch",
-    "typesettings": {
-        "default": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "List Group Flush",
+  "handle": "wbListGroupFlush",
+  "instructions": "Remove borders and rounded corners to render the list group edge-to-edge",
+  "type": "Lightswitch",
+  "typesettings": {
+    "default": false
+  },
+  "translationMethod": "site"
 }

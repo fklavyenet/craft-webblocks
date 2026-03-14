@@ -1,26 +1,27 @@
 {
-    "handle": "wbPopover",
-    "name": "Popover",
-    "showSlugField": false,
-    "showStatusField": false,
-    "hasTitleField": false,
-    "titleFormat": "{wbTitle}",
-    "titleTranslationMethod": "site",
-    "tabs": [
-        {
-            "name": "Content",
-            "fields": [
-                "wbTitle",
-                "wbCaption",
-                "wbText"
-            ]
-        },
-        {
-            "name": "Style",
-            "fields": [
-                "wbPopoverPlacement",
-                "wbButtonSize"
-            ]
-        }
-    ]
+  "version": 1,
+  "handle": "wbPopover",
+  "name": "Popover",
+  "showSlugField": false,
+  "showStatusField": false,
+  "hasTitleField": false,
+  "titleFormat": "{wbTitle}",
+  "titleTranslationMethod": "site",
+  "tabs": [
+    {
+      "name": "Content",
+      "fields": [
+        "wbTitle",
+        "wbCaption",
+        "wbText"
+      ]
+    },
+    {
+      "name": "Style",
+      "fields": [
+        "wbPopoverPlacement",
+        "wbButtonSize"
+      ]
+    }
+  ]
 }

@@ -1,21 +1,22 @@
 {
-    "name": "Button Target",
-    "handle": "wbButtonTarget",
-    "instructions": "Link target",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            {
-                "label": "Same Window",
-                "value": "",
-                "default": true
-            },
-            {
-                "label": "New Window",
-                "value": "_blank",
-                "default": false
-            }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Button Target",
+  "handle": "wbButtonTarget",
+  "instructions": "Link target",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Same Window",
+        "value": "",
+        "default": true
+      },
+      {
+        "label": "New Window",
+        "value": "_blank",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

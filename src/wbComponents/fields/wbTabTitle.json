@@ -1,7 +1,8 @@
 {
-    "name": "Tab Title",
-    "handle": "wbTabTitle",
-    "instructions": "Label shown on the tab button",
-    "type": "PlainText",
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Tab Title",
+  "handle": "wbTabTitle",
+  "instructions": "Label shown on the tab button",
+  "type": "PlainText",
+  "translationMethod": "site"
 }

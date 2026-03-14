@@ -1,14 +1,27 @@
 {
-    "name": "Alignment",
-    "handle": "wbAlignment",
-    "instructions": "Horizontal alignment of content",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "Left",   "value": "start",  "default": false },
-            { "label": "Center", "value": "center", "default": true  },
-            { "label": "Right",  "value": "end",    "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Alignment",
+  "handle": "wbAlignment",
+  "instructions": "Horizontal alignment of content",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Left",
+        "value": "start",
+        "default": false
+      },
+      {
+        "label": "Center",
+        "value": "center",
+        "default": true
+      },
+      {
+        "label": "Right",
+        "value": "end",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

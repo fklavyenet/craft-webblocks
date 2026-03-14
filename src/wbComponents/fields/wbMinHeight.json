@@ -1,11 +1,12 @@
 {
-    "name": "Min Height",
-    "handle": "wbMinHeight",
-    "instructions": "Minimum height (e.g., 400px, 50vh)",
-    "type": "PlainText",
-    "typesettings": {
-        "placeholder": "400px",
-        "multiline": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Min Height",
+  "handle": "wbMinHeight",
+  "instructions": "Minimum height (e.g., 400px, 50vh)",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "400px",
+    "multiline": false
+  },
+  "translationMethod": "site"
 }

@@ -1,9 +1,12 @@
 {
-    "handle": "wbSubmissions",
-    "name": "Form Submissions",
-    "type": "channel",
-    "template": "",
-    "uriFormat": null,
-    "enableVersioning": false,
-    "entryTypes": ["wbSubmission"]
+  "version": 1,
+  "handle": "wbSubmissions",
+  "name": "Form Submissions",
+  "type": "channel",
+  "template": "",
+  "uriFormat": null,
+  "enableVersioning": false,
+  "entryTypes": [
+    "wbSubmission"
+  ]
 }

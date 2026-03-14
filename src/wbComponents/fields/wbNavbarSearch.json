@@ -1,10 +1,11 @@
 {
-    "name": "Show Search Form",
-    "handle": "wbNavbarSearch",
-    "instructions": "Show a search input in the navbar",
-    "type": "Lightswitch",
-    "typesettings": {
-        "default": false
-    },
-    "translationMethod": "none"
+  "version": 1,
+  "name": "Show Search Form",
+  "handle": "wbNavbarSearch",
+  "instructions": "Show a search input in the navbar",
+  "type": "Lightswitch",
+  "typesettings": {
+    "default": false
+  },
+  "translationMethod": "none"
 }

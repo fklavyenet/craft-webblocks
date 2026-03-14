@@ -1,10 +1,11 @@
 {
-    "name": "Striped Rows",
-    "handle": "wbTableStriped",
-    "instructions": "Alternating row background colour (table-striped)",
-    "type": "Lightswitch",
-    "typesettings": {
-        "default": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Striped Rows",
+  "handle": "wbTableStriped",
+  "instructions": "Alternating row background colour (table-striped)",
+  "type": "Lightswitch",
+  "typesettings": {
+    "default": false
+  },
+  "translationMethod": "site"
 }

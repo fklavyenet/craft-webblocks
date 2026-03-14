@@ -85,6 +85,9 @@ class InstallService extends Component
         $this->installCategories();
         $this->installTags();
 
+        // Record installed component versions in the state table
+        (new ComponentStateService())->recordAll();
+
         Craft::info('WebBlocks: Schema installation complete.', __METHOD__);
     }
 

@@ -1,7 +1,8 @@
 {
-    "handle": "wbCarousel",
-    "name": "WB Carousel",
-    "width": 1200,
-    "height": 600,
-    "mode": "crop"
+  "version": 1,
+  "handle": "wbCarousel",
+  "name": "WB Carousel",
+  "width": 1200,
+  "height": 600,
+  "mode": "crop"
 }

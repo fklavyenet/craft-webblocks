@@ -1,8 +1,9 @@
 {
-    "name": "Text",
-    "handle": "wbText",
-    "instructions": "",
-    "type": "CKEditor",
-    "searchable": true,
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Text",
+  "handle": "wbText",
+  "instructions": "",
+  "type": "CKEditor",
+  "searchable": true,
+  "translationMethod": "site"
 }

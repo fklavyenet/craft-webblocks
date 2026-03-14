@@ -1,9 +1,12 @@
 {
-    "handle": "wbBlog",
-    "name": "Blog Posts",
-    "type": "channel",
-    "template": "wb/sections/post",
-    "uriFormat": "blog/{slug}",
-    "enableVersioning": false,
-    "entryTypes": ["wbPost"]
+  "version": 1,
+  "handle": "wbBlog",
+  "name": "Blog Posts",
+  "type": "channel",
+  "template": "wb/sections/post",
+  "uriFormat": "blog/{slug}",
+  "enableVersioning": false,
+  "entryTypes": [
+    "wbPost"
+  ]
 }

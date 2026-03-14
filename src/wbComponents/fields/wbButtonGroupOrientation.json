@@ -1,13 +1,22 @@
 {
-    "name": "Button Group Orientation",
-    "handle": "wbButtonGroupOrientation",
-    "instructions": "Layout direction of the button group",
-    "type": "Dropdown",
-    "typesettings": {
-        "options": [
-            { "label": "Horizontal", "value": "horizontal", "default": true  },
-            { "label": "Vertical",   "value": "vertical",   "default": false }
-        ]
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Button Group Orientation",
+  "handle": "wbButtonGroupOrientation",
+  "instructions": "Layout direction of the button group",
+  "type": "Dropdown",
+  "typesettings": {
+    "options": [
+      {
+        "label": "Horizontal",
+        "value": "horizontal",
+        "default": true
+      },
+      {
+        "label": "Vertical",
+        "value": "vertical",
+        "default": false
+      }
+    ]
+  },
+  "translationMethod": "site"
 }

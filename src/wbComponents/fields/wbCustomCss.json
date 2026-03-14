@@ -1,12 +1,13 @@
 {
-    "name": "Custom CSS",
-    "handle": "wbCustomCss",
-    "instructions": "Inline CSS injected inside a <style> tag in <head>. Write plain CSS rules, no <style> tags needed.",
-    "type": "PlainText",
-    "typesettings": {
-        "multiline": true,
-        "initialRows": 8,
-        "code": true
-    },
-    "translationMethod": "none"
+  "version": 1,
+  "name": "Custom CSS",
+  "handle": "wbCustomCss",
+  "instructions": "Inline CSS injected inside a <style> tag in <head>. Write plain CSS rules, no <style> tags needed.",
+  "type": "PlainText",
+  "typesettings": {
+    "multiline": true,
+    "initialRows": 8,
+    "code": true
+  },
+  "translationMethod": "none"
 }

@@ -1,10 +1,11 @@
 {
-    "name": "Small / Condensed",
-    "handle": "wbTableSm",
-    "instructions": "Reduced cell padding (table-sm)",
-    "type": "Lightswitch",
-    "typesettings": {
-        "default": false
-    },
-    "translationMethod": "site"
+  "version": 1,
+  "name": "Small / Condensed",
+  "handle": "wbTableSm",
+  "instructions": "Reduced cell padding (table-sm)",
+  "type": "Lightswitch",
+  "typesettings": {
+    "default": false
+  },
+  "translationMethod": "site"
 }

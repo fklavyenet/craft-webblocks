@@ -1,8 +1,9 @@
 {
-    "handle": "wbTabItems",
-    "name": "Tab Items",
-    "translationMethod": "site",
-    "entryTypes": [
-        "wbTabItem"
-    ]
+  "version": 1,
+  "handle": "wbTabItems",
+  "name": "Tab Items",
+  "translationMethod": "site",
+  "entryTypes": [
+    "wbTabItem"
+  ]
 }

@@ -56,6 +56,8 @@ return [
     // =========================================================================
     'Default Admin Email'    => 'Standard-Admin-E-Mail',
     "Fallback recipient for wbForm admin notification emails when a form's own Recipient field is empty." => "Ersatzempfänger für wbForm-Admin-Benachrichtigungs-E-Mails, wenn das Empfängerfeld des Formulars leer ist.",
+    'Comment Notification Email' => 'Kommentar-Benachrichtigungs-E-Mail',
+    'When set, an email is sent to this address every time a new comment is submitted and is awaiting moderation.' => 'Wenn festgelegt, wird bei jedem neuen Kommentar, der auf Moderation wartet, eine E-Mail an diese Adresse gesendet.',
     'SEO'                    => 'SEO',
     'Page Title Format'      => 'Seitentitelformat',
     "Format for the <title> tag when wbSeoTitle is empty. Use {title} and {siteName} as placeholders. Example: {title} — {siteName}" => "Format für das <title>-Tag, wenn wbSeoTitle leer ist. Verwenden Sie {title} und {siteName} als Platzhalter. Beispiel: {title} — {siteName}",

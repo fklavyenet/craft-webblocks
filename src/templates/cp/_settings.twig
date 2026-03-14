@@ -12,6 +12,16 @@
     errors:       settings.getErrors('adminEmail')
 }) }}
 
+{{ forms.textField({
+    label:        "Comment Notification Email"|t('webblocks'),
+    id:           'commentNotificationEmail',
+    name:         'commentNotificationEmail',
+    type:         'email',
+    instructions: "When set, an email is sent to this address every time a new comment is submitted and is awaiting moderation."|t('webblocks'),
+    value:        settings.commentNotificationEmail,
+    errors:       settings.getErrors('commentNotificationEmail')
+}) }}
+
 <h2>{{ "SEO"|t('webblocks') }}</h2>
 
 {{ forms.textField({

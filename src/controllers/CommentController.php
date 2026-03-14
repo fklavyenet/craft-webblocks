@@ -131,6 +131,9 @@ class CommentController extends Controller
             );
         }
 
+        // ── Admin notification email ──────────────────────────────────────────
+        $this->_sendCommentNotification($comment, $postEntry, $authorName, $email, $body);
+
         return $this->_successResponse($isAjax);
     }
 
@@ -202,8 +205,72 @@ class CommentController extends Controller
         return $this->redirect($comment->cpEditUrl);
     }
 
-    private function _successResponse(bool $isAjax): Response
+    /**
+     * Sends an admin notification email when a new comment is submitted.
+     * Only fires when commentNotificationEmail is set in plugin settings.
+     */
+    private function _sendCommentNotification(Entry $comment, Entry $postEntry, string $authorName, string $email, string $body): void
     {
+        $settings  = \fklavyenet\webblocks\WebBlocks::getInstance()->getSettings();
+        $recipient = (string) ($settings->commentNotificationEmail ?? '');
+
+        if ($recipient === '') {
+            return;
+        }
+
+        $postTitle = $postEntry->title ?? '—';
+        $postUrl   = $postEntry->cpEditUrl ?? '';
+        $approveUrl = \Craft::$app->getSites()->getPrimarySite()->getBaseUrl()
+            . 'admin/entries/wbComments/' . $comment->id;
+
+        $escapedAuthor = htmlspecialchars($authorName, ENT_QUOTES);
+        $escapedEmail  = htmlspecialchars($email, ENT_QUOTES);
+        $escapedBody   = nl2br(htmlspecialchars($body, ENT_QUOTES));
+        $escapedPost   = htmlspecialchars($postTitle, ENT_QUOTES);
+        $escapedUrl    = htmlspecialchars($approveUrl, ENT_QUOTES);
+
+        $html = <<<HTML
+<!DOCTYPE html>
+<html>
+<body style="font-family:sans-serif;font-size:14px;color:#333;max-width:600px;margin:0 auto;padding:24px;">
+    <h2 style="margin-top:0;">New comment pending moderation</h2>
+    <table style="border-collapse:collapse;width:100%;margin-bottom:16px;">
+        <tr>
+            <th style="text-align:left;padding:8px 12px;background:#f5f5f5;border:1px solid #ddd;white-space:nowrap;">Post</th>
+            <td style="padding:8px 12px;border:1px solid #ddd;">{$escapedPost}</td>
+        </tr>
+        <tr>
+            <th style="text-align:left;padding:8px 12px;background:#f5f5f5;border:1px solid #ddd;">Author</th>
+            <td style="padding:8px 12px;border:1px solid #ddd;">{$escapedAuthor}</td>
+        </tr>
+        <tr>
+            <th style="text-align:left;padding:8px 12px;background:#f5f5f5;border:1px solid #ddd;">Email</th>
+            <td style="padding:8px 12px;border:1px solid #ddd;">{$escapedEmail}</td>
+        </tr>
+        <tr>
+            <th style="text-align:left;padding:8px 12px;background:#f5f5f5;border:1px solid #ddd;vertical-align:top;">Comment</th>
+            <td style="padding:8px 12px;border:1px solid #ddd;">{$escapedBody}</td>
+        </tr>
+    </table>
+    <p><a href="{$escapedUrl}" style="background:#0d6efd;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;display:inline-block;">Review in control panel</a></p>
+</body>
+</html>
+HTML;
+
+        try {
+            \Craft::$app->getMailer()
+                ->compose()
+                ->setTo($recipient)
+                ->setSubject('New comment pending moderation: ' . $postTitle)
+                ->setHtmlBody($html)
+                ->setTextBody(strip_tags($html))
+                ->send();
+        } catch (\Throwable $e) {
+            \Craft::error('wbComment notification mail error: ' . $e->getMessage(), __METHOD__);
+        }
+    }
+
+    private function _successResponse(bool $isAjax): Response    {
         if ($isAjax) {
             return $this->asJson(['success' => true]);
         }

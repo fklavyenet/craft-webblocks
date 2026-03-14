@@ -56,6 +56,8 @@ return [
     // =========================================================================
     'Default Admin Email'    => 'Default Admin Email',
     "Fallback recipient for wbForm admin notification emails when a form's own Recipient field is empty." => "Fallback recipient for wbForm admin notification emails when a form's own Recipient field is empty.",
+    'Comment Notification Email' => 'Comment Notification Email',
+    'When set, an email is sent to this address every time a new comment is submitted and is awaiting moderation.' => 'When set, an email is sent to this address every time a new comment is submitted and is awaiting moderation.',
     'SEO'                    => 'SEO',
     'Page Title Format'      => 'Page Title Format',
     "Format for the <title> tag when wbSeoTitle is empty. Use {title} and {siteName} as placeholders. Example: {title} — {siteName}" => "Format for the <title> tag when wbSeoTitle is empty. Use {title} and {siteName} as placeholders. Example: {title} — {siteName}",

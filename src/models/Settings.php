@@ -19,6 +19,12 @@ class Settings extends Model
     public ?string $adminEmail = null;
 
     /**
+     * Recipient for new comment notification emails.
+     * When set, an email is sent every time a new comment is saved (pending moderation).
+     */
+    public ?string $commentNotificationEmail = null;
+
+    /**
      * SEO <title> format string.
      * Supports {title} and {siteName} placeholders.
      * Applied when wbSeoTitle is empty; if wbSeoTitle is set it is used as-is.
@@ -31,6 +37,8 @@ class Settings extends Model
         return [
             [['adminEmail'], 'string'],
             [['adminEmail'], 'email'],
+            [['commentNotificationEmail'], 'string'],
+            [['commentNotificationEmail'], 'email'],
             [['seoTitleFormat'], 'string'],
             [['seoTitleFormat'], 'required'],
         ];

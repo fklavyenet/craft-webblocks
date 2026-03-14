@@ -52,6 +52,12 @@ return [
     'Help'                                              => 'Help',
 
     // =========================================================================
+    // Plugin settings (CP)
+    // =========================================================================
+    'Default Admin Email'    => 'Default Admin Email',
+    "Fallback recipient for wbForm admin notification emails when a form's own Recipient field is empty." => "Fallback recipient for wbForm admin notification emails when a form's own Recipient field is empty.",
+
+    // =========================================================================
     // Comment moderation (CP)
     // =========================================================================
     'Approval Status'                                   => 'Approval Status',

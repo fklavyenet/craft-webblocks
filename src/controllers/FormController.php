@@ -88,7 +88,11 @@ class FormController extends Controller
             return $this->_errorResponse($errors, $request->getIsAjax());
         }
 
-        $recipient  = (string) $formEntry->wbFormRecipient;
+        $recipient = (string) $formEntry->wbFormRecipient;
+        if ($recipient === '') {
+            $pluginSettings = \fklavyenet\webblocks\WebBlocks::getInstance()->getSettings();
+            $recipient = (string) ($pluginSettings->adminEmail ?? '');
+        }
         $subject    = (string) $formEntry->wbFormSubject ?: Craft::t('site', 'New form submission');
         $successMsg = (string) $formEntry->wbFormSuccessMsg
             ?: Craft::t('site', 'Thank you! We will be in touch shortly.');

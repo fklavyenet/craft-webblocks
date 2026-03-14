@@ -52,6 +52,12 @@ return [
     'Help'                                              => 'Yardım',
 
     // =========================================================================
+    // Plugin settings (CP)
+    // =========================================================================
+    'Default Admin Email'    => 'Varsayılan Yönetici E-postası',
+    "Fallback recipient for wbForm admin notification emails when a form's own Recipient field is empty." => "Formun kendi Alıcı alanı boş olduğunda wbForm yönetici bildirimi e-postalarının gönderileceği yedek adres.",
+
+    // =========================================================================
     // Comment moderation (CP)
     // =========================================================================
     'Approval Status'                                   => 'Onay Durumu',

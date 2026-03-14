@@ -12,14 +12,17 @@ use craft\base\Model;
  */
 class Settings extends Model
 {
-    // Google reCAPTCHA (used by wbForm)
-    public ?string $googleReCaptchaKey = null;
-    public ?string $googleReCaptchaSecret = null;
+    /**
+     * Default recipient for wbForm admin notification emails.
+     * Used as a fallback when a form's own wbFormRecipient field is empty.
+     */
+    public ?string $adminEmail = null;
 
     protected function defineRules(): array
     {
         return [
-            [['googleReCaptchaKey', 'googleReCaptchaSecret'], 'string'],
+            [['adminEmail'], 'string'],
+            [['adminEmail'], 'email'],
         ];
     }
 }

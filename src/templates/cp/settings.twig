@@ -13,24 +13,16 @@
 
         {% import "_includes/forms" as forms %}
 
-        <h2>Google reCAPTCHA</h2>
+        <h2>{{ "Email"|t('app') }}</h2>
 
         {{ forms.textField({
-            label:        "reCAPTCHA Site Key",
-            id:           'googleReCaptchaKey',
-            name:         'settings[googleReCaptchaKey]',
-            instructions: "Public site key used by wbForm to render the reCAPTCHA widget.",
-            value:        settings.googleReCaptchaKey,
-            errors:       settings.getErrors('googleReCaptchaKey')
-        }) }}
-
-        {{ forms.textField({
-            label:        "reCAPTCHA Secret Key",
-            id:           'googleReCaptchaSecret',
-            name:         'settings[googleReCaptchaSecret]',
-            instructions: "Server-side secret key used to validate reCAPTCHA responses.",
-            value:        settings.googleReCaptchaSecret,
-            errors:       settings.getErrors('googleReCaptchaSecret')
+            label:        "Default Admin Email"|t('webblocks'),
+            id:           'adminEmail',
+            name:         'settings[adminEmail]',
+            type:         'email',
+            instructions: "Fallback recipient for wbForm admin notification emails when a form's own Recipient field is empty."|t('webblocks'),
+            value:        settings.adminEmail,
+            errors:       settings.getErrors('adminEmail')
         }) }}
 
         <div class="buttons">

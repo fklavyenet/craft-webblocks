@@ -52,6 +52,12 @@ return [
     'Help'                                              => 'Hilfe',
 
     // =========================================================================
+    // Plugin settings (CP)
+    // =========================================================================
+    'Default Admin Email'    => 'Standard-Admin-E-Mail',
+    "Fallback recipient for wbForm admin notification emails when a form's own Recipient field is empty." => "Ersatzempfänger für wbForm-Admin-Benachrichtigungs-E-Mails, wenn das Empfängerfeld des Formulars leer ist.",
+
+    // =========================================================================
     // Comment moderation (CP)
     // =========================================================================
     'Approval Status'                                   => 'Genehmigungsstatus',

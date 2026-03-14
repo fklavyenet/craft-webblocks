@@ -6,6 +6,7 @@ use Craft;
 use craft\base\Component;
 use craft\helpers\DateTimeHelper;
 use craft\helpers\Db;
+use fklavyenet\webblocks\services\DeprecatedFieldService;
 use Throwable;
 
 /**
@@ -253,8 +254,9 @@ class ComponentMigrator extends Component
             'errors'               => [],
         ];
 
-        $actions = $step['actions'] ?? [];
-        $stepKey = "$type/$handle v{$step['from']}→v{$step['to']}";
+        $actions         = $step['actions'] ?? [];
+        $stepKey         = "$type/$handle v{$step['from']}→v{$step['to']}";
+        $migrationSource = $stepKey;
 
         foreach ($actions as $action) {
             $actionType = $action['type'] ?? 'unknown';
@@ -282,7 +284,7 @@ class ComponentMigrator extends Component
 
             // Apply the action
             try {
-                $this->dispatchAction($action, $handle, $type, $result);
+                $this->dispatchAction($action, $handle, $type, $result, $migrationSource);
             } catch (Throwable $e) {
                 $result['errors'][] = [
                     'handle'  => $handle,
@@ -307,7 +309,7 @@ class ComponentMigrator extends Component
      * Handlers are intentionally kept simple — complex logic belongs in
      * dedicated helper methods below.
      */
-    private function dispatchAction(array $action, string $handle, string $type, array &$result): void
+    private function dispatchAction(array $action, string $handle, string $type, array &$result, string $migrationSource = ''): void
     {
         switch ($action['type']) {
 
@@ -326,7 +328,7 @@ class ComponentMigrator extends Component
                 break;
 
             case 'deprecateField':
-                $this->actionDeprecateField($action, $result);
+                $this->actionDeprecateField($action, $result, $migrationSource);
                 break;
 
             case 'updateFieldSettings':
@@ -443,7 +445,7 @@ class ComponentMigrator extends Component
         Craft::info("ComponentMigrator: removed field '$handle'.", __METHOD__);
     }
 
-    private function actionDeprecateField(array $action, array &$result): void
+    private function actionDeprecateField(array $action, array &$result, string $migrationSource = ''): void
     {
         // Deprecation: remove the field from all field layouts but keep the field
         // and its data in the database. The field remains queryable/accessible.
@@ -466,7 +468,17 @@ class ComponentMigrator extends Component
             foreach ($layout->getTabs() as $tab) {
                 $elements = array_filter(
                     $tab->getElements(),
-                    fn($el) => !($el instanceof \craft\fieldlayoutelements\CustomField && $el->getField() && $el->getField()->handle === $handle)
+                    function ($el) use ($handle) {
+                        if (!($el instanceof \craft\fieldlayoutelements\CustomField)) {
+                            return true; // keep non-custom-field elements
+                        }
+                        try {
+                            $f = $el->getField();
+                        } catch (\Throwable $e) {
+                            return true; // orphaned reference — leave it alone
+                        }
+                        return !($f && $f->handle === $handle);
+                    }
                 );
                 if (count($elements) !== count($tab->getElements())) {
                     $tab->setElements(array_values($elements));
@@ -477,6 +489,9 @@ class ComponentMigrator extends Component
                 Craft::$app->getEntries()->saveEntryType($entryType);
             }
         }
+
+        // Record in deprecated fields tracking table
+        (new DeprecatedFieldService())->markDeprecated($handle, $migrationSource ?: null);
 
         $result['warnings'][] = "deprecateField: '$handle' removed from layouts but data preserved. Clean up with: ddev craft webblocks/components/cleanup-deprecated";
         Craft::info("ComponentMigrator: deprecated field '$handle' (removed from layouts, data kept).", __METHOD__);

@@ -121,6 +121,43 @@
         </p>
     {% endif %}
 
+    {# ── Deprecated Fields ───────────────────────────────────────────────── #}
+    {% if deprecatedFields is defined and deprecatedFields | length > 0 %}
+        <h2 style="margin-top:2rem; margin-bottom:0.75rem;">
+            {{ 'Deprecated Fields'|t('webblocks') }} ({{ deprecatedFields | length }})
+        </h2>
+        <p style="color:#666; font-size:0.9em; margin-bottom:0.75rem;">
+            {{ 'These fields were removed from all layouts by a migration but their data is still in the database. Run the cleanup command to permanently delete them.'|t('webblocks') }}<br>
+            <code>ddev craft webblocks/components/cleanup-deprecated --force</code>
+        </p>
+        <table class="data fullwidth">
+            <thead>
+                <tr>
+                    <th>{{ 'Field Handle'|t('webblocks') }}</th>
+                    <th>{{ 'Deprecated At'|t('webblocks') }}</th>
+                    <th>{{ 'Field Exists'|t('webblocks') }}</th>
+                    <th>{{ 'Migration Source'|t('webblocks') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in deprecatedFields %}
+                    <tr>
+                        <td><code>{{ row.fieldHandle }}</code></td>
+                        <td style="font-size:0.9em; color:#666;">{{ row.deprecatedAt ?? '—' }}</td>
+                        <td>
+                            {% if row.fieldExists %}
+                                <span class="wb-health-badge wb-health-warn">Yes — pending cleanup</span>
+                            {% else %}
+                                <span class="wb-health-badge wb-health-muted">No — already removed</span>
+                            {% endif %}
+                        </td>
+                        <td style="font-size:0.9em; color:#666;">{{ row.migrationSource ?? '—' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
     {# ── Full component table (collapsible) ──────────────────────────────── #}
     <details style="margin-top:2rem;">
         <summary style="cursor:pointer; font-weight:600; font-size:1em; margin-bottom:0.5rem;">

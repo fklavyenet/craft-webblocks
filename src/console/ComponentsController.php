@@ -6,15 +6,18 @@ use Craft;
 use craft\console\Controller;
 use fklavyenet\webblocks\services\ComponentDiffService;
 use fklavyenet\webblocks\services\ComponentMigrator;
+use fklavyenet\webblocks\services\DeprecatedFieldService;
 use yii\console\ExitCode;
 
 /**
  * WebBlocks component versioning console commands.
  *
  * Usage:
- *   ddev craft webblocks/components/diff         — full diff report
- *   ddev craft webblocks/components/check        — exit 0 if all OK, exit 1 if action needed
- *   ddev craft webblocks/components/dry-run      — show what a migration run would do
+ *   ddev craft webblocks/components/diff                 — full diff report
+ *   ddev craft webblocks/components/check                — exit 0 if all OK, exit 1 if action needed
+ *   ddev craft webblocks/components/dry-run              — show what a migration run would do
+ *   ddev craft webblocks/components/migrate              — apply all pending migrations
+ *   ddev craft webblocks/components/cleanup-deprecated   — list deprecated fields (--force to purge)
  */
 class ComponentsController extends Controller
 {
@@ -204,6 +207,104 @@ class ComponentsController extends Controller
             $this->stdout("Migration complete. Applied " . count($applied) . " component(s).\n");
         }
 
+        return ExitCode::OK;
+    }
+
+    /**
+     * List or purge deprecated fields tracked by WebBlocks migrations.
+     *
+     * By default (no flags) this command lists all pending deprecated fields
+     * with their handle, deprecatedAt timestamp, migration source, and whether
+     * the Craft field still exists. No changes are made.
+     *
+     * Options:
+     *   --force   Permanently delete each deprecated field from Craft (and its
+     *             content data). Prompts for confirmation unless --interactive=0.
+     *
+     * Exit codes:
+     *   0 — no deprecated fields pending (or all purged successfully)
+     *   1 — deprecated fields remain (dry-run mode) or one or more purge failures
+     *
+     * Examples:
+     *   ddev craft webblocks/components/cleanup-deprecated
+     *   ddev craft webblocks/components/cleanup-deprecated --force --interactive=0
+     */
+    public bool $force = false;
+
+    public function options($actionID): array
+    {
+        $options = parent::options($actionID);
+        if ($actionID === 'cleanup-deprecated') {
+            $options[] = 'force';
+        }
+        return $options;
+    }
+
+    public function actionCleanupDeprecated(): int
+    {
+        $service = new DeprecatedFieldService();
+        $fields  = $service->getDeprecated();
+
+        if (empty($fields)) {
+            $this->stdout("No deprecated fields tracked.\n");
+            return ExitCode::OK;
+        }
+
+        $this->stdout("Deprecated fields (" . count($fields) . "):\n\n");
+        $this->stdout(sprintf(
+            "  %-30s %-26s %-12s  %s\n",
+            'Handle', 'Deprecated At', 'Field Exists', 'Migration Source'
+        ));
+        $this->stdout("  " . str_repeat('-', 90) . "\n");
+
+        foreach ($fields as $row) {
+            $exists = $row['fieldExists'] ? 'yes' : 'no (already gone)';
+            $this->stdout(sprintf(
+                "  %-30s %-26s %-12s  %s\n",
+                $row['fieldHandle'],
+                $row['deprecatedAt'] ?? '—',
+                $exists,
+                $row['migrationSource'] ?? '—'
+            ));
+        }
+        $this->stdout("\n");
+
+        if (!$this->force) {
+            $this->stdout("Run with --force to permanently delete these fields and their content.\n");
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
+
+        // --force: confirm then purge
+        if ($this->interactive) {
+            $confirm = $this->confirm(
+                'This will PERMANENTLY DELETE ' . count($fields) . ' field(s) and all their content. Proceed?'
+            );
+            if (!$confirm) {
+                $this->stdout("Aborted.\n");
+                return ExitCode::OK;
+            }
+        }
+
+        $errors = 0;
+        foreach ($fields as $row) {
+            $handle = $row['fieldHandle'];
+            $ok     = $service->purge($handle);
+            if ($ok) {
+                $this->stdout("  ✓ Purged '$handle'\n");
+            } else {
+                $this->stderr("  ✗ Failed to purge '$handle'\n");
+                $errors++;
+            }
+        }
+
+        $this->stdout("\n");
+
+        if ($errors > 0) {
+            $this->stderr("Cleanup complete with $errors error(s).\n");
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
+
+        $this->stdout("Cleanup complete. All deprecated fields purged.\n");
         return ExitCode::OK;
     }
 

@@ -6,6 +6,7 @@ use Craft;
 use craft\web\Controller;
 use fklavyenet\webblocks\services\ComponentDiffService;
 use fklavyenet\webblocks\services\ComponentMigrator;
+use fklavyenet\webblocks\services\DeprecatedFieldService;
 use yii\web\Response;
 
 /**
@@ -32,10 +33,12 @@ class ComponentHealthController extends Controller
      */
     public function actionIndex(): Response
     {
-        $report = (new ComponentDiffService())->diff();
+        $report           = (new ComponentDiffService())->diff();
+        $deprecatedFields = (new DeprecatedFieldService())->getDeprecated();
 
         return $this->renderTemplate('webblocks-cp/health', [
-            'report' => $report,
+            'report'           => $report,
+            'deprecatedFields' => $deprecatedFields,
         ]);
     }
 

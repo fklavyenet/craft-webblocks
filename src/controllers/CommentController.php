@@ -3,6 +3,7 @@
 namespace fklavyenet\webblocks\controllers;
 
 use Craft;
+use craft\base\Element;
 use craft\elements\Entry;
 use craft\web\Controller;
 use yii\web\Response;
@@ -180,14 +181,16 @@ class CommentController extends Controller
 
         if (!$comment) {
             Craft::$app->getSession()->setFlash('error', Craft::t('webblocks', 'Comment not found.'));
-            return $this->redirectToPostedUrl();
+            return $this->redirect(Craft::$app->getRequest()->getReferrer() ?? '/admin');
         }
 
         $comment->enabled = $enabled;
+        $comment->setEnabledForSite($enabled);
+        $comment->setScenario(Element::SCENARIO_LIVE);
 
         if (!Craft::$app->getElements()->saveElement($comment)) {
             Craft::$app->getSession()->setFlash('error', Craft::t('webblocks', 'Could not update comment.'));
-            return $this->redirectToPostedUrl();
+            return $this->redirect($comment->cpEditUrl);
         }
 
         $label = $enabled
@@ -196,7 +199,7 @@ class CommentController extends Controller
 
         Craft::$app->getSession()->setFlash('notice', $label);
 
-        return $this->redirectToPostedUrl($comment, $comment->cpEditUrl);
+        return $this->redirect($comment->cpEditUrl);
     }
 
     private function _successResponse(bool $isAjax): Response

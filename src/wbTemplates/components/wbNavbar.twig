@@ -1,25 +1,9 @@
 {% set navItems = item.wbNavbarItems.all() %}
 {% set navbarId = 'wbNavbar-' ~ item.id %}
 {% set expand = item.wbNavbarExpand.value ?? 'navbar-expand-lg' %}
-{% set colorScheme = item.wbNavbarColorScheme.value ?? 'color-mode' %}
-{% set bg = item.wbNavbarBg.value ?? 'color-mode' %}
 {% set logo = item.wbNavbarLogo.one() ?? null %}
 {% set showSearch = item.wbNavbarSearch ?? false %}
 {% set searchPlaceholder = item.wbNavbarSearchPlaceholder ?? 'Search...' %}
-
-{# Resolve 'color-mode' to concrete Bootstrap classes based on the site color mode setting #}
-{% if colorScheme == 'color-mode' or bg == 'color-mode' %}
-    {% set _siteConfig = craft.app.globals.getSetByHandle('wbSiteConfig') ?? null %}
-    {% set _siteColorMode = _siteConfig ? (_siteConfig.wbColorMode.value ?? 'auto') : 'auto' %}
-    {# 'auto' defers to the visitor's OS preference; treat as light for server-side class selection #}
-    {% set _isDark = (_siteColorMode == 'dark') %}
-    {% if colorScheme == 'color-mode' %}
-        {% set colorScheme = _isDark ? 'navbar-dark' : 'navbar-light' %}
-    {% endif %}
-    {% if bg == 'color-mode' %}
-        {% set bg = _isDark ? 'bg-dark' : 'bg-body' %}
-    {% endif %}
-{% endif %}
 
 {# Auto-collect entries with wbShowInNav enabled when no manual items are defined #}
 {% if not navItems|length %}
@@ -63,7 +47,7 @@
 {% set searchEntry = craft.entries().section('wbSearch').one() %}
 {% set searchUrl = searchEntry ? searchEntry.url : '/search' %}
 
-<nav class="wb-block wb-navbar sticky-top navbar {{ expand }} {{ colorScheme }} {{ bg }}">
+<nav class="wb-block wb-navbar sticky-top navbar {{ expand }}">
     <div class="container-fluid">
 
         {# Brand #}

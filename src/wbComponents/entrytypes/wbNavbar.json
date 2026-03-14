@@ -18,8 +18,6 @@
             "name": "Settings",
             "fields": [
                 "wbNavbarExpand",
-                "wbNavbarColorScheme",
-                "wbNavbarBg",
                 "wbNavbarSearch",
                 "wbNavbarSearchPlaceholder"
             ]

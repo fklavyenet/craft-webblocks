@@ -1,0 +1,41 @@
+{% extends "_layouts/cp" %}
+
+{% set title = "WebBlocks — " ~ "Settings"|t('app') %}
+{% set selectedSubnavItem = "settings" %}
+
+{% block content %}
+<div class="readable">
+    <form method="post" accept-charset="UTF-8">
+        {{ csrfInput() }}
+        {{ actionInput('plugins/save-plugin-settings') }}
+        {{ hiddenInput('pluginHandle', 'webblocks') }}
+        {{ redirectInput('webblocks/settings') }}
+
+        {% import "_includes/forms" as forms %}
+
+        <h2>Google reCAPTCHA</h2>
+
+        {{ forms.textField({
+            label:        "reCAPTCHA Site Key",
+            id:           'googleReCaptchaKey',
+            name:         'settings[googleReCaptchaKey]',
+            instructions: "Public site key used by wbForm to render the reCAPTCHA widget.",
+            value:        settings.googleReCaptchaKey,
+            errors:       settings.getErrors('googleReCaptchaKey')
+        }) }}
+
+        {{ forms.textField({
+            label:        "reCAPTCHA Secret Key",
+            id:           'googleReCaptchaSecret',
+            name:         'settings[googleReCaptchaSecret]',
+            instructions: "Server-side secret key used to validate reCAPTCHA responses.",
+            value:        settings.googleReCaptchaSecret,
+            errors:       settings.getErrors('googleReCaptchaSecret')
+        }) }}
+
+        <div class="buttons">
+            <button type="submit" class="btn submit">{{ "Save"|t('app') }}</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

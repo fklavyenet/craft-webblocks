@@ -38,7 +38,7 @@ use yii\base\Event;
 class WebBlocks extends BasePlugin
 {
     public string $schemaVersion = '1.0.0';
-    public bool $hasCpSettings = true;
+    public bool $hasCpSettings = false;
     public bool $hasCpSection = true;
 
     public static function config(): array
@@ -49,11 +49,12 @@ class WebBlocks extends BasePlugin
             'developer' => 'Fklavye',
             'developerUrl' => 'https://fklavye.net',
             'controllerMap' => [
-                'wipe' => \fklavyenet\webblocks\console\WipeController::class,
-                'seed' => \fklavyenet\webblocks\console\SeedController::class,
-                'form'    => \fklavyenet\webblocks\controllers\FormController::class,
-                'comment' => \fklavyenet\webblocks\controllers\CommentController::class,
-                'help'    => \fklavyenet\webblocks\controllers\HelpController::class,
+                'wipe'     => \fklavyenet\webblocks\console\WipeController::class,
+                'seed'     => \fklavyenet\webblocks\console\SeedController::class,
+                'form'     => \fklavyenet\webblocks\controllers\FormController::class,
+                'comment'  => \fklavyenet\webblocks\controllers\CommentController::class,
+                'help'     => \fklavyenet\webblocks\controllers\HelpController::class,
+                'settings' => \fklavyenet\webblocks\controllers\SettingsController::class,
             ],
         ];
     }
@@ -90,11 +91,11 @@ class WebBlocks extends BasePlugin
     public function getCpNavItem(): ?array
     {
         $item = parent::getCpNavItem();
-        $item['url'] = 'webblocks/help';
+        $item['url'] = 'webblocks';
         $item['subnav'] = [
             'settings' => [
                 'label' => \Craft::t('app', 'Settings'),
-                'url'   => 'settings/plugins/webblocks',
+                'url'   => 'webblocks/settings',
             ],
             'help' => [
                 'label' => \Craft::t('webblocks', 'Help'),
@@ -322,7 +323,9 @@ class WebBlocks extends BasePlugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['webblocks/help'] = 'webblocks/help/index';
+                $event->rules['webblocks']           = 'webblocks/settings/index';
+                $event->rules['webblocks/settings'] = 'webblocks/settings/index';
+                $event->rules['webblocks/help']     = 'webblocks/help/index';
             }
         );
     }

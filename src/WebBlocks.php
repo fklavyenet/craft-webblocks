@@ -48,13 +48,14 @@ class WebBlocks extends BasePlugin
             'developer' => 'Fklavye',
             'developerUrl' => 'https://fklavye.net',
             'controllerMap' => [
-                'wipe'       => \fklavyenet\webblocks\console\WipeController::class,
-                'seed'       => \fklavyenet\webblocks\console\SeedController::class,
-                'components' => \fklavyenet\webblocks\console\ComponentsController::class,
-                'form'       => \fklavyenet\webblocks\controllers\FormController::class,
-                'comment'    => \fklavyenet\webblocks\controllers\CommentController::class,
-                'help'       => \fklavyenet\webblocks\controllers\HelpController::class,
-                'settings'   => \fklavyenet\webblocks\controllers\SettingsController::class,
+                'wipe'             => \fklavyenet\webblocks\console\WipeController::class,
+                'seed'             => \fklavyenet\webblocks\console\SeedController::class,
+                'components'       => \fklavyenet\webblocks\console\ComponentsController::class,
+                'form'             => \fklavyenet\webblocks\controllers\FormController::class,
+                'comment'          => \fklavyenet\webblocks\controllers\CommentController::class,
+                'component-health' => \fklavyenet\webblocks\controllers\ComponentHealthController::class,
+                'help'             => \fklavyenet\webblocks\controllers\HelpController::class,
+                'settings'         => \fklavyenet\webblocks\controllers\SettingsController::class,
             ],
         ];
     }

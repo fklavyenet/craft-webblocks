@@ -56,7 +56,8 @@ php craft webblocks/seed --languages=en,tr
 | `php craft plugin/install webblocks --interactive=0`  | Install plugin (runs InstallService automatically)   |
 | `php craft webblocks/seed --interactive=0`            | Seed demo content                                    |
 | `php craft webblocks/seed --languages=en,tr`          | Seed specific languages only                         |
-| `php craft webblocks/wipe/all --interactive=0`        | Wipe all plugin data and uninstall plugin            |
+| `php craft webblocks/wipe --interactive=0`            | Wipe all plugin data (preserves plugin install)      |
+| `php craft webblocks/wipe/all --interactive=0`        | Wipe, uninstall, reinstall, and reseed from scratch  |
 | `php craft webblocks/components/diff`                 | Diff component JSON versions vs installed DB state   |
 | `php craft webblocks/components/check`                | Exit 0 if all OK, exit 1 if migrations pending (CI)  |
 | `php craft webblocks/components/dry-run`              | Show what a migration run would do (no changes)      |

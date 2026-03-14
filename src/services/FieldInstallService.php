@@ -229,4 +229,15 @@ class FieldInstallService extends Component
                 break;
         }
     }
+
+    /**
+     * Alias used by ComponentMigrator::actionAddField().
+     *
+     * Accepts a raw JSON definition array (same shape as the files in
+     * src/wbComponents/fields/) and delegates to installFieldFromTemplate().
+     */
+    public function installFieldFromDefinition(array $definition): ?FieldInterface
+    {
+        return $this->installFieldFromTemplate($definition);
+    }
 }

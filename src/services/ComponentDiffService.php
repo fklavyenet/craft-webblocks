@@ -4,6 +4,7 @@ namespace fklavyenet\webblocks\services;
 
 use Craft;
 use craft\base\Component;
+use fklavyenet\webblocks\services\ComponentMigrator;
 
 /**
  * ComponentDiffService — compares the current wbComponents/ JSON definitions
@@ -255,6 +256,17 @@ class ComponentDiffService extends Component
             Craft::info(
                 'WebBlocks ComponentDiffService::migrateAll(dryRun=true) — ' .
                 count($planned) . ' planned action(s). No changes applied.',
+                __METHOD__
+            );
+        } else {
+            // Delegate the actual apply to ComponentMigrator
+            $migrationReport = (new ComponentMigrator())->migrateAll(dryRun: false);
+            $report['migrationReport'] = $migrationReport;
+
+            Craft::info(
+                'WebBlocks ComponentDiffService::migrateAll(dryRun=false) — ' .
+                count($migrationReport['applied']) . ' applied, ' .
+                count($migrationReport['errors'])  . ' error(s).',
                 __METHOD__
             );
         }

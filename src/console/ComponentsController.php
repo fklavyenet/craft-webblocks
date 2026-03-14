@@ -5,6 +5,7 @@ namespace fklavyenet\webblocks\console;
 use Craft;
 use craft\console\Controller;
 use fklavyenet\webblocks\services\ComponentDiffService;
+use fklavyenet\webblocks\services\ComponentMigrator;
 use yii\console\ExitCode;
 
 /**
@@ -102,6 +103,108 @@ class ComponentsController extends Controller
         $this->stdout("\n[dry-run] No changes were applied.\n");
 
         return $report['summary']['needsAction'] ? ExitCode::UNSPECIFIED_ERROR : ExitCode::OK;
+    }
+
+    /**
+     * Apply all pending component migrations.
+     *
+     * Runs ComponentMigrator::migrateAll(dryRun: false) and prints a
+     * structured report of what was applied, skipped, and any errors.
+     *
+     * Exit codes:
+     *   0 — all pending migrations applied successfully (or nothing to do)
+     *   1 — one or more errors occurred
+     */
+    public function actionMigrate(): int
+    {
+        $this->stdout("=== WebBlocks Component Migrate ===\n\n");
+
+        $report = (new ComponentMigrator())->migrateAll(dryRun: false);
+
+        $applied  = $report['applied']              ?? [];
+        $skipped  = $report['skipped']              ?? [];
+        $warnings = $report['warnings']             ?? [];
+        $reviews  = $report['manualReviewRequired'] ?? [];
+        $errors   = $report['errors']               ?? [];
+
+        // Applied
+        if (!empty($applied)) {
+            $this->stdout("Applied (" . count($applied) . "):\n");
+            foreach ($applied as $item) {
+                $note = isset($item['note']) ? "  ({$item['note']})" : '';
+                $this->stdout(sprintf(
+                    "  ✓ %s/%s  v%s → v%s%s\n",
+                    $item['type'],
+                    $item['handle'],
+                    $item['from'],
+                    $item['to'],
+                    $note
+                ));
+            }
+            $this->stdout("\n");
+        }
+
+        // Skipped
+        if (!empty($skipped)) {
+            $this->stdout("Skipped (" . count($skipped) . "):\n");
+            foreach ($skipped as $item) {
+                $this->stdout(sprintf(
+                    "  - %s/%s: %s\n",
+                    $item['type'] ?? '?',
+                    $item['handle'] ?? '?',
+                    $item['reason'] ?? '?'
+                ));
+            }
+            $this->stdout("\n");
+        }
+
+        // Warnings
+        if (!empty($warnings)) {
+            $this->stdout("Warnings (" . count($warnings) . "):\n");
+            foreach ($warnings as $w) {
+                $this->stdout("  [WARN] $w\n");
+            }
+            $this->stdout("\n");
+        }
+
+        // Manual review required
+        if (!empty($reviews)) {
+            $this->stdout("Manual review required (" . count($reviews) . "):\n");
+            foreach ($reviews as $item) {
+                $this->stdout(sprintf(
+                    "  [REVIEW] %s/%s — %s: %s\n",
+                    $item['type']    ?? '?',
+                    $item['handle']  ?? '?',
+                    $item['action']  ?? '?',
+                    $item['message'] ?? ''
+                ));
+            }
+            $this->stdout("\n");
+        }
+
+        // Errors
+        if (!empty($errors)) {
+            $this->stderr("Errors (" . count($errors) . "):\n");
+            foreach ($errors as $item) {
+                $this->stderr(sprintf(
+                    "  [ERROR] %s/%s — %s: %s\n",
+                    $item['type']    ?? '?',
+                    $item['handle']  ?? '?',
+                    $item['action']  ?? '?',
+                    $item['message'] ?? ''
+                ));
+            }
+            $this->stdout("\n");
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
+
+        if (empty($applied)) {
+            $this->stdout("Nothing to migrate — all components up to date.\n");
+        } else {
+            $this->stdout("Migration complete. Applied " . count($applied) . " component(s).\n");
+        }
+
+        return ExitCode::OK;
     }
 
     // -------------------------------------------------------------------------

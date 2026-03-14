@@ -22,7 +22,24 @@ ddev craft webblocks/seed --interactive=0
 |-----------------------------------------------------|------------------------------------------------------|
 | `ddev craft plugin/install webblocks --interactive=0` | Install plugin (runs InstallService automatically) |
 | `ddev craft webblocks/seed --interactive=0`         | Seed demo content                                    |
+| `ddev craft webblocks/seed --languages=en,tr`       | Seed specific languages only                         |
 | `ddev craft webblocks/wipe/all --interactive=0`     | Wipe all plugin data and uninstall plugin            |
+
+## Plugin Settings
+
+Navigate to **CP → WebBlocks → Settings** to configure:
+
+| Setting | Description |
+|---|---|
+| **Default Admin Email** | Fallback recipient for wbForm admin notification emails |
+| **Comment Notification Email** | Email address notified on every new pending comment |
+| **Page Title Format** | `<title>` tag format; use `{title}` and `{siteName}` placeholders |
+| **Seed Languages** | Languages to seed (EN always included; TR and DE optional) |
+| **GA4 Measurement ID** | Google Analytics 4 ID (e.g. `G-XXXXXXXXXX`); leave blank to disable |
+| **Matomo URL** | Matomo instance URL (e.g. `https://analytics.example.com/`) |
+| **Matomo Site ID** | Matomo Site ID (e.g. `1`); both URL and Site ID required |
+
+Analytics snippets are automatically injected into `<head>` when the relevant settings are filled in — no template edits required.
 
 ## Usage
 

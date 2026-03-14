@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.8.0 - 2026-03-14
+
+### Added
+- **Plugin Settings page** — full CP settings page (`webblocks/settings`) with four sections: Email, SEO, Seed Content, and Analytics. Replaces the previous empty settings stub.
+- `adminEmail` setting — fallback recipient for wbForm admin notification emails when a form's own Recipient field is empty.
+- `commentNotificationEmail` setting — when set, an email is sent to this address every time a new comment is submitted and awaiting moderation.
+- `seoTitleFormat` setting — configurable `<title>` tag format using `{title}` and `{siteName}` placeholders; centralised rendering in `layout.twig` replaces per-template `{% block title %}` overrides.
+- `seedLanguages` setting — array of language codes (`en`, `tr`, `de`) to seed on `webblocks/seed`; also exposed as a `--languages` CLI option on `SeedController`.
+- `ga4MeasurementId` setting — Google Analytics 4 Measurement ID; when set, `gtag.js` is automatically injected before `</head>` in `layout.twig`.
+- `matomoUrl` + `matomoSiteId` settings — Matomo analytics; when both are set, the Matomo tracking snippet is injected before `</head>`.
+- `commentNotificationEmail`: `CommentController` sends an HTML notification email on every new comment submission.
+- **Plugin removal safety** — `layout.twig` guards `craft.webblocks.settings` access with `isPluginEnabled('webblocks')`; all settings-dependent features degrade gracefully to null/defaults if the plugin is disabled. `beforeUninstall()` logs a warning; user content (entries, fields, sections) is never deleted automatically on uninstall.
+
+### Changed
+- `SeedController`: replaced hardcoded `EXTRA_SITES` constant with `ALL_EXTRA_SITES` + `_getActiveSeedLanguages()` helper — seed languages are now filtered by the `seedLanguages` plugin setting at runtime.
+- `layout.twig`: `<title>` tag centralised; per-template `{% block title %}` overrides removed from all section templates (`page`, `post`, `blog-index`, `service`, `reference`, `references-index`).
+- CP translation strings for all new settings fields added to `src/translations/{en,tr,de}/webblocks.php`.
+
 ## 1.7.0 - 2026-03-13
 
 ### Added

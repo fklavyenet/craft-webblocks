@@ -2,33 +2,66 @@
 
 A portable website building toolkit for Craft CMS 5. Provides a full set of Bootstrap 5 page-builder blocks that can be dropped into any Craft site.
 
-## Requirements
-
-- Craft CMS 5.x
-- PHP 8.2+
-- Bootstrap 5.3 (loaded via CDN — no local build step required)
-
 ## Installation
+
+### Requirements
+
+- Craft CMS 5.x already installed and configured
+- PHP 8.2+
+- Composer
+- Outbound internet access at seed time (seed images are downloaded from Unsplash)
+
+### Steps
+
+**1. Require the package**
 
 ```bash
 composer require fklavyenet/craft-webblocks
-ddev craft plugin/install webblocks
+```
+
+**2. Install the plugin**
+
+```bash
+# DDEV
+ddev craft plugin/install webblocks --interactive=0
+
+# Plain server (SSH)
+php craft plugin/install webblocks --interactive=0
+```
+
+**3. (Optional) Seed demo content**
+
+```bash
+# DDEV
 ddev craft webblocks/seed --interactive=0
+
+# Plain server
+php craft webblocks/seed --interactive=0
+```
+
+Seed content is a restaurant demo site in English, Turkish, and German. Omit this step for a blank install.
+
+To seed specific languages only:
+
+```bash
+php craft webblocks/seed --languages=en,tr
 ```
 
 ## Console Commands
 
-| Command                                             | Description                                          |
-|-----------------------------------------------------|------------------------------------------------------|
-| `ddev craft plugin/install webblocks --interactive=0` | Install plugin (runs InstallService automatically) |
-| `ddev craft webblocks/seed --interactive=0`         | Seed demo content                                    |
-| `ddev craft webblocks/seed --languages=en,tr`       | Seed specific languages only                         |
-| `ddev craft webblocks/wipe/all --interactive=0`     | Wipe all plugin data and uninstall plugin            |
-| `ddev craft webblocks/components/diff`              | Diff component JSON versions vs installed DB state   |
-| `ddev craft webblocks/components/check`             | Exit 0 if all OK, exit 1 if migrations pending (CI)  |
-| `ddev craft webblocks/components/dry-run`           | Show what a migration run would do (no changes)      |
-| `ddev craft webblocks/components/migrate`           | Apply all pending component migrations               |
-| `ddev craft webblocks/components/cleanup-deprecated`| List deprecated fields; add `--force` to purge them  |
+> Replace `php craft` with `ddev craft` if you are using DDEV.
+
+| Command                                               | Description                                          |
+|-------------------------------------------------------|------------------------------------------------------|
+| `php craft plugin/install webblocks --interactive=0`  | Install plugin (runs InstallService automatically)   |
+| `php craft webblocks/seed --interactive=0`            | Seed demo content                                    |
+| `php craft webblocks/seed --languages=en,tr`          | Seed specific languages only                         |
+| `php craft webblocks/wipe/all --interactive=0`        | Wipe all plugin data and uninstall plugin            |
+| `php craft webblocks/components/diff`                 | Diff component JSON versions vs installed DB state   |
+| `php craft webblocks/components/check`                | Exit 0 if all OK, exit 1 if migrations pending (CI)  |
+| `php craft webblocks/components/dry-run`              | Show what a migration run would do (no changes)      |
+| `php craft webblocks/components/migrate`              | Apply all pending component migrations               |
+| `php craft webblocks/components/cleanup-deprecated`   | List deprecated fields; add `--force` to purge them  |
 
 ## Plugin Settings
 
@@ -261,8 +294,8 @@ Supported action types: `renameField`, `addField`, `removeField`, `deprecateFiel
 A `deprecateField` action removes a field from all entry type layouts and records it in `webblocks_deprecated_fields`. The field data is preserved. To permanently delete it:
 
 ```bash
-ddev craft webblocks/components/cleanup-deprecated          # list pending
-ddev craft webblocks/components/cleanup-deprecated --force  # purge all
+php craft webblocks/components/cleanup-deprecated          # list pending
+php craft webblocks/components/cleanup-deprecated --force  # purge all
 ```
 
 ## Contributing

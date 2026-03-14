@@ -93,7 +93,7 @@
                     "wbTitle": "Kommen Sie zur Cocktailstunde",
                     "wbText": "Mittwoch bis Freitag von 17:00 bis 18:30 Uhr. Alle Cocktails 20 % reduziert, Barsnacks kostenlos.",
                     "wbButtonLabel": "Barplatz reservieren",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]
@@ -215,7 +215,7 @@
                     "wbTitle": "Bereit zur Anfrage?",
                     "wbText": "Kontaktieren Sie unser Eventteam und wir melden uns innerhalb eines Werktages zur Besprechung der Verfügbarkeit und Ihrer Anforderungen.",
                     "wbButtonLabel": "Private Dining anfragen",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]
@@ -503,7 +503,7 @@
                     "wbTitle": "Überzeugen Sie sich selbst",
                     "wbText": "Wir glauben, der beste Weg zu verstehen, was wir mit Gastfreundschaft meinen, ist es zu erleben. Wir freuen uns darauf, Sie willkommen zu heißen.",
                     "wbButtonLabel": "Einen Tisch reservieren",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]

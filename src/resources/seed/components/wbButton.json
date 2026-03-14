@@ -2,7 +2,7 @@
     "type": "wbButton",
     "fields": {
         "wbButtonLabel": "View Full Menu",
-        "wbButtonUrl": "https://kayseri.ddev.site/menu",
+        "wbButtonUrl": "/menu",
         "wbButtonTarget": "",
         "wbButtonSize": "lg",
         "alignment": "center"

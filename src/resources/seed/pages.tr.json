@@ -123,7 +123,7 @@
                     "wbTitle": "Masanızı Ayırtın",
                     "wbText": "Walk-in kabul ediyoruz, ancak rezervasyon öneriyoruz. Özellikle Cuma ve Cumartesi akşamları.",
                     "wbButtonLabel": "Şimdi Rezervasyon Yap",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]
@@ -202,7 +202,7 @@
                     "wbTitle": "Bizi şahsen tanıyın.",
                     "wbText": "Ember & Rye'ı deneyimlemenin en iyi yolu bir masanın etrafındadır. Bu gece yerinizi ayırtın.",
                     "wbButtonLabel": "Rezervasyon Yap",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]
@@ -327,7 +327,7 @@
                         "wbTitle": "Rezervasyon yapmaya hazır mısınız?",
                         "wbText": "Uygunluk durumunu kontrol etmek ve gereksinimlerinizi görüşmek için etkinlik ekibimizle iletişime geçin.",
                         "wbButtonLabel": "Şimdi Sorun",
-                        "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                        "wbButtonUrl": "/contact"
                     }
                 }
             ]
@@ -435,7 +435,7 @@
                         "wbTitle": "Yemek yemeye hazır mısınız?",
                         "wbText": "Masanızı ayırtın ve gerisini bize bırakın.",
                         "wbButtonLabel": "Rezervasyon Yap",
-                        "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                        "wbButtonUrl": "/contact"
                     }
                 }
             ]

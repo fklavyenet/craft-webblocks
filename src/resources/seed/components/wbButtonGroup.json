@@ -7,9 +7,9 @@
         "wbButtonGroupOrientation": "horizontal"
     },
     "items": [
-        { "wbButtonLabel": "Starters",  "wbButtonUrl": "https://restaurant.ddev.site/menu",  "wbButtonTarget": "" },
-        { "wbButtonLabel": "Mains",     "wbButtonUrl": "https://restaurant.ddev.site/menu",  "wbButtonTarget": "" },
-        { "wbButtonLabel": "Desserts",  "wbButtonUrl": "https://restaurant.ddev.site/menu",  "wbButtonTarget": "" },
-        { "wbButtonLabel": "Drinks",    "wbButtonUrl": "https://restaurant.ddev.site/drinks","wbButtonTarget": "" }
+        { "wbButtonLabel": "Starters",  "wbButtonUrl": "/menu",   "wbButtonTarget": "" },
+        { "wbButtonLabel": "Mains",     "wbButtonUrl": "/menu",   "wbButtonTarget": "" },
+        { "wbButtonLabel": "Desserts",  "wbButtonUrl": "/menu",   "wbButtonTarget": "" },
+        { "wbButtonLabel": "Drinks",    "wbButtonUrl": "/drinks", "wbButtonTarget": "" }
     ]
 }

@@ -93,7 +93,7 @@
                     "wbTitle": "Kokteyl saatimize katılın",
                     "wbText": "Çarşamba'dan Cuma'ya 17:00 – 18:30 arası. Tüm kokteyller %20 indirimli ve bar atıştırmalıkları ücretsiz.",
                     "wbButtonLabel": "Bar Koltuğu Rezervasyonu",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]
@@ -215,7 +215,7 @@
                     "wbTitle": "Sormaya hazır mısınız?",
                     "wbText": "Etkinlik ekibimizle iletişime geçin; müsaitlik durumunu ve gereksinimlerinizi görüşmek için bir iş günü içinde size geri döneceğiz.",
                     "wbButtonLabel": "Özel Yemek Hakkında Soru Sorun",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]
@@ -503,7 +503,7 @@
                     "wbTitle": "Kendiniz görün",
                     "wbText": "Misafirperverlikten ne kastettiğimizi anlamanın en iyi yolunun bunu deneyimlemek olduğuna inanıyoruz. Sizi ağırlamayı dört gözle bekliyoruz.",
                     "wbButtonLabel": "Rezervasyon Yap",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]

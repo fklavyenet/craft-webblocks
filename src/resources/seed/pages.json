@@ -130,7 +130,7 @@
                     "wbTitle": "Reserve Your Table",
                     "wbText": "Walk-ins welcome, but we recommend a reservation. Especially on Friday and Saturday evenings.",
                     "wbButtonLabel": "Reserve Now",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]
@@ -216,7 +216,7 @@
                     "wbTitle": "Come and meet us in person.",
                     "wbText": "The best way to experience Ember & Rye is around a table. Reserve yours tonight.",
                     "wbButtonLabel": "Make a Reservation",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]
@@ -363,7 +363,7 @@
                         "wbTitle": "Ready to book?",
                         "wbText": "Contact our events team to check availability and discuss your requirements.",
                         "wbButtonLabel": "Enquire Now",
-                        "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                        "wbButtonUrl": "/contact"
                     }
                 }
             ]
@@ -488,7 +488,7 @@
                         "wbTitle": "Ready to dine?",
                         "wbText": "Reserve your table and let us take care of the rest.",
                         "wbButtonLabel": "Make a Reservation",
-                        "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                        "wbButtonUrl": "/contact"
                     }
                 }
             ]

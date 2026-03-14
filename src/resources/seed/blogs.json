@@ -95,7 +95,7 @@
                     "wbTitle": "Join us for cocktail hour",
                     "wbText": "Wednesday to Friday from 5:00 pm to 6:30 pm. All cocktails at 20% off and bar snacks complimentary.",
                     "wbButtonLabel": "Reserve a Bar Seat",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]
@@ -219,7 +219,7 @@
                     "wbTitle": "Ready to enquire?",
                     "wbText": "Contact our events team and we will get back to you within one business day to discuss availability and your requirements.",
                     "wbButtonLabel": "Enquire About Private Dining",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]
@@ -514,7 +514,7 @@
                     "wbTitle": "Come and see for yourself",
                     "wbText": "We believe the best way to understand what we mean by hospitality is to experience it. We look forward to welcoming you.",
                     "wbButtonLabel": "Make a Reservation",
-                    "wbButtonUrl": "https://kayseri.ddev.site/contact"
+                    "wbButtonUrl": "/contact"
                 }
             }
         ]

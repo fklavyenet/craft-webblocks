@@ -1476,8 +1476,9 @@ class SeedController extends Controller
     }
 
     /**
-     * Downloads sample images and indexes them as Craft assets.
-     * Returns an array of asset IDs.
+     * Indexes bundled seed images as Craft assets.
+     * Images are shipped with the plugin under src/resources/seed/images/ — no internet access required.
+     * Returns an array of asset IDs ordered by position in images.json.
      */
     private function seedImages(string $seedPath): array
     {
@@ -1503,9 +1504,9 @@ class SeedController extends Controller
 
         foreach ($imagesConfig['images'] ?? [] as $imageDef) {
             $filename = $imageDef['filename'];
-            $title = $imageDef['title'] ?? pathinfo($filename, PATHINFO_FILENAME);
+            $title    = $imageDef['title'] ?? pathinfo($filename, PATHINFO_FILENAME);
 
-            // Check if asset already exists
+            // Check if asset already exists — skip re-indexing
             $existing = Asset::find()
                 ->volumeId($volume->id)
                 ->folderId($folder->id)
@@ -1518,28 +1519,30 @@ class SeedController extends Controller
                 continue;
             }
 
-            // Download the image to a temp file
-            $tempPath = Craft::$app->getPath()->getTempPath() . DIRECTORY_SEPARATOR . $filename;
-
-            $imageData = @file_get_contents($imageDef['url']);
-            if ($imageData === false) {
-                $this->stderr("  ! Failed to download: {$imageDef['url']}\n");
+            // Resolve bundled source file path
+            $sourceFile = $imageDef['file'] ?? null;
+            if (!$sourceFile) {
+                $this->stderr("  ! No 'file' key for '$filename' in images.json — skipping.\n");
                 continue;
             }
 
-            file_put_contents($tempPath, $imageData);
+            $sourcePath = $seedPath . DIRECTORY_SEPARATOR . $sourceFile;
+            if (!file_exists($sourcePath)) {
+                $this->stderr("  ! Bundled image not found: $sourcePath — skipping.\n");
+                continue;
+            }
 
-            // Create the asset — copy temp file since Craft moves it
-            $copyPath = $tempPath . '.copy';
-            copy($tempPath, $copyPath);
+            // Copy to Craft temp dir — saveElement() moves (not copies) tempFilePath
+            $tempPath = Craft::$app->getPath()->getTempPath() . DIRECTORY_SEPARATOR . $filename;
+            copy($sourcePath, $tempPath);
 
             $asset = new Asset();
-            $asset->tempFilePath = $copyPath;
-            $asset->filename = $filename;
-            $asset->title = $title;
-            $asset->folderId = $folder->id;
-            $asset->newFolderId = $folder->id;
-            $asset->volumeId = $volume->id;
+            $asset->tempFilePath = $tempPath;
+            $asset->filename     = $filename;
+            $asset->title        = $title;
+            $asset->folderId     = $folder->id;
+            $asset->newFolderId  = $folder->id;
+            $asset->volumeId     = $volume->id;
             $asset->setScenario(Asset::SCENARIO_CREATE);
             $asset->avoidFilenameConflicts = true;
 
@@ -1548,11 +1551,10 @@ class SeedController extends Controller
                 $assetIds[] = $asset->id;
             } else {
                 $this->stderr("  ! Failed to save asset '$filename': " . implode(', ', $asset->getFirstErrors()) . "\n");
-            }
-
-            // Clean up temp file
-            if (file_exists($tempPath)) {
-                @unlink($tempPath);
+                // Clean up orphaned temp copy if save failed
+                if (file_exists($tempPath)) {
+                    @unlink($tempPath);
+                }
             }
         }
 

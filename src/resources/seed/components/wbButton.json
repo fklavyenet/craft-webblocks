@@ -2,7 +2,7 @@
     "type": "wbButton",
     "fields": {
         "wbButtonLabel": "View Full Menu",
-        "wbButtonUrl": "/menu",
+        "wbButtonUrl": "",
         "wbButtonTarget": "",
         "wbButtonSize": "lg",
         "alignment": "center"

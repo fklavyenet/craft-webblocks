@@ -418,9 +418,16 @@ class InstallService extends Component
                 // Check if already in layout
                 $alreadyPresent = false;
                 foreach ($existingElements as $el) {
-                    if ($el instanceof CustomField && $el->getField()->handle === $fieldHandle) {
-                        $alreadyPresent = true;
-                        break;
+                    if (!$el instanceof CustomField) {
+                        continue;
+                    }
+                    try {
+                        if ($el->getField()->handle === $fieldHandle) {
+                            $alreadyPresent = true;
+                            break;
+                        }
+                    } catch (\craft\errors\FieldNotFoundException $e) {
+                        // Layout element references a deleted field — skip it
                     }
                 }
 

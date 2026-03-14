@@ -123,7 +123,7 @@
                     "wbTitle": "Reservieren Sie Ihren Tisch",
                     "wbText": "Walk-ins willkommen, aber wir empfehlen eine Reservierung — besonders an Freitag- und Samstagabenden.",
                     "wbButtonLabel": "Jetzt reservieren",
-                    "wbButtonUrl": "/contact"
+                    "wbButtonUrl": ""
                 }
             }
         ]
@@ -202,7 +202,7 @@
                     "wbTitle": "Lernen Sie uns persönlich kennen.",
                     "wbText": "Der beste Weg, Ember & Rye zu erleben, ist an einem Tisch. Reservieren Sie noch heute Ihren Platz.",
                     "wbButtonLabel": "Einen Tisch reservieren",
-                    "wbButtonUrl": "/contact"
+                    "wbButtonUrl": ""
                 }
             }
         ]
@@ -327,7 +327,7 @@
                         "wbTitle": "Bereit zu buchen?",
                         "wbText": "Kontaktieren Sie unser Eventteam, um Verfügbarkeit zu prüfen und Ihre Anforderungen zu besprechen.",
                         "wbButtonLabel": "Jetzt anfragen",
-                        "wbButtonUrl": "/contact"
+                        "wbButtonUrl": ""
                     }
                 }
             ]
@@ -435,7 +435,7 @@
                         "wbTitle": "Bereit zu speisen?",
                         "wbText": "Reservieren Sie Ihren Tisch und überlassen Sie uns den Rest.",
                         "wbButtonLabel": "Einen Tisch reservieren",
-                        "wbButtonUrl": "/contact"
+                        "wbButtonUrl": ""
                     }
                 }
             ]

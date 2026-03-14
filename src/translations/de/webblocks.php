@@ -61,6 +61,9 @@ return [
     'SEO'                    => 'SEO',
     'Page Title Format'      => 'Seitentitelformat',
     "Format for the <title> tag when wbSeoTitle is empty. Use {title} and {siteName} as placeholders. Example: {title} — {siteName}" => "Format für das <title>-Tag, wenn wbSeoTitle leer ist. Verwenden Sie {title} und {siteName} als Platzhalter. Beispiel: {title} — {siteName}",
+    'Seed Content'           => 'Seed-Inhalt',
+    'Seed Languages'         => 'Seed-Sprachen',
+    'Languages to seed when running the webblocks/seed command. English is always seeded. Changes take effect on the next wipe + seed cycle.' => 'Sprachen, die beim Ausführen des webblocks/seed-Befehls geseedet werden. Englisch wird immer geseedet. Änderungen werden im nächsten Wipe + Seed-Zyklus wirksam.',
 
     // =========================================================================
     // Comment moderation (CP)

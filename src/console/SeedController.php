@@ -16,10 +16,19 @@ use yii\console\ExitCode;
 class SeedController extends Controller
 {
     /**
-     * Language sites to propagate content into (in addition to the primary EN site).
-     * Each key is the Craft site handle; value is the suffix used in translation JSON filenames.
+     * Comma-separated list of language codes to seed.
+     * 'en' is always included. Supported extras: 'tr', 'de'.
+     * Example: --languages=en,tr
+     * Falls back to plugin settings (seedLanguages) if not specified.
+     *
+     * @var string|null
      */
-    private const EXTRA_SITES = [
+    public ?string $languages = null;
+
+    /**
+     * All supported extra-site mappings (handle => json suffix).
+     */
+    private const ALL_EXTRA_SITES = [
         'tr' => 'tr',
         'de' => 'de',
     ];
@@ -220,10 +229,17 @@ class SeedController extends Controller
             return;
         }
 
-        $locales = [
-            'tr' => $this->loadJson($seedPath . '/components/wbFooter.tr.json'),
-            'de' => $this->loadJson($seedPath . '/components/wbFooter.de.json'),
-        ];
+        $activeLangs = $this->_getActiveSeedLanguages();
+        $locales = [];
+        foreach (self::ALL_EXTRA_SITES as $siteHandle => $langSuffix) {
+            if (!in_array($langSuffix, $activeLangs, true)) {
+                continue;
+            }
+            $file = $seedPath . '/components/wbFooter.' . $langSuffix . '.json';
+            if (file_exists($file)) {
+                $locales[$siteHandle] = $this->loadJson($file);
+            }
+        }
 
         foreach ($locales as $siteHandle => $footerTrans) {
             $site = Craft::$app->getSites()->getSiteByHandle($siteHandle);
@@ -334,7 +350,8 @@ class SeedController extends Controller
         }
 
         // Propagate translated content to extra sites
-        $translations = [
+        $activeLangs  = $this->_getActiveSeedLanguages();
+        $allTranslations = [
             'tr' => [
                 'wbCookieBannerTitle'       => 'Çerezleri kullanıyoruz',
                 'wbCookieBannerText'        => 'Deneyiminizi geliştirmek, trafiği analiz etmek ve kişiselleştirilmiş içerik sunmak için çerezler kullanıyoruz. Hangi kategorilere izin vereceğinizi seçebilirsiniz.',
@@ -352,6 +369,11 @@ class SeedController extends Controller
                 'wbCookieLabelPreferences'  => 'Einstellungen',
             ],
         ];
+        $translations = array_filter(
+            $allTranslations,
+            fn($handle) => in_array(self::ALL_EXTRA_SITES[$handle] ?? '', $activeLangs, true),
+            ARRAY_FILTER_USE_KEY
+        );
 
         foreach ($translations as $siteHandle => $fields) {
             $site = Craft::$app->getSites()->getSiteByHandle($siteHandle);
@@ -1174,10 +1196,15 @@ class SeedController extends Controller
      */
     private function getExtraSiteConfigs(string $jsonFile): array
     {
-        $seedPath = $this->getSeedPath();
-        $result   = [];
+        $seedPath      = $this->getSeedPath();
+        $result        = [];
+        $activeLangs   = $this->_getActiveSeedLanguages();
 
-        foreach (self::EXTRA_SITES as $siteHandle => $langSuffix) {
+        foreach (self::ALL_EXTRA_SITES as $siteHandle => $langSuffix) {
+            // Skip if this language was not selected
+            if (!in_array($langSuffix, $activeLangs, true)) {
+                continue;
+            }
             $site = Craft::$app->getSites()->getSiteByHandle($siteHandle);
             if (!$site) {
                 continue;
@@ -1188,6 +1215,27 @@ class SeedController extends Controller
         }
 
         return $result;
+    }
+
+    /**
+     * Returns the list of extra language codes (excluding 'en') that should be seeded.
+     * Priority: --languages CLI arg → plugin settings → all supported languages.
+     *
+     * @return string[]
+     */
+    private function _getActiveSeedLanguages(): array
+    {
+        // 1. CLI argument takes priority
+        if ($this->languages !== null) {
+            $langs = array_map('trim', explode(',', $this->languages));
+            // Remove 'en' (always seeded via primary site); return only extras
+            return array_values(array_filter($langs, fn($l) => $l !== 'en' && isset(self::ALL_EXTRA_SITES[$l])));
+        }
+
+        // 2. Plugin settings fallback
+        $settings = \fklavyenet\webblocks\WebBlocks::getInstance()->getSettings();
+        $langs    = $settings->seedLanguages ?? ['en', 'tr', 'de'];
+        return array_values(array_filter($langs, fn($l) => $l !== 'en' && isset(self::ALL_EXTRA_SITES[$l])));
     }
 
     /**

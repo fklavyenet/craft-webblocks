@@ -61,6 +61,9 @@ return [
     'SEO'                    => 'SEO',
     'Page Title Format'      => 'Sayfa Başlığı Formatı',
     "Format for the <title> tag when wbSeoTitle is empty. Use {title} and {siteName} as placeholders. Example: {title} — {siteName}" => "wbSeoTitle boş olduğunda <title> etiketi için format. {title} ve {siteName} yer tutucularını kullanın. Örnek: {title} — {siteName}",
+    'Seed Content'           => 'Seed İçeriği',
+    'Seed Languages'         => 'Seed Dilleri',
+    'Languages to seed when running the webblocks/seed command. English is always seeded. Changes take effect on the next wipe + seed cycle.' => 'webblocks/seed komutu çalıştırıldığında seed edilecek diller. İngilizce her zaman seed edilir. Değişiklikler bir sonraki wipe + seed döngüsünde geçerli olur.',
 
     // =========================================================================
     // Comment moderation (CP)

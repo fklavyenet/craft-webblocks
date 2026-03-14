@@ -46,6 +46,22 @@
             errors:       settings.getErrors('seoTitleFormat')
         }) }}
 
+        <h2>{{ "Seed Content"|t('webblocks') }}</h2>
+
+        {{ forms.checkboxGroupField({
+            label:        "Seed Languages"|t('webblocks'),
+            id:           'seedLanguages',
+            name:         'settings[seedLanguages]',
+            instructions: "Languages to seed when running the webblocks/seed command. English is always seeded. Changes take effect on the next wipe + seed cycle."|t('webblocks'),
+            options: [
+                { label: 'English (EN)', value: 'en' },
+                { label: 'Turkish (TR)', value: 'tr' },
+                { label: 'German (DE)', value: 'de' }
+            ],
+            values: settings.seedLanguages,
+            errors: settings.getErrors('seedLanguages')
+        }) }}
+
         <div class="buttons">
             <button type="submit" class="btn submit">{{ "Save"|t('app') }}</button>
         </div>

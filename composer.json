@@ -16,6 +16,9 @@
         "craftcms/cms": "^5.0.0",
         "craftcms/ckeditor": "^5.0.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
     "autoload": {
         "psr-4": {
             "fklavyenet\\webblocks\\": "src/"
@@ -29,5 +32,11 @@
         "documentationUrl": "https://github.com/fklavyenet/craft-webblocks",
         "schemaVersion": "1.0.0",
         "class": "fklavyenet\\webblocks\\WebBlocks"
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
     }
 }

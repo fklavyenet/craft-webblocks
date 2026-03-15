@@ -30,6 +30,7 @@
         "developer": "fklavyenet",
         "developerUrl": "https://fklavye.net",
         "documentationUrl": "https://github.com/fklavyenet/craft-webblocks",
+        "changelogUrl": "https://raw.githubusercontent.com/fklavyenet/craft-webblocks/main/CHANGELOG.md",
         "schemaVersion": "1.0.0",
         "class": "fklavyenet\\webblocks\\WebBlocks"
     },

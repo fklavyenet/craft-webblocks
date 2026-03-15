@@ -9,7 +9,6 @@ A portable website building toolkit for Craft CMS 5. Provides a full set of Boot
 - Craft CMS 5.x already installed and configured
 - PHP 8.2+
 - Composer
-- Outbound internet access at seed time (seed images are downloaded from Unsplash)
 
 ### Steps
 
@@ -207,7 +206,7 @@ WebBlocks includes a built-in comment system for blog posts:
 - In the Craft CP, navigate to **Entries → Comments** to review pending submissions.
 - **Index view:** select one or more comments and use the **Approve** or **Reject** bulk actions from the action menu.
 - **Edit view:** an **Approved** lightswitch is shown in the metadata panel (below "Updated at"). Toggle it on or off to approve or reject the comment instantly — no page save required.
-- All CP-facing strings (approval status labels, confirm dialog) are fully translated in EN, TR, and DE.
+- All CP-facing strings (approval status labels, confirm dialog) are fully translated in EN, TR, DE, and ES.
 - Approved comments (`enabled = true`) are automatically displayed on the relevant blog post page.
 
 ## Form Submission Storage

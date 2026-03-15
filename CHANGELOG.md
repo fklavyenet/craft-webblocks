@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.9.1 - 2026-03-15
+
+### Added
+- **CP Help page full i18n** — `help.twig` rewritten with `|t('webblocks')` on every visible string (headings, table cells, body paragraphs, list items, warning notices). 95 new translation keys added to all locale files; `'Component Health'` CP nav label added to all locales.
+- **Project title header on Help page** — static `<h1>Fklavyenet WebBlocks</h1>` + `<p>CraftCMS Plugin</p>` rendered at the top of the Help page for clear plugin branding.
+- **Spanish (ES) translations** — `src/translations/es/webblocks.php` with 147 keys covering all categories: error pages, blog/references, search, CP navigation, plugin settings, help page, and comment moderation. In full sync with EN/TR/DE.
+
+### Changed
+- All four locale files (`en`, `tr`, `de`, `es`) now contain 147 translation keys each.
+
 ## 1.9.0 - 2026-03-14
 
 ### Added

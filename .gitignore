@@ -1,5 +1,7 @@
-# Agent session notes (not for version control)
-AGENTS.md
+# Markdown files — only README.md and CHANGELOG.md are tracked
+*.md
+!README.md
+!CHANGELOG.md
 
 # OS
 .DS_Store

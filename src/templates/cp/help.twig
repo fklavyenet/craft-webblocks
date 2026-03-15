@@ -75,7 +75,7 @@
         <thead><tr><th>{{ "Field"|t('webblocks') }}</th><th>{{ "Purpose"|t('webblocks') }}</th></tr></thead>
         <tbody>
             <tr><td><code>wbColorMode</code></td><td>{{ "Bootstrap colour mode — %light%, %dark%, or %auto% (follows OS preference)."|t('webblocks', { '%light%': '<code>light</code>', '%dark%': '<code>dark</code>', '%auto%': '<code>auto</code>' })|raw }}</td></tr>
-            <tr><td><code>wbColorTheme</code></td><td>{{ "Colour theme — Default / Dark / Warm / Cool / Forest / Ocean / Custom. Sets %attr% on %tag%; all theming is handled by CSS."|t('webblocks', { '%attr%': '<code>data-wb-theme</code>', '%tag%': '<code>&lt;body&gt;</code>' })|raw }}</td></tr>
+            <tr><td><code>wbColorTheme</code></td><td>{{ "Colour theme — selects a Bootswatch theme. WebBlocks loads the matching CSS from CDN automatically."|t('webblocks') }}</td></tr>
             <tr><td><code>wbSiteNavbar</code></td><td>{{ "A single wbNavbar block used site-wide."|t('webblocks') }}</td></tr>
             <tr><td><code>wbSiteFooter</code></td><td>{{ "A single footer block used site-wide."|t('webblocks') }}</td></tr>
         </tbody>
@@ -147,13 +147,24 @@
         <thead><tr><th>{{ "Theme"|t('webblocks') }}</th><th>{{ "Character"|t('webblocks') }}</th></tr></thead>
         <tbody>
             <tr><td>Default</td><td>{{ "Bootstrap built-in styles — no overrides applied."|t('webblocks') }}</td></tr>
-            <tr><td>Flatly</td><td>{{ "Clean, flat design with a green primary accent. Light and professional."|t('webblocks') }}</td></tr>
             <tr><td>Cerulean</td><td>{{ "Cool sky-blue primary. Light, airy, corporate feel."|t('webblocks') }}</td></tr>
-            <tr><td>Minty</td><td>{{ "Fresh mint-green accents. Light and friendly."|t('webblocks') }}</td></tr>
-            <tr><td>Lux</td><td>{{ "Refined serif typography with a premium, editorial look."|t('webblocks') }}</td></tr>
+            <tr><td>Cosmo</td><td>{{ "Sporty sans-serif, vibrant blue. Clean and energetic."|t('webblocks') }}</td></tr>
             <tr><td>Darkly</td><td>{{ "Full dark background with light text. Modern dark-mode theme."|t('webblocks') }}</td></tr>
-            <tr><td>Slate</td><td>{{ "Muted dark-grey palette. Sophisticated and low-contrast."|t('webblocks') }}</td></tr>
+            <tr><td>Flatly</td><td>{{ "Clean, flat design with a green primary accent. Light and professional."|t('webblocks') }}</td></tr>
+            <tr><td>Journal</td><td>{{ "Newspaper-inspired serif typography. Editorial and classic."|t('webblocks') }}</td></tr>
+            <tr><td>Litera</td><td>{{ "Crisp, readable typefaces with generous whitespace. Modern and clean."|t('webblocks') }}</td></tr>
+            <tr><td>Lux</td><td>{{ "Refined serif typography with a premium, editorial look."|t('webblocks') }}</td></tr>
+            <tr><td>Minty</td><td>{{ "Fresh mint-green accents. Light and friendly."|t('webblocks') }}</td></tr>
+            <tr><td>Morph</td><td>{{ "Soft shadows and rounded shapes. Neumorphic and tactile."|t('webblocks') }}</td></tr>
+            <tr><td>Pulse</td><td>{{ "Deep purple primary with vivid accents. Bold and distinctive."|t('webblocks') }}</td></tr>
             <tr><td>Quartz</td><td>{{ "Vibrant gradients and glassmorphism. Bold and modern."|t('webblocks') }}</td></tr>
+            <tr><td>Sandstone</td><td>{{ "Warm tan and earthy tones. Natural and approachable."|t('webblocks') }}</td></tr>
+            <tr><td>Sketchy</td><td>{{ "Hand-drawn comic-book aesthetic. Playful and unconventional."|t('webblocks') }}</td></tr>
+            <tr><td>Slate</td><td>{{ "Muted dark-grey palette. Sophisticated and low-contrast."|t('webblocks') }}</td></tr>
+            <tr><td>Spacelab</td><td>{{ "Muted greys and blues with a scientific, dashboard feel."|t('webblocks') }}</td></tr>
+            <tr><td>United</td><td>{{ "Ubuntu-inspired orange accent. Warm and community-driven."|t('webblocks') }}</td></tr>
+            <tr><td>Yeti</td><td>{{ "Calm, rounded components with an approachable blue primary."|t('webblocks') }}</td></tr>
+            <tr><td>Zephyr</td><td>{{ "Airy, minimal layout with subtle blue tones. Lightweight and fresh."|t('webblocks') }}</td></tr>
         </tbody>
     </table>
     <p>{{ "To apply custom styles on top of any theme, use %cssUrl% (external stylesheet) or %css% (inline rules injected into %head%)."|t('webblocks', {
@@ -169,10 +180,38 @@
     {# ── Wipe & reseed ─────────────────────────────────────────────────────── #}
     <h2>{{ "Wipe & Reseed"|t('webblocks') }}</h2>
     <p>{{ "To reset all demo content and reinstall the full schema:"|t('webblocks') }}</p>
-    <pre>php craft webblocks/wipe/all
-php craft plugin/install webblocks
-php craft webblocks/seed</pre>
+    <pre>php craft webblocks/wipe/all</pre>
     <p class="warning">{{ "This is destructive — all existing WebBlocks content will be permanently deleted."|t('webblocks') }}</p>
+
+    {# ── Plugin settings ──────────────────────────────────────────────────── #}
+    <h2>{{ "Plugin Settings"|t('webblocks') }}</h2>
+    <p>{{ "Configure WebBlocks at %path%."|t('webblocks', { '%path%': '<strong>Settings → Plugins → WebBlocks</strong>' })|raw }}</p>
+    <table class="data fullwidth">
+        <thead><tr><th>{{ "Setting"|t('webblocks') }}</th><th>{{ "Purpose"|t('webblocks') }}</th></tr></thead>
+        <tbody>
+            <tr><td>{{ "Default Admin Email"|t('webblocks') }}</td><td>{{ "Fallback recipient for wbForm admin notifications when a form's own Recipient field is empty."|t('webblocks') }}</td></tr>
+            <tr><td>{{ "Comment Notification Email"|t('webblocks') }}</td><td>{{ "Receives an email whenever a new blog comment is submitted and awaits moderation."|t('webblocks') }}</td></tr>
+            <tr><td>{{ "Page Title Format"|t('webblocks') }}</td><td>{{ "Controls the %title% tag format when wbSeoTitle is blank. Supports {title} and {siteName} placeholders."|t('webblocks', { '%title%': '<code>&lt;title&gt;</code>' })|raw }}</td></tr>
+            <tr><td>{{ "Seed Languages"|t('webblocks') }}</td><td>{{ "Which languages to seed on the next wipe + seed cycle (English is always included)."|t('webblocks') }}</td></tr>
+            <tr><td>{{ "GA4 Measurement ID"|t('webblocks') }}</td><td>{{ "Google Analytics 4 ID (e.g. G-XXXXXXXXXX). Leave blank to disable."|t('webblocks') }}</td></tr>
+            <tr><td>{{ "Matomo URL / Site ID"|t('webblocks') }}</td><td>{{ "Matomo instance URL and site ID. Both required to activate tracking."|t('webblocks') }}</td></tr>
+        </tbody>
+    </table>
+
+    {# ── Component versioning ──────────────────────────────────────────────── #}
+    <h2>{{ "Component Versioning"|t('webblocks') }}</h2>
+    <p>{{ "WebBlocks tracks the installed version of every component (field, entry type, matrix field) in the %table% database table. Use the console commands below to audit and migrate components when the plugin is updated."|t('webblocks', { '%table%': '<code>webblocks_component_versions</code>' })|raw }}</p>
+    <table class="data fullwidth">
+        <thead><tr><th>{{ "Command"|t('webblocks') }}</th><th>{{ "What it does"|t('webblocks') }}</th></tr></thead>
+        <tbody>
+            <tr><td><code>webblocks/components/diff</code></td><td>{{ "Full diff report — JSON version vs installed DB state."|t('webblocks') }}</td></tr>
+            <tr><td><code>webblocks/components/check</code></td><td>{{ "Exit 0 if everything is up to date, exit 1 if action is needed (CI-friendly)."|t('webblocks') }}</td></tr>
+            <tr><td><code>webblocks/components/dry-run</code></td><td>{{ "Preview what a migration run would do without making any changes."|t('webblocks') }}</td></tr>
+            <tr><td><code>webblocks/components/migrate</code></td><td>{{ "Apply all pending component migrations."|t('webblocks') }}</td></tr>
+            <tr><td><code>webblocks/components/cleanup-deprecated</code></td><td>{{ "List deprecated fields. Add --force to permanently delete them."|t('webblocks') }}</td></tr>
+        </tbody>
+    </table>
+    <p>{{ "The %link% in the CP sidebar shows a live health summary — pending migrations, deprecated fields, and component version mismatches."|t('webblocks', { '%link%': '<strong>' ~ "Component Health"|t('webblocks') ~ '</strong>' })|raw }}</p>
 
     {# ── Requirements ──────────────────────────────────────────────────────── #}
     <h2>{{ "Requirements"|t('webblocks') }}</h2>

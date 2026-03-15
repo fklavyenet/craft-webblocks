@@ -29,6 +29,7 @@ class WipeController extends Controller
         $this->wipeVolumes();
         $this->wipeFilesystems();
         $this->hardDeleteSoftDeleted();
+        $this->purgeProjectConfigEntries();
 
         $this->stdout("\n=== Wipe complete! ===\n");
 
@@ -60,16 +61,22 @@ class WipeController extends Controller
 
         // 3. Install
         $this->stdout("\nInstalling plugin...\n");
+
+        // Flush in-memory field/service caches BEFORE install so FieldInstallService
+        // does not see stale pre-wipe objects and skips recreating fields.
+        Craft::$app->getFields()->refreshFields();
+        Craft::$app->set('entries', ['class' => \craft\services\Entries::class]);
+        Craft::$app->set('globals', ['class' => \craft\services\Globals::class]);
+
         if (!Craft::$app->getPlugins()->installPlugin('webblocks')) {
             $this->stderr("Plugin install failed — aborting.\n");
             return ExitCode::UNSPECIFIED_ERROR;
         }
         $this->stdout("  Plugin installed.\n");
 
-        // Flush in-memory service caches so seed sees freshly installed
-        // field layouts, global sets, etc. — not stale pre-wipe objects.
+        // Flush again after install so seed sees the freshly created field layouts,
+        // global sets, etc. — not objects cached during the install process itself.
         Craft::$app->getFields()->refreshFields();
-        // Reset Entries and Globals service instances to clear their private caches
         Craft::$app->set('entries', ['class' => \craft\services\Entries::class]);
         Craft::$app->set('globals', ['class' => \craft\services\Globals::class]);
 
@@ -307,6 +314,44 @@ class WipeController extends Controller
             $this->stdout("  Purged $totalPurged total soft-deleted records\n");
         } catch (\Exception $e) {
             $this->stdout("  Error: " . $e->getMessage() . "\n");
+        }
+    }
+
+    /**
+     * Delete any wb-prefixed project config YAML entries left behind after
+     * field/section/entrytype deletion. Craft sometimes keeps YAML files on
+     * disk even after deleteField() / deleteSection() because of project-config
+     * write timing — these stale files cause installFieldFromTemplate() to
+     * find "existing" fields and skip fresh creation from JSON.
+     */
+    private function purgeProjectConfigEntries(): void
+    {
+        $this->stdout("Purging wb-prefixed project config entries...\n");
+
+        $projectConfigPath = Craft::$app->getPath()->getProjectConfigPath();
+        if (!$projectConfigPath || !is_dir($projectConfigPath)) {
+            return;
+        }
+
+        $dirs = ['fields', 'entrytypes', 'sections', 'globalSets', 'imageTransforms'];
+        $purged = 0;
+
+        foreach ($dirs as $dir) {
+            $path = $projectConfigPath . DIRECTORY_SEPARATOR . $dir;
+            if (!is_dir($path)) {
+                continue;
+            }
+            foreach (glob($path . DIRECTORY_SEPARATOR . 'wb*--*.yaml') ?: [] as $file) {
+                if (@unlink($file)) {
+                    $purged++;
+                }
+            }
+        }
+
+        if ($purged > 0) {
+            $this->stdout("  Purged $purged wb-prefixed project config YAML file(s)\n");
+        } else {
+            $this->stdout("  Nothing to purge\n");
         }
     }
 

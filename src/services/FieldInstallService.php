@@ -58,17 +58,26 @@ class FieldInstallService extends Component
             return null;
         }
 
-        // Skip if field already exists
-        $existing = Craft::$app->getFields()->getFieldByHandle($handle);
-        if ($existing) {
-            return $existing;
-        }
-
         $typeName = $template['type'] ?? 'PlainText';
 
         // Skip Matrix fields — handled by InstallService
         if ($typeName === 'Matrix') {
             return null;
+        }
+
+        // If the field already exists (e.g. left in project config from a prior
+        // install), re-apply settings from the JSON so options/settings stay in
+        // sync with the source-of-truth JSON definitions.
+        $existing = Craft::$app->getFields()->getFieldByHandle($handle);
+        if ($existing) {
+            $settings = $template['typesettings'] ?? [];
+            $this->_applySettings($existing, $typeName, $settings);
+            if (!Craft::$app->getFields()->saveField($existing)) {
+                Craft::warning("Could not update existing field '$handle': " . implode(', ', $existing->getFirstErrors()), __METHOD__);
+            } else {
+                Craft::info("Updated existing field '$handle'", __METHOD__);
+            }
+            return $existing;
         }
 
         $fieldClass = self::TYPE_MAP[$typeName] ?? PlainText::class;

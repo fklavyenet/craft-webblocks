@@ -52,7 +52,9 @@
             },
             {
                 "type": "wbCarousel",
+                "title": "Öne Çıkan Yemekler",
                 "fields": {
+                    "wbTitle": "Öne Çıkan Yemekler",
                     "wbAutoplay": true,
                     "wbInterval": 5000,
                     "wbShowControls": true,
@@ -71,6 +73,7 @@
             },
             {
                 "type": "wbGallery",
+                "title": "İçeriden Bir Bakış",
                 "fields": {
                     "wbTitle": "İçeriden Bir Bakış",
                     "wbColumnsCount": "3"
@@ -154,6 +157,7 @@
             },
             {
                 "type": "wbGallery",
+                "title": "Mutfağımız ve Ekibimiz",
                 "fields": {
                     "wbTitle": "Mutfağımız ve Ekibimiz",
                     "wbColumnsCount": "2"

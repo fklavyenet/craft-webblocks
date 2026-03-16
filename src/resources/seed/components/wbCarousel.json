@@ -1,5 +1,6 @@
 {
     "type": "wbCarousel",
+    "title": "A Taste of Ember & Rye",
     "fields": {
         "wbTitle": "A Taste of Ember & Rye",
         "wbAutoplay": true,

@@ -9,8 +9,17 @@
 /* Bootstrap sticky-top uses z-index 1020 by default; some blocks (hero,
    fullscreen image, carousel) use position:relative/absolute with their own
    stacking contexts that can paint over the navbar. Force it higher. */
+.wb-navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
 .wb-navbar.sticky-top {
     z-index: 1030;
+}
+/* In dark mode, use dark background */
+html[data-bs-theme="dark"] .wb-navbar {
+    background: rgba(33, 37, 41, 0.95) !important;
 }
 
 /* ── Color mode toggle icons ─────────────────────────────────────────────── */

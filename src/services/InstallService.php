@@ -235,15 +235,17 @@ class InstallService extends Component
 
             Craft::info("Processing entry type: $handle", __METHOD__);
             
-            // Check if already exists
+            // Check if already exists — if so, we still rebuild the field layout
+            // with current field UIDs so that content saves correctly after reinstall.
+            $existingEt = null;
             foreach (Craft::$app->getEntries()->getAllEntryTypes() as $et) {
                 if ($et->handle === $handle) {
-                    $this->entryTypeCache[$handle] = $et;
-                    continue 2;
+                    $existingEt = $et;
+                    break;
                 }
             }
 
-            $entryType = new EntryType();
+            $entryType = $existingEt ?? new EntryType();
             $entryType->name = $def['name'];
             $entryType->handle = $handle;
             $entryType->showSlugField = $def['showSlugField'] ?? true;
@@ -325,7 +327,7 @@ class InstallService extends Component
                 continue;
             }
 
-            Craft::info("Created entry type: $handle", __METHOD__);
+            Craft::info(($existingEt ? 'Updated' : 'Created') . " entry type: $handle", __METHOD__);
             $this->entryTypeCache[$handle] = $entryType;
         }
     }
@@ -341,14 +343,7 @@ class InstallService extends Component
         foreach ($this->loadComponents('matrixfields') as $def) {
             $handle = $def['handle'];
 
-            if ($this->getField($handle)) {
-                continue;
-            }
-
-            $field = new Matrix();
-            $field->name = $def['name'];
-            $field->handle = $handle;
-
+            // Resolve the current (fresh) entry type UIDs from DB
             $entryTypes = [];
             foreach ($def['entryTypes'] ?? [] as $etHandle) {
                 $et = $this->resolveEntryType($etHandle);
@@ -357,6 +352,16 @@ class InstallService extends Component
                 } else {
                     Craft::warning("Entry type '$etHandle' not found for Matrix field '$handle'", __METHOD__);
                 }
+            }
+
+            // Reuse existing field if present (update its entry type UIDs), otherwise create new
+            $existing = $this->getField($handle);
+            if ($existing instanceof Matrix) {
+                $field = $existing;
+            } else {
+                $field = new Matrix();
+                $field->name = $def['name'];
+                $field->handle = $handle;
             }
 
             $field->setEntryTypes($entryTypes);

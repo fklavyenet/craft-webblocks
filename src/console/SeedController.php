@@ -109,7 +109,7 @@ class SeedController extends Controller
                 }
             }
 
-            // Check nested block errors
+            // Check nested block errors (recurse two levels deep)
             $wbBlocks = $entry->getFieldValue('wbBlocks');
             if ($wbBlocks) {
                 foreach ($wbBlocks->all() as $block) {
@@ -118,6 +118,26 @@ class SeedController extends Controller
                         foreach ($block->getErrors() as $attr => $errors) {
                             foreach ($errors as $error) {
                                 $this->stderr("    [$attr] $error\n");
+                            }
+                        }
+                    }
+                    // Recurse into nested matrix fields
+                    foreach ($block->getFieldLayout()->getCustomFields() as $field) {
+                        if (!($field instanceof \craft\fields\Matrix)) {
+                            continue;
+                        }
+                        $nestedQuery = $block->getFieldValue($field->handle);
+                        if (!$nestedQuery) {
+                            continue;
+                        }
+                        foreach ($nestedQuery->all() as $nested) {
+                            if ($nested->hasErrors()) {
+                                $this->stderr("    Nested '{$nested->getType()->handle}' in {$field->handle} errors:\n");
+                                foreach ($nested->getErrors() as $attr => $errors) {
+                                    foreach ($errors as $error) {
+                                        $this->stderr("      [$attr] $error\n");
+                                    }
+                                }
                             }
                         }
                     }
@@ -174,7 +194,7 @@ class SeedController extends Controller
         }
 
         // --- Color mode ---
-        $globalSet->setFieldValue('wbColorMode', 'auto');
+        $globalSet->setFieldValue('wbColorMode', 'light');
 
         // --- Color theme ---
         $globalSet->setFieldValue('wbColorTheme', 'sandstone');
@@ -634,6 +654,7 @@ class SeedController extends Controller
                             'wbTitle' => $item['wbTitle'] ?? '',
                             'wbText' => $item['wbText'] ?? '',
                         ],
+                        'title' => $item['wbTitle'] ?? '', // Set title explicitly for CP display
                     ];
                     $itemCounter++;
                 }
@@ -763,6 +784,7 @@ class SeedController extends Controller
                             'wbFormOptionLabel' => $opt['label'] ?? '',
                             'wbFormOptionValue' => $opt['value'] ?? '',
                         ],
+                        'title' => $opt['label'] ?? '', // Set title explicitly for CP display
                     ];
                     $optCounter++;
                 }
@@ -772,6 +794,7 @@ class SeedController extends Controller
             $formFields["new:$fieldCounter"] = [
                 'type' => 'wbFormField',
                 'fields' => $fieldFields,
+                'title' => $fieldDef['label'] ?? '', // Set title explicitly for CP display
             ];
             $fieldCounter++;
         }
@@ -1753,10 +1776,17 @@ class SeedController extends Controller
         $fields = $componentData['fields'] ?? [];
         $fields['wbCarouselItems'] = $items;
 
-        return [
+        $block = [
             'type' => 'wbCarousel',
             'fields' => $fields,
         ];
+
+        // Set title from root level
+        if (!empty($componentData['title'])) {
+            $block['title'] = $componentData['title'];
+        }
+
+        return $block;
     }
 
     /**
@@ -1789,10 +1819,17 @@ class SeedController extends Controller
         $fields = $componentData['fields'] ?? [];
         $fields['wbGalleryItems'] = $items;
 
-        return [
+        $block = [
             'type' => 'wbGallery',
             'fields' => $fields,
         ];
+
+        // Set title from root level
+        if (!empty($componentData['title'])) {
+            $block['title'] = $componentData['title'];
+        }
+
+        return $block;
     }
 
     /**
@@ -1836,6 +1873,7 @@ class SeedController extends Controller
                     'wbTabTitle' => $item['wbTabTitle'] ?? '',
                     'wbText'     => $item['wbText'] ?? '',
                 ],
+                'title' => $item['wbTabTitle'] ?? '', // Set title explicitly for CP display
             ];
             $itemCounter++;
         }
@@ -1949,6 +1987,7 @@ class SeedController extends Controller
             $slides["new:$slideCounter"] = [
                 'type'   => 'wbFsSlide',
                 'fields' => $fields,
+                'title' => $slide['wbTitle'] ?? '', // Set title explicitly for CP display
             ];
             $slideCounter++;
         }
@@ -1978,6 +2017,7 @@ class SeedController extends Controller
                     'wbNavItemUrl' => $item['wbNavItemUrl'] ?? '',
                     'wbNavItemTarget' => $item['wbNavItemTarget'] ?? '',
                 ],
+                'title' => $item['wbNavItemLabel'] ?? '', // Set title explicitly for CP display
             ];
             $itemCounter++;
         }
@@ -2013,6 +2053,7 @@ class SeedController extends Controller
                     'wbButtonUrl'    => $item['wbButtonUrl'] ?? '',
                     'wbButtonTarget' => $item['wbButtonTarget'] ?? '',
                 ],
+                'title' => $item['wbButtonLabel'] ?? '', // Set title explicitly for CP display
             ];
             $itemCounter++;
         }

@@ -52,7 +52,9 @@
             },
             {
                 "type": "wbCarousel",
+                "title": "Empfohlene Gerichte",
                 "fields": {
+                    "wbTitle": "Empfohlene Gerichte",
                     "wbAutoplay": true,
                     "wbInterval": 5000,
                     "wbShowControls": true,
@@ -71,6 +73,7 @@
             },
             {
                 "type": "wbGallery",
+                "title": "Ein Blick ins Innere",
                 "fields": {
                     "wbTitle": "Ein Blick ins Innere",
                     "wbColumnsCount": "3"
@@ -154,6 +157,7 @@
             },
             {
                 "type": "wbGallery",
+                "title": "Unsere Küche & unser Team",
                 "fields": {
                     "wbTitle": "Unsere Küche & unser Team",
                     "wbColumnsCount": "2"

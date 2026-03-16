@@ -59,7 +59,9 @@
             },
             {
                 "type": "wbCarousel",
+                "title": "Featured Dishes",
                 "fields": {
+                    "wbTitle": "Featured Dishes",
                     "wbAutoplay": true,
                     "wbInterval": 5000,
                     "wbShowControls": true,
@@ -78,6 +80,7 @@
             },
             {
                 "type": "wbGallery",
+                "title": "A Glimpse Inside",
                 "fields": {
                     "wbTitle": "A Glimpse Inside",
                     "wbColumnsCount": "3"
@@ -168,6 +171,7 @@
             },
             {
                 "type": "wbGallery",
+                "title": "Our Kitchen & Team",
                 "fields": {
                     "wbTitle": "Our Kitchen & Team",
                     "wbColumnsCount": "2"

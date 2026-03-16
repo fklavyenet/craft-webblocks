@@ -6,6 +6,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.9.2 - 2026-03-16
+
+### Added
+- **Navbar background opacity** — Added CSS styling to `.wb-navbar` with `background: rgba(255, 255, 255, 0.95)` in light mode (with `backdrop-filter: blur(4px)`) and `rgba(33, 37, 41, 0.95)` in dark mode for improved visibility and modern frosted-glass effect.
+
+### Fixed
+- **Carousel and gallery block titles not displaying in CP** — Seed data for carousel and gallery blocks in `pages.json` and language variants (`pages.de.json`, `pages.tr.json`) were missing the `"title"` root-level key, causing Craft's `titleFormat` auto-generation to fail. Added `"title"` and corresponding `"wbTitle"` field values to all carousel and gallery blocks across all language files.
+- **SeedController builders not passing through root-level title** — Updated `buildCarouselBlock()` and `buildGalleryBlock()` methods to explicitly pass the `"title"` key from seed data to the entry creation array, ensuring nested entry titles are properly set even when `hasTitleField: false`.
+
+### Changed
+- `src/resources/seed/components/wbCarousel.json` — Added root `"title"` key
+- `src/resources/seed/components/wbGallery.json` — Added root `"title"` key
+- `src/resources/seed/pages.json` — Added `"title"` and `"wbTitle"` to carousel block and both gallery blocks
+- `src/resources/seed/pages.de.json` — Added `"title"` and `"wbTitle"` to carousel block and both gallery blocks
+- `src/resources/seed/pages.tr.json` — Added `"title"` and `"wbTitle"` to carousel block and both gallery blocks
+- `src/console/SeedController.php` — `buildCarouselBlock()` and `buildGalleryBlock()` now pass through root-level `"title"` from seed data
+
 ## 1.9.1 - 2026-03-15
 
 ### Added

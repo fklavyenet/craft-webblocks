@@ -4,12 +4,11 @@
     "section": "wbPage",
     "entryType": "wbPage",
     "blocks": [
+        "wbFullscreenImage",
         "wbHero",
         "wbSpacing",
         "wbHeadingBreadcrumb",
         "wbBreadcrumb",
-        "wbSpacing",
-        "wbFullscreenImage",
         "wbSpacing",
         "wbTextBlock",
         "wbSpacing",

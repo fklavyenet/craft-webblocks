@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "name": "Google Fonts URL",
+  "handle": "wbGoogleFontsUrl",
+  "instructions": "Paste a Google Fonts embed URL here. The font stylesheet will be loaded in <head> before other styles. Example: https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap",
+  "type": "PlainText",
+  "typesettings": {
+    "placeholder": "https://fonts.googleapis.com/css2?family=...",
+    "code": false,
+    "multiline": false
+  },
+  "translationMethod": "none"
+}

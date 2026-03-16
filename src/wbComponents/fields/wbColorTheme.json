@@ -6,46 +6,25 @@
   "type": "Dropdown",
   "typesettings": {
     "options": [
-      {
-        "label": "Default",
-        "value": "default",
-        "default": true
-      },
-      {
-        "label": "Flatly",
-        "value": "flatly",
-        "default": false
-      },
-      {
-        "label": "Cerulean",
-        "value": "cerulean",
-        "default": false
-      },
-      {
-        "label": "Minty",
-        "value": "minty",
-        "default": false
-      },
-      {
-        "label": "Lux",
-        "value": "lux",
-        "default": false
-      },
-      {
-        "label": "Darkly",
-        "value": "darkly",
-        "default": false
-      },
-      {
-        "label": "Slate",
-        "value": "slate",
-        "default": false
-      },
-      {
-        "label": "Quartz",
-        "value": "quartz",
-        "default": false
-      }
+      { "label": "Default",    "value": "default",   "default": true  },
+      { "label": "Cerulean",   "value": "cerulean",  "default": false },
+      { "label": "Cosmo",      "value": "cosmo",     "default": false },
+      { "label": "Darkly",     "value": "darkly",    "default": false },
+      { "label": "Flatly",     "value": "flatly",    "default": false },
+      { "label": "Journal",    "value": "journal",   "default": false },
+      { "label": "Litera",     "value": "litera",    "default": false },
+      { "label": "Lux",        "value": "lux",       "default": false },
+      { "label": "Minty",      "value": "minty",     "default": false },
+      { "label": "Morph",      "value": "morph",     "default": false },
+      { "label": "Pulse",      "value": "pulse",     "default": false },
+      { "label": "Quartz",     "value": "quartz",    "default": false },
+      { "label": "Sandstone",  "value": "sandstone", "default": false },
+      { "label": "Sketchy",    "value": "sketchy",   "default": false },
+      { "label": "Slate",      "value": "slate",     "default": false },
+      { "label": "Spacelab",   "value": "spacelab",  "default": false },
+      { "label": "United",     "value": "united",    "default": false },
+      { "label": "Yeti",       "value": "yeti",      "default": false },
+      { "label": "Zephyr",     "value": "zephyr",    "default": false }
     ]
   },
   "translationMethod": "none"

@@ -1,11 +1,12 @@
 {% set _siteConfig = craft.app.globals.getSetByHandle('wbSiteConfig') ?? null %}
 {% set _siteColorMode = _siteConfig ? (_siteConfig.wbColorMode.value ?? 'auto') : 'auto' %}
 {% set _siteColorTheme = _siteConfig ? (_siteConfig.wbColorTheme.value ?? 'default') : 'default' %}
+{% set _googleFontsUrl = _siteConfig ? (_siteConfig.wbGoogleFontsUrl ?? '') : '' %}
 {% set _customCssUrl = _siteConfig ? (_siteConfig.wbCustomCssUrl ?? '') : '' %}
 {% set _customCss = _siteConfig ? (_siteConfig.wbCustomCss ?? '') : '' %}
 
 {# ── Bootswatch CDN map ── #}
-{% set _bootswatchThemes = ['flatly','cerulean','minty','lux','darkly','slate','quartz'] %}
+{% set _bootswatchThemes = ['cerulean','cosmo','darkly','flatly','journal','litera','lux','minty','morph','pulse','quartz','sandstone','sketchy','slate','spacelab','united','yeti','zephyr'] %}
 {% set _isBootswatch = _siteColorTheme in _bootswatchThemes %}
 <!doctype html>
 <html lang="{{ currentSite.language }}" data-bs-theme="{{ _siteColorMode == 'dark' ? 'dark' : 'light' }}" data-wb-mode="{{ _siteColorMode == 'dark' ? 'dark' : (_siteColorMode == 'light' ? 'light' : 'auto') }}">
@@ -85,6 +86,13 @@
         {% endif %}
     {% endblock %}
 
+    {# ── Google Fonts ── #}
+    {% if _googleFontsUrl %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="{{ _googleFontsUrl }}" rel="stylesheet">
+    {% endif %}
+
     {# ── Bootstrap / Bootswatch CSS ── #}
     {% if _isBootswatch %}
         <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/{{ _siteColorTheme }}/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -100,7 +108,7 @@
         <link href="{{ _customCssUrl }}" rel="stylesheet" crossorigin="anonymous">
     {% endif %}
     {% if _customCss %}
-        <style>{{ _customCss | raw }}</style>
+        <style>{{ _customCss | replace({'</style>': '<\\/style>', '</STYLE>': '<\\/STYLE>'}) }}</style>
     {% endif %}
 
     {# ── Analytics ── #}

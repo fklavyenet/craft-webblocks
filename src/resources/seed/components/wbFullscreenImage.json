@@ -9,15 +9,31 @@
     },
     "slides": [
         {
-            "imageIndex": 0,
-            "wbTitle": "Fire-Driven Cooking",
-            "wbText": "Premium dry-aged beef & seasonal American cuisine",
+            "imageIndex": 18,
+            "wbTitle": "Welcome to Ember & Rye",
+            "wbText": "A dining room built for great evenings",
             "wbAlignment": "center",
             "wbVerticalAlign": "center",
             "wbOverlayOpacity": "40"
         },
         {
-            "imageIndex": 16,
+            "imageIndex": 19,
+            "wbTitle": "Fire-Driven Cooking",
+            "wbText": "Every cut finished over an open wood-fire grill",
+            "wbAlignment": "center",
+            "wbVerticalAlign": "center",
+            "wbOverlayOpacity": "40"
+        },
+        {
+            "imageIndex": 20,
+            "wbTitle": "45-Day Dry-Aged Ribeye",
+            "wbText": "Our signature — served simply, cooked perfectly",
+            "wbAlignment": "center",
+            "wbVerticalAlign": "bottom",
+            "wbOverlayOpacity": "50"
+        },
+        {
+            "imageIndex": 21,
             "wbTitle": "An Unforgettable Evening",
             "wbText": "Reserve your table at Ember & Rye",
             "wbAlignment": "center",

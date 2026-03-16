@@ -177,7 +177,24 @@ class SeedController extends Controller
         $globalSet->setFieldValue('wbColorMode', 'auto');
 
         // --- Color theme ---
-        $globalSet->setFieldValue('wbColorTheme', 'flatly');
+        $globalSet->setFieldValue('wbColorTheme', 'sandstone');
+
+        // --- Google Fonts ---
+        $globalSet->setFieldValue('wbGoogleFontsUrl', 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+        // --- Custom CSS (restaurant brand palette + typography) ---
+        $globalSet->setFieldValue('wbCustomCss', implode("\n", [
+            ':root {',
+            '  --bs-primary: #7B4F2E;',
+            '  --bs-primary-rgb: 123, 79, 46;',
+            '  --bs-link-color: #7B4F2E;',
+            '  --bs-link-hover-color: #5c3a20;',
+            '}',
+            'body { font-family: \'Lato\', sans-serif; font-weight: 300; }',
+            'h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: \'Playfair Display\', Georgia, serif; }',
+            '.btn-primary { background-color: #7B4F2E; border-color: #7B4F2E; }',
+            '.btn-primary:hover { background-color: #5c3a20; border-color: #5c3a20; }',
+        ]));
 
         // --- Navbar ---
         $navbarData = $this->loadJson($seedPath . '/components/wbNavbar.json');

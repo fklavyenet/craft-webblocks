@@ -37,6 +37,12 @@
         <input type="hidden" name="formEntryId" value="{{ item.id }}">
         {{ redirectInput(craft.app.request.url) }}
 
+        {# ── Honeypot (bot trap — must stay empty) ───────────────────────── #}
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" tabindex="-1">
+            <label for="{{ formId }}-wbhp">Leave this field empty</label>
+            <input type="text" id="{{ formId }}-wbhp" name="wbhp" value="" autocomplete="off" tabindex="-1">
+        </div>
+
         {% for fieldEntry in item.wbFormFields.all() %}
             {% set label      = fieldEntry.wbFormFieldLabel %}
             {% set type       = fieldEntry.wbFormFieldType.value ?? fieldEntry.wbFormFieldType %}

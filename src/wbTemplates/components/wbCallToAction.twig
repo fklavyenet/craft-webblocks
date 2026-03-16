@@ -21,7 +21,9 @@
             <p>{{ item.wbText }}</p>
         {% endif %}
         {% if item.wbButtonUrl and item.wbButtonLabel %}
-            <a href="{{ item.wbButtonUrl }}" class="btn{% if not item.wbButtonColor %} wb-theme-btn btn-primary{% endif %}" style="{% if item.wbButtonColor %}background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }}; color: #333;{% endif %}">
+            {% set _ctaUrl = item.wbButtonUrl %}
+            {% set _ctaUrl = (_ctaUrl|lower starts with 'javascript:' or _ctaUrl|lower starts with 'data:') ? '#' : _ctaUrl %}
+            <a href="{{ _ctaUrl }}" class="btn{% if not item.wbButtonColor %} wb-theme-btn btn-primary{% endif %}" style="{% if item.wbButtonColor %}background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }}; color: #333;{% endif %}">
                 {{ item.wbButtonLabel }}
             </a>
         {% endif %}

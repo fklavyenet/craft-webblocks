@@ -5,6 +5,7 @@ namespace fklavyenet\webblocks\controllers;
 use Craft;
 use craft\elements\Entry;
 use craft\web\Controller;
+use yii\filters\RateLimiter;
 use yii\web\Response;
 
 /**
@@ -14,6 +15,7 @@ use yii\web\Response;
  *
  * Expected POST fields:
  *   formEntryId  — ID of the wbForm entry block
+ *   wbhp         — honeypot field (must be empty)
  *   CRAFT_CSRF_TOKEN
  *   <field-n>    — one key per wbFormField, keyed by field label slugified
  */
@@ -21,6 +23,31 @@ class FormController extends Controller
 {
     // Allow anonymous access so front-end visitors can submit
     protected array|bool|int $allowAnonymous = ['submit'];
+
+    /**
+     * Rate-limit the submit action: max 5 submissions per IP per 60 seconds.
+     * Falls back gracefully if IpRateLimitIdentity is not available (Craft < 5.9.15).
+     */
+    public function behaviors(): array
+    {
+        $behaviors = parent::behaviors();
+
+        if (class_exists(\craft\filters\IpRateLimitIdentity::class)) {
+            $behaviors['rateLimiter'] = [
+                'class'                  => RateLimiter::class,
+                'only'                   => ['submit'],
+                'enableRateLimitHeaders' => false,
+                'user' => fn() => new \craft\filters\IpRateLimitIdentity([
+                    'limit'     => 5,
+                    'window'    => 60,
+                    'keyPrefix' => 'wb-form-submit',
+                    'ip'        => Craft::$app->getRequest()->getUserIP() ?? 'unknown',
+                ]),
+            ];
+        }
+
+        return $behaviors;
+    }
 
     /**
      * Processes a wbForm submission.
@@ -32,12 +59,23 @@ class FormController extends Controller
         $this->requirePostRequest();
 
         $request = Craft::$app->getRequest();
+
+        // ── Honeypot check ────────────────────────────────────────────────────
+        $honeypot = $request->getBodyParam('wbhp', '');
+        if (trim((string) $honeypot) !== '') {
+            // Silently pretend success to fool bots
+            if ($request->getIsAjax()) {
+                return $this->asJson(['success' => true]);
+            }
+            Craft::$app->getSession()->setFlash('wbFormSuccess', Craft::t('site', 'Thank you! We will be in touch shortly.'));
+            return $this->redirectToPostedUrl();
+        }
+
         $formEntryId = (int) $request->getRequiredBodyParam('formEntryId');
 
-        // Load the form entry
+        // Load the form entry — only live (enabled) entries accept submissions
         $formEntry = Entry::find()
             ->id($formEntryId)
-            ->status(null)
             ->one();
 
         if (!$formEntry) {
@@ -80,7 +118,10 @@ class FormController extends Controller
 
             // Capture the first email-type field as the visitor's address
             if ($type === 'email' && $visitorEmail === null && trim((string) $value) !== '') {
-                $visitorEmail = trim((string) $value);
+                $candidate = trim((string) $value);
+                if (filter_var($candidate, FILTER_VALIDATE_EMAIL)) {
+                    $visitorEmail = $candidate;
+                }
             }
         }
 
@@ -92,6 +133,10 @@ class FormController extends Controller
         if ($recipient === '') {
             $pluginSettings = \fklavyenet\webblocks\WebBlocks::getInstance()->getSettings();
             $recipient = (string) ($pluginSettings->adminEmail ?? '');
+        }
+        if (!filter_var($recipient, FILTER_VALIDATE_EMAIL)) {
+            Craft::error('wbForm: invalid or missing recipient email — skipping admin notification.', __METHOD__);
+            $recipient = '';
         }
         $subject    = (string) $formEntry->wbFormSubject ?: Craft::t('site', 'New form submission');
         $successMsg = (string) $formEntry->wbFormSuccessMsg

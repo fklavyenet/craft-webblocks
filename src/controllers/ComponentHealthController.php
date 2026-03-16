@@ -33,6 +33,9 @@ class ComponentHealthController extends Controller
      */
     public function actionIndex(): Response
     {
+        $this->requireCpRequest();
+        $this->requireAdmin();
+
         $report           = (new ComponentDiffService())->diff();
         $deprecatedFields = (new DeprecatedFieldService())->getDeprecated();
 

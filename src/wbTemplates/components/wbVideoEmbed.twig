@@ -21,12 +21,15 @@
     {% if item.wbTitle %}
         <h5 class="mb-3">{{ item.wbTitle }}</h5>
     {% endif %}
+    {% set _safeEmbedUrl = (_embedUrl|lower starts with 'javascript:' or _embedUrl|lower starts with 'data:') ? '' : _embedUrl %}
+    {% if _safeEmbedUrl %}
     <div class="ratio {{ _ratio }}">
-        <iframe src="{{ _embedUrl }}"
+        <iframe src="{{ _safeEmbedUrl }}"
                 title="{{ item.wbTitle ?? 'Video' }}"
                 allowfullscreen
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
         </iframe>
     </div>
+    {% endif %}
 </div>
 {% endif %}

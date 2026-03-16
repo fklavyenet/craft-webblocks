@@ -15,6 +15,9 @@ class SettingsController extends Controller
 
     public function actionIndex(): Response
     {
+        $this->requireCpRequest();
+        $this->requireAdmin();
+
         $plugin = Craft::$app->getPlugins()->getPlugin('webblocks');
 
         return $this->renderTemplate('webblocks-cp/settings', [

@@ -78,9 +78,11 @@
                 {% if navItems|length %}
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         {% for navItem in navItems %}
+                            {% set _navUrl = navItem.wbNavItemUrl ?? '#' %}
+                            {% set _navUrl = (_navUrl|lower starts with 'javascript:' or _navUrl|lower starts with 'data:') ? '#' : _navUrl %}
                             <li class="nav-item">
                                 <a class="nav-link"
-                                   href="{{ navItem.wbNavItemUrl ?? '#' }}"
+                                   href="{{ _navUrl }}"
                                    {% if navItem.wbNavItemTarget.value == '_blank' %}target="_blank" rel="noopener noreferrer"{% endif %}>
                                     {{ navItem.wbNavItemLabel }}
                                 </a>

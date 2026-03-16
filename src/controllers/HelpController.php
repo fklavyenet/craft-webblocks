@@ -14,6 +14,9 @@ class HelpController extends Controller
 
     public function actionIndex(): Response
     {
+        $this->requireCpRequest();
+        $this->requireAdmin();
+
         return $this->renderTemplate('webblocks-cp/help');
     }
 }

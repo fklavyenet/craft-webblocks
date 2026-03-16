@@ -6,6 +6,7 @@ use Craft;
 use craft\base\Element;
 use craft\elements\Entry;
 use craft\web\Controller;
+use yii\filters\RateLimiter;
 use yii\web\Response;
 
 /**
@@ -27,6 +28,31 @@ class CommentController extends Controller
     protected array|bool|int $allowAnonymous = ['submit'];
 
     /**
+     * Rate-limit the submit action: max 3 comment submissions per IP per 60 seconds.
+     * Falls back gracefully if IpRateLimitIdentity is not available (Craft < 5.9.15).
+     */
+    public function behaviors(): array
+    {
+        $behaviors = parent::behaviors();
+
+        if (class_exists(\craft\filters\IpRateLimitIdentity::class)) {
+            $behaviors['rateLimiter'] = [
+                'class'                  => RateLimiter::class,
+                'only'                   => ['submit'],
+                'enableRateLimitHeaders' => false,
+                'user' => fn() => new \craft\filters\IpRateLimitIdentity([
+                    'limit'     => 3,
+                    'window'    => 60,
+                    'keyPrefix' => 'wb-comment-submit',
+                    'ip'        => Craft::$app->getRequest()->getUserIP() ?? 'unknown',
+                ]),
+            ];
+        }
+
+        return $behaviors;
+    }
+
+    /**
      * Processes a comment submission.
      *
      * New comments are saved as disabled (pending moderation).
@@ -46,10 +72,10 @@ class CommentController extends Controller
             return $this->_successResponse($isAjax);
         }
 
-        // ── Validate post entry ───────────────────────────────────────────────
+        // Validate post entry — only live (enabled) entries accept comments
         $postEntryId = (int) $request->getBodyParam('postEntryId', 0);
         $postEntry   = $postEntryId
-            ? Entry::find()->id($postEntryId)->section('wbBlog')->status(null)->one()
+            ? Entry::find()->id($postEntryId)->section('wbBlog')->one()
             : null;
 
         if (!$postEntry) {
@@ -150,6 +176,7 @@ class CommentController extends Controller
     {
         $this->requirePostRequest();
         $this->requireCpRequest();
+        $this->requireAdmin();
 
         return $this->_setCommentEnabled(true);
     }
@@ -167,6 +194,7 @@ class CommentController extends Controller
     {
         $this->requirePostRequest();
         $this->requireCpRequest();
+        $this->requireAdmin();
 
         return $this->_setCommentEnabled(false);
     }

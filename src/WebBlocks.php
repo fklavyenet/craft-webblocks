@@ -247,9 +247,9 @@ class WebBlocks extends BasePlugin
         $content .= "return [\n";
 
         foreach ($translations as $key => $value) {
-            $escapedKey = str_replace("'", "\\'", $key);
-            $escapedValue = str_replace("'", "\\'", $value);
-            $content .= "    '$escapedKey' => '$escapedValue',\n";
+            $escapedKey   = var_export((string) $key,   true);
+            $escapedValue = var_export((string) $value, true);
+            $content .= "    {$escapedKey} => {$escapedValue},\n";
         }
 
         $content .= "];\n";

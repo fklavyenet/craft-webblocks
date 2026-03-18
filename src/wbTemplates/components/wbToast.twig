@@ -1,14 +1,41 @@
-{% set variant = item.wbToastType.value ?? item.wbToastType ?? '' %}
-<div class="wb-block mb-4">
-    <div class="wb-toast{% if variant %} wb-toast-{{ variant }}{% endif %}" role="alert" aria-live="assertive" aria-atomic="true">
-        {% if item.wbTitle %}
-        <div class="wb-toast-header">
-            <strong style="margin-inline-end:auto;">{{ item.wbTitle }}</strong>
-            <button type="button" class="wb-toast-close" aria-label="Close"></button>
+{% set variant  = item.wbToastType.value ?? item.wbToastType ?? 'info' %}
+{% set title    = item.wbTitle ?? '' %}
+{% set message  = item.wbText ?? '' %}
+{% set duration = item.wbToastDuration ?? 5000 %}
+
+{#
+  wbToast uses WBToast.show() JS API (WebBlocks UI Kit).
+  The script defers execution until webblocks-ui.js is loaded.
+  A noscript fallback renders a static alert for non-JS environments.
+#}
+<div class="wb-block">
+    <script>
+        (function () {
+            var msg    = {{ message | json_encode | raw }};
+            var title  = {{ title   | json_encode | raw }};
+            var type   = {{ variant | json_encode | raw }};
+            var dur    = {{ duration }};
+            var full   = title ? '<strong>' + title + '</strong><br>' + msg : msg;
+
+            function show() {
+                if (typeof WBToast !== 'undefined') {
+                    WBToast.show(full, { type: type, duration: dur });
+                }
+            }
+
+            // If WBToast is already available (script already loaded), call immediately.
+            // Otherwise wait for DOMContentLoaded / load events.
+            if (typeof WBToast !== 'undefined') {
+                show();
+            } else {
+                window.addEventListener('load', show, { once: true });
+            }
+        })();
+    </script>
+    <noscript>
+        <div class="wb-alert wb-alert-{{ variant }}" role="alert">
+            {% if title %}<strong>{{ title }}</strong><br>{% endif %}
+            {{ message }}
         </div>
-        {% endif %}
-        <div class="wb-toast-body">
-            {{ item.wbText ?? '' }}
-        </div>
-    </div>
+    </noscript>
 </div>

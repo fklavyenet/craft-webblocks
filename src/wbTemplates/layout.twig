@@ -8,7 +8,7 @@
 <!doctype html>
 <html lang="{{ currentSite.language }}"
       data-mode="{{ _siteColorMode == 'dark' ? 'dark' : (_siteColorMode == 'light' ? 'light' : 'auto') }}"
-      {% if _siteColorTheme not in ['default',''] %}data-preset="{{ _siteColorTheme }}"{% endif %}>
+      {% if _siteColorTheme not in ['default',''] %}data-accent="{{ _siteColorTheme }}"{% endif %}>
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -137,7 +137,7 @@
         </script>
     {% endif %}
 </head>
-<body class="wb-page {% block bodyClass %}{% endblock %}" data-wb-theme="{{ _siteColorTheme }}">
+<body class="wb-page {% block bodyClass %}{% endblock %}">
 {{ beginBody() }}
 
 {# ── Navbar ── #}

@@ -6,6 +6,7 @@
    ============================================================================= */
 
 /* ── Navbar ───────────────────────────────────────────────────────────────── */
+/* wb-navbar is sticky by default (per WebBlocks UI Kit). Add wb-navbar--static to disable. */
 .wb-navbar {
     background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(4px);

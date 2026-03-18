@@ -5,7 +5,7 @@
 {% set btnSize    = item.wbButtonSize.value ?? item.wbButtonSize ?? '' %}
 {% set oc_id      = 'wbOffcanvas-' ~ item.id %}
 
-<div class="wb-block wb-offcanvas mb-4">
+<div class="wb-block">
     {# Trigger button #}
     <button type="button"
             class="wb-btn wb-btn-primary{% if btnSize and btnSize != 'md' %} wb-btn-{{ btnSize }}{% endif %}"
@@ -24,7 +24,7 @@
          hidden>
         <div class="wb-drawer-header">
             <h5 class="wb-drawer-title" id="{{ oc_id }}-label">{{ item.wbTitle ?? '' }}</h5>
-            <button type="button" class="wb-drawer-close" data-wb-dismiss="drawer" aria-label="Close"></button>
+            <button type="button" class="wb-btn-close" data-wb-dismiss="drawer" aria-label="Close"></button>
         </div>
         <div class="wb-drawer-body">
             {% for block in item.wbBlocks.all() %}

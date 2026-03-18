@@ -572,7 +572,7 @@
             {
                 "type": "wbTextBlock",
                 "fields": {
-                    "wbText": "<p class=\"text-muted\">Walk-in müşteriler müsaitliğe göre kabul edilir. 7 veya daha fazla kişilik gruplar için lütfen bizi doğrudan arayın. Tüm e-posta sorgularına bir iş günü içinde yanıt vermeyi hedefliyoruz.</p>"
+                    "wbText": "<p class=\"wb-text-muted\">Walk-in müşteriler müsaitliğe göre kabul edilir. 7 veya daha fazla kişilik gruplar için lütfen bizi doğrudan arayın. Tüm e-posta sorgularına bir iş günü içinde yanıt vermeyi hedefliyoruz.</p>"
                 }
             }
         ]

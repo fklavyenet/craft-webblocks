@@ -572,7 +572,7 @@
             {
                 "type": "wbTextBlock",
                 "fields": {
-                    "wbText": "<p class=\"text-muted\">Walk-ins willkommen, je nach Verfügbarkeit. Für Gruppen ab 7 Personen bitten wir um direkten Anruf. Wir bemühen uns, alle E-Mail-Anfragen innerhalb eines Werktages zu beantworten.</p>"
+                    "wbText": "<p class=\"wb-text-muted\">Walk-ins willkommen, je nach Verfügbarkeit. Für Gruppen ab 7 Personen bitten wir um direkten Anruf. Wir bemühen uns, alle E-Mail-Anfragen innerhalb eines Werktages zu beantworten.</p>"
                 }
             }
         ]

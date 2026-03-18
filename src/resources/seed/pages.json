@@ -674,7 +674,7 @@
             {
                 "type": "wbTextBlock",
                 "fields": {
-                    "wbText": "<p class=\"text-muted\">Walk-ins are welcome subject to availability. For parties of 7 or more, please call us directly. We aim to respond to all email enquiries within one business day.</p>"
+                    "wbText": "<p class=\"wb-text-muted\">Walk-ins are welcome subject to availability. For parties of 7 or more, please call us directly. We aim to respond to all email enquiries within one business day.</p>"
                 }
             }
         ]

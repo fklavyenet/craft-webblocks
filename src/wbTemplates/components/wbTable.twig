@@ -19,11 +19,11 @@
 {% set rows    = item.wbTableRows %}
 
 {% if item.wbTitle and titlePos == 'outside' %}
-    <h3>{{ item.wbTitle }}</h3>
+    <h3 class="wb-mb-3">{{ item.wbTitle }}</h3>
 {% endif %}
 <div class="wb-block wb-table-block" style="margin-bottom:1.5rem;{{ extraStyle }}">
     {% if item.wbTitle and titlePos == 'inside' %}
-        <h3>{{ item.wbTitle }}</h3>
+        <h3 class="wb-mb-3">{{ item.wbTitle }}</h3>
     {% endif %}
 
     {% if columns | length %}

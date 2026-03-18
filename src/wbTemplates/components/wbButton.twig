@@ -1,7 +1,7 @@
 {% set _btnUrl = item.wbButtonUrl ?? '' %}
 {% set _btnUrl = (_btnUrl|lower starts with 'javascript:' or _btnUrl|lower starts with 'data:') ? '#' : _btnUrl %}
 <div class="wb-block wb-mb-4">
-<a href="{{ _btnUrl }}" class="wb-btn{% if not item.wbButtonColor %} wb-theme-btn wb-btn-primary{% endif %}{% if item.wbButtonSize %} wb-btn-{{ item.wbButtonSize }}{% endif %}" style="{% if item.wbButtonColor %}background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }}; color: #fff;{% endif %}" {% if item.wbButtonTarget %}target="{{ item.wbButtonTarget }}"{% endif %}>
+<a href="{{ _btnUrl }}" class="wb-btn wb-btn-primary{% if item.wbButtonSize %} wb-btn-{{ item.wbButtonSize }}{% endif %}"{% if item.wbButtonColor %} style="background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }}; color: #fff;"{% endif %}{% if item.wbButtonTarget %} target="{{ item.wbButtonTarget }}"{% endif %}>
     {{ item.wbTitle }}
 </a>
 </div>

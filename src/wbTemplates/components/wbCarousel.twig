@@ -5,13 +5,12 @@
 {% set showControls = item.wbShowControls ?? true %}
 {% set showIndicators = item.wbShowIndicators ?? true %}
 
-<section class="wb-block wb-carousel" style="margin-bottom:1.5rem;">
+<section class="wb-block" style="margin-bottom:1.5rem;">
     {% if item.wbTitle %}
         <h2 style="margin-bottom:0.75rem;">{{ item.wbTitle }}</h2>
     {% endif %}
 
     <div id="{{ carouselId }}"
-         class="wb-carousel-slider"
          style="position:relative;overflow:hidden;"
          {% if slides|length > 1 %}
              data-wb-fs-slider

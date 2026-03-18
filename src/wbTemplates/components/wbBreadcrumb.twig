@@ -2,8 +2,8 @@
 {% set _bcEntry = entry ?? null %}
 {% if _bcEntry %}
     {% set _ancestors = _bcEntry.ancestors.all() %}
-    <nav aria-label="breadcrumb" class="wb-block wb-breadcrumb">
-        <ol class="wb-breadcrumb">
+    <nav aria-label="breadcrumb" class="wb-breadcrumb">
+        <ol class="wb-breadcrumb-list">
             <li class="wb-breadcrumb-item">
                 <a href="{{ siteUrl }}">{{ 'Home'|t }}</a>
             </li>

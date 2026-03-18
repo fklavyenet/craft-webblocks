@@ -8,16 +8,16 @@
     {% endif %}
     <ul class="wb-list{% if _flush %} wb-list-flush{% endif %}">
         {% for _listItem in _items %}
-            {% if _listItem.wbButtonUrl %}
-                <li class="wb-list-item wb-list-item-action">
+            <li class="wb-list-item">
+                {% if _listItem.wbButtonUrl %}
                     <a href="{{ _listItem.wbButtonUrl }}"
                        {% if _listItem.wbButtonTarget.value == '_blank' %}target="_blank" rel="noopener noreferrer"{% endif %}>
                         {{ _listItem.wbTitle }}
                     </a>
-                </li>
-            {% else %}
-                <li class="wb-list-item">{{ _listItem.wbTitle }}</li>
-            {% endif %}
+                {% else %}
+                    {{ _listItem.wbTitle }}
+                {% endif %}
+            </li>
         {% endfor %}
     </ul>
 </div>

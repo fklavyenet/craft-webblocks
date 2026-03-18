@@ -7,7 +7,7 @@
 #}
 {% set blockId = 'wb-gallery-' ~ item.id %}
 
-<section class="wb-block gallery py-4">
+<section class="wb-block wb-py-4">
     {% if item.wbTitle is defined and item.wbTitle %}
         <h2 class="wb-mb-4">{{ item.wbTitle }}</h2>
     {% endif %}
@@ -26,22 +26,16 @@
             {% set img = galleryItem.wbImage.one() ?? null %}
             {% if img %}
                 <div>
-                    <figure class="figure w-100 m-0">
-                        <a
-                            href="{{ img.getUrl('wbGalleryFull') }}"
-                            data-fancybox="gallery-{{ item.id }}"
-                            data-caption="{{ galleryItem.wbCaption ?? img.title }}"
-                        >
-                            <img
-                                src="{{ img.getUrl('wbGalleryThumb') }}"
-                                alt="{{ img.alt ?: (galleryItem.wbCaption ?? img.title) }}"
-                                style="display:block;width:100%;height:auto;border-radius:var(--wb-r-md,0.375rem);cursor:zoom-in;"
-                            >
-                        </a>
-                        {% if galleryItem.wbCaption ?? '' %}
-                            <figcaption class="figure-caption">{{ galleryItem.wbCaption }}</figcaption>
-                        {% endif %}
-                    </figure>
+                    <a href="{{ img.getUrl('wbGalleryFull') }}"
+                       data-fancybox="gallery-{{ item.id }}"
+                       data-caption="{{ galleryItem.wbCaption ?? img.title }}">
+                        <img src="{{ img.getUrl('wbGalleryThumb') }}"
+                             alt="{{ img.alt ?: (galleryItem.wbCaption ?? img.title) }}"
+                             style="display:block;width:100%;height:auto;border-radius:var(--wb-r-md,0.375rem);cursor:zoom-in;">
+                    </a>
+                    {% if galleryItem.wbCaption ?? '' %}
+                        <p style="font-size:0.875rem;color:var(--wb-muted);margin-top:0.5rem;margin-bottom:0;">{{ galleryItem.wbCaption }}</p>
+                    {% endif %}
                 </div>
             {% endif %}
         {% endfor %}

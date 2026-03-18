@@ -139,27 +139,22 @@
                 {# ── Pagination ── #}
                 {% if totalPages > 1 %}
                     <nav aria-label="{{ 'Search result pages'|t('webblocks') }}">
-                        <ul class="wb-pagination" style="justify-content:center;">
+                        <div class="wb-pagination wb-justify-center">
 
-                            <li class="{{ currentPage <= 1 ? 'is-disabled' }}">
-                                <a href="{{ url('search', { q: query, p: currentPage - 1 }) }}" aria-label="{{ 'Previous'|t('webblocks') }}">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
+                            <a href="#" class="wb-page-item wb-page-item-disabled" aria-label="{{ 'Previous'|t('webblocks') }}">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
 
                             {% for p in 1..totalPages %}
-                                <li class="{{ p == currentPage ? 'is-active' }}" {% if p == currentPage %}aria-current="page"{% endif %}>
-                                    <a href="{{ url('search', { q: query, p: p }) }}">{{ p }}</a>
-                                </li>
+                                <a href="#" class="wb-page-item{% if p == currentPage %} is-active{% endif %}"
+                                   {% if p == currentPage %}aria-current="page"{% endif %}>{{ p }}</a>
                             {% endfor %}
 
-                            <li class="{{ currentPage >= totalPages ? 'is-disabled' }}">
-                                <a href="{{ url('search', { q: query, p: currentPage + 1 }) }}" aria-label="{{ 'Next'|t('webblocks') }}">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
+                            <a href="#" class="wb-page-item" aria-label="{{ 'Next'|t('webblocks') }}">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
 
-                        </ul>
+                        </div>
                     </nav>
                 {% endif %}
 

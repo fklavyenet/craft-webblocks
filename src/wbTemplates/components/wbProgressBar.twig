@@ -16,7 +16,7 @@
                 <small>{{ _value }}%</small>
             </div>
         {% endif %}
-        <div class="wb-progress-bar wb-mb-3" role="progressbar"
+        <div class="wb-progress-bar" role="progressbar"
              aria-label="{{ _bar.wbProgressLabel ?? 'Progress' }}"
              aria-valuenow="{{ _value }}" aria-valuemin="0" aria-valuemax="100">
             <div class="wb-progress-bar-fill wb-progress-bar-{{ _color }}{% if _striped %} wb-progress-bar-striped{% endif %}"

@@ -3,17 +3,13 @@
         {% for accordionItem in item.wbAccordionItems.all() %}
             <div class="wb-accordion-item">
                 <button class="wb-accordion-trigger" type="button"
-                        data-wb-accordion
-                        data-wb-target="#collapse-{{ accordionItem.id }}"
-                        data-wb-parent="#accordion-{{ item.id|default(loop.index) }}"
+                        data-wb-toggle="accordion"
                         aria-expanded="false"
                         aria-controls="collapse-{{ accordionItem.id }}">
                     {{ accordionItem.wbTitle }}
                 </button>
-                <div id="collapse-{{ accordionItem.id }}" class="wb-accordion-content" hidden>
-                    <div class="wb-accordion-body">
-                        {{ accordionItem.wbText }}
-                    </div>
+                <div id="collapse-{{ accordionItem.id }}" class="wb-accordion-body" hidden>
+                    {{ accordionItem.wbText }}
                 </div>
             </div>
         {% endfor %}

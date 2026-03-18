@@ -8,13 +8,12 @@
     {% if item.wbTitle %}
         <h5 style="margin-bottom:0.75rem;">{{ item.wbTitle }}</h5>
     {% endif %}
-    <div class="wb-tabs-nav{% if _align %} {{ _align }}{% endif %}" id="{{ _tabsId }}" role="tablist">
+    <div class="wb-tab-list{% if _align %} {{ _align }}{% endif %}" id="{{ _tabsId }}" role="tablist">
         {% for _tab in _tabItems %}
             {% set _tabId = _tabsId ~ '-tab-' ~ loop.index %}
-            <button class="wb-tab {% if loop.first %}is-active{% endif %}"
+            <button class="wb-tab-item{% if loop.first %} is-active{% endif %}"
                     id="{{ _tabId }}-btn"
-                    data-wb-tab
-                    data-wb-target="#{{ _tabId }}"
+                    data-wb-tab="{{ _tabId }}"
                     type="button"
                     role="tab"
                     aria-controls="{{ _tabId }}"
@@ -23,10 +22,10 @@
             </button>
         {% endfor %}
     </div>
-    <div style="border:1px solid var(--wb-border);border-top:none;padding:1rem;" id="{{ _tabsId }}-content">
+    <div class="wb-tab-panels" id="{{ _tabsId }}-panels">
         {% for _tab in _tabItems %}
             {% set _tabId = _tabsId ~ '-tab-' ~ loop.index %}
-            <div class="wb-tab-panel {% if loop.first %}is-active{% endif %}"
+            <div class="wb-tab-panel{% if loop.first %} is-active{% endif %}"
                  id="{{ _tabId }}"
                  role="tabpanel"
                  aria-labelledby="{{ _tabId }}-btn">

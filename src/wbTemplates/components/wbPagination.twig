@@ -1,22 +1,19 @@
 {% set pages = item.wbPaginationPages ?? 5 %}
 {% set align = item.wbPaginationAlign.value ?? item.wbPaginationAlign ?? 'start' %}
 {% set size  = item.wbPaginationSize.value ?? item.wbPaginationSize ?? '' %}
-{% set alignStyle = align == 'center' ? 'justify-content:center;' : (align == 'end' ? 'justify-content:flex-end;' : '') %}
 <div class="wb-block wb-mb-4">
     {% if item.wbTitle %}<h5>{{ item.wbTitle }}</h5>{% endif %}
     <nav aria-label="Page navigation">
-        <ul class="wb-pagination{% if size %} wb-pagination-{{ size }}{% endif %}"{% if alignStyle %} style="{{ alignStyle }}"{% endif %}>
-            <li class="is-disabled">
-                <span>Previous</span>
-            </li>
+        <div class="wb-pagination{% if size %} wb-pagination-{{ size }}{% endif %}{% if align == 'center' %} wb-justify-center{% elseif align == 'end' %} wb-justify-end{% endif %}">
+            <a href="#" class="wb-page-item wb-page-item-disabled" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
             {% for p in 1..pages %}
-                <li{% if p == 1 %} class="is-active" aria-current="page"{% endif %}>
-                    <a href="#">{{ p }}</a>
-                </li>
+                <a href="#" class="wb-page-item{% if p == 1 %} is-active{% endif %}"{% if p == 1 %} aria-current="page"{% endif %}>{{ p }}</a>
             {% endfor %}
-            <li>
-                <a href="#">Next</a>
-            </li>
-        </ul>
+            <a href="#" class="wb-page-item" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </div>
     </nav>
 </div>

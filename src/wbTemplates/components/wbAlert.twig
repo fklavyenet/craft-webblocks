@@ -11,16 +11,16 @@
 {% set alertType  = item.wbAlertType ?? '' %}
 
 {% if item.wbTitle and titlePos == 'outside' %}
-    <h4 class="wb-alert-title">{{ item.wbTitle }}</h4>
+    <h4 style="margin-bottom:0.5rem;">{{ item.wbTitle }}</h4>
 {% endif %}
-<div class="wb-block wb-alert {% if alertType %}wb-alert-{{ alertType }}{% else %}wb-theme-alert{% endif %} wb-mb-4{{ extraClasses }}" role="alert">
+<div class="wb-block wb-alert{% if alertType %} wb-alert-{{ alertType }}{% endif %} wb-mb-4{{ extraClasses }}" role="alert">
     {% if item.wbTitle and titlePos == 'inside' %}
-        <h4 class="wb-alert-title">{{ item.wbTitle }}</h4>
+        <strong>{{ item.wbTitle }}</strong>
     {% endif %}
     {% if item.wbText %}
         {{ item.wbText }}
     {% endif %}
     {% if item.wbAlertDismissible %}
-        <button type="button" class="wb-alert-close" data-wb-dismiss="alert" aria-label="Close"></button>
+        <button type="button" class="wb-btn-close" data-wb-dismiss="alert" aria-label="Close"></button>
     {% endif %}
 </div>

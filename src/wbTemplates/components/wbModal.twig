@@ -8,18 +8,18 @@
     <button type="button"
             class="wb-btn wb-btn-primary"
             style="{% if item.wbButtonColor %}background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }};{% endif %}"
-            data-wb-modal="open"
+            data-wb-toggle="modal"
             data-wb-target="#{{ _modalId }}">
         {{ _btnLabel }}
     </button>
 
     {# Modal #}
     <div class="wb-modal" id="{{ _modalId }}" role="dialog"
-         aria-labelledby="{{ _modalId }}-label" aria-modal="true" hidden>
+         aria-labelledby="{{ _modalId }}-label" aria-modal="true">
         <div class="wb-modal-dialog{% if _size %} {{ _size }}{% endif %}">
             <div class="wb-modal-header">
                 <h5 class="wb-modal-title" id="{{ _modalId }}-label">{{ item.wbTitle }}</h5>
-                <button type="button" class="wb-modal-close" data-wb-modal="close"
+                <button type="button" class="wb-btn-close" data-wb-dismiss="modal"
                         aria-label="{{ 'Close'|t }}"></button>
             </div>
             {% if item.wbText %}
@@ -29,7 +29,7 @@
             {% endif %}
             <div class="wb-modal-footer">
                 <button type="button" class="wb-btn wb-btn-secondary"
-                        data-wb-modal="close">{{ 'Close'|t }}</button>
+                        data-wb-dismiss="modal">{{ 'Close'|t }}</button>
             </div>
         </div>
     </div>

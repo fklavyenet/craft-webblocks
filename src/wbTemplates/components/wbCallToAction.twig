@@ -12,18 +12,18 @@
 {% if item.wbTitle and titlePos == 'outside' %}
     <h2>{{ item.wbTitle }}</h2>
 {% endif %}
-<section class="wb-block cta wb-mb-4{{ extraClasses }}" style="{% if item.wbBackgroundColor %}background-color: {{ item.wbBackgroundColor }}; color: #fff;{% endif %}">
-    <div class="cta-content">
+<section class="wb-block wb-mb-4{{ extraClasses }}" style="{% if item.wbBackgroundColor %}background-color: {{ item.wbBackgroundColor }}; color: #fff; padding: 2rem;{% endif %}">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:1rem;">
         {% if item.wbTitle and titlePos == 'inside' %}
             <h2>{{ item.wbTitle }}</h2>
         {% endif %}
         {% if item.wbText %}
-            <p>{{ item.wbText }}</p>
+            <p style="color:{% if item.wbBackgroundColor %}#fff;{% else %}{% endif %}">{{ item.wbText }}</p>
         {% endif %}
         {% if item.wbButtonUrl and item.wbButtonLabel %}
             {% set _ctaUrl = item.wbButtonUrl %}
             {% set _ctaUrl = (_ctaUrl|lower starts with 'javascript:' or _ctaUrl|lower starts with 'data:') ? '#' : _ctaUrl %}
-            <a href="{{ _ctaUrl }}" class="wb-btn{% if not item.wbButtonColor %} wb-theme-btn wb-btn-primary{% endif %}" style="{% if item.wbButtonColor %}background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }}; color: #333;{% endif %}">
+            <a href="{{ _ctaUrl }}" class="wb-btn{% if item.wbButtonColor %} wb-btn-primary{% else %} wb-btn-primary{% endif %}">
                 {{ item.wbButtonLabel }}
             </a>
         {% endif %}

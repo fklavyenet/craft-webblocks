@@ -61,31 +61,19 @@
     {# Pagination #}
     {% if totalPages > 1 %}
         <nav style="margin-top:3rem;" aria-label="{{ 'Blog post pages'|t('webblocks') }}">
-            <ul class="wb-pagination" style="justify-content:center;">
-                <li class="{{ currentPage <= 1 ? 'is-disabled' }}">
-                    {% if currentPage <= 1 %}
-                        <span aria-label="{{ 'Previous'|t('webblocks') }}" aria-hidden="true">&laquo;</span>
-                    {% else %}
-                        <a href="{{ _self.pageUrl(_basePath, _pageTrigger, currentPage - 1) }}" aria-label="{{ 'Previous'|t('webblocks') }}">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    {% endif %}
-                </li>
+            <div class="wb-pagination wb-justify-center">
+                <a href="#" class="wb-page-item wb-page-item-disabled" aria-label="{{ 'Previous'|t('webblocks') }}">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
                 {% for p in 1..totalPages %}
-                    <li class="{{ p == currentPage ? 'is-active' }}" {% if p == currentPage %}aria-current="page"{% endif %}>
-                        <a href="{{ _self.pageUrl(_basePath, _pageTrigger, p) }}">{{ p }}</a>
-                    </li>
+                    <a href="{{ _self.pageUrl(_basePath, _pageTrigger, p) }}"
+                       class="wb-page-item{% if p == currentPage %} is-active{% endif %}"
+                       {% if p == currentPage %}aria-current="page"{% endif %}>{{ p }}</a>
                 {% endfor %}
-                <li class="{{ currentPage >= totalPages ? 'is-disabled' }}">
-                    {% if currentPage >= totalPages %}
-                        <span aria-label="{{ 'Next'|t('webblocks') }}" aria-hidden="true">&raquo;</span>
-                    {% else %}
-                        <a href="{{ _self.pageUrl(_basePath, _pageTrigger, currentPage + 1) }}" aria-label="{{ 'Next'|t('webblocks') }}">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    {% endif %}
-                </li>
-            </ul>
+                <a href="#" class="wb-page-item" aria-label="{{ 'Next'|t('webblocks') }}">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </div>
         </nav>
     {% endif %}
 

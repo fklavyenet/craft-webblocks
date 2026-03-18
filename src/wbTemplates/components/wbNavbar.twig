@@ -82,16 +82,15 @@
             {% set children = childrenMap['p' ~ navEntry.id] is defined ? childrenMap['p' ~ navEntry.id] : [] %}
             {% if children|length %}
                 <li class="wb-dropdown">
-                    <a class="wb-navbar-link wb-dropdown-toggle"
-                       href="{{ navEntry.url }}"
-                       role="button"
-                        data-wb-toggle="dropdown"
-                       aria-expanded="false">
+                    <button class="wb-navbar-link wb-dropdown-toggle"
+                            type="button"
+                            data-wb-toggle="dropdown"
+                            aria-expanded="false">
                         {{ navEntry.title }}
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;pointer-events:none;">
                             <path d="M4.646 6.354a.5.5 0 0 0 .708 0L8 9.293l2.646-2.647a.5.5 0 0 0-.708-.708l-3 3a.5.5 0 0 0-.708 0l-3-3a.5.5 0 0 0 0 .708"/>
                         </svg>
-                    </a>
+                    </button>
                     <ul class="wb-dropdown-menu">
                         <li>
                             <a class="wb-dropdown-item" href="{{ navEntry.url }}">{{ navEntry.title }}</a>

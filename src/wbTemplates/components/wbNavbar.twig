@@ -150,17 +150,16 @@
         </a>
 
         {# ── Desktop nav links — visible on ≥769px, hidden on mobile ── #}
-        {% if hasNav %}
-            <ul class="wb-navbar-links" style="margin-inline-end:auto;">
-                {{ _self.navList(navItems, topLevel ?? [], childrenMap ?? {}, autoNavEntries ?? []) }}
-            </ul>
-        {% else %}
-            <div class="wb-navbar-spacer" style="flex:1;"></div>
-        {% endif %}
+        <div class="wb-navbar-start">
+            {% if hasNav %}
+                <ul class="wb-navbar-links">
+                    {{ _self.navList(navItems, topLevel ?? [], childrenMap ?? {}, autoNavEntries ?? []) }}
+                </ul>
+            {% endif %}
+        </div>
 
         {# ── Desktop extras (search, lang switcher, theme toggle) ── #}
-        {# These are shown inline on desktop alongside the nav links #}
-        <div class="wb-navbar-end" style="display:flex;align-items:center;gap:0.25rem;">
+        <div class="wb-navbar-end">
 
             {# Search form — desktop #}
             {{ _self.searchForm(showSearch, searchUrl, searchPlaceholder) }}

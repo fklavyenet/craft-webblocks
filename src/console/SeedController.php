@@ -205,15 +205,11 @@ class SeedController extends Controller
         // --- Custom CSS (restaurant brand palette + typography) ---
         $globalSet->setFieldValue('wbCustomCss', implode("\n", [
             ':root {',
-            '  --bs-primary: #7B4F2E;',
-            '  --bs-primary-rgb: 123, 79, 46;',
-            '  --bs-link-color: #7B4F2E;',
-            '  --bs-link-hover-color: #5c3a20;',
+            '  --wb-primary: #7B4F2E;',
+            '  --wb-primary-hover: #5c3a20;',
             '}',
             'body { font-family: \'Lato\', sans-serif; font-weight: 300; }',
             'h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: \'Playfair Display\', Georgia, serif; }',
-            '.btn-primary { background-color: #7B4F2E; border-color: #7B4F2E; }',
-            '.btn-primary:hover { background-color: #5c3a20; border-color: #5c3a20; }',
         ]));
 
         // --- Navbar ---

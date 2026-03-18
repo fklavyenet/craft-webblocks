@@ -1,12 +1,12 @@
 {% extends "wb/_layout" %}
 {% block title %}{{ entry.title ?? siteName ?? 'Reference' }}{% endblock %}
 {% block content %}
-<div class="card border-warning">
-    <div class="card-header bg-warning text-dark fw-bold">WebBlocks plugin is not active</div>
-    <div class="card-body">
-        <p class="card-text">This page is powered by <strong>WebBlocks</strong>, which is currently not installed or enabled.</p>
-        <p class="card-text text-muted">To restore full site functionality, reinstall the WebBlocks plugin:</p>
-        <pre class="bg-light p-3 rounded small">ddev craft plugin/install webblocks</pre>
+<div class="wb-alert wb-alert-warning">
+    <div>WebBlocks plugin is not active</div>
+    <div>
+        <p>This page is powered by <strong>WebBlocks</strong>, which is currently not installed or enabled.</p>
+        <p class="wb-text-muted">To restore full site functionality, reinstall the WebBlocks plugin:</p>
+        <pre class="wb-bg-light wb-p-3 wb-rounded wb-text-sm">ddev craft plugin/install webblocks</pre>
     </div>
 </div>
 {% endblock %}

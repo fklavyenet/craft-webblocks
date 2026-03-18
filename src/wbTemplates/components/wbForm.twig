@@ -8,14 +8,14 @@
 {% set padding = item.wbPadding.value ?? item.wbPadding ?? '' %}
 {% set titlePos = item.wbTitlePosition.value ?? item.wbTitlePosition ?? 'outside' %}
 {% set wrapperClasses = ['wb-form-wrapper'] %}
-{% if hasBorder %}{% set wrapperClasses = wrapperClasses|merge(['border']) %}{% endif %}
-{% if hasBorder and borderColor %}{% set wrapperClasses = wrapperClasses|merge(['border-' ~ borderColor]) %}{% endif %}
+{% if hasBorder %}{% set wrapperClasses = wrapperClasses|merge(['wb-border']) %}{% endif %}
+{% if hasBorder and borderColor %}{% set wrapperClasses = wrapperClasses|merge(['wb-border-' ~ borderColor]) %}{% endif %}
 {% if rounded %}{% set wrapperClasses = wrapperClasses|merge([rounded]) %}{% endif %}
 {% if padding %}{% set wrapperClasses = wrapperClasses|merge([padding]) %}{% endif %}
 
 {# ── Success state (non-Ajax fallback) ────────────────────────────────────── #}
 {% if craft.app.session.getFlash('wbFormSuccess') %}
-    <div class="alert alert-success" role="alert">
+    <div class="wb-alert wb-alert-success" role="alert">
         {{ craft.app.session.getFlash('wbFormSuccess') }}
     </div>
 {% else %}
@@ -51,16 +51,16 @@
             {% set inputName  = label|lower|replace('/[^a-z0-9]+/', '-')|trim('-') %}
             {% set inputId    = formId ~ '-' ~ inputName %}
 
-            <div class="mb-3" data-field="{{ inputName }}">
-                <label for="{{ inputId }}" class="form-label{% if required %} fw-semibold{% endif %}">
-                    {{ label }}{% if required %}<span class="text-danger ms-1" aria-hidden="true">*</span>{% endif %}
+            <div style="margin-bottom:1rem;" data-field="{{ inputName }}">
+                <label for="{{ inputId }}" class="wb-label{% if required %}" style="font-weight:600;{% endif %}">
+                    {{ label }}{% if required %}<span style="color:var(--wb-danger);margin-inline-start:0.25rem;" aria-hidden="true">*</span>{% endif %}
                 </label>
 
                 {% if type == 'textarea' %}
                     <textarea
                         id="{{ inputId }}"
                         name="{{ inputName }}"
-                        class="form-control"
+                        class="wb-textarea"
                         rows="5"
                         placeholder="{{ placeholder }}"
                         {% if required %}required{% endif %}
@@ -70,7 +70,7 @@
                     <select
                         id="{{ inputId }}"
                         name="{{ inputName }}"
-                        class="form-select"
+                        class="wb-select"
                         {% if required %}required{% endif %}
                     >
                         <option value="">{{ 'Select an option'|t('site') }}</option>
@@ -82,16 +82,15 @@
                 {% elseif type == 'radio' %}
                     {% for opt in fieldEntry.wbFormOptions.all() %}
                         {% set radioId = inputId ~ '-' ~ loop.index %}
-                        <div class="form-check">
+                        <div class="wb-radio">
                             <input
-                                class="form-check-input"
                                 type="radio"
                                 id="{{ radioId }}"
                                 name="{{ inputName }}"
                                 value="{{ opt.wbFormOptionValue }}"
                                 {% if required and loop.first %}required{% endif %}
                             >
-                            <label class="form-check-label" for="{{ radioId }}">
+                            <label for="{{ radioId }}">
                                 {{ opt.wbFormOptionLabel }}
                             </label>
                         </div>
@@ -103,22 +102,22 @@
                         type="{{ type ?: 'text' }}"
                         id="{{ inputId }}"
                         name="{{ inputName }}"
-                        class="form-control"
+                        class="wb-input"
                         placeholder="{{ placeholder }}"
                         {% if required %}required{% endif %}
                     >
                 {% endif %}
 
                 {# Inline error placeholder (populated by JS) #}
-                <div class="invalid-feedback" id="{{ inputId }}-error"></div>
+                <div class="wb-field-error" id="{{ inputId }}-error"></div>
             </div>
         {% endfor %}
 
-        <button type="submit" class="btn btn-primary">{{ submitLabel }}</button>
+        <button type="submit" class="wb-btn wb-btn-primary">{{ submitLabel }}</button>
     </form>
 
     {# Success message placeholder (Ajax) #}
-    <div id="{{ formId }}-success" class="alert alert-success d-none" role="alert">
+    <div id="{{ formId }}-success" class="wb-alert wb-alert-success" role="alert" style="display:none;">
         {{ successMsg }}
     </div>
 </div>
@@ -138,7 +137,7 @@
         form.querySelectorAll('.is-invalid').forEach(function (el) {
             el.classList.remove('is-invalid');
         });
-        form.querySelectorAll('.invalid-feedback').forEach(function (el) {
+        form.querySelectorAll('.wb-field-error').forEach(function (el) {
             el.textContent = '';
         });
 
@@ -153,7 +152,7 @@
         .then(function (json) {
             if (json.success) {
                 form.style.display = 'none';
-                success.classList.remove('d-none');
+                success.style.display = '';
             } else {
                 // Mark invalid fields
                 var errors = json.errors || {};
@@ -161,7 +160,7 @@
                     var container = form.querySelector('[data-field="' + key + '"]');
                     if (!container) return;
                     var input = container.querySelector('input, select, textarea');
-                    var feedback = container.querySelector('.invalid-feedback');
+                    var feedback = container.querySelector('.wb-field-error');
                     if (input) input.classList.add('is-invalid');
                     if (feedback) feedback.textContent = errors[key];
                 });

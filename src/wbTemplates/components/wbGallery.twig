@@ -35,8 +35,7 @@
                             <img
                                 src="{{ img.getUrl('wbGalleryThumb') }}"
                                 alt="{{ img.alt ?: (galleryItem.wbCaption ?? img.title) }}"
-                                class="figure-img img-fluid rounded w-100"
-                                style="cursor: zoom-in;"
+                                style="display:block;width:100%;height:auto;border-radius:var(--wb-r-md,0.375rem);cursor:zoom-in;"
                             >
                         </a>
                         {% if galleryItem.wbCaption ?? '' %}

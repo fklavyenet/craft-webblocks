@@ -1,4 +1,4 @@
-{# wbOffcanvas — Bootstrap 5 offcanvas panel with trigger button #}
+{# wbOffcanvas — WebBlocks UI Kit drawer panel with trigger button #}
 {% set placement  = item.wbOffcanvasPlacement.value ?? item.wbOffcanvasPlacement ?? 'start' %}
 {% set backdrop   = item.wbOffcanvasBackdrop ?? true %}
 {% set btnLabel   = item.wbButtonLabel ?? 'Open Panel' %}
@@ -8,24 +8,25 @@
 <div class="wb-block wb-offcanvas mb-4">
     {# Trigger button #}
     <button type="button"
-            class="btn btn-primary{% if btnSize and btnSize != 'md' %} btn-{{ btnSize }}{% endif %}"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#{{ oc_id }}"
+            class="wb-btn wb-btn-primary{% if btnSize and btnSize != 'md' %} wb-btn-{{ btnSize }}{% endif %}"
+            data-wb-toggle="drawer"
+            data-wb-target="#{{ oc_id }}"
             aria-controls="{{ oc_id }}">
         {{ btnLabel }}
     </button>
 
-    {# Offcanvas panel #}
-    <div class="offcanvas offcanvas-{{ placement }}"
-         {% if not backdrop %}data-bs-backdrop="false"{% endif %}
-         tabindex="-1"
+    {# Drawer panel #}
+    <div class="wb-drawer wb-drawer-{{ placement }}"
+         {% if not backdrop %}data-wb-backdrop="false"{% endif %}
          id="{{ oc_id }}"
-         aria-labelledby="{{ oc_id }}-label">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="{{ oc_id }}-label">{{ item.wbTitle ?? '' }}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+         role="dialog"
+         aria-labelledby="{{ oc_id }}-label"
+         hidden>
+        <div class="wb-drawer-header">
+            <h5 class="wb-drawer-title" id="{{ oc_id }}-label">{{ item.wbTitle ?? '' }}</h5>
+            <button type="button" class="wb-drawer-close" data-wb-dismiss="drawer" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="wb-drawer-body">
             {% for block in item.wbBlocks.all() %}
                 {% set item = block %}
                 {% include "wb/components/#{block.type.handle}" ignore missing %}

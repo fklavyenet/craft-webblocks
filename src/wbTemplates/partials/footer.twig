@@ -16,41 +16,41 @@
 
 {% set resolvedLinks = footerLinks|length ? footerLinks : (autoFooterEntries is defined ? autoFooterEntries : []) %}
 
-<footer class="wb-footer border-top bg-body-tertiary mt-auto pt-5 pb-4">
-    <div class="container">
+<footer class="wb-footer" style="border-top:1px solid var(--wb-border);background:var(--wb-surface-2);margin-top:auto;padding-top:3rem;padding-bottom:2rem;">
+    <div class="wb-container">
 
         {# ── Top row: brand + links ── #}
-        <div class="row pb-4">
+        <div style="display:flex;flex-wrap:wrap;gap:2rem;padding-bottom:2rem;">
 
             {# Brand + tagline #}
-            <div class="col-md-5 mb-4 mb-md-0">
+            <div style="flex:0 0 auto;min-width:200px;max-width:320px;">
                 {% if logo %}
-                    <img src="{{ logo.url }}" alt="{{ brand ?? logo.alt ?: logo.title }}" height="32" class="d-block mb-2">
+                    <img src="{{ logo.url }}" alt="{{ brand ?? logo.alt ?: logo.title }}" height="32" style="display:block;margin-bottom:0.5rem;">
                 {% endif %}
                 {% if brand %}
-                    <div class="fw-semibold fs-5 mb-1">{{ brand }}</div>
+                    <div style="font-weight:600;font-size:var(--wb-font-size-xl,1.125rem);margin-bottom:0.25rem;">{{ brand }}</div>
                 {% endif %}
                 {% if tagline %}
-                    <p class="text-body-secondary small mb-0">{{ tagline }}</p>
+                    <p style="color:var(--wb-muted);font-size:0.875rem;margin:0;">{{ tagline }}</p>
                 {% endif %}
             </div>
 
             {# Nav links #}
             {% if resolvedLinks|length %}
-                <div class="col-md-7">
-                    <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0 justify-content-md-end">
+                <div style="flex:1;display:flex;align-items:flex-start;justify-content:flex-end;">
+                    <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0.75rem;">
                         {% for link in resolvedLinks %}
                             {% if link.wbFooterLinkUrl is defined %}
                                 {# manual link entry #}
                                 <li>
-                                    <a href="{{ link.wbFooterLinkUrl ?? '#' }}" class="text-body-secondary text-decoration-none wb-footer-link">
+                                    <a href="{{ link.wbFooterLinkUrl ?? '#' }}" style="color:var(--wb-muted);text-decoration:none;" class="wb-footer-link">
                                         {{ link.wbFooterLinkLabel }}
                                     </a>
                                 </li>
                             {% else %}
                                 {# auto entry #}
                                 <li>
-                                    <a href="{{ link.url }}" class="text-body-secondary text-decoration-none wb-footer-link">
+                                    <a href="{{ link.url }}" style="color:var(--wb-muted);text-decoration:none;" class="wb-footer-link">
                                         {{ link.title }}
                                     </a>
                                 </li>
@@ -65,9 +65,9 @@
         {# ── Bottom row: copyright + cookie settings ── #}
         {% set _cs = craft.app.globals.getSetByHandle('wbCookieSettings') ?? null %}
         {% if copyright or (_cs and _cs.wbCookieBannerEnabled) %}
-            <div class="border-top pt-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
+            <div style="border-top:1px solid var(--wb-border);padding-top:0.75rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.5rem;">
                 {% if copyright %}
-                    <small class="text-body-secondary">{{ copyright }}</small>
+                    <small style="color:var(--wb-muted);">{{ copyright }}</small>
                 {% endif %}
                 {% if _cs and _cs.wbCookieBannerEnabled %}
                     {% set _cookieLinkLabel = {
@@ -75,7 +75,7 @@
                         'de': 'Cookie-Einstellungen'
                     }[currentSite.language|slice(0,2)] ?? 'Cookie Settings' %}
                     <small>
-                        <a href="#" data-wb-cookie-trigger class="text-body-secondary text-decoration-none wb-footer-link">
+                        <a href="#" data-wb-cookie-trigger style="color:var(--wb-muted);text-decoration:none;" class="wb-footer-link">
                             {{ _cookieLinkLabel }}
                         </a>
                     </small>

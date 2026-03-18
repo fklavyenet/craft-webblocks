@@ -26,63 +26,61 @@
     {% if entry.wbBlocks is defined and entry.wbBlocks|length %}
         {% include "wb/index" with { entry: entry } %}
     {% else %}
-        <h1 class="mb-4">{{ entry.title ?? "Blog"|t('webblocks') }}</h1>
+        <h1 style="margin-bottom:1.5rem;">{{ entry.title ?? "Blog"|t('webblocks') }}</h1>
     {% endif %}
 
     {# Post grid #}
-    <div class="row g-4">
+    <div class="wb-grid-3">
         {% for post in posts %}
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    {% if post.wbFeaturedImage is defined %}
-                        {% set img = post.wbFeaturedImage.one() %}
-                        {% if img %}
-                            <img src="{{ img.getUrl('wbCard') }}" class="card-img-top" alt="{{ img.alt ?: img.title }}" style="object-fit:cover;height:200px;">
-                        {% endif %}
+            <div class="wb-card" style="height:100%;">
+                {% if post.wbFeaturedImage is defined %}
+                    {% set img = post.wbFeaturedImage.one() %}
+                    {% if img %}
+                        <img src="{{ img.getUrl('wbCard') }}" alt="{{ img.alt ?: img.title }}" style="width:100%;object-fit:cover;height:200px;display:block;">
                     {% endif %}
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">
-                            <a href="{{ post.url }}" class="text-decoration-none stretched-link text-body">{{ post.title }}</a>
-                        </h5>
-                        {% if post.wbExcerpt is defined and post.wbExcerpt %}
-                            <p class="card-text text-muted small flex-grow-1">{{ post.wbExcerpt|slice(0, 150) }}{% if post.wbExcerpt|length > 150 %}…{% endif %}</p>
-                        {% endif %}
-                        <p class="card-text mt-auto">
-                            <small class="text-muted">{{ post.postDate|date('d.m.Y') }}</small>
-                        </p>
-                    </div>
+                {% endif %}
+                <div class="wb-card-body" style="display:flex;flex-direction:column;flex:1;">
+                    <h5 class="wb-card-title">
+                        <a href="{{ post.url }}" style="text-decoration:none;color:inherit;">{{ post.title }}</a>
+                    </h5>
+                    {% if post.wbExcerpt is defined and post.wbExcerpt %}
+                        <p style="color:var(--wb-muted);font-size:0.875rem;flex:1;">{{ post.wbExcerpt|slice(0, 150) }}{% if post.wbExcerpt|length > 150 %}…{% endif %}</p>
+                    {% endif %}
+                    <p style="margin-top:auto;margin-bottom:0;">
+                        <small style="color:var(--wb-muted);">{{ post.postDate|date('d.m.Y') }}</small>
+                    </p>
                 </div>
             </div>
         {% else %}
-            <div class="col">
-                <p class="text-muted">{{ "No posts yet."|t('webblocks') }}</p>
+            <div>
+                <p style="color:var(--wb-muted);">{{ "No posts yet."|t('webblocks') }}</p>
             </div>
         {% endfor %}
     </div>
 
     {# Pagination #}
     {% if totalPages > 1 %}
-        <nav class="mt-5" aria-label="{{ 'Blog post pages'|t('webblocks') }}">
-            <ul class="pagination justify-content-center">
-                <li class="page-item {{ currentPage <= 1 ? 'disabled' }}">
+        <nav style="margin-top:3rem;" aria-label="{{ 'Blog post pages'|t('webblocks') }}">
+            <ul class="wb-pagination" style="justify-content:center;">
+                <li class="{{ currentPage <= 1 ? 'is-disabled' }}">
                     {% if currentPage <= 1 %}
-                        <span class="page-link" aria-label="{{ 'Previous'|t('webblocks') }}" aria-hidden="true">&laquo;</span>
+                        <span aria-label="{{ 'Previous'|t('webblocks') }}" aria-hidden="true">&laquo;</span>
                     {% else %}
-                        <a class="page-link" href="{{ _self.pageUrl(_basePath, _pageTrigger, currentPage - 1) }}" aria-label="{{ 'Previous'|t('webblocks') }}">
+                        <a href="{{ _self.pageUrl(_basePath, _pageTrigger, currentPage - 1) }}" aria-label="{{ 'Previous'|t('webblocks') }}">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     {% endif %}
                 </li>
                 {% for p in 1..totalPages %}
-                    <li class="page-item {{ p == currentPage ? 'active' }}" {% if p == currentPage %}aria-current="page"{% endif %}>
-                        <a class="page-link" href="{{ _self.pageUrl(_basePath, _pageTrigger, p) }}">{{ p }}</a>
+                    <li class="{{ p == currentPage ? 'is-active' }}" {% if p == currentPage %}aria-current="page"{% endif %}>
+                        <a href="{{ _self.pageUrl(_basePath, _pageTrigger, p) }}">{{ p }}</a>
                     </li>
                 {% endfor %}
-                <li class="page-item {{ currentPage >= totalPages ? 'disabled' }}">
+                <li class="{{ currentPage >= totalPages ? 'is-disabled' }}">
                     {% if currentPage >= totalPages %}
-                        <span class="page-link" aria-label="{{ 'Next'|t('webblocks') }}" aria-hidden="true">&raquo;</span>
+                        <span aria-label="{{ 'Next'|t('webblocks') }}" aria-hidden="true">&raquo;</span>
                     {% else %}
-                        <a class="page-link" href="{{ _self.pageUrl(_basePath, _pageTrigger, currentPage + 1) }}" aria-label="{{ 'Next'|t('webblocks') }}">
+                        <a href="{{ _self.pageUrl(_basePath, _pageTrigger, currentPage + 1) }}" aria-label="{{ 'Next'|t('webblocks') }}">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     {% endif %}

@@ -46,13 +46,13 @@
 {% set searchEntry = craft.entries().section('wbSearch').one() %}
 {% set searchUrl = searchEntry ? searchEntry.url : '/search' %}
 
-<nav class="wb-block wb-navbar sticky-top navbar navbar-expand-lg">
-    <div class="container-fluid">
+<nav class="wb-block wb-navbar">
+    <div class="wb-container-full">
 
         {# Brand #}
-        <a class="navbar-brand" href="/">
+        <a class="wb-navbar-brand" href="/">
             {% if logo %}
-                <img src="{{ logo.url }}" alt="{{ item.wbNavbarBrand ?? logo.alt ?: logo.title }}" height="30" class="d-inline-block align-text-top">
+                <img src="{{ logo.url }}" alt="{{ item.wbNavbarBrand ?? logo.alt ?: logo.title }}" height="30" style="display:inline-block;vertical-align:middle;">
                 {% if item.wbNavbarBrand %}
                     {{ item.wbNavbarBrand }}
                 {% endif %}
@@ -63,25 +63,25 @@
 
         {# Toggler — shown when either nav items or search are present #}
         {% if hasNav or showSearch %}
-            <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#{{ navbarId }}"
+            <button class="wb-navbar-toggle" type="button"
+                    data-wb-toggle="drawer"
+                    data-wb-target="#{{ navbarId }}"
                     aria-controls="{{ navbarId }}"
                     aria-expanded="false"
                     aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="wb-navbar-toggle-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="{{ navbarId }}">
+            <div class="wb-navbar-drawer" id="{{ navbarId }}">
 
                 {# Nav items — manual mode (wbNavbarItems defined) #}
                 {% if navItems|length %}
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="wb-navbar-links" style="margin-inline-end:auto;">
                         {% for navItem in navItems %}
                             {% set _navUrl = navItem.wbNavItemUrl ?? '#' %}
                             {% set _navUrl = (_navUrl|lower starts with 'javascript:' or _navUrl|lower starts with 'data:') ? '#' : _navUrl %}
-                            <li class="nav-item">
-                                <a class="nav-link"
+                            <li>
+                                <a class="wb-navbar-link"
                                    href="{{ _navUrl }}"
                                    {% if navItem.wbNavItemTarget.value == '_blank' %}target="_blank" rel="noopener noreferrer"{% endif %}>
                                     {{ navItem.wbNavItemLabel }}
@@ -105,34 +105,34 @@
                         {% endif %}
                     {% endfor %}
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="wb-navbar-links" style="margin-inline-end:auto;">
                         {% for navEntry in topLevel %}
                             {% set children = childrenMap['p' ~ navEntry.id] is defined ? childrenMap['p' ~ navEntry.id] : [] %}
                             {% if children|length %}
                                 {# Dropdown for entries with visible children #}
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle"
+                                <li class="wb-dropdown">
+                                    <a class="wb-navbar-link wb-dropdown-toggle"
                                        href="{{ navEntry.url }}"
                                        role="button"
-                                       data-bs-toggle="dropdown"
+                                       data-wb-dropdown
                                        aria-expanded="false">
                                         {{ navEntry.title }}
                                     </a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="wb-dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item" href="{{ navEntry.url }}">{{ navEntry.title }}</a>
+                                            <a class="wb-dropdown-item" href="{{ navEntry.url }}">{{ navEntry.title }}</a>
                                         </li>
-                                        <li><hr class="dropdown-divider"></li>
+                                        <li><hr class="wb-dropdown-divider"></li>
                                         {% for child in children %}
                                             <li>
-                                                <a class="dropdown-item" href="{{ child.url }}">{{ child.title }}</a>
+                                                <a class="wb-dropdown-item" href="{{ child.url }}">{{ child.title }}</a>
                                             </li>
                                         {% endfor %}
                                     </ul>
                                 </li>
                             {% else %}
-                                <li class="nav-item">
-                                    <a class="nav-link{% if navEntry.uri == craft.app.request.pathInfo %} active{% endif %}"
+                                <li>
+                                    <a class="wb-navbar-link{% if navEntry.uri == craft.app.request.pathInfo %} is-active{% endif %}"
                                        href="{{ navEntry.url }}">
                                         {{ navEntry.title }}
                                     </a>
@@ -142,20 +142,21 @@
                     </ul>
                 {% else %}
                     {# Spacer so search stays right-aligned even with no nav items #}
-                    <div class="me-auto"></div>
+                    <div class="wb-navbar-spacer"></div>
                 {% endif %}
 
                 {# Search form #}
                 {% if showSearch %}
-                    <form class="d-flex" role="search" method="get" action="{{ searchUrl }}">
-                        <input class="form-control me-2"
+                    <form class="wb-navbar-search" role="search" method="get" action="{{ searchUrl }}">
+                        <input class="wb-input"
                                type="search"
                                name="q"
                                value="{{ craft.app.request.getParam('q')|escape }}"
                                placeholder="{{ searchPlaceholder }}"
-                               aria-label="{{ searchPlaceholder }}">
-                        <button class="btn btn-outline-secondary" type="submit">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                               aria-label="{{ searchPlaceholder }}"
+                               style="margin-inline-end:0.5rem;">
+                        <button class="wb-btn wb-btn-outline" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                             </svg>
                         </button>
@@ -166,25 +167,25 @@
                 {% set _allSites = craft.app.sites.getAllSites() %}
                 {% if _allSites|length > 1 %}
                     {% set _activeLang = currentSite.language|slice(0, 2)|upper %}
-                    <div class="dropdown ms-2">
-                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle wb-lang-btn"
+                    <div class="wb-dropdown" style="margin-inline-start:0.5rem;">
+                        <button class="wb-btn wb-btn-outline wb-btn-sm wb-lang-btn"
                                 type="button"
-                                data-bs-toggle="dropdown"
+                                data-wb-dropdown
                                 aria-expanded="false"
                                 aria-label="Select language">
                             {{ _activeLang }}
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end">
+                        <ul class="wb-dropdown-menu wb-dropdown-end">
                             {% for _site in _allSites %}
                                 {% set _lang = _site.language|slice(0, 2)|upper %}
                                 {% set _isActive = (_site.id == currentSite.id) %}
                                 <li>
                                     {% if _isActive %}
-                                        <span class="dropdown-item active" aria-current="true">{{ _lang }}</span>
+                                        <span class="wb-dropdown-item is-active" aria-current="true">{{ _lang }}</span>
                                     {% else %}
                                         {% set _localizedEntry = entry is defined ? craft.entries().id(entry.id).siteId(_site.id).one() : null %}
                                         {% set _localizedUrl = _localizedEntry ? _localizedEntry.url : _site.baseUrl %}
-                                        <a class="dropdown-item"
+                                        <a class="wb-dropdown-item"
                                            href="{{ _localizedUrl }}"
                                            hreflang="{{ _site.language }}"
                                            lang="{{ _site.language }}">{{ _lang }}</a>
@@ -196,8 +197,9 @@
                 {% endif %}
 
                 {# Color mode toggle (light → dark → auto) #}
-                <button class="btn border-0 bg-transparent nav-link px-2 wb-color-mode-toggle ms-2"
+                <button class="wb-btn wb-color-mode-toggle"
                         type="button"
+                        style="border:none;background:transparent;padding:0.25rem 0.5rem;margin-inline-start:0.25rem;"
                         aria-label="Toggle color mode"
                         title="Toggle color mode">
                     {# Sun icon — shown in light mode #}
@@ -219,4 +221,3 @@
 
     </div>
 </nav>
-

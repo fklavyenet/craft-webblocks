@@ -4,18 +4,18 @@
 <div class="wb-block mb-4">
     <button type="button"
         id="{{ uid }}"
-        class="btn btn-secondary{% if size and size != 'md' %} btn-{{ size }}{% endif %}"
-        data-bs-toggle="popover"
-        data-bs-placement="{{ placement }}"
-        {% if item.wbCaption %}data-bs-title="{{ item.wbCaption }}"{% endif %}
-        data-bs-content="{{ item.wbText|default('')|striptags }}">
+        class="wb-btn wb-btn-secondary{% if size and size != 'md' %} wb-btn-{{ size }}{% endif %}"
+        data-wb-popover
+        data-wb-placement="{{ placement }}"
+        {% if item.wbCaption %}data-wb-title="{{ item.wbCaption }}"{% endif %}
+        data-wb-content="{{ item.wbText|default('')|striptags }}">
         {{ item.wbTitle ?? 'Click me' }}
     </button>
     <script>
     (function(){
         var el = document.getElementById('{{ uid }}');
-        if (el && typeof bootstrap !== 'undefined') {
-            new bootstrap.Popover(el);
+        if (el && typeof WBPopover !== 'undefined') {
+            new WBPopover(el);
         }
     })();
     </script>

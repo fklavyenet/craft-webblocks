@@ -1,25 +1,25 @@
-{# wbProgressBar — Bootstrap 5 progress bars #}
+{# wbProgressBar — WebBlocks UI Kit progress bars #}
 {% set _bars = item.wbProgressBars ? item.wbProgressBars.all() : [] %}
 
 {% if _bars|length %}
 <div class="wb-block wb-progress-bar mb-4">
     {% if item.wbTitle %}
-        <h5 class="mb-3">{{ item.wbTitle }}</h5>
+        <h5 style="margin-bottom:0.75rem;">{{ item.wbTitle }}</h5>
     {% endif %}
     {% for _bar in _bars %}
         {% set _value   = _bar.wbProgressValue ?? 0 %}
-        {% set _color   = _bar.wbProgressColor.value ?? 'bg-primary' %}
+        {% set _color   = _bar.wbProgressColor.value ?? 'success' %}
         {% set _striped = _bar.wbProgressStriped ?? false %}
         {% if _bar.wbProgressLabel %}
-            <div class="d-flex justify-content-between mb-1">
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
                 <small>{{ _bar.wbProgressLabel }}</small>
                 <small>{{ _value }}%</small>
             </div>
         {% endif %}
-        <div class="progress mb-3" role="progressbar"
+        <div class="wb-progress-bar mb-3" role="progressbar"
              aria-label="{{ _bar.wbProgressLabel ?? 'Progress' }}"
              aria-valuenow="{{ _value }}" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar {{ _color }}{{ _striped ? ' progress-bar-striped' : '' }}"
+            <div class="wb-progress-bar-fill wb-progress-bar-{{ _color }}{% if _striped %} wb-progress-bar-striped{% endif %}"
                  style="width: {{ _value }}%"></div>
         </div>
     {% endfor %}

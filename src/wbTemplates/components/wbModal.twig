@@ -1,37 +1,35 @@
-{# wbModal — Bootstrap 5 modal with trigger button #}
+{# wbModal — WebBlocks UI Kit modal with trigger button #}
 {% set _modalId = 'wbModal-' ~ item.id %}
 {% set _size = item.wbModalSize.value ?? '' %}
 {% set _btnLabel = item.wbButtonLabel ?? item.wbTitle ?? 'Open' %}
 
-<div class="wb-block wb-modal">
+<div class="wb-block wb-modal-wrapper">
     {# Trigger button #}
     <button type="button"
-            class="btn btn-primary"
+            class="wb-btn wb-btn-primary"
             style="{% if item.wbButtonColor %}background-color: {{ item.wbButtonColor }}; border-color: {{ item.wbButtonColor }};{% endif %}"
-            data-bs-toggle="modal"
-            data-bs-target="#{{ _modalId }}">
+            data-wb-modal="open"
+            data-wb-target="#{{ _modalId }}">
         {{ _btnLabel }}
     </button>
 
     {# Modal #}
-    <div class="modal fade" id="{{ _modalId }}" tabindex="-1"
-         aria-labelledby="{{ _modalId }}-label" aria-hidden="true">
-        <div class="modal-dialog {{ _size }}">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="{{ _modalId }}-label">{{ item.wbTitle }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="{{ 'Close'|t }}"></button>
+    <div class="wb-modal" id="{{ _modalId }}" role="dialog"
+         aria-labelledby="{{ _modalId }}-label" aria-modal="true" hidden>
+        <div class="wb-modal-dialog{% if _size %} {{ _size }}{% endif %}">
+            <div class="wb-modal-header">
+                <h5 class="wb-modal-title" id="{{ _modalId }}-label">{{ item.wbTitle }}</h5>
+                <button type="button" class="wb-modal-close" data-wb-modal="close"
+                        aria-label="{{ 'Close'|t }}"></button>
+            </div>
+            {% if item.wbText %}
+                <div class="wb-modal-body">
+                    {{ item.wbText }}
                 </div>
-                {% if item.wbText %}
-                    <div class="modal-body">
-                        {{ item.wbText }}
-                    </div>
-                {% endif %}
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">{{ 'Close'|t }}</button>
-                </div>
+            {% endif %}
+            <div class="wb-modal-footer">
+                <button type="button" class="wb-btn wb-btn-secondary"
+                        data-wb-modal="close">{{ 'Close'|t }}</button>
             </div>
         </div>
     </div>

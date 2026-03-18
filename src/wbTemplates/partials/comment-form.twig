@@ -63,17 +63,17 @@
 
 {# ── Flash success ──────────────────────────────────────────────────────────── #}
 {% if craft.app.session.getFlash('wbCommentSuccess') %}
-    <div class="alert alert-success" role="alert">
+    <div class="wb-alert wb-alert-success" role="alert">
         {{ t.success }}
     </div>
 {% else %}
 
-<div class="wb-comment-form mt-5">
-    <h3 class="mb-4">{{ t.heading }}</h3>
+<div class="wb-comment-form" style="margin-top:3rem;">
+    <h3 style="margin-bottom:1.5rem;">{{ t.heading }}</h3>
 
     {# ── Validation errors (non-Ajax fallback) ── #}
     {% if craft.app.session.getFlash('wbCommentError') %}
-        <div class="alert alert-danger" role="alert">
+        <div class="wb-alert wb-alert-danger" role="alert">
             {{ craft.app.session.getFlash('wbCommentError') }}
         </div>
     {% endif %}
@@ -89,61 +89,61 @@
             <input type="text" id="{{ formId }}-hp" name="wbhp" tabindex="-1" autocomplete="off">
         </div>
 
-        <div class="row g-3">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">
             {# Name #}
-            <div class="col-md-6">
-                <label for="{{ formId }}-name" class="form-label fw-semibold">
-                    {{ t.name }}<span class="text-danger ms-1" aria-hidden="true">*</span>
+            <div>
+                <label for="{{ formId }}-name" class="wb-label" style="font-weight:600;">
+                    {{ t.name }}<span style="color:var(--wb-danger,#dc2626);margin-inline-start:0.25rem;" aria-hidden="true">*</span>
                 </label>
                 <input type="text"
                        id="{{ formId }}-name"
                        name="wbCommentAuthorName"
-                       class="form-control"
+                       class="wb-input"
                        placeholder="{{ t.namePh }}"
                        maxlength="100"
                        required>
-                <div class="invalid-feedback" id="{{ formId }}-name-error">{{ t.nameReq }}</div>
+                <div class="wb-field-error" id="{{ formId }}-name-error" style="display:none;">{{ t.nameReq }}</div>
             </div>
 
             {# Email #}
-            <div class="col-md-6">
-                <label for="{{ formId }}-email" class="form-label fw-semibold">
-                    {{ t.email }}<span class="text-danger ms-1" aria-hidden="true">*</span>
+            <div>
+                <label for="{{ formId }}-email" class="wb-label" style="font-weight:600;">
+                    {{ t.email }}<span style="color:var(--wb-danger,#dc2626);margin-inline-start:0.25rem;" aria-hidden="true">*</span>
                 </label>
                 <input type="email"
                        id="{{ formId }}-email"
                        name="wbEmail"
-                       class="form-control"
+                       class="wb-input"
                        placeholder="{{ t.emailPh }}"
                        required>
-                <div class="invalid-feedback" id="{{ formId }}-email-error">{{ t.emailReq }}</div>
-                <div class="form-text">{{ t.emailNote }}</div>
+                <div class="wb-field-error" id="{{ formId }}-email-error" style="display:none;">{{ t.emailReq }}</div>
+                <div class="wb-field-hint">{{ t.emailNote }}</div>
             </div>
+        </div>
 
-            {# Comment body #}
-            <div class="col-12">
-                <label for="{{ formId }}-body" class="form-label fw-semibold">
-                    {{ t.comment }}<span class="text-danger ms-1" aria-hidden="true">*</span>
-                </label>
-                <textarea id="{{ formId }}-body"
-                          name="wbCommentBody"
-                          class="form-control"
-                          rows="5"
-                          placeholder="{{ t.commentPh }}"
-                          maxlength="1000"
-                          required></textarea>
-                <div class="invalid-feedback" id="{{ formId }}-body-error">{{ t.commentReq }}</div>
-            </div>
+        {# Comment body #}
+        <div style="margin-top:1rem;">
+            <label for="{{ formId }}-body" class="wb-label" style="font-weight:600;">
+                {{ t.comment }}<span style="color:var(--wb-danger,#dc2626);margin-inline-start:0.25rem;" aria-hidden="true">*</span>
+            </label>
+            <textarea id="{{ formId }}-body"
+                      name="wbCommentBody"
+                      class="wb-textarea"
+                      rows="5"
+                      placeholder="{{ t.commentPh }}"
+                      maxlength="1000"
+                      required></textarea>
+            <div class="wb-field-error" id="{{ formId }}-body-error" style="display:none;">{{ t.commentReq }}</div>
+        </div>
 
-            {# Submit #}
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">{{ t.submit }}</button>
-            </div>
+        {# Submit #}
+        <div style="margin-top:1rem;">
+            <button type="submit" class="wb-btn wb-btn-primary">{{ t.submit }}</button>
         </div>
     </form>
 
     {# Success (Ajax) #}
-    <div id="{{ formId }}-success" class="alert alert-success d-none mt-3" role="alert">
+    <div id="{{ formId }}-success" class="wb-alert wb-alert-success" style="display:none;margin-top:1rem;" role="alert">
         {{ t.success }}
     </div>
 </div>
@@ -159,7 +159,8 @@
         e.preventDefault();
 
         // Clear previous errors
-        form.querySelectorAll('.is-invalid').forEach(function (el) { el.classList.remove('is-invalid'); });
+        form.querySelectorAll('.wb-input.is-invalid, .wb-textarea.is-invalid').forEach(function (el) { el.classList.remove('is-invalid'); });
+        form.querySelectorAll('.wb-field-error').forEach(function (el) { el.style.display = 'none'; });
 
         var data = new FormData(form);
 
@@ -172,13 +173,20 @@
         .then(function (json) {
             if (json.success) {
                 form.style.display = 'none';
-                success.classList.remove('d-none');
+                success.style.display = '';
             } else {
                 var errors = json.errors || {};
-                ['wbCommentAuthorName', 'wbEmail', 'wbCommentBody'].forEach(function (field) {
+                var fieldMap = {
+                    wbCommentAuthorName: '{{ formId }}-name',
+                    wbEmail:             '{{ formId }}-email',
+                    wbCommentBody:       '{{ formId }}-body'
+                };
+                Object.keys(fieldMap).forEach(function (field) {
                     if (errors[field]) {
                         var input = form.querySelector('[name="' + field + '"]');
                         if (input) input.classList.add('is-invalid');
+                        var errEl = document.getElementById(fieldMap[field] + '-error');
+                        if (errEl) errEl.style.display = '';
                     }
                 });
             }

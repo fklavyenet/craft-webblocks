@@ -1,6 +1,5 @@
-{# wbVideoEmbed — Bootstrap 5 ratio embed for YouTube/Vimeo #}
+{# wbVideoEmbed — wb-native video embed for YouTube/Vimeo #}
 {% set _url = item.wbVideoUrl ?? '' %}
-{% set _ratio = item.wbVideoRatio.value ?? 'ratio-16x9' %}
 
 {# Convert watch URL to embed URL #}
 {% set _embedUrl = _url %}
@@ -17,14 +16,14 @@
 {% endif %}
 
 {% if _url %}
-<div class="wb-block wb-video-embed mb-4">
+<div class="wb-block wb-video-embed" style="margin-bottom:1.5rem;">
     {% if item.wbTitle %}
-        <h5 class="mb-3">{{ item.wbTitle }}</h5>
+        <h5 style="margin-bottom:0.75rem;">{{ item.wbTitle }}</h5>
     {% endif %}
     {% set _safeEmbedUrl = (_embedUrl|lower starts with 'javascript:' or _embedUrl|lower starts with 'data:') ? '' : _embedUrl %}
     {% if _safeEmbedUrl %}
-    <div class="ratio {{ _ratio }}">
-        <iframe src="{{ _safeEmbedUrl }}"
+    <div style="aspect-ratio:16/9;overflow:hidden;">
+        <iframe src="{{ _safeEmbedUrl }}" style="width:100%;height:100%;border:0;"
                 title="{{ item.wbTitle ?? 'Video' }}"
                 allowfullscreen
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">

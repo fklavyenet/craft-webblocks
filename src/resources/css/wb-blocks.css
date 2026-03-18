@@ -2,32 +2,26 @@
    WebBlocks — wb-blocks.css
    All WebBlocks-specific frontend styles.
    Loaded via WebBlocksAsset (Craft Asset Bundle).
-   Bootstrap is loaded separately via CDN.
+   WebBlocks UI Kit is loaded separately via CDN.
    ============================================================================= */
 
 /* ── Navbar ───────────────────────────────────────────────────────────────── */
-/* Bootstrap sticky-top uses z-index 1020 by default; some blocks (hero,
-   fullscreen image, carousel) use position:relative/absolute with their own
-   stacking contexts that can paint over the navbar. Force it higher. */
 .wb-navbar {
     background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 }
-.wb-navbar.sticky-top {
-    z-index: 1030;
-}
 /* In dark mode, use dark background */
-html[data-bs-theme="dark"] .wb-navbar {
+html[data-mode="dark"] .wb-navbar {
     background: rgba(33, 37, 41, 0.95) !important;
 }
 
 /* ── Color mode toggle icons ─────────────────────────────────────────────── */
 .wb-theme-icon { display: none; }
-html[data-wb-mode="light"] .wb-theme-icon-light { display: inline; }
-html[data-wb-mode="dark"]  .wb-theme-icon-dark  { display: inline; }
-html[data-wb-mode="auto"]  .wb-theme-icon-auto  { display: inline; }
-/* Ensure toggle button inherits navbar text colour instead of Bootstrap's link blue */
+html[data-mode="light"] .wb-theme-icon-light { display: inline; }
+html[data-mode="dark"]  .wb-theme-icon-dark  { display: inline; }
+html[data-mode="auto"]  .wb-theme-icon-auto  { display: inline; }
+/* Ensure toggle button inherits navbar text colour */
 .wb-color-mode-toggle { color: inherit; }
 .wb-color-mode-toggle:hover { opacity: 0.75; }
 
@@ -85,10 +79,10 @@ html[data-wb-mode="auto"]  .wb-theme-icon-auto  { display: inline; }
 }
 
 /* ── Carousel caption scrim ──────────────────────────────────────────────── */
-.wb-carousel .carousel-item {
+.wb-carousel .wb-fs-slide {
     position: relative;
 }
-.wb-carousel .carousel-item::after {
+.wb-carousel .wb-fs-slide::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -100,7 +94,7 @@ html[data-wb-mode="auto"]  .wb-theme-icon-auto  { display: inline; }
         rgba(0,0,0,0) 100%
     );
 }
-.wb-carousel .carousel-caption {
+.wb-carousel .wb-carousel-caption {
     position: absolute;
     z-index: 1;
     background: rgba(255, 255, 255, 0.15);
@@ -111,12 +105,12 @@ html[data-wb-mode="auto"]  .wb-theme-icon-auto  { display: inline; }
     color: #fff;
     text-shadow: 0 1px 4px rgba(0,0,0,.6);
 }
-.wb-carousel .carousel-caption h5,
-.wb-carousel .carousel-caption p {
+.wb-carousel .wb-carousel-caption h5,
+.wb-carousel .wb-carousel-caption p {
     text-shadow: 0 1px 6px rgba(0,0,0,.6);
     margin-bottom: 0;
 }
-.wb-carousel .carousel-caption h5 {
+.wb-carousel .wb-carousel-caption h5 {
     margin-bottom: 0.25rem;
 }
 
@@ -217,6 +211,7 @@ html[data-wb-mode="auto"]  .wb-theme-icon-auto  { display: inline; }
     padding: 0;
     line-height: 0;
     font-size: 0;
+    border: none;
 }
 /* CSS chevron arrows — no font metrics to skew alignment */
 .wb-fs-btn-prev::before,
@@ -331,7 +326,7 @@ main > .wb-block.wb-fullscreen-image {
    Footer
    ============================================================================= */
 .wb-footer-link:hover {
-    color: var(--bs-body-color) !important;
+    color: var(--wb-text) !important;
 }
 
 /* =============================================================================
@@ -348,8 +343,8 @@ main > .wb-block.wb-fullscreen-image {
     z-index: 1080;
     width: 100%;
     max-width: 380px;
-    background: var(--bs-body-bg);
-    border: 1px solid var(--bs-border-color);
+    background: var(--wb-bg);
+    border: 1px solid var(--wb-border);
     border-radius: 0.75rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
     padding: 1.25rem;
@@ -368,17 +363,17 @@ main > .wb-block.wb-fullscreen-image {
 .wb-cookie-title { font-size: 0.9375rem; }
 .wb-cookie-privacy {
     font-size: 0.75rem;
-    color: var(--bs-secondary-color);
+    color: var(--wb-muted);
     text-decoration: underline;
     white-space: nowrap;
     flex-shrink: 0;
 }
-.wb-cookie-privacy:hover { color: var(--bs-body-color); }
+.wb-cookie-privacy:hover { color: var(--wb-text); }
 
 /* Body text */
 .wb-cookie-text {
     font-size: 0.8125rem;
-    color: var(--bs-secondary-color);
+    color: var(--wb-muted);
     line-height: 1.5;
     margin: 0;
 }
@@ -413,7 +408,7 @@ main > .wb-block.wb-fullscreen-image {
 }
 .wb-cookie-category-desc {
     font-size: 0.71875rem;
-    color: var(--bs-secondary-color);
+    color: var(--wb-muted);
     line-height: 1.4;
 }
 
@@ -431,8 +426,8 @@ main > .wb-block.wb-fullscreen-image {
     width: 2.25rem;
     height: 1.25rem;
     border-radius: 999px;
-    background: var(--bs-secondary-bg);
-    border: 1px solid var(--bs-border-color);
+    background: var(--wb-surface-2);
+    border: 1px solid var(--wb-border);
     position: relative;
     flex-shrink: 0;
     transition: background 0.2s, border-color 0.2s;
@@ -445,13 +440,13 @@ main > .wb-block.wb-fullscreen-image {
     width: 0.8125rem;
     height: 0.8125rem;
     border-radius: 50%;
-    background: var(--bs-secondary-color);
+    background: var(--wb-muted);
     transition: left 0.2s, background 0.2s;
 }
 .wb-cookie-category input[type="checkbox"]:checked ~ .wb-cookie-toggle,
 .wb-cookie-toggle--on {
-    background: var(--bs-success);
-    border-color: var(--bs-success);
+    background: var(--wb-success);
+    border-color: var(--wb-success);
 }
 .wb-cookie-category input[type="checkbox"]:checked ~ .wb-cookie-toggle::after,
 .wb-cookie-toggle--on::after {
@@ -462,7 +457,7 @@ main > .wb-block.wb-fullscreen-image {
 /* Divider between categories */
 .wb-cookie-category + .wb-cookie-category {
     padding-top: 0.625rem;
-    border-top: 1px solid var(--bs-border-color-translucent);
+    border-top: 1px solid var(--wb-border);
 }
 
 /* Action buttons */
@@ -470,7 +465,7 @@ main > .wb-block.wb-fullscreen-image {
     display: flex;
     gap: 0.5rem;
 }
-.wb-cookie-actions .btn { flex: 1; }
+.wb-cookie-actions .wb-btn { flex: 1; }
 
 /* Mobile: full-width bottom bar */
 @media (max-width: 479px) {

@@ -1,2 +1,4 @@
+{% set sizeMap = {'1': '0.25rem', '2': '0.5rem', '3': '1rem', '4': '1.5rem', '5': '3rem'} %}
 {% set size = item.wbSpacingSize.value ?? '3' %}
-<div class="wb-spacing py-{{ size }}"></div>
+{% set padding = sizeMap[size] ?? '1rem' %}
+<div class="wb-spacing" style="padding-top:{{ padding }};padding-bottom:{{ padding }};"></div>

@@ -1,13 +1,13 @@
 {% set btnType    = item.wbButtonGroupType.value    ?? item.wbButtonGroupType    ?? 'primary' %}
 {% set btnSize    = item.wbButtonSize.value         ?? item.wbButtonSize         ?? '' %}
 {% set orient     = item.wbButtonGroupOrientation.value ?? item.wbButtonGroupOrientation ?? 'horizontal' %}
-{% set groupClass = orient == 'vertical' ? 'btn-group-vertical' : 'btn-group' %}
 <div class="wb-block mb-4">
-    {% if item.wbTitle %}<p class="mb-2 fw-semibold">{{ item.wbTitle }}</p>{% endif %}
-    <div class="{{ groupClass }}{% if btnSize and btnSize != 'md' %} btn-group-{{ btnSize }}{% endif %}" role="group">
+    {% if item.wbTitle %}<p style="margin-bottom:0.5rem;font-weight:600;">{{ item.wbTitle }}</p>{% endif %}
+    <div class="wb-btn-group{% if orient == 'vertical' %}" style="flex-direction:column;{% endif %}"
+         role="group">
         {% for btn in item.wbButtonGroupItems.all() %}
             <a href="{{ btn.wbButtonUrl ?? '#' }}"
-               class="btn btn-{{ btnType }}"
+               class="wb-btn wb-btn-{{ btnType }}{% if btnSize and btnSize != 'md' %} wb-btn-{{ btnSize }}{% endif %}"
                {% if btn.wbButtonTarget %}target="{{ btn.wbButtonTarget }}"{% endif %}>
                 {{ btn.wbButtonLabel ?? 'Button' }}
             </a>

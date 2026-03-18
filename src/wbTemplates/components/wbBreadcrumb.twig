@@ -1,18 +1,18 @@
-{# wbBreadcrumb — Bootstrap 5 breadcrumb built from entry ancestor chain #}
+{# wbBreadcrumb — WebBlocks UI Kit breadcrumb built from entry ancestor chain #}
 {% set _bcEntry = entry ?? null %}
 {% if _bcEntry %}
     {% set _ancestors = _bcEntry.ancestors.all() %}
     <nav aria-label="breadcrumb" class="wb-block wb-breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+        <ol class="wb-breadcrumb">
+            <li class="wb-breadcrumb-item">
                 <a href="{{ siteUrl }}">{{ 'Home'|t }}</a>
             </li>
             {% for _ancestor in _ancestors %}
-                <li class="breadcrumb-item">
+                <li class="wb-breadcrumb-item">
                     <a href="{{ _ancestor.url }}">{{ _ancestor.title }}</a>
                 </li>
             {% endfor %}
-            <li class="breadcrumb-item active" aria-current="page">
+            <li class="wb-breadcrumb-item is-active" aria-current="page">
                 {{ _bcEntry.title }}
             </li>
         </ol>

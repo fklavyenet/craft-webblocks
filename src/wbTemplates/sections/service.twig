@@ -13,18 +13,16 @@
 
     {# If this is the services index, show child service cards below any blocks #}
     {% if entry.type.handle == 'wbServicesIndex' and children is defined and children|length %}
-        <div class="row g-4 mt-2">
+        <div class="wb-grid-3" style="margin-top:1rem;">
             {% for child in children %}
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">
-                                <a href="{{ child.url }}" class="text-decoration-none stretched-link text-body">{{ child.title }}</a>
-                            </h5>
-                            {% if child.wbExcerpt is defined and child.wbExcerpt %}
-                                <p class="card-text text-muted small flex-grow-1">{{ child.wbExcerpt|slice(0, 150) }}{% if child.wbExcerpt|length > 150 %}…{% endif %}</p>
-                            {% endif %}
-                        </div>
+                <div class="wb-card" style="height:100%;">
+                    <div class="wb-card-body" style="display:flex;flex-direction:column;flex:1;">
+                        <h5 class="wb-card-title">
+                            <a href="{{ child.url }}" style="text-decoration:none;color:inherit;">{{ child.title }}</a>
+                        </h5>
+                        {% if child.wbExcerpt is defined and child.wbExcerpt %}
+                            <p style="color:var(--wb-muted);font-size:0.875rem;flex:1;">{{ child.wbExcerpt|slice(0, 150) }}{% if child.wbExcerpt|length > 150 %}…{% endif %}</p>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}

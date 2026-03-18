@@ -89,11 +89,11 @@
             <input type="text" id="{{ formId }}-hp" name="wbhp" tabindex="-1" autocomplete="off">
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">
+        <div class="wb-form-row">
             {# Name #}
             <div>
-                <label for="{{ formId }}-name" class="wb-label" style="font-weight:600;">
-                    {{ t.name }}<span style="color:var(--wb-danger,#dc2626);margin-inline-start:0.25rem;" aria-hidden="true">*</span>
+                <label for="{{ formId }}-name" class="wb-label">
+                    {{ t.name }}<span style="color:var(--wb-danger,#dc2626);" aria-hidden="true">*</span>
                 </label>
                 <input type="text"
                        id="{{ formId }}-name"
@@ -107,8 +107,8 @@
 
             {# Email #}
             <div>
-                <label for="{{ formId }}-email" class="wb-label" style="font-weight:600;">
-                    {{ t.email }}<span style="color:var(--wb-danger,#dc2626);margin-inline-start:0.25rem;" aria-hidden="true">*</span>
+                <label for="{{ formId }}-email" class="wb-label">
+                    {{ t.email }}<span style="color:var(--wb-danger,#dc2626);" aria-hidden="true">*</span>
                 </label>
                 <input type="email"
                        id="{{ formId }}-email"
@@ -122,9 +122,9 @@
         </div>
 
         {# Comment body #}
-        <div style="margin-top:1rem;">
-            <label for="{{ formId }}-body" class="wb-label" style="font-weight:600;">
-                {{ t.comment }}<span style="color:var(--wb-danger,#dc2626);margin-inline-start:0.25rem;" aria-hidden="true">*</span>
+        <div class="wb-mt-4">
+            <label for="{{ formId }}-body" class="wb-label">
+                {{ t.comment }}<span style="color:var(--wb-danger,#dc2626);" aria-hidden="true">*</span>
             </label>
             <textarea id="{{ formId }}-body"
                       name="wbCommentBody"
@@ -137,13 +137,13 @@
         </div>
 
         {# Submit #}
-        <div style="margin-top:1rem;">
+        <div class="wb-mt-4">
             <button type="submit" class="wb-btn wb-btn-primary">{{ t.submit }}</button>
         </div>
     </form>
 
     {# Success (Ajax) #}
-    <div id="{{ formId }}-success" class="wb-alert wb-alert-success" style="display:none;margin-top:1rem;" role="alert">
+    <div id="{{ formId }}-success" class="wb-alert wb-alert-success wb-mt-4" style="display:none;" role="alert">
         {{ t.success }}
     </div>
 </div>

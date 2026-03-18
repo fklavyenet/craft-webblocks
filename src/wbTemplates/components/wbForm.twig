@@ -40,11 +40,11 @@
 
 {# ── Form ─────────────────────────────────────────────────────────────────── #}
 {% if item.wbTitle is defined and item.wbTitle and titlePos == 'outside' %}
-    <h3>{{ item.wbTitle }}</h3>
+    <h3 class="wb-mb-4">{{ item.wbTitle }}</h3>
 {% endif %}
 <div id="{{ formId }}-wrapper" class="{{ wrapperClasses|join(' ') }}">
     {% if item.wbTitle is defined and item.wbTitle and titlePos == 'inside' %}
-        <h3>{{ item.wbTitle }}</h3>
+        <h3 class="wb-mb-4">{{ item.wbTitle }}</h3>
     {% endif %}
     <form id="{{ formId }}"
           method="post"
@@ -130,7 +130,7 @@
             </div>
         {% endfor %}
 
-        <button type="submit" class="wb-btn wb-btn-primary">{{ submitLabel }}</button>
+        <button type="submit" class="wb-btn wb-btn-primary wb-mt-4">{{ submitLabel }}</button>
     </form>
 
     {# Success message placeholder (Ajax) #}

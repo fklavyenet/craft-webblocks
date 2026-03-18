@@ -27,6 +27,20 @@ html[data-mode="dark"] .wb-navbar {
     min-width: 0;
 }
 
+/* Upstream fix for wb-container-full inside wb-navbar (e92e44e — pending CDN propagation).
+   wb-navbar sets display:flex on <nav> but wb-container-full only sets max-width:none,
+   so children stack vertically. This restores the horizontal flex layout. */
+.wb-navbar > .wb-container,
+.wb-navbar > .wb-container-full,
+.wb-navbar > .wb-container-lg,
+.wb-navbar > .wb-container-xl {
+    display: flex;
+    align-items: center;
+    gap: var(--wb-s3);
+    width: 100%;
+    padding-inline: 0;
+}
+
 /* ── Color mode toggle icons ─────────────────────────────────────────────── */
 .wb-theme-icon { display: none; }
 html[data-mode="light"] .wb-theme-icon-light { display: inline; }

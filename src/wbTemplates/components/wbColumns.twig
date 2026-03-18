@@ -11,7 +11,7 @@
 {% if padding %}{% set extraClasses = extraClasses ~ ' ' ~ padding %}{% endif %}
 
 <div class="wb-block wb-columns wb-mb-4{{ extraClasses }}">
-    <div class="wb-grid-{{ cols }}" style="gap:1.5rem;">
+    <div class="wb-grid-{{ cols }} wb-gap-6">
         {% for column in item.wbColumnItems.all() %}
             <div>
                 {% for block in column.wbBlocks.all() %}

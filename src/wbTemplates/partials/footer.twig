@@ -38,7 +38,7 @@
             {# Nav links #}
             {% if resolvedLinks|length %}
                 <div style="flex:1;display:flex;align-items:flex-start;justify-content:flex-end;">
-                    <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0.75rem;">
+                    <ul class="wb-m-0 wb-p-0 wb-flex wb-flex-wrap wb-gap-3">
                         {% for link in resolvedLinks %}
                             {% if link.wbFooterLinkUrl is defined %}
                                 {# manual link entry #}

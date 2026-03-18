@@ -16,13 +16,13 @@
 {% set currentPage = craft.app.request.getPageNum() %}
 
     {# ── Search form ── #}
-    <div style="max-width:640px;margin:0 auto 3rem;">
-        <h1 style="margin-bottom:1.5rem;">{{ "Search"|t('webblocks') }}</h1>
+    <div style="max-width:640px;" class="wb-mx-auto wb-mb-8">
+        <h1 class="wb-mb-6">{{ "Search"|t('webblocks') }}</h1>
         <form method="get" action="{{ url('search') }}" role="search">
-            <div style="display:flex;gap:0.5rem;">
+            <div class="wb-flex wb-gap-2">
                 <input type="search"
-                       class="wb-input"
-                       style="flex:1;font-size:1.125rem;"
+                       class="wb-input wb-flex-1"
+                       style="font-size:1.125rem;"
                        name="q"
                        value="{{ query|escape }}"
                        placeholder="{{ 'Search all content…'|t('webblocks') }}"
@@ -82,10 +82,10 @@
         {% set offset     = (currentPage - 1) * perPage %}
         {% set results    = pages|slice(offset, perPage) %}
 
-        <div style="max-width:640px;margin:0 auto;">
+        <div style="max-width:640px;" class="wb-mx-auto">
 
             {# Result count #}
-            <p style="color:var(--wb-muted);margin-bottom:1rem;">
+            <p class="wb-text-muted wb-mb-4">
                 {% if total == 0 %}
                     {{ "No results found for \"{query}\"."|t('webblocks', { query: query }) }}
                 {% elseif total == 1 %}
@@ -97,15 +97,15 @@
 
             {% if results|length %}
 
-                <ul class="wb-list wb-list-flush" style="margin-bottom:1.5rem;">
+                <ul class="wb-list wb-list-flush wb-mb-6">
                     {% for row in results %}
                         {% set result = row.entry %}
-                        <li class="wb-list-item" style="padding-top:0.75rem;padding-bottom:0.75rem;">
-                            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:0.75rem;">
-                                <div style="flex:1;">
+                        <li class="wb-list-item wb-py-3">
+                            <div class="wb-flex wb-justify-between wb-items-start wb-gap-3">
+                                <div class="wb-flex-1">
 
                                     {# Title / link #}
-                                    <h5 style="margin-bottom:0.25rem;">
+                                    <h5 class="wb-mb-1">
                                         <a href="{{ result.url }}" style="text-decoration:none;color:inherit;">
                                             {{ result.title }}
                                         </a>
@@ -113,7 +113,7 @@
 
                                     {# Matched block title (when hit was a nested block) #}
                                     {% if row.matchedTitle %}
-                                        <small style="color:var(--wb-muted);display:block;margin-bottom:0.25rem;">{{ row.matchedTitle }}</small>
+                                        <small class="wb-text-muted wb-block wb-mb-1">{{ row.matchedTitle }}</small>
                                     {% endif %}
 
                                     {# Snippet: try common text fields #}
@@ -125,7 +125,7 @@
                                     {% endfor %}
 
                                     {% if snippet %}
-                                        <p style="margin-top:0.5rem;margin-bottom:0;color:var(--wb-muted);font-size:0.875rem;">
+                                        <p class="wb-mt-2 wb-mb-0 wb-text-muted wb-text-sm">
                                             {{ snippet }}{% if snippet|length >= 200 %}…{% endif %}
                                         </p>
                                     {% endif %}
@@ -164,8 +164,8 @@
 
     {% else %}
         {# No query entered yet — show a friendly prompt #}
-        <div style="max-width:640px;margin:0 auto;text-align:center;color:var(--wb-muted);">
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" viewBox="0 0 16 16" style="opacity:0.25;display:block;margin:0 auto 1rem;">
+        <div style="max-width:640px;" class="wb-mx-auto wb-text-center wb-text-muted">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" viewBox="0 0 16 16" style="opacity:0.25;" class="wb-block wb-mb-4 wb-mx-auto">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
             </svg>
             <p>{{ "Enter a search term above to find content."|t('webblocks') }}</p>

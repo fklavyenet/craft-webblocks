@@ -11,7 +11,7 @@
 {% set alertType  = item.wbAlertType ?? '' %}
 
 {% if item.wbTitle and titlePos == 'outside' %}
-    <h4 style="margin-bottom:0.5rem;">{{ item.wbTitle }}</h4>
+    <h4 class="wb-mb-2">{{ item.wbTitle }}</h4>
 {% endif %}
 <div class="wb-block wb-alert{% if alertType %} wb-alert-{{ alertType }}{% endif %} wb-mb-4{{ extraClasses }}" role="alert">
     {% if item.wbTitle and titlePos == 'inside' %}

@@ -8,14 +8,14 @@
     {% if entry.wbFeaturedImage is defined %}
         {% set img = entry.wbFeaturedImage.one() %}
         {% if img %}
-            <img src="{{ img.getUrl('wbFeaturedImage') }}" alt="{{ img.alt ?: img.title }}" style="max-width:100%;height:auto;border-radius:var(--wb-r-md,0.375rem);margin-bottom:1.5rem;width:100%;max-height:400px;object-fit:cover;">
+            <img src="{{ img.getUrl('wbFeaturedImage') }}" alt="{{ img.alt ?: img.title }}" class="wb-mb-6" style="max-width:100%;height:auto;border-radius:var(--wb-r-md,0.375rem);width:100%;max-height:400px;object-fit:cover;">
         {% endif %}
     {% endif %}
 
     <h1>{{ entry.title }}</h1>
 
     {% if entry.wbExcerpt is defined and entry.wbExcerpt %}
-        <p style="font-size:var(--wb-font-size-lg,1.125rem);margin-bottom:1.5rem;">{{ entry.wbExcerpt }}</p>
+        <p class="wb-text-lg wb-mb-6">{{ entry.wbExcerpt }}</p>
     {% endif %}
 
     {% include "wb/index" with { entry: entry } %}

@@ -4,7 +4,7 @@
 
 <div class="wb-block wb-list-group">
     {% if item.wbTitle %}
-        <h5 style="margin-bottom:0.5rem;">{{ item.wbTitle }}</h5>
+        <h5 class="wb-mb-2">{{ item.wbTitle }}</h5>
     {% endif %}
     <ul class="wb-list{% if _flush %} wb-list-flush{% endif %}">
         {% for _listItem in _items %}

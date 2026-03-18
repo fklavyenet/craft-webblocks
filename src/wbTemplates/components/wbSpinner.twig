@@ -2,7 +2,7 @@
 {% set spinColor = item.wbSpinnerColor.value ?? item.wbSpinnerColor ?? 'primary' %}
 {% set spinSize  = item.wbSpinnerSize.value  ?? item.wbSpinnerSize  ?? '' %}
 {% set label     = item.wbTitle ?? 'Loading...' %}
-<div class="wb-block wb-mb-4" style="display:flex;align-items:center;gap:0.75rem;">
+<div class="wb-block wb-mb-4 wb-flex wb-items-center wb-gap-3">
     <div class="wb-spinner{% if spinSize %} wb-spinner-{{ spinSize }}{% endif %}{% if spinColor and spinColor != 'primary' %} wb-spinner-{{ spinColor }}{% endif %}" role="status">
         <span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">{{ label }}</span>
     </div>

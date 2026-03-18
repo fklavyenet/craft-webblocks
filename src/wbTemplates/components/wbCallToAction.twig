@@ -13,7 +13,7 @@
     <h2>{{ item.wbTitle }}</h2>
 {% endif %}
 <section class="wb-block wb-mb-4{{ extraClasses }}" style="{% if item.wbBackgroundColor %}background-color: {{ item.wbBackgroundColor }}; color: #fff; padding: 2rem;{% endif %}">
-    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:1rem;">
+    <div class="wb-flex wb-flex-col wb-items-start wb-gap-4">
         {% if item.wbTitle and titlePos == 'inside' %}
             <h2>{{ item.wbTitle }}</h2>
         {% endif %}

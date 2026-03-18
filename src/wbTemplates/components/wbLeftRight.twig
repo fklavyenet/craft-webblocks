@@ -14,7 +14,7 @@
         </div>
 
         {# Text column #}
-        <div style="padding:1.5rem;{% if isEven %}direction:ltr;padding-inline-end:2rem;{% else %}padding-inline-start:2rem;{% endif %}">
+        <div class="wb-p-6{% if isEven %} wb-pe-8{% else %} wb-ps-8{% endif %}">
             {% if row.wbTitle %}
                 <h2>{{ row.wbTitle }}</h2>
             {% endif %}

@@ -26,7 +26,7 @@
     {% if entry.wbBlocks is defined and entry.wbBlocks|length %}
         {% include "wb/index" with { entry: entry } %}
     {% else %}
-        <h1 style="margin-bottom:1.5rem;">{{ entry.title ?? "Blog"|t('webblocks') }}</h1>
+        <h1 class="wb-mb-6">{{ entry.title ?? "Blog"|t('webblocks') }}</h1>
     {% endif %}
 
     {# Post grid #}
@@ -46,7 +46,7 @@
                     {% if post.wbExcerpt is defined and post.wbExcerpt %}
                         <p style="color:var(--wb-muted);font-size:0.875rem;flex:1;">{{ post.wbExcerpt|slice(0, 150) }}{% if post.wbExcerpt|length > 150 %}…{% endif %}</p>
                     {% endif %}
-                    <p style="margin-top:auto;margin-bottom:0;">
+                    <p style="margin-top: auto;" class="wb-mb-0">
                         <small style="color:var(--wb-muted);">{{ post.postDate|date('d.m.Y') }}</small>
                     </p>
                 </div>
@@ -60,7 +60,7 @@
 
     {# Pagination #}
     {% if totalPages > 1 %}
-        <nav style="margin-top:3rem;" aria-label="{{ 'Blog post pages'|t('webblocks') }}">
+        <nav class="wb-mt-8" aria-label="{{ 'Blog post pages'|t('webblocks') }}">
             <div class="wb-pagination wb-justify-center">
                 <a href="#" class="wb-page-item wb-page-item-disabled" aria-label="{{ 'Previous'|t('webblocks') }}">
                     <span aria-hidden="true">&laquo;</span>

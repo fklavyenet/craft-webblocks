@@ -13,7 +13,7 @@
 
     {# If this is the services index, show child service cards below any blocks #}
     {% if entry.type.handle == 'wbServicesIndex' and children is defined and children|length %}
-        <div class="wb-grid-3" style="margin-top:1rem;">
+        <div class="wb-grid-3 wb-mt-4">
             {% for child in children %}
                 <div class="wb-card" style="height:100%;">
                     <div class="wb-card-body" style="display:flex;flex-direction:column;flex:1;">

@@ -4,14 +4,32 @@
 {% set successMsg = item.wbFormSuccessMsg ?: 'Thank you! We will be in touch shortly.' %}
 {% set hasBorder = item.wbBorder ?? false %}
 {% set borderColor = item.wbBorderColor.value ?? item.wbBorderColor ?? '' %}
-{% set rounded = item.wbRounded.value ?? item.wbRounded ?? '' %}
-{% set padding = item.wbPadding.value ?? item.wbPadding ?? '' %}
+{% set roundedVal = item.wbRounded.value ?? item.wbRounded ?? '' %}
+{% set paddingVal = item.wbPadding.value ?? item.wbPadding ?? '' %}
 {% set titlePos = item.wbTitlePosition.value ?? item.wbTitlePosition ?? 'outside' %}
+
+{# Map Bootstrap-style field values to UI Kit class names #}
+{% set roundedMap = {
+    'rounded-1': 'wb-rounded-sm',
+    'rounded-2': 'wb-rounded-md',
+    'rounded-3': 'wb-rounded-lg',
+    'rounded-4': 'wb-rounded-xl',
+    'rounded-5': 'wb-rounded-full',
+} %}
+{% set paddingMap = {
+    'p-2': 'wb-p-2',
+    'p-3': 'wb-p-3',
+    'p-4': 'wb-p-4',
+    'p-5': 'wb-p-5',
+} %}
+{% set roundedClass = roundedVal ? (roundedMap[roundedVal] ?? roundedVal) : '' %}
+{% set paddingClass = paddingVal ? (paddingMap[paddingVal] ?? paddingVal) : '' %}
+
 {% set wrapperClasses = ['wb-form-wrapper'] %}
 {% if hasBorder %}{% set wrapperClasses = wrapperClasses|merge(['wb-border']) %}{% endif %}
 {% if hasBorder and borderColor %}{% set wrapperClasses = wrapperClasses|merge(['wb-border-' ~ borderColor]) %}{% endif %}
-{% if rounded %}{% set wrapperClasses = wrapperClasses|merge([rounded]) %}{% endif %}
-{% if padding %}{% set wrapperClasses = wrapperClasses|merge([padding]) %}{% endif %}
+{% if roundedClass %}{% set wrapperClasses = wrapperClasses|merge([roundedClass]) %}{% endif %}
+{% if paddingClass %}{% set wrapperClasses = wrapperClasses|merge([paddingClass]) %}{% endif %}
 
 {# ── Success state (non-Ajax fallback) ────────────────────────────────────── #}
 {% if craft.app.session.getFlash('wbFormSuccess') %}

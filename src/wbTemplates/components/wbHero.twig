@@ -2,14 +2,18 @@
 {% set bgImageUrl = bgImage ? bgImage.getUrl('wbHero') : null %}
 {% set hasBorder  = item.wbBorder ?? false %}
 {% set borderColor = item.wbBorderColor.value ?? item.wbBorderColor ?? '' %}
-{% set rounded     = item.wbRounded.value ?? item.wbRounded ?? '' %}
-{% set padding     = item.wbPadding.value ?? item.wbPadding ?? '' %}
+{% set roundedVal  = item.wbRounded.value ?? item.wbRounded ?? '' %}
+{% set paddingVal  = item.wbPadding.value ?? item.wbPadding ?? '' %}
 {% set titlePos    = item.wbTitlePosition.value ?? item.wbTitlePosition ?? 'outside' %}
+{% set roundedMap = {'rounded-1': 'wb-rounded-sm', 'rounded-2': 'wb-rounded-md', 'rounded-3': 'wb-rounded-lg', 'rounded-4': 'wb-rounded-xl', 'rounded-5': 'wb-rounded-full'} %}
+{% set paddingMap = {'p-2': 'wb-p-2', 'p-3': 'wb-p-3', 'p-4': 'wb-p-4', 'p-5': 'wb-p-5'} %}
+{% set roundedClass = roundedVal ? (roundedMap[roundedVal] ?? roundedVal) : '' %}
+{% set paddingClass = paddingVal ? (paddingMap[paddingVal] ?? paddingVal) : '' %}
 {% set extraClasses = '' %}
 {% if hasBorder %}{% set extraClasses = extraClasses ~ ' wb-border' %}{% endif %}
 {% if hasBorder and borderColor %}{% set extraClasses = extraClasses ~ ' wb-border-' ~ borderColor %}{% endif %}
-{% if rounded %}{% set extraClasses = extraClasses ~ ' ' ~ rounded %}{% endif %}
-{% if padding %}{% set extraClasses = extraClasses ~ ' ' ~ padding %}{% endif %}
+{% if roundedClass %}{% set extraClasses = extraClasses ~ ' ' ~ roundedClass %}{% endif %}
+{% if paddingClass %}{% set extraClasses = extraClasses ~ ' ' ~ paddingClass %}{% endif %}
 
 {% if item.wbTitle and titlePos == 'outside' %}
     <h1>{{ item.wbTitle }}</h1>

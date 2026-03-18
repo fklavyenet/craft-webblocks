@@ -17,6 +17,16 @@ html[data-mode="dark"] .wb-navbar {
     background: rgba(33, 37, 41, 0.95) !important;
 }
 
+/* Search form inside navbar — constrain width so it doesn't overflow */
+.wb-navbar .wb-navbar-search {
+    flex-shrink: 0;
+    max-width: 220px;
+}
+.wb-navbar .wb-navbar-search .wb-input {
+    width: 100%;
+    min-width: 0;
+}
+
 /* ── Color mode toggle icons ─────────────────────────────────────────────── */
 .wb-theme-icon { display: none; }
 html[data-mode="light"] .wb-theme-icon-light { display: inline; }

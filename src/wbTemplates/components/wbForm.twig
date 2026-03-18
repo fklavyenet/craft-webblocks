@@ -51,9 +51,9 @@
             {% set inputName  = label|lower|replace('/[^a-z0-9]+/', '-')|trim('-') %}
             {% set inputId    = formId ~ '-' ~ inputName %}
 
-            <div style="margin-bottom:1rem;" data-field="{{ inputName }}">
-                <label for="{{ inputId }}" class="wb-label{% if required %}" style="font-weight:600;{% endif %}">
-                    {{ label }}{% if required %}<span style="color:var(--wb-danger);margin-inline-start:0.25rem;" aria-hidden="true">*</span>{% endif %}
+            <div class="wb-field" data-field="{{ inputName }}">
+                <label for="{{ inputId }}" class="wb-label">
+                    {{ label }}{% if required %}<span aria-hidden="true" style="color:var(--wb-danger);">*</span>{% endif %}
                 </label>
 
                 {% if type == 'textarea' %}
@@ -108,7 +108,6 @@
                     >
                 {% endif %}
 
-                {# Inline error placeholder (populated by JS) #}
                 <div class="wb-field-error" id="{{ inputId }}-error"></div>
             </div>
         {% endfor %}

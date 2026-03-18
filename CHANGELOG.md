@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.10.4 - 2026-03-18
+
+### Fixed
+- **`wb-blocks.css` — form field spacing added** — `.wb-field { margin-bottom: 1rem }` and `.wb-radio { margin-bottom: 0.5rem }` added for proper spacing between form fields.
+- **Seed data — `text-muted` → `wb-text-muted`** — Contact page seed data (`pages.json`, `pages.de.json`, `pages.tr.json`) updated from Bootstrap `text-muted` class to WebBlocks UI Kit `wb-text-muted`.
+- **`SeedController.php` — Bootstrap CSS variables removed** — Custom CSS output no longer uses `--bs-primary`, `--bs-link-color`, or `.btn-primary` styles. Replaced with `--wb-primary` and `--wb-primary-hover`.
+- **`wbHeading.twig` — text alignment fixed** — Alignment values now mapped from `start/center/end` to `left/center/right` before outputting `wb-text-*` classes (WebBlocks UI Kit uses `wb-text-left` not `wb-text-start`).
+- **`wbTextBlock.twig` — unused `text-block` class removed.**
+- **Fallback templates (9 files) — Bootstrap classes replaced** — All 9 files in `fallback-templates/wb/sections/` updated: `card`, `card-header`, `card-body`, `card-text`, `bg-warning`, `text-dark`, `text-muted`, `bg-light`, `p-3`, `rounded`, `fw-bold` replaced with WebBlocks UI Kit equivalents (`wb-alert`, `wb-text-muted`, `wb-bg-light`, `wb-p-3`, `wb-rounded`).
+
 ## 1.10.3 - 2026-03-18
 
 ### Fixed

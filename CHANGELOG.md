@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.10.2 - 2026-03-18
+
+### Fixed
+- **`wbNavbar.twig` — desktop nav links now visible** — `wb-navbar-links` was incorrectly placed inside `wb-navbar-drawer`, which is hidden on desktop via `display:none !important`. Rewritten with `wb-navbar-links` rendered directly inside `.wb-container-full` for desktop, with a separate copy inside the drawer for mobile. Macro pattern used to avoid duplicating the link-rendering logic.
+- **`wbNavbar.twig` — search, language switcher, and theme toggle always visible** — All `wb-navbar-end` controls now sit outside the drawer so they are accessible on desktop without opening the hamburger menu.
+- **`layout.twig` — custom CSS HTML entity encoding** — `{{ _customCss }}` was Twig auto-escaped, turning apostrophes and quotes into `&#039;` and `&quot;` inside injected `<style>` blocks. Added `|raw` filter.
+- **`wbCard.twig`, `blog-index.twig`, `references-index.twig`, `service.twig` — card title spacing** — `.wb-card-title` has `margin:0` in WebBlocks UI Kit, causing the title to touch the card body. Added `wb-mb-2` utility class.
+- **18 component templates — stray `mb-3`/`mb-4` Bootstrap classes** — Leftover Bootstrap margin utilities from the v1.10.0 migration replaced with `wb-mb-3`/`wb-mb-4` equivalents (`wbAccordion`, `wbAlert`, `wbBadge`, `wbButton`, `wbButtonGroup`, `wbCallToAction`, `wbColumns`, `wbContactDetails`, `wbGallery`, `wbHeading`, `wbHero`, `wbPagination`, `wbPopover`, `wbProgressBar`, `wbSpinner`, `wbTabs`, `wbTextBlock`).
+
 ## 1.10.1 - 2026-03-18
 
 ### Fixed

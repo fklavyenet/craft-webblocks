@@ -1,7 +1,7 @@
 {% set btnType    = item.wbButtonGroupType.value    ?? item.wbButtonGroupType    ?? 'primary' %}
 {% set btnSize    = item.wbButtonSize.value         ?? item.wbButtonSize         ?? '' %}
 {% set orient     = item.wbButtonGroupOrientation.value ?? item.wbButtonGroupOrientation ?? 'horizontal' %}
-<div class="wb-block mb-4">
+<div class="wb-block wb-mb-4">
     {% if item.wbTitle %}<p style="margin-bottom:0.5rem;font-weight:600;">{{ item.wbTitle }}</p>{% endif %}
     <div class="wb-btn-group{% if orient == 'vertical' %}" style="flex-direction:column;{% endif %}"
          role="group">

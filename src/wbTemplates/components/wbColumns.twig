@@ -10,7 +10,7 @@
 {% if rounded %}{% set extraClasses = extraClasses ~ ' ' ~ rounded %}{% endif %}
 {% if padding %}{% set extraClasses = extraClasses ~ ' ' ~ padding %}{% endif %}
 
-<div class="wb-block wb-columns mb-4{{ extraClasses }}">
+<div class="wb-block wb-columns wb-mb-4{{ extraClasses }}">
     <div class="wb-grid-{{ cols }}" style="gap:1.5rem;">
         {% for column in item.wbColumnItems.all() %}
             <div>

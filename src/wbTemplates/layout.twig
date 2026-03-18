@@ -102,7 +102,7 @@
         <link href="{{ _customCssUrl }}" rel="stylesheet" crossorigin="anonymous">
     {% endif %}
     {% if _customCss %}
-        <style>{{ _customCss | replace({'</style>': '<\\/style>', '</STYLE>': '<\\/STYLE>'}) }}</style>
+        <style>{{ _customCss | replace({'</style>': '<\\/style>', '</STYLE>': '<\\/STYLE>'}) | raw }}</style>
     {% endif %}
 
     {# ── Analytics ── #}

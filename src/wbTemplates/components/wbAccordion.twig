@@ -1,4 +1,4 @@
-<div class="wb-block wb-accordion mb-4" id="accordion-{{ item.id|default(loop.index) }}">
+<div class="wb-block wb-accordion wb-mb-4" id="accordion-{{ item.id|default(loop.index) }}">
     {% if item.wbAccordionItems %}
         {% for accordionItem in item.wbAccordionItems.all() %}
             <div class="wb-accordion-item">

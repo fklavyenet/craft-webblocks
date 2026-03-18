@@ -14,7 +14,7 @@
 {% if item.wbTitle and titlePos == 'outside' %}
     <h1>{{ item.wbTitle }}</h1>
 {% endif %}
-<section class="wb-block hero mb-4{{ extraClasses }}" style="{% if bgImageUrl %}background-image: url('{{ bgImageUrl }}'); background-size: cover; background-position: center;{% endif %} {% if item.wbMinHeight %}min-height: {{ item.wbMinHeight }};{% endif %}" data-align="{{ item.wbAlignment|default('center') }}">
+<section class="wb-block hero wb-mb-4{{ extraClasses }}" style="{% if bgImageUrl %}background-image: url('{{ bgImageUrl }}'); background-size: cover; background-position: center;{% endif %} {% if item.wbMinHeight %}min-height: {{ item.wbMinHeight }};{% endif %}" data-align="{{ item.wbAlignment|default('center') }}">
     <div class="hero-overlay">
         <div class="hero-content">
             {% if item.wbTitle and titlePos == 'inside' %}

@@ -2,7 +2,7 @@
 {% set _bars = item.wbProgressBars ? item.wbProgressBars.all() : [] %}
 
 {% if _bars|length %}
-<div class="wb-block wb-progress-bar mb-4">
+<div class="wb-block wb-progress-bar wb-mb-4">
     {% if item.wbTitle %}
         <h5 style="margin-bottom:0.75rem;">{{ item.wbTitle }}</h5>
     {% endif %}
@@ -16,7 +16,7 @@
                 <small>{{ _value }}%</small>
             </div>
         {% endif %}
-        <div class="wb-progress-bar mb-3" role="progressbar"
+        <div class="wb-progress-bar wb-mb-3" role="progressbar"
              aria-label="{{ _bar.wbProgressLabel ?? 'Progress' }}"
              aria-valuenow="{{ _value }}" aria-valuemin="0" aria-valuemax="100">
             <div class="wb-progress-bar-fill wb-progress-bar-{{ _color }}{% if _striped %} wb-progress-bar-striped{% endif %}"

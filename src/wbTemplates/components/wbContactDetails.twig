@@ -12,7 +12,7 @@
 {% if item.wbTitle and titlePos == 'outside' %}
     <h2>{{ item.wbTitle }}</h2>
 {% endif %}
-<section class="wb-block contact-details mb-4{{ extraClasses }}" style="{% if item.wbBackgroundColor %}background-color: {{ item.wbBackgroundColor }};{% endif %}">
+<section class="wb-block contact-details wb-mb-4{{ extraClasses }}" style="{% if item.wbBackgroundColor %}background-color: {{ item.wbBackgroundColor }};{% endif %}">
     {% if item.wbTitle and titlePos == 'inside' %}
         <h2>{{ item.wbTitle }}</h2>
     {% endif %}

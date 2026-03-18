@@ -12,7 +12,7 @@
 {% if item.wbTitle and titlePos == 'outside' %}
     <h2>{{ item.wbTitle }}</h2>
 {% endif %}
-<div class="wb-block text-block mb-4{{ extraClasses }}" style="{% if item.wbBackgroundColor %}background-color: {{ item.wbBackgroundColor }};{% endif %}" data-align="{{ item.wbAlignment|default('start') }}">
+<div class="wb-block text-block wb-mb-4{{ extraClasses }}" style="{% if item.wbBackgroundColor %}background-color: {{ item.wbBackgroundColor }};{% endif %}" data-align="{{ item.wbAlignment|default('start') }}">
     {% if item.wbTitle and titlePos == 'inside' %}
         <h2>{{ item.wbTitle }}</h2>
     {% endif %}

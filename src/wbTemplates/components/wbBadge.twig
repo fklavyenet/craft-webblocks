@@ -1,6 +1,6 @@
 {% set variant = item.wbBadgeType.value ?? item.wbBadgeType ?? '' %}
 {% set pill = item.wbBadgePill ?? false %}
-<div class="wb-block mb-4">
+<div class="wb-block wb-mb-4">
     {% if item.wbTitle %}<p style="margin-bottom:0.25rem;font-weight:600;">{{ item.wbTitle }}</p>{% endif %}
     <span class="wb-badge {% if variant %}wb-badge-{{ variant }}{% else %}wb-theme-badge{% endif %}"{% if pill %} style="border-radius:9999px;"{% endif %}>
         {{ item.wbText ?? '' }}

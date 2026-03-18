@@ -1,7 +1,7 @@
 {% set placement = item.wbPopoverPlacement.value ?? item.wbPopoverPlacement ?? 'top' %}
 {% set size = item.wbButtonSize.value ?? item.wbButtonSize ?? '' %}
 {% set uid = 'wb-pop-' ~ item.id %}
-<div class="wb-block mb-4">
+<div class="wb-block wb-mb-4">
     <button type="button"
         id="{{ uid }}"
         class="wb-btn wb-btn-secondary{% if size and size != 'md' %} wb-btn-{{ size }}{% endif %}"

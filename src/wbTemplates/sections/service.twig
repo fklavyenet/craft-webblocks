@@ -17,7 +17,7 @@
             {% for child in children %}
                 <div class="wb-card" style="height:100%;">
                     <div class="wb-card-body" style="display:flex;flex-direction:column;flex:1;">
-                        <h5 class="wb-card-title">
+                        <h5 class="wb-card-title wb-mb-2">
                             <a href="{{ child.url }}" style="text-decoration:none;color:inherit;">{{ child.title }}</a>
                         </h5>
                         {% if child.wbExcerpt is defined and child.wbExcerpt %}

@@ -2,7 +2,7 @@
 {% set align = item.wbPaginationAlign.value ?? item.wbPaginationAlign ?? 'start' %}
 {% set size  = item.wbPaginationSize.value ?? item.wbPaginationSize ?? '' %}
 {% set alignStyle = align == 'center' ? 'justify-content:center;' : (align == 'end' ? 'justify-content:flex-end;' : '') %}
-<div class="wb-block mb-4">
+<div class="wb-block wb-mb-4">
     {% if item.wbTitle %}<h5>{{ item.wbTitle }}</h5>{% endif %}
     <nav aria-label="Page navigation">
         <ul class="wb-pagination{% if size %} wb-pagination-{{ size }}{% endif %}"{% if alignStyle %} style="{{ alignStyle }}"{% endif %}>

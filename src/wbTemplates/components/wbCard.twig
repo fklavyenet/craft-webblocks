@@ -10,12 +10,12 @@
 {% if padding %}{% set extraClasses = extraClasses ~ ' ' ~ padding %}{% endif %}
 
 {% if item.wbTitle and titlePos == 'outside' %}
-    <h5 class="wb-card-title">{{ item.wbTitle }}</h5>
+    <h5 class="wb-card-title wb-mb-2">{{ item.wbTitle }}</h5>
 {% endif %}
-<div class="wb-block wb-card mb-4{{ extraClasses }}" style="{% if item.wbBackgroundColor %}background-color: {{ item.wbBackgroundColor }};{% endif %} {% if item.wbTextColor %}color: {{ item.wbTextColor }};{% endif %}">
+<div class="wb-block wb-card wb-mb-4{{ extraClasses }}" style="{% if item.wbBackgroundColor %}background-color: {{ item.wbBackgroundColor }};{% endif %} {% if item.wbTextColor %}color: {{ item.wbTextColor }};{% endif %}">
     <div class="wb-card-body">
         {% if item.wbTitle and titlePos == 'inside' %}
-            <h5 class="wb-card-title">{{ item.wbTitle }}</h5>
+            <h5 class="wb-card-title wb-mb-2">{{ item.wbTitle }}</h5>
         {% endif %}
         {% if item.wbText %}
             <p>{{ item.wbText }}</p>

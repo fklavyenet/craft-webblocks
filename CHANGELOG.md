@@ -6,6 +6,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.10.0 - 2026-03-18
+
+### Changed
+- **Bootstrap → WebBlocks UI Kit migration** — All 38 front-end files (`wbTemplates/`, `wb-blocks.css`) migrated from Bootstrap 5.3 CDN to the `fklavyenet/webblocks-ui` UI Kit. The CDN links in `layout.twig` now point to `cdn.jsdelivr.net/gh/fklavyenet/webblocks-ui@master/dist/webblocks-ui.{css,js}`. Bootstrap is no longer a dependency.
+- **`layout.twig`** — Bootstrap CDN `<link>`/`<script>` replaced with WebBlocks UI Kit CDN. Bootswatch theme support removed. `data-bs-theme` / `data-wb-mode` attributes replaced with `data-mode`. `data-bs-theme` body attribute replaced with `data-preset` on `<html>` for the color theme system.
+- **All component templates** — Bootstrap utility classes (`container`, `row`, `col-*`, `btn`, `alert`, `badge`, `card`, `accordion`, `modal`, `offcanvas`, `nav-*`, `navbar`, `breadcrumb`, `list-group`, `pagination`, `progress`, `spinner`, `toast`, `popover`, `d-*`, `flex-*`, `gap-*`, `p-*`, `m-*`, `text-*`, `bg-*`, `border-*`, `rounded-*`) replaced with WebBlocks UI Kit equivalents (`wb-container`, `wb-row`, `wb-col-*`, `wb-btn`, `wb-alert`, `wb-badge`, `wb-card`, etc.).
+- **`wbCarousel.twig`** — Rewritten as a wb-native slider using the same `data-wb-fs-slider` / `wb-fs-*` pattern as `wbFullscreenImage`. Bootstrap carousel JS dependency removed entirely.
+- **`wbVideoEmbed.twig`** — `ratio ratio-16x9` replaced with `style="aspect-ratio:16/9;overflow:hidden;"`.
+- **`wbSpacing.twig`** — `py-N` Bootstrap spacing utilities replaced with an inline padding size map (`1`→`0.25rem` … `5`→`3rem`).
+- **`wbTable.twig`** — `table table-*` classes replaced with `wb-table wb-table-*` equivalents.
+- **`partials/footer.twig`** — `container`, `row`, `col-*`, `text-*`, `bg-*` classes replaced with `wb-container` and CSS custom properties.
+- **`partials/cookie-banner.twig`** — `.btn` classes replaced with `.wb-btn`.
+- **`partials/comment-form.twig`** — All Bootstrap form, alert, and visibility classes converted; JS `d-none` toggle updated.
+- **`partials/comment-list.twig`** — Flex, spacing, and colour utility classes converted.
+- **`sections/search.twig`** — `input-group`, `list-group`, pagination, and container classes converted.
+- **`sections/blog-index.twig`, `references-index.twig`, `service.twig`, `post.twig`, `reference.twig`** — Card grids, pagination, featured image, lead, and border-top utilities converted.
+- **`wb-blocks.css`** — All `var(--bs-*)` CSS variables replaced with `var(--wb-*)` equivalents. Dark mode selectors updated from `html[data-bs-theme="dark"]` / `html[data-wb-mode="*"]` to `html[data-mode="*"]`. `.btn` reference in cookie actions updated to `.wb-btn`.
+
+### Removed
+- Bootstrap 5.3 CDN dependency — no Bootstrap CSS or JS is loaded on any page.
+- Bootswatch theme system — `wbColorTheme` dropdown values that previously mapped to Bootswatch CDN URLs are now mapped to `data-preset` on `<html>`.
+
 ## 1.9.2 - 2026-03-16
 
 ### Added

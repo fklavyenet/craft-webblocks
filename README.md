@@ -1,6 +1,6 @@
 # WebBlocks
 
-A portable website building toolkit for Craft CMS 5. Provides a full set of Bootstrap 5 page-builder blocks that can be dropped into any Craft site.
+A portable website building toolkit for Craft CMS 5. Provides a full set of WebBlocks UI Kit page-builder blocks that can be dropped into any Craft site.
 
 ## Installation
 
@@ -99,9 +99,9 @@ All components are registered as entry types under the `wbBlocks` matrix field. 
 |------------------|--------------------------------------------------------------------------------------|
 | `wbHero`         | Full-width hero section with background image, overlay, heading, text, and CTA button |
 | `wbTextBlock`    | Rich text block with optional title, alignment, background colour, and border        |
-| `wbCard`         | Bootstrap card with image, title, body text, and button                              |
+| `wbCard`         | UI Kit card with image, title, body text, and button                              |
 | `wbCallToAction` | Prominent CTA section with heading, text, and button                                 |
-| `wbAlert`        | Bootstrap alert (info / success / warning / danger) with optional dismiss button     |
+| `wbAlert`        | Alert (info / success / warning / danger) with optional dismiss button     |
 | `wbButton`       | Standalone button with configurable label, URL, style, size, and target              |
 | `wbHeading`      | Standalone heading (h1–h6) with alignment                                            |
 
@@ -110,14 +110,14 @@ All components are registered as entry types under the `wbBlocks` matrix field. 
 | Handle      | Description                                                                                             |
 |-------------|---------------------------------------------------------------------------------------------------------|
 | `wbColumns` | Multi-column layout (2, 3, or 4 columns). Each column contains its own `wbBlocks` matrix — fully nested |
-| `wbSpacing` | Configurable vertical spacer (Bootstrap spacing utilities)                                              |
+| `wbSpacing` | Configurable vertical spacer                                                                        |
 
 ### Media
 
 | Handle               | Description                                                                                                      |
 |----------------------|------------------------------------------------------------------------------------------------------------------|
 | `wbGallery`          | Masonry image gallery with lightbox. Supports configurable gap                                                   |
-| `wbCarousel`         | Bootstrap carousel with autoplay, controls, indicators, and frosted-glass captions                               |
+| `wbCarousel`         | Fullscreen-style slider with autoplay, controls, indicators, and frosted-glass captions. Vanilla JS |
 | `wbFullscreenImage`  | Fullscreen slider with per-slide background image, overlay, title, subtitle, and caption alignment. Vanilla JS   |
 | `wbVideoEmbed`       | Embedded video (YouTube / Vimeo) with configurable aspect ratio                                                  |
 
@@ -126,10 +126,10 @@ All components are registered as entry types under the `wbBlocks` matrix field. 
 | Handle          | Description                                                                                    |
 |-----------------|------------------------------------------------------------------------------------------------|
 | `wbTable`       | Data table with configurable columns and rows. Supports caption, striped, bordered, and hover  |
-| `wbAccordion`   | Bootstrap accordion with any number of items                                                   |
-| `wbTabs`        | Bootstrap tabs with configurable alignment                                                     |
-| `wbProgressBar` | Bootstrap progress bars with label, value, colour, and striped option                          |
-| `wbListGroup`   | Bootstrap list group with optional flush style                                                 |
+| `wbAccordion`   | Accordion with any number of items                                                   |
+| `wbTabs`        | Tabs with configurable alignment                                                     |
+| `wbProgressBar` | Progress bars with label, value, colour, and striped option                          |
+| `wbListGroup`   | List group with optional flush style                                                 |
 
 ### Forms & Contact
 
@@ -142,20 +142,20 @@ All components are registered as entry types under the `wbBlocks` matrix field. 
 
 | Handle        | Description                                                              |
 |---------------|--------------------------------------------------------------------------|
-| `wbNavbar`    | Bootstrap navbar with brand, logo, colour scheme, nav items, and search  |
-| `wbBreadcrumb`| Bootstrap breadcrumb                                                     |
-| `wbModal`     | Bootstrap modal trigger and content                                      |
+| `wbNavbar`    | Navbar with brand, logo, colour scheme, nav items, and search  |
+| `wbBreadcrumb`| Breadcrumb                                                     |
+| `wbModal`     | Modal trigger and content                                      |
 | `wbLeftRight` | Two-column image + text layout with switchable sides                     |
 
 ### UI Components
 
 | Handle          | Description                                                                       |
 |-----------------|-----------------------------------------------------------------------------------|
-| `wbBadge`       | Bootstrap badge with colour variant and optional pill style                       |
-| `wbPagination`  | Bootstrap pagination with configurable page count, size, and alignment            |
-| `wbToast`       | Bootstrap toast notification with title, body, and colour variant                 |
-| `wbSpinner`     | Bootstrap spinner (border or grow) with colour and size options                   |
-| `wbPopover`     | Bootstrap popover trigger button with configurable placement and content          |
+| `wbBadge`       | Badge with colour variant and optional pill style                       |
+| `wbPagination`  | Pagination with configurable page count, size, and alignment            |
+| `wbToast`       | Toast notification with title, body, and colour variant                 |
+| `wbSpinner`     | Spinner (border or grow) with colour and size options                   |
+| `wbPopover`     | Popover trigger button with configurable placement and content          |
 | `wbButtonGroup` | Group of buttons with shared style, size, and optional vertical orientation       |
 | `wbOffcanvas`   | Off-canvas panel with configurable placement, backdrop, and nested block content  |
 
@@ -166,7 +166,7 @@ Most components include an **Appearance** tab in the Craft control panel with th
 | Field              | Options                                                          |
 |--------------------|------------------------------------------------------------------|
 | `wbBorder`         | Toggle border on/off                                             |
-| `wbBorderColor`    | Bootstrap colour utility (primary / secondary / etc.)            |
+| `wbBorderColor`    | Colour variant (primary / secondary / etc.)                      |
 | `wbRounded`        | Border-radius utility class                                      |
 | `wbPadding`        | Padding utility class                                            |
 | `wbTitlePosition`  | Title placement: **Outside** (above the box) or **Inside** (inside the box) |
@@ -195,7 +195,14 @@ Three volumes are created on install:
 
 ## Frontend Dependencies
 
-Bootstrap 5.3.3 is loaded via CDN (MIT licence). No build step is required. All other JS (masonry layout, lightbox, fullscreen slider) is vanilla JavaScript bundled in `wb-blocks.js` via the WebBlocksAsset bundle — zero external slider or UI library dependencies.
+The **WebBlocks UI Kit** (`fklavyenet/webblocks-ui`) is loaded via CDN:
+
+```
+https://cdn.jsdelivr.net/gh/fklavyenet/webblocks-ui@master/dist/webblocks-ui.css
+https://cdn.jsdelivr.net/gh/fklavyenet/webblocks-ui@master/dist/webblocks-ui.js
+```
+
+No build step is required. Bootstrap is **not** used. All other JS (masonry layout, lightbox, fullscreen slider, carousel) is vanilla JavaScript bundled in `wb-blocks.js` via the WebBlocksAsset bundle — zero external slider or UI library dependencies.
 
 ## Blog Comment Moderation
 

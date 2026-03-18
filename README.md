@@ -202,7 +202,7 @@ https://cdn.jsdelivr.net/gh/fklavyenet/webblocks-ui@master/dist/webblocks-ui.css
 https://cdn.jsdelivr.net/gh/fklavyenet/webblocks-ui@master/dist/webblocks-ui.js
 ```
 
-No build step is required. Bootstrap is **not** used. All other JS (masonry layout, lightbox, fullscreen slider, carousel) is vanilla JavaScript bundled in `wb-blocks.js` via the WebBlocksAsset bundle — zero external slider or UI library dependencies.
+No build step is required. All JavaScript (masonry layout, lightbox, fullscreen slider, carousel) is vanilla JavaScript bundled in `wb-blocks.js` via the WebBlocksAsset bundle — zero external slider or UI library dependencies.
 
 ## Blog Comment Moderation
 

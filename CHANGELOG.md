@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.10.3 - 2026-03-18
+
+### Fixed
+- **`cp/help.twig` — Colour Themes section rewritten** — The Bootswatch/Bootstrap theme table (18 themes: Cerulean, Cosmo, Darkly, etc.) replaced with three updated sections: **Accent Colours** (8 palettes: ocean, forest, sunset, royal, mint, amber, rose, slate-fire), **Style Presets** (5 packages: modern, minimal, rounded, bold, editorial), and **Colour Mode** (light/dark/auto explanation with `WBColorMode.applyMode()` reference). All new strings translated in EN/TR/DE/ES.
+- **`wb-blocks.js` — `data-bs-theme` replaced with `data-mode`** — `applyMode()` now sets `data-mode` (not `data-bs-theme`) on `<html>` for consistency with WebBlocks UI Kit colour mode system. The `data-wb-mode` attribute was also removed as it served no purpose.
+- **`fallback-templates/wb/_layout.twig` — Bootstrap CDN replaced** — The legacy fallback layout template (not used in production) had a Bootstrap CDN `<link>`. Replaced with WebBlocks UI Kit CDN.
+- **Translation files — 21 old Bootswatch keys removed, 17 new keys added** — All four locale files (`en`, `tr`, `de`, `es`) updated with new keys for Accent Colours, Style Presets, and Colour Mode sections. Old Bootswatch theme strings (`Cerulean`, `Cosmo`, `Darkly`, etc.) removed. "Bootstrap 5.3 CDN" reference replaced with "WebBlocks UI Kit CSS + JS". All 4 files remain in sync with 147 keys each.
+
 ## 1.10.2 - 2026-03-18
 
 ### Fixed

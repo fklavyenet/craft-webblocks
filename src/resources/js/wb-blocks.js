@@ -233,8 +233,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function applyMode(mode) {
         var resolved = (mode === 'auto') ? (mq.matches ? 'dark' : 'light') : mode;
-        document.documentElement.setAttribute('data-bs-theme', resolved);
-        document.documentElement.setAttribute('data-wb-mode', mode);
+        document.documentElement.setAttribute('data-mode', resolved);
         localStorage.setItem('wbColorMode', mode);
     }
 

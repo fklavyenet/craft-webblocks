@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## 1.10.1 - 2026-03-18
+
+### Fixed
+- **`layout.twig` — `data-preset` → `data-accent`** — The colour-theme attribute on `<html>` was incorrectly set to `data-preset` (which controls the style preset: modern/minimal/rounded/bold/editorial). Colour themes (ocean, forest, sunset, etc.) must use `data-accent`. The two attributes are independent: `data-accent` sets the brand colour, `data-preset` sets the component shape/style.
+- **`layout.twig` — stray `data-wb-theme` on `<body>` removed** — A leftover attribute from the Bootstrap migration era served no purpose and has been removed.
+- **`wbOffcanvas.twig` — drawer class and close-button corrected** — The outer wrapper had an incorrect `wb-offcanvas` class (does not exist in WebBlocks UI Kit) and a redundant `mb-4` utility. Replaced with a plain `wb-block` wrapper. The close button used `wb-drawer-close` (non-existent); replaced with the correct `wb-btn-close` + `data-wb-dismiss="drawer"`.
+- **`wbToast.twig` — static HTML replaced with `WBToast.show()` JS API** — WebBlocks UI Kit does not support static HTML toast markup; toasts must be triggered via `WBToast.show(message, { type, duration })`. Template rewritten to emit an inline `<script>` that calls the API on DOMContentLoaded. A `<noscript>` fallback paragraph is included for accessibility.
+
+### Changed
+- **`wb-blocks.css`** — Added an explanatory comment to the `.wb-navbar` block noting that the navbar is sticky by default in WebBlocks UI Kit and `wb-navbar--static` is required to opt out.
+
 ## 1.10.0 - 2026-03-18
 
 ### Changed

@@ -137,7 +137,7 @@
         </script>
     {% endif %}
 </head>
-<body class="wb-page {% block bodyClass %}{% endblock %}">
+<body class="wb-page {% block bodyClass %}{% endblock %}" style="display:flex;flex-direction:column;min-height:100vh;">
 {{ beginBody() }}
 
 {# ── Navbar ── #}
@@ -153,7 +153,7 @@
 {% endblock %}
 
 {# ── Page content ── #}
-<main class="{% block mainClass %}wb-container wb-section{% endblock %}">
+<main class="{% block mainClass %}wb-container wb-section{% endblock %}" style="flex:1;">
     {% block content %}{% endblock %}
 </main>
 
